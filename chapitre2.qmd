@@ -1,8 +1,8 @@
-# Capabilité 
+# Capabilité
 
-## Indices de Capabilité globale  :
+## Indices de Capabilité globale :
 
-### Définition 
+### Définition
 
 Dans la suite $TS,TI$ désigneront la tolérance supérieure et inférieure du procédé de fabrication.
 
@@ -10,37 +10,33 @@ Comme précédemment on distingue la variabilité globale du procédé et celle 
 
 On définit deux types d'indices de capabilité :
 
-- La capabilité globale du procédé de fabrication (appelée aussi coefficient d'aptitude du procédé)
-$$
-Cap=\frac{TS-TI}{D_G}
-$$
+-   La capabilité globale du procédé de fabrication (appelée aussi coefficient d'aptitude du procédé) $$
+    Cap=\frac{TS-TI}{D_G}
+    $$
 
-- La capabilité machine (appelée aussi coefficient d'aptitude du moyen)
+-   La capabilité machine (appelée aussi coefficient d'aptitude du moyen)
 
 $$
 Cam=\frac{TS-TI}{D_M}
 $$
 
-
 ### Interprétation/ Inconvénient :
 
 Il est clair que lorsque $Cap<1$ le procédé n'est pas capable, il faut le revoir afin d'obtenir une production conforme aux tolérances. Par contre si $Cap>2$ on va considérer que le procédé est capable dans la mesure où la dispersion naturelle des observation est 2 fois moins importante que l'intervalle de tolérance.
 
-
 Les deux indicateurs précédents ont un gros inconvénient dans la mesure où ils ne permettent pas de juger du décentrage éventuel du procédé. Par exemple, dans le cas d'une loi normale, on peut avoir une situation comme celle ci-dessous :
 
-![](figure/capabilite.png)
-On voit que le procédé est bien dans l'intervalle de tolérance avec une valeur $Cap>2$ mais qu'il est clairement décentré. Donc il faut définir de nouveaux indices de capabilité qui vont permettre de juger de la justesse du procédé !
+![](figure/capabilite.png) On voit que le procédé est bien dans l'intervalle de tolérance avec une valeur $Cap>2$ mais qu'il est clairement décentré. Donc il faut définir de nouveaux indices de capabilité qui vont permettre de juger de la justesse du procédé !
 
 ## Indices de capabilité de centrage
 
-Le coefficient de performance du procédé est 
+Le coefficient de performance du procédé est
 
 $$
 Cpk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{g}},
 $$
 
-et celui la machine est 
+et celui la machine est
 
 $$
 Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{i}}.
@@ -48,24 +44,23 @@ $$
 
 Il est clair que l'on a :
 
-1. $Cap>Cpk,$
+1.  $Cap>Cpk,$
 
-2. $Cam>Cmk.$
+2.  $Cam>Cmk.$
 
 On utilisera la norme suivante :
 
-***Un procédé (respectivement une machine) est capable si $Cpk>1.33$ (respectivement $Cmk>1.33$)***
+***Un procédé (respectivement une machine) est capable si*** $Cpk>1.33$ (respectivement $Cmk>1.33$)
 
 ### Intervalles de confiance
 
-Les calculs de $Cap$ et de $Cpk$ sont basés sur des estimations de l'écart type $\sigma_G$. Dans le cas d'une loi normale on sait construire un intervalle de confiance de $\sigma_G$, on en déduit que 
+Les calculs de $Cap$ et de $Cpk$ sont basés sur des estimations de l'écart type $\sigma_G$. Dans le cas d'une loi normale on sait construire un intervalle de confiance de $\sigma_G$, on en déduit que
 
-1. L'intervalle $\left[\widehat C_{ap}\sqrt{\dfrac{\chi^2_{n-1}(\alpha/2)}{n-1}};\widehat C_{ap}\sqrt{\dfrac{\chi^2_{n-1}(1-\alpha/2)}{n-1}}\right]$ est un intervalle de confiance de $Cap$ au niveau de confiance $100(1-\alpha)$ %.
+1.  L'intervalle $\left[\widehat C_{ap}\sqrt{\dfrac{\chi^2_{n-1}(\alpha/2)}{n-1}};\widehat C_{ap}\sqrt{\dfrac{\chi^2_{n-1}(1-\alpha/2)}{n-1}}\right]$ est un intervalle de confiance de $Cap$ au niveau de confiance $100(1-\alpha)$ %.
 
-2. L'intervalle $\left[\widehat C_{pk}\left(1-z_{1-\alpha/2}\sqrt{\dfrac{1}{9n\widehat C_{pk}^2}+\dfrac{1}{2(n-1)}}\right);\widehat C_{pk}\left( 1+z_{1-\alpha/2}\sqrt{\dfrac{1}{9n\widehat C_{pk}^2}+\dfrac{1}{2(n-1)}}\right)\right]$ est un intervalle de confiance de $C_{pk}$ au niveau de confiance $100(1-\alpha)$ %.
+2.  L'intervalle $\left[\widehat C_{pk}\left(1-z_{1-\alpha/2}\sqrt{\dfrac{1}{9n\widehat C_{pk}^2}+\dfrac{1}{2(n-1)}}\right);\widehat C_{pk}\left( 1+z_{1-\alpha/2}\sqrt{\dfrac{1}{9n\widehat C_{pk}^2}+\dfrac{1}{2(n-1)}}\right)\right]$ est un intervalle de confiance de $C_{pk}$ au niveau de confiance $100(1-\alpha)$ %.
 
-
-### Fin de l'exemple 
+### Fin de l'exemple
 
 On suppose que les tolérance sont $TI=0.9$ et $TS=1.1$.
 
@@ -85,7 +80,7 @@ IC1<-c(sqrt(qchisq(.025,n-1)/(n-1))*Cap,sqrt(qchisq(.975,n-1)/(n-1))*Cap)
 IC2<-c(Cpk*(1-qnorm(.975)*sqrt(1/(9*Cpk^2*n)+1/(2*(n-1)))),Cpk*(1+qnorm(.975)*sqrt(1/(9*Cpk^2*n)+1/(2*(n-1)))))
 ```
 
-On a $\hat Cap=$ `r round(Cap,2)` et $\hat Cam=$ `r round(Cam,2)`. 
+On a $\hat Cap=$ `r round(Cap,2)` et $\hat Cam=$ `r round(Cam,2)`.
 
 La moyenne du procédé est estimé par $\hat \mu=\overline{\overline X}=$ `r round(m,3)`. Donc on a $\hat Cpk=$ `r round(Cpk,2)` et $\hat Cmk=$ `r round(Cmk,2)`.
 

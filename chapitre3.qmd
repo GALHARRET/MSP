@@ -2,33 +2,30 @@
 
 ## Historique
 
-- Inventées par Walter A. Shewhart (années 1920)
+-   Inventées par Walter A. Shewhart (années 1920)
 
-- S'utilisent dans de très nombreux secteurs d'activité (industrie, transport, service, ...)
+-   S'utilisent dans de très nombreux secteurs d'activité (industrie, transport, service, ...)
 
-- Suivi et/ou amélioration d'un système de production 
+-   Suivi et/ou amélioration d'un système de production
 
 **Avantages**
 
-- Très faciles à mettre en oeuvre
+-   Très faciles à mettre en oeuvre
 
-- Très faciles à interpréter (graphiques)
+-   Très faciles à interpréter (graphiques)
 
 **Inconvénients**
 
-- Ne tient pas a priori compte des tolérances 
+-   Ne tient pas a priori compte des tolérances
 
-- N'est pas toujours efficace (ex : si problème de déviation progressive)
+-   N'est pas toujours efficace (ex : si problème de déviation progressive)
 
 ## Comprendre les variations des procédés de fabrication
 
 On distingue plusieurs causes qui peuvent induire des variations dans un système de production :
 
-- ***causes aléatoires*** (communes) elles sont en grand nombre avec un effet individuel faible. On peut les modéliser par une variable aléatoire (en général gaussienne). Elles peuvent être corrigées par des actions sur le système global.
-Exemple : temps de trajet domicile-travail. Si il y a des feux rouges sur le trajet ceux-ci pourront être parfois verts ou rouges, il peut y avoir plus ou moins de circulation... Action globale : changer de route pour ne plus avoir de feux rouges !
+-   ***causes aléatoires*** (communes) elles sont en grand nombre avec un effet individuel faible. On peut les modéliser par une variable aléatoire (en général gaussienne). Elles peuvent être corrigées par des actions sur le système global. Exemple : temps de trajet domicile-travail. Si il y a des feux rouges sur le trajet ceux-ci pourront être parfois verts ou rouges, il peut y avoir plus ou moins de circulation... Action globale : changer de route pour ne plus avoir de feux rouges !
 
-- ***causes assignables*** (spéciales) elles sont rares et ne peuvent pas être associées directement au procédé de fabrication (Deming 1986).  Elles peuvent être corrigées par des actions locales.
-Exemple : un accident de la route se produit sur le trajet.
-
+-   ***causes assignables*** (spéciales) elles sont rares et ne peuvent pas être associées directement au procédé de fabrication (Deming 1986). Elles peuvent être corrigées par des actions locales. Exemple : un accident de la route se produit sur le trajet.
 
 Un processus est dit ***sous contrôle ou statistiquement stable*** lorsque les variations sont uniquement dûes à des causes aléatoires.
