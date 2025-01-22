@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Galharret Jean-Michel">
-<meta name="dcterms.date" content="2025-01-20">
 
-<title>MSP</title>
+<title>4&nbsp; Cartes de contrôles de Shewhart – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre1.html" rel="next">
+<link href="./chapitre5.html" rel="next">
+<link href="./chapitre3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,7 +171,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -162,7 +195,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
+  <a href="./chapitre4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
   </div>
 </li>
@@ -170,12 +203,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./chapitre5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
   </div>
 </li>
     </ul>
@@ -188,18 +215,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#but-vérifier-la-qualité-de-réalisation" id="toc-but-vérifier-la-qualité-de-réalisation" class="nav-link" data-scroll-target="#but-vérifier-la-qualité-de-réalisation">But : vérifier la qualité de réalisation</a></li>
-  <li><a href="#fluctuation-déchantillons" id="toc-fluctuation-déchantillons" class="nav-link" data-scroll-target="#fluctuation-déchantillons">Fluctuation d’échantillons</a></li>
-  <li><a href="#proportions-de-non-conformes" id="toc-proportions-de-non-conformes" class="nav-link" data-scroll-target="#proportions-de-non-conformes">Proportions de non-conformes</a></li>
-  <li><a href="#la-msp-dans-lamélioration-continue" id="toc-la-msp-dans-lamélioration-continue" class="nav-link" data-scroll-target="#la-msp-dans-lamélioration-continue">La MSP dans l’amélioration continue</a></li>
-  <li><a href="#méthode-6sigma" id="toc-méthode-6sigma" class="nav-link" data-scroll-target="#méthode-6sigma">Méthode <span class="math inline">\(6\sigma\)</span> :</a>
-  <ul class="collapse">
-  <li><a href="#dmaic-define-measure-analyse-improve-control" id="toc-dmaic-define-measure-analyse-improve-control" class="nav-link" data-scroll-target="#dmaic-define-measure-analyse-improve-control">DMAIC (Define, Measure, Analyse, Improve, Control)</a></li>
-  <li><a href="#les-6sigma-en-msp" id="toc-les-6sigma-en-msp" class="nav-link" data-scroll-target="#les-6sigma-en-msp">Les <span class="math inline">\(6\sigma\)</span> en MSP</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#principe" id="toc-principe" class="nav-link active" data-scroll-target="#principe"><span class="header-section-number">4.1</span> Principe</a></li>
+  <li><a href="#distribution-des-paramètres" id="toc-distribution-des-paramètres" class="nav-link" data-scroll-target="#distribution-des-paramètres"><span class="header-section-number">4.2</span> Distribution des paramètres</a></li>
+  <li><a href="#estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." id="toc-estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." class="nav-link" data-scroll-target="#estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne."><span class="header-section-number">4.3</span> Estimation des limites de contrôle pour la carte de la moyenne.</a></li>
+  <li><a href="#estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" id="toc-estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" class="nav-link" data-scroll-target="#estimation-des-limites-de-contrôle-pour-la-carte-des-étendues"><span class="header-section-number">4.4</span> Estimation des limites de contrôle pour la carte des étendues</a></li>
   </ul>
 </nav>
     </div>
@@ -208,26 +227,14 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MSP</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Galharret Jean-Michel </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -237,122 +244,150 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction</h1>
-<p>La Maitrise Statistique des Procédés (MSP) ou Statistical Process Control (SPC) est une branche des statistiques qui s’intéresse au suivi dans le temps d’un processus (par exemple un procédé de fabrication). Historiquement les premières approches de la MSP ont été introduites par W. A. Shewhart dans les années 1920 alors qu’il travaillait dans les laboratoires BELL.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figure/WAShewhart.png" class="img-fluid figure-img"></p>
-<figcaption>Walter A. Shewhart, source= Wikipédia</figcaption>
-</figure>
-</div>
-<ul>
-<li><p>L’objectif est de pouvoir s’assurer que la production est stable avec un minimum de produits non conformes aux spécifications.</p></li>
-<li><p>Le contrôle doit être simple à mettre en oeuvre et aussi permettre un suivi au plus près pour pouvoir détecter le plus tôt possible les déviations de production.</p></li>
-</ul>
-<section id="but-vérifier-la-qualité-de-réalisation" class="level2">
-<h2 class="anchored" data-anchor-id="but-vérifier-la-qualité-de-réalisation">But : vérifier la qualité de réalisation</h2>
-<p>Définir des indicateurs permettant de détecter des modifications inhabituelles au niveau :</p>
-<ul>
-<li><p>du procédé de fabrication,</p></li>
-<li><p>des instruments de mesure,</p></li>
-<li><p>de la qualité des matières premières,</p></li>
-<li><p>de la qualité des lots de produits finis.</p></li>
-</ul>
-<p>Ces vérifications seront réalisées sur la base de prélèvements d’échantillon.</p>
-</section>
-<section id="fluctuation-déchantillons" class="level2">
-<h2 class="anchored" data-anchor-id="fluctuation-déchantillons">Fluctuation d’échantillons</h2>
-<p>Lorsque l’on prélève des échantillons dans une production même si les conditions opérationnelles sont strictement identiques on n’obtiendra pas les mêmes moyennes ni les mêmes écarts types.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Côté Math
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si les observations <span class="math inline">\(X_1,...,X_n\)</span> sont prélevées indépendamment dans une population normale de moyenne <span class="math inline">\(\mu\)</span> et d’écart type <span class="math inline">\(\sigma\)</span> alors la moyenne de ces observations <span class="math display">\[\bar X = \frac 1{n}\sum_{i=1}^nX_i \sim \mathcal N(\mu,\frac{\sigma}{\sqrt{n}}).\]</span></p>
-</div>
-</div>
-<p>Pour illustrer ce résultat : Dans l’exemple suivant on prélève des échantillons de taille <span class="math inline">\(n=5\)</span> dans une production normale dont la caractéristique moyenne est 100 et l’écart type 5.</p>
+<section id="principe" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="principe"><span class="header-section-number">4.1</span> Principe</h2>
+<p>On va construire deux graphiques : une carte dite de position et une carte de dispersion.</p>
+<p><strong><em>Exemple</em></strong></p>
+<p>Suivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.</p>
+<p>Les données sont disponibles <a href="exemple_carte_Shewhart.csv">ici</a></p>
 <div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">X</th>
+<th style="text-align: right;">weight.1</th>
+<th style="text-align: right;">weight.2</th>
+<th style="text-align: right;">weight.3</th>
+<th style="text-align: right;">weight.4</th>
+<th style="text-align: right;">weight.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">98.6</td>
+<td style="text-align: right;">100.3</td>
+<td style="text-align: right;">100.9</td>
+<td style="text-align: right;">100.2</td>
+<td style="text-align: right;">99.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">100.3</td>
+<td style="text-align: right;">99.5</td>
+<td style="text-align: right;">98.9</td>
+<td style="text-align: right;">100.2</td>
+<td style="text-align: right;">100.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">99.2</td>
+<td style="text-align: right;">98.8</td>
+<td style="text-align: right;">101.5</td>
+<td style="text-align: right;">100.3</td>
+<td style="text-align: right;">101.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">101.1</td>
+<td style="text-align: right;">97.8</td>
+<td style="text-align: right;">98.9</td>
+<td style="text-align: right;">101.3</td>
+<td style="text-align: right;">101.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">101.0</td>
+<td style="text-align: right;">99.8</td>
+<td style="text-align: right;">97.3</td>
+<td style="text-align: right;">99.4</td>
+<td style="text-align: right;">100.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">101.1</td>
+<td style="text-align: right;">100.1</td>
+<td style="text-align: right;">99.0</td>
+<td style="text-align: right;">100.7</td>
+<td style="text-align: right;">99.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>data[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Carte de la moyenne avec la librairie qcc dans R</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">qcc</span>(df,<span class="at">type=</span><span class="st">"xbar"</span>,<span class="at">title=</span><span class="st">"Carte de la moyenne"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="chapitre4_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-</div>
-</section>
-<section id="proportions-de-non-conformes" class="level2">
-<h2 class="anchored" data-anchor-id="proportions-de-non-conformes">Proportions de non-conformes</h2>
-<p>Compte tenu de la fluctuation d’échantillonage, on est obligé de se fixer un risque de détecter des faux positifs c’est à dire de rejeter des échantillons alors qu’ils sont conformes aux spcifications ou aux exigences du client.</p>
-<p>Dans l’exemple précédent on voit que l’on rejetterai à tord un des échantillons !</p>
-</section>
-<section id="la-msp-dans-lamélioration-continue" class="level2">
-<h2 class="anchored" data-anchor-id="la-msp-dans-lamélioration-continue">La MSP dans l’amélioration continue</h2>
-<ul>
-<li><p>La qualité du produit n’est pas le simple respect d’une spécification.</p></li>
-<li><p>L’objectif est représenté comme un processus de réduction de la dispersion des caractéristiques du produit.</p></li>
-<li><p>Eviter la production de défectueux, c’est à dire d’avoir des produits qui ne répondent pas à des spécifications.</p></li>
-</ul>
-</section>
-<section id="méthode-6sigma" class="level2">
-<h2 class="anchored" data-anchor-id="méthode-6sigma">Méthode <span class="math inline">\(6\sigma\)</span> :</h2>
-<p>Historiquement mise en place par Mikel Harry dans les années 80.</p>
-<ul>
-<li><p>une méthode d’amélioration de la qualité qui repose sur la maîtrise statistique des procédés,</p></li>
-<li><p>une méthode de management qui repose sur une organisation très encadrée de la conduite de projets.</p></li>
-</ul>
-<p>Dans la boîte à outils 6 sigma on a : - de nombreux outils d’analyse du procédé, d’analyse statistique (MSP, plans d’expériences)</p>
-<ul>
-<li>un mode d’emploi sur la manière de les combiner</li>
-</ul>
-<section id="dmaic-define-measure-analyse-improve-control" class="level3">
-<h3 class="anchored" data-anchor-id="dmaic-define-measure-analyse-improve-control">DMAIC (Define, Measure, Analyse, Improve, Control)</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figure/6SIG_rules.png" class="img-fluid figure-img"></p>
-<figcaption>Les <span class="math inline">\(6\sigma\)</span> résumés</figcaption>
-</figure>
-</div>
-</section>
-<section id="les-6sigma-en-msp" class="level3">
-<h3 class="anchored" data-anchor-id="les-6sigma-en-msp">Les <span class="math inline">\(6\sigma\)</span> en MSP</h3>
-<p>Toute production a une variabilité naturelle (mesurée par <span class="math inline">\(\sigma\)</span> pour une loi normale).</p>
-<p><span class="math inline">\(\leadsto\)</span> Il faut que cette variabilité naturelle reste dans des limites de variations admissibles autour d’une valeur cible.</p>
-<p><span class="math inline">\(\leadsto\)</span> La moyenne de la production doit être proche de la valeur cible.</p>
-<p>On revient à une production distribuée selon <span class="math inline">\(\mathcal N(100,5)\)</span> alors <span class="math inline">\(6\sigma=30\)</span> donc si on a une cible de 100 et des limites de spécifications de 65 et 135 alors le procédé de fabrication est sous-contrôle :</p>
-<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Carte de l'étendue avec la librairie qcc dans R</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">qcc</span>(df,<span class="at">type=</span><span class="st">"R"</span>,<span class="at">title=</span><span class="st">"Carte de l'étendue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="chapitre4_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-% de Faux positifs avec la règle des <span class="math inline">\(6\sigma\)</span>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si on considère que l’échantillon est conforme lorsque sa moyenne appartient à l’intervalle <span class="math inline">\([\mu-3\frac{\sigma}{\sqrt{n}},\mu+3\frac{\sigma}{\sqrt{n}}]\)</span> alors on aura 0.3 % d’échantillons déclarés à tord non conformes (faux positifs).</p>
-</div>
-</div>
+<p>Pour chaque échantillon de 5 steacks on calcule la moyenne et l’étendue et on les reporte sur les cartes correspondantes.</p>
+</section>
+<section id="distribution-des-paramètres" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="distribution-des-paramètres"><span class="header-section-number">4.2</span> Distribution des paramètres</h2>
+<p>On suppose que tous les paramètres suivent une loi normale.</p>
+<ul>
+<li><p>La moyenne d’un échantillon <span class="math inline">\(\bar X \sim \mathcal N(\mu,\frac{\sigma}{\sqrt n}).\)</span></p></li>
+<li><p>L’étendue d’un échantillon <span class="math inline">\(R \sim \mathcal N(\mu_R,\sigma_R).\)</span></p></li>
+<li><p>L’écart type d’un échantillon <span class="math inline">\(S \sim \mathcal N(\mu_S,\sigma_S).\)</span></p></li>
+</ul>
+<p>On définit alors les limites de surveillance et de contrôle pour chaque carte. Pour la carte de la moyenne :</p>
+<p><img src="figure/carte_ctrl1.png" class="img-fluid"> On se fixe un risque <span class="math inline">\(\alpha\)</span> de stoper la production alors que celle-ci est sous contrôle (<strong><em>Fausses alertes</em></strong>). On cherche donc un intervalle de confiance <span class="math inline">\(1-\alpha\)</span> de <span class="math inline">\(\bar X\)</span> La distribution des moyennes étant normale on a</p>
+<p><span class="math display">\[
+\begin{cases}
+LI=\mu-z_{1-\alpha/2}\frac{\sigma}{\sqrt n} \\
+LS=\mu+z_{1-\alpha/2}\frac{\sigma}{\sqrt n} \\
+\mathbb P(LI&lt;\bar X&lt;LS)=1-\alpha
+\end{cases}
+\]</span></p>
+<p>On pourra en conclure que la moyenne <span class="math inline">\(\bar X\)</span> de l’échantillon considéré n’est pas significativement différente de la moyenne <span class="math inline">\(\mu\)</span> (c’est à dire que le procédé est sous contrôle) si <span class="math inline">\(\bar X&nbsp;\in [LI,LS].\)</span></p>
+<p>Les <strong><em>limites de surveillance</em></strong> sont définies de façon à déterminer, au risque de 4.5%, les moyennes significativement différentes de la moyenne globale :</p>
+<ul>
+<li><p>Limite inférieure de surveillance : <span class="math inline">\(LIS=\mu-2\frac{\sigma}{\sqrt n}\)</span></p></li>
+<li><p>Limite supérieure de surveillance : <span class="math inline">\(LSS=\mu+2\frac{\sigma}{\sqrt n}\)</span></p></li>
+</ul>
+<p>Les <strong><em>limites de contrôle</em></strong> sont définies de façon à déterminer, au risque de 0.3% de fausses alertes, les moyennes significativement différentes de la moyenne globale :</p>
+<ul>
+<li><p>Limite inférieure de contrôle : <span class="math inline">\(LIS=\mu-3\frac{\sigma}{\sqrt n}\)</span></p></li>
+<li><p>Limite supérieure de contrôle : <span class="math inline">\(LSS=\mu+3\frac{\sigma}{\sqrt n}\)</span></p></li>
+</ul>
+</section>
+<section id="estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne."><span class="header-section-number">4.3</span> Estimation des limites de contrôle pour la carte de la moyenne.</h2>
+<p>Reprenons le cas précédent. Pour chaque échantillon on peut calculer <span class="math inline">\(\bar y_j,R_j\)</span> la moyenne et l’étendue.</p>
+<p>On a vu dans le chapitre précédent que <span class="math inline">\(\hat\mu=\overline{\overline{y}}=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j}\)</span> et que <span class="math inline">\(\hat \sigma = \dfrac{\bar R}{d_2}\)</span>. Donc on a : <span class="math display">\[
+\begin{cases}
+\widehat{LIC}= \bar{\bar{y}}-\frac{3}{\sqrt n} \frac{\overline R}{d_2} \\
+\widehat{LSC}= \bar{\bar{y}}+\frac{3}{\sqrt n} \frac{\overline R}{d_2}
+\end{cases}
+\]</span></p>
+</section>
+<section id="estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="estimation-des-limites-de-contrôle-pour-la-carte-des-étendues"><span class="header-section-number">4.4</span> Estimation des limites de contrôle pour la carte des étendues</h2>
+<p>Pour l’estimation de <span class="math inline">\(\mu_R\)</span> on prend <span class="math inline">\(\hat\mu_R=\bar R\)</span>, et pour l’estimation de <span class="math inline">\(\sigma_R\)</span> on prend <span class="math inline">\(\hat \sigma_R=\frac{d_3}{d_2}\bar R\)</span> où <span class="math inline">\(d_3\)</span> est l’écart type des étendues d’une loi normale centrée réduite. On a alors <span class="math display">\[
+\begin{cases}
+\widehat{LIC}= \overline{R}-3\frac{d_3}{d_2}\overline R \\
+\widehat{LSC}= \overline{R}+3\frac{d_3}{d_2}\overline R
+\end{cases}
+\]</span></p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -775,10 +810,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./chapitre3.html" class="pagination-link" aria-label="Cartes de contrôle">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre1.html" class="pagination-link" aria-label="Estimation des variations de production">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapitre5.html" class="pagination-link" aria-label="Efficacité des cartes de Shewhart">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

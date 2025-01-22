@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Galharret Jean-Michel">
-<meta name="dcterms.date" content="2025-01-20">
 
-<title>MSP</title>
+<title>6&nbsp; Carte EWMA – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre1.html" rel="next">
+<link href="./chapitre5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre6.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,7 +170,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -174,7 +206,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
+  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
   </div>
 </li>
@@ -188,18 +220,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#but-vérifier-la-qualité-de-réalisation" id="toc-but-vérifier-la-qualité-de-réalisation" class="nav-link" data-scroll-target="#but-vérifier-la-qualité-de-réalisation">But : vérifier la qualité de réalisation</a></li>
-  <li><a href="#fluctuation-déchantillons" id="toc-fluctuation-déchantillons" class="nav-link" data-scroll-target="#fluctuation-déchantillons">Fluctuation d’échantillons</a></li>
-  <li><a href="#proportions-de-non-conformes" id="toc-proportions-de-non-conformes" class="nav-link" data-scroll-target="#proportions-de-non-conformes">Proportions de non-conformes</a></li>
-  <li><a href="#la-msp-dans-lamélioration-continue" id="toc-la-msp-dans-lamélioration-continue" class="nav-link" data-scroll-target="#la-msp-dans-lamélioration-continue">La MSP dans l’amélioration continue</a></li>
-  <li><a href="#méthode-6sigma" id="toc-méthode-6sigma" class="nav-link" data-scroll-target="#méthode-6sigma">Méthode <span class="math inline">\(6\sigma\)</span> :</a>
-  <ul class="collapse">
-  <li><a href="#dmaic-define-measure-analyse-improve-control" id="toc-dmaic-define-measure-analyse-improve-control" class="nav-link" data-scroll-target="#dmaic-define-measure-analyse-improve-control">DMAIC (Define, Measure, Analyse, Improve, Control)</a></li>
-  <li><a href="#les-6sigma-en-msp" id="toc-les-6sigma-en-msp" class="nav-link" data-scroll-target="#les-6sigma-en-msp">Les <span class="math inline">\(6\sigma\)</span> en MSP</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">6.1</span> Introduction</a></li>
+  <li><a href="#définition-des-cartes-ewma" id="toc-définition-des-cartes-ewma" class="nav-link" data-scroll-target="#définition-des-cartes-ewma"><span class="header-section-number">6.2</span> Définition des cartes EWMA</a></li>
+  <li><a href="#limites-de-contrôle-des-cartes-ewma" id="toc-limites-de-contrôle-des-cartes-ewma" class="nav-link" data-scroll-target="#limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">6.3</span> Limites de contrôle des cartes EWMA</a></li>
+  <li><a href="#retour-à-lexemple" id="toc-retour-à-lexemple" class="nav-link" data-scroll-target="#retour-à-lexemple"><span class="header-section-number">6.4</span> Retour à l’exemple :</a></li>
   </ul>
 </nav>
     </div>
@@ -208,26 +232,14 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MSP</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Galharret Jean-Michel </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -237,122 +249,92 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction</h1>
-<p>La Maitrise Statistique des Procédés (MSP) ou Statistical Process Control (SPC) est une branche des statistiques qui s’intéresse au suivi dans le temps d’un processus (par exemple un procédé de fabrication). Historiquement les premières approches de la MSP ont été introduites par W. A. Shewhart dans les années 1920 alors qu’il travaillait dans les laboratoires BELL.</p>
-<div class="quarto-figure quarto-figure-center">
+<section id="introduction" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
+<p>La carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à interpréter. Cependant elle n’a pas une très grande efficacité surtout :</p>
+<ul>
+<li><p>en cas de faibles et moyennes déviations</p></li>
+<li><p>en cas de structure d’autocorrélation, c’est à dire lorsque le passé a une influence, par exemple lorsqu’une tendance croissante apparaît.</p></li>
+</ul>
+<p><strong><em>Exemple :</em></strong></p>
+<p>On suit une production de caractéristique <span class="math inline">\(\mu=15\)</span> et <span class="math inline">\(\sigma=2\)</span>. Pour ce faire 14 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 4ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).</p>
+<div class="cell" data-warnings="false">
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="figure/WAShewhart.png" class="img-fluid figure-img"></p>
-<figcaption>Walter A. Shewhart, source= Wikipédia</figcaption>
+<p><img src="chapitre6_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-<ul>
-<li><p>L’objectif est de pouvoir s’assurer que la production est stable avec un minimum de produits non conformes aux spécifications.</p></li>
-<li><p>Le contrôle doit être simple à mettre en oeuvre et aussi permettre un suivi au plus près pour pouvoir détecter le plus tôt possible les déviations de production.</p></li>
-</ul>
-<section id="but-vérifier-la-qualité-de-réalisation" class="level2">
-<h2 class="anchored" data-anchor-id="but-vérifier-la-qualité-de-réalisation">But : vérifier la qualité de réalisation</h2>
-<p>Définir des indicateurs permettant de détecter des modifications inhabituelles au niveau :</p>
-<ul>
-<li><p>du procédé de fabrication,</p></li>
-<li><p>des instruments de mesure,</p></li>
-<li><p>de la qualité des matières premières,</p></li>
-<li><p>de la qualité des lots de produits finis.</p></li>
-</ul>
-<p>Ces vérifications seront réalisées sur la base de prélèvements d’échantillon.</p>
+</div>
+</div>
+<p>Une des solutions est la carte EWMA</p>
 </section>
-<section id="fluctuation-déchantillons" class="level2">
-<h2 class="anchored" data-anchor-id="fluctuation-déchantillons">Fluctuation d’échantillons</h2>
-<p>Lorsque l’on prélève des échantillons dans une production même si les conditions opérationnelles sont strictement identiques on n’obtiendra pas les mêmes moyennes ni les mêmes écarts types.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Côté Math
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si les observations <span class="math inline">\(X_1,...,X_n\)</span> sont prélevées indépendamment dans une population normale de moyenne <span class="math inline">\(\mu\)</span> et d’écart type <span class="math inline">\(\sigma\)</span> alors la moyenne de ces observations <span class="math display">\[\bar X = \frac 1{n}\sum_{i=1}^nX_i \sim \mathcal N(\mu,\frac{\sigma}{\sqrt{n}}).\]</span></p>
-</div>
-</div>
-<p>Pour illustrer ce résultat : Dans l’exemple suivant on prélève des échantillons de taille <span class="math inline">\(n=5\)</span> dans une production normale dont la caractéristique moyenne est 100 et l’écart type 5.</p>
+<section id="définition-des-cartes-ewma" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="définition-des-cartes-ewma"><span class="header-section-number">6.2</span> Définition des cartes EWMA</h2>
+<p><strong><em>EWMA : Exponentially Weighted Moving Average</em></strong></p>
+<p>On définit la statistique <span class="math inline">\(z_i\)</span> par une relation de récurrence pour tout <span class="math inline">\(i=1,...,k\)</span></p>
+<p><span class="math display">\[
+z_i=\lambda \bar x_i +(1-\lambda)z_{i-1},
+\]</span></p>
+<p>où <span class="math inline">\(\bar x_i\)</span> est la moyenne des unités pour le prélèvement <span class="math inline">\(i\)</span> et <span class="math inline">\(0&lt;\lambda\leq 1\)</span> est un réel qui sera choisi en fonction du poids que l’on veut donner aux données précédentes. En effet, en général on choisit <span class="math inline">\(z_0=\mu\)</span> (moyenne du procédé de fabrication). On a <span class="math display">\[
+\begin{cases}
+z_1=\lambda \bar x_1+(1-\lambda)\mu \\
+z_2=\lambda \bar x_2+(1-\lambda)z_1= \lambda \bar x_2+\lambda(1-\lambda)\bar x_1+(1-\lambda)^2\mu \\
+z_3=\lambda \bar x_3+\lambda(1-\lambda)\bar x_2+\lambda(1-\lambda)^2\bar x_1+
+(1-\lambda)^3\mu \\
+\ldots
+\end{cases}
+\]</span></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="chapitre6_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="proportions-de-non-conformes" class="level2">
-<h2 class="anchored" data-anchor-id="proportions-de-non-conformes">Proportions de non-conformes</h2>
-<p>Compte tenu de la fluctuation d’échantillonage, on est obligé de se fixer un risque de détecter des faux positifs c’est à dire de rejeter des échantillons alors qu’ils sont conformes aux spcifications ou aux exigences du client.</p>
-<p>Dans l’exemple précédent on voit que l’on rejetterai à tord un des échantillons !</p>
-</section>
-<section id="la-msp-dans-lamélioration-continue" class="level2">
-<h2 class="anchored" data-anchor-id="la-msp-dans-lamélioration-continue">La MSP dans l’amélioration continue</h2>
 <ul>
-<li><p>La qualité du produit n’est pas le simple respect d’une spécification.</p></li>
-<li><p>L’objectif est représenté comme un processus de réduction de la dispersion des caractéristiques du produit.</p></li>
-<li><p>Eviter la production de défectueux, c’est à dire d’avoir des produits qui ne répondent pas à des spécifications.</p></li>
+<li><p>La cas <span class="math inline">\(\lambda=1\)</span> correspond à la carte de Shewhart sur la moyenne.</p></li>
+<li><p>On constate que <span class="math inline">\(\bar x_i\)</span> a une importance d’autant plus importante dans <span class="math inline">\(z_i\)</span> que <span class="math inline">\(\lambda\)</span> est grand.</p></li>
+<li><p>En général on utilise <span class="math inline">\(0.25&lt;\lambda&lt;0.5\)</span>.</p></li>
 </ul>
 </section>
-<section id="méthode-6sigma" class="level2">
-<h2 class="anchored" data-anchor-id="méthode-6sigma">Méthode <span class="math inline">\(6\sigma\)</span> :</h2>
-<p>Historiquement mise en place par Mikel Harry dans les années 80.</p>
+<section id="limites-de-contrôle-des-cartes-ewma" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">6.3</span> Limites de contrôle des cartes EWMA</h2>
+<p>Les limites de ces cartes sont variables (en fonction de <span class="math inline">\(i\)</span>) pour <span class="math inline">\(X\sim \mathcal N(\mu,\sigma)\)</span> on a :</p>
+<p><span class="math display">\[
+LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] }
+\]</span></p>
 <ul>
-<li><p>une méthode d’amélioration de la qualité qui repose sur la maîtrise statistique des procédés,</p></li>
-<li><p>une méthode de management qui repose sur une organisation très encadrée de la conduite de projets.</p></li>
+<li><p>Lorsque le nombre <span class="math inline">\(i\)</span> de prélèvement est très grand alors <span class="math inline">\(LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}}\)</span>. Dans ce cas on peut jouer sur ce paramètre <span class="math inline">\(L\)</span> pour améliorer l’efficacité de la carte en fonction de <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>On constate que sur les petites déviations de production l’efficacité des cartes EWMA est bien supérieure à celle de la carte de Shewhart.</p></li>
 </ul>
-<p>Dans la boîte à outils 6 sigma on a : - de nombreux outils d’analyse du procédé, d’analyse statistique (MSP, plans d’expériences)</p>
-<ul>
-<li>un mode d’emploi sur la manière de les combiner</li>
-</ul>
-<section id="dmaic-define-measure-analyse-improve-control" class="level3">
-<h3 class="anchored" data-anchor-id="dmaic-define-measure-analyse-improve-control">DMAIC (Define, Measure, Analyse, Improve, Control)</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figure/6SIG_rules.png" class="img-fluid figure-img"></p>
-<figcaption>Les <span class="math inline">\(6\sigma\)</span> résumés</figcaption>
-</figure>
-</div>
-</section>
-<section id="les-6sigma-en-msp" class="level3">
-<h3 class="anchored" data-anchor-id="les-6sigma-en-msp">Les <span class="math inline">\(6\sigma\)</span> en MSP</h3>
-<p>Toute production a une variabilité naturelle (mesurée par <span class="math inline">\(\sigma\)</span> pour une loi normale).</p>
-<p><span class="math inline">\(\leadsto\)</span> Il faut que cette variabilité naturelle reste dans des limites de variations admissibles autour d’une valeur cible.</p>
-<p><span class="math inline">\(\leadsto\)</span> La moyenne de la production doit être proche de la valeur cible.</p>
-<p>On revient à une production distribuée selon <span class="math inline">\(\mathcal N(100,5)\)</span> alors <span class="math inline">\(6\sigma=30\)</span> donc si on a une cible de 100 et des limites de spécifications de 65 et 135 alors le procédé de fabrication est sous-contrôle :</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="chapitre6_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="retour-à-lexemple" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="retour-à-lexemple"><span class="header-section-number">6.4</span> Retour à l’exemple :</h2>
+<p>On constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 8ième prélèvement.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">ewma</span>(data,<span class="at">center =</span> <span class="dv">15</span>,<span class="at">std.dev =</span> <span class="dv">2</span>,<span class="at">sizes =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre6_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-% de Faux positifs avec la règle des <span class="math inline">\(6\sigma\)</span>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si on considère que l’échantillon est conforme lorsque sa moyenne appartient à l’intervalle <span class="math inline">\([\mu-3\frac{\sigma}{\sqrt{n}},\mu+3\frac{\sigma}{\sqrt{n}}]\)</span> alors on aura 0.3 % d’échantillons déclarés à tord non conformes (faux positifs).</p>
 </div>
 </div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -775,11 +757,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./chapitre5.html" class="pagination-link" aria-label="Efficacité des cartes de Shewhart">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre1.html" class="pagination-link" aria-label="Estimation des variations de production">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

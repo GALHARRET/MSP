@@ -1,0 +1,121 @@
+# Carte EWMA 
+
+```{r echo=F}
+knitr::opts_chunk$set(echo = TRUE)
+suppressPackageStartupMessages(
+  {
+  library(tidyverse)
+library(ggplot2)
+library(knitr)
+library(qcc)
+library(readxl)
+  }
+)
+coeff_correct<-read.csv("coeff_correct.csv",sep=",")  
+```
+
+## Introduction
+
+La carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à interpréter. Cependant elle n'a pas une très grande efficacité surtout :
+
+- en cas de faibles et moyennes déviations
+
+- en cas de structure d'autocorrélation, c'est à dire lorsque le passé a une influence, par exemple lorsqu'une tendance croissante apparaît.
+
+***Exemple :***
+
+On suit une production de caractéristique $\mu=15$ et $\sigma=2$. Pour ce faire 14 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 4ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).
+
+```{r warnings=F,echo=F}
+data<-c(14.7,14.9,15.1,15.5,16.1,16.5,17,17.5,16.9,16.9,17.5,18,17.5,18.5)
+X<-qcc(data,center = 15,std.dev = 2,type="xbar",sizes = 4)
+```
+
+Une des solutions est la carte EWMA
+
+## Définition des cartes EWMA
+
+***EWMA : Exponentially Weighted Moving Average***
+
+
+On définit la statistique $z_i$ par une relation de récurrence pour tout $i=1,...,k$
+
+$$
+z_i=\lambda \bar x_i +(1-\lambda)z_{i-1},
+$$
+
+où $\bar x_i$ est la moyenne des unités pour le prélèvement $i$ et $0<\lambda\leq 1$ est un réel qui sera choisi en fonction du poids que l'on veut donner aux données précédentes. En effet, en général on choisit $z_0=\mu$ (moyenne du procédé de fabrication).
+On a 
+$$
+\begin{cases}
+z_1=\lambda \bar x_1+(1-\lambda)\mu \\
+z_2=\lambda \bar x_2+(1-\lambda)z_1= \lambda \bar x_2+\lambda(1-\lambda)\bar x_1+(1-\lambda)^2\mu \\
+z_3=\lambda \bar x_3+\lambda(1-\lambda)\bar x_2+\lambda(1-\lambda)^2\bar x_1+
+(1-\lambda)^3\mu \\
+\ldots
+\end{cases}
+$$
+```{r echo=F}
+lambda<-seq(0,1,.01)
+
+plot(lambda,lambda,type="l",xlab=expression(lambda),
+     ylab="coefficient",ylim=c(0,0.6),
+     main=expression(paste("Poids des coefficients en fonction de ",lambda)))
+lines(lambda,lambda*(1-lambda),col=2)
+lines(lambda,lambda*(1-lambda)^2,col=3)
+lines(lambda,lambda*(1-lambda)^3,col=4)
+legend("topright",lty=rep(1,4),legend=c(expression(lambda),
+                                        expression(lambda*(1-lambda)),
+                                        expression(lambda*(1-lambda)^2),
+                                        expression(lambda*(1-lambda)^3)),
+       col=1:4)
+```
+
+- La cas $\lambda=1$ correspond à la carte de Shewhart sur la moyenne.
+
+- On constate que $\bar x_i$ a une importance d'autant plus importante dans $z_i$ que $\lambda$ est grand.
+
+- En général on utilise $0.25<\lambda<0.5$.
+
+## Limites de contrôle des cartes EWMA
+
+Les limites de ces cartes sont variables (en fonction de $i$) pour $X\sim \mathcal N(\mu,\sigma)$
+on a :
+
+$$
+LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] }
+$$
+
+- Lorsque le nombre $i$ de prélèvement est très grand alors $LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}}$. Dans ce cas on peut jouer sur ce paramètre $L$ pour améliorer l'efficacité de la carte en fonction de $\lambda$.
+
+- On constate que sur les petites déviations de production l'efficacité des cartes EWMA est bien supérieure à celle de la carte de Shewhart.
+
+```{r echo=F}
+library(spc)
+l0<-1
+c0<-3
+l1 <- .25
+c1 <- 2.998
+l2 <- .50
+c2 <- 3.071
+rho <- seq(0.25,2,by=.05)
+arl0 <- sapply(rho,l=l0,c=c0,sided="two",xewma.arl)
+arl1 <- sapply(rho,l=l1,c=c1,sided="two",xewma.arl)
+arl2 <- sapply(rho,l=l2,c=c2,sided="two",xewma.arl)
+plot(rho,arl0,type="l",ylab="ARL",xlab=expression(rho))
+lines(rho,arl1,col=2)
+lines(rho,arl2,col=3)
+legend("topright",lty=rep(1,3),col=1:3,legend=c("Shewhart",
+                                                expression(paste(lambda,"=.25",", L=2.998")),
+                                                expression(paste(lambda,"=.50",", L= 3.071"))))
+```
+
+## Retour à l'exemple :
+
+On constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 8ième prélèvement.
+
+```{r}
+Y<-ewma(data,center = 15,std.dev = 2,sizes = 4)
+```
+
+

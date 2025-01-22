@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Galharret Jean-Michel">
-<meta name="dcterms.date" content="2025-01-20">
 
-<title>MSP</title>
+<title>References – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -32,7 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre1.html" rel="next">
+<link href="./summary.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,35 +87,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -111,7 +99,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,44 +126,26 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité</span></span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
@@ -183,51 +153,22 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#but-vérifier-la-qualité-de-réalisation" id="toc-but-vérifier-la-qualité-de-réalisation" class="nav-link" data-scroll-target="#but-vérifier-la-qualité-de-réalisation">But : vérifier la qualité de réalisation</a></li>
-  <li><a href="#fluctuation-déchantillons" id="toc-fluctuation-déchantillons" class="nav-link" data-scroll-target="#fluctuation-déchantillons">Fluctuation d’échantillons</a></li>
-  <li><a href="#proportions-de-non-conformes" id="toc-proportions-de-non-conformes" class="nav-link" data-scroll-target="#proportions-de-non-conformes">Proportions de non-conformes</a></li>
-  <li><a href="#la-msp-dans-lamélioration-continue" id="toc-la-msp-dans-lamélioration-continue" class="nav-link" data-scroll-target="#la-msp-dans-lamélioration-continue">La MSP dans l’amélioration continue</a></li>
-  <li><a href="#méthode-6sigma" id="toc-méthode-6sigma" class="nav-link" data-scroll-target="#méthode-6sigma">Méthode <span class="math inline">\(6\sigma\)</span> :</a>
-  <ul class="collapse">
-  <li><a href="#dmaic-define-measure-analyse-improve-control" id="toc-dmaic-define-measure-analyse-improve-control" class="nav-link" data-scroll-target="#dmaic-define-measure-analyse-improve-control">DMAIC (Define, Measure, Analyse, Improve, Control)</a></li>
-  <li><a href="#les-6sigma-en-msp" id="toc-les-6sigma-en-msp" class="nav-link" data-scroll-target="#les-6sigma-en-msp">Les <span class="math inline">\(6\sigma\)</span> en MSP</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MSP</h1>
+<h1 class="title">References</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Galharret Jean-Michel </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -237,123 +178,14 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction</h1>
-<p>La Maitrise Statistique des Procédés (MSP) ou Statistical Process Control (SPC) est une branche des statistiques qui s’intéresse au suivi dans le temps d’un processus (par exemple un procédé de fabrication). Historiquement les premières approches de la MSP ont été introduites par W. A. Shewhart dans les années 1920 alors qu’il travaillait dans les laboratoires BELL.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figure/WAShewhart.png" class="img-fluid figure-img"></p>
-<figcaption>Walter A. Shewhart, source= Wikipédia</figcaption>
-</figure>
-</div>
-<ul>
-<li><p>L’objectif est de pouvoir s’assurer que la production est stable avec un minimum de produits non conformes aux spécifications.</p></li>
-<li><p>Le contrôle doit être simple à mettre en oeuvre et aussi permettre un suivi au plus près pour pouvoir détecter le plus tôt possible les déviations de production.</p></li>
-</ul>
-<section id="but-vérifier-la-qualité-de-réalisation" class="level2">
-<h2 class="anchored" data-anchor-id="but-vérifier-la-qualité-de-réalisation">But : vérifier la qualité de réalisation</h2>
-<p>Définir des indicateurs permettant de détecter des modifications inhabituelles au niveau :</p>
-<ul>
-<li><p>du procédé de fabrication,</p></li>
-<li><p>des instruments de mesure,</p></li>
-<li><p>de la qualité des matières premières,</p></li>
-<li><p>de la qualité des lots de produits finis.</p></li>
-</ul>
-<p>Ces vérifications seront réalisées sur la base de prélèvements d’échantillon.</p>
-</section>
-<section id="fluctuation-déchantillons" class="level2">
-<h2 class="anchored" data-anchor-id="fluctuation-déchantillons">Fluctuation d’échantillons</h2>
-<p>Lorsque l’on prélève des échantillons dans une production même si les conditions opérationnelles sont strictement identiques on n’obtiendra pas les mêmes moyennes ni les mêmes écarts types.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Côté Math
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si les observations <span class="math inline">\(X_1,...,X_n\)</span> sont prélevées indépendamment dans une population normale de moyenne <span class="math inline">\(\mu\)</span> et d’écart type <span class="math inline">\(\sigma\)</span> alors la moyenne de ces observations <span class="math display">\[\bar X = \frac 1{n}\sum_{i=1}^nX_i \sim \mathcal N(\mu,\frac{\sigma}{\sqrt{n}}).\]</span></p>
-</div>
-</div>
-<p>Pour illustrer ce résultat : Dans l’exemple suivant on prélève des échantillons de taille <span class="math inline">\(n=5\)</span> dans une production normale dont la caractéristique moyenne est 100 et l’écart type 5.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="proportions-de-non-conformes" class="level2">
-<h2 class="anchored" data-anchor-id="proportions-de-non-conformes">Proportions de non-conformes</h2>
-<p>Compte tenu de la fluctuation d’échantillonage, on est obligé de se fixer un risque de détecter des faux positifs c’est à dire de rejeter des échantillons alors qu’ils sont conformes aux spcifications ou aux exigences du client.</p>
-<p>Dans l’exemple précédent on voit que l’on rejetterai à tord un des échantillons !</p>
-</section>
-<section id="la-msp-dans-lamélioration-continue" class="level2">
-<h2 class="anchored" data-anchor-id="la-msp-dans-lamélioration-continue">La MSP dans l’amélioration continue</h2>
-<ul>
-<li><p>La qualité du produit n’est pas le simple respect d’une spécification.</p></li>
-<li><p>L’objectif est représenté comme un processus de réduction de la dispersion des caractéristiques du produit.</p></li>
-<li><p>Eviter la production de défectueux, c’est à dire d’avoir des produits qui ne répondent pas à des spécifications.</p></li>
-</ul>
-</section>
-<section id="méthode-6sigma" class="level2">
-<h2 class="anchored" data-anchor-id="méthode-6sigma">Méthode <span class="math inline">\(6\sigma\)</span> :</h2>
-<p>Historiquement mise en place par Mikel Harry dans les années 80.</p>
-<ul>
-<li><p>une méthode d’amélioration de la qualité qui repose sur la maîtrise statistique des procédés,</p></li>
-<li><p>une méthode de management qui repose sur une organisation très encadrée de la conduite de projets.</p></li>
-</ul>
-<p>Dans la boîte à outils 6 sigma on a : - de nombreux outils d’analyse du procédé, d’analyse statistique (MSP, plans d’expériences)</p>
-<ul>
-<li>un mode d’emploi sur la manière de les combiner</li>
-</ul>
-<section id="dmaic-define-measure-analyse-improve-control" class="level3">
-<h3 class="anchored" data-anchor-id="dmaic-define-measure-analyse-improve-control">DMAIC (Define, Measure, Analyse, Improve, Control)</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figure/6SIG_rules.png" class="img-fluid figure-img"></p>
-<figcaption>Les <span class="math inline">\(6\sigma\)</span> résumés</figcaption>
-</figure>
-</div>
-</section>
-<section id="les-6sigma-en-msp" class="level3">
-<h3 class="anchored" data-anchor-id="les-6sigma-en-msp">Les <span class="math inline">\(6\sigma\)</span> en MSP</h3>
-<p>Toute production a une variabilité naturelle (mesurée par <span class="math inline">\(\sigma\)</span> pour une loi normale).</p>
-<p><span class="math inline">\(\leadsto\)</span> Il faut que cette variabilité naturelle reste dans des limites de variations admissibles autour d’une valeur cible.</p>
-<p><span class="math inline">\(\leadsto\)</span> La moyenne de la production doit être proche de la valeur cible.</p>
-<p>On revient à une production distribuée selon <span class="math inline">\(\mathcal N(100,5)\)</span> alors <span class="math inline">\(6\sigma=30\)</span> donc si on a une cible de 100 et des limites de spécifications de 65 et 135 alors le procédé de fabrication est sous-contrôle :</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-% de Faux positifs avec la règle des <span class="math inline">\(6\sigma\)</span>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si on considère que l’échantillon est conforme lorsque sa moyenne appartient à l’intervalle <span class="math inline">\([\mu-3\frac{\sigma}{\sqrt{n}},\mu+3\frac{\sigma}{\sqrt{n}}]\)</span> alors on aura 0.3 % d’échantillons déclarés à tord non conformes (faux positifs).</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-knuth84" class="csl-entry" role="listitem">
+Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput.
+J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
 </div>
 </div>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -775,11 +607,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre1.html" class="pagination-link" aria-label="Estimation des variations de production">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -1,0 +1,29 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "MSP"
+  author: "Galharret Jean-Michel"
+  date: "01/20/2025"
+  chapters:
+    - index.qmd
+    - chapitre1.qmd
+    - chapitre2.qmd
+    - chapitre3.qmd
+    - chapitre4.qmd
+    - chapitre5.qmd
+    - chapitre6.qmd
+  
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
