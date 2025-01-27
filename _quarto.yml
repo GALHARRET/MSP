@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: docs
+  
 
 book:
   title: "MSP"
@@ -14,7 +15,6 @@ book:
     - chapitre4.qmd
     - chapitre5.qmd
     - chapitre6.qmd
-  
 bibliography: references.bib
 
 format:

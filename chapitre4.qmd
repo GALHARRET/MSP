@@ -11,10 +11,10 @@ library(qcc)
 library(readxl)
   }
 )
-coeff_correct<-read.csv("coeff_correct.csv",sep=",")  
+coeff_correct<-read.csv("coeff_correct.csv",sep=",",row.names = 1)  
 ```
 
-## Principe 
+## Principe
 
 On va construire deux graphiques : une carte dite de position et une carte de dispersion.
 
@@ -24,13 +24,10 @@ Suivi de production journalière de steacks hachés surgelés durant 12h de prod
 
 Les données sont disponibles [ici](exemple_carte_Shewhart.csv)
 
-
 ```{r echo=F}
 data<-read.csv("exemple_carte_Shewhart.csv")
 kable(head(data))
 ```
-
-
 
 ```{r warning=FALSE}
 df<-data[,-1]
@@ -46,17 +43,15 @@ Pour chaque échantillon de 5 steacks on calcule la moyenne et l'étendue et on 
 
 On suppose que tous les paramètres suivent une loi normale.
 
-- La moyenne d'un échantillon $\bar X \sim \mathcal N(\mu,\frac{\sigma}{\sqrt n}).$
+-   La moyenne d'un échantillon $\bar X \sim \mathcal N(\mu,\frac{\sigma}{\sqrt n}).$
 
-- L'étendue d'un échantillon $R \sim \mathcal N(\mu_R,\sigma_R).$
+-   L'étendue d'un échantillon $R \sim \mathcal N(\mu_R,\sigma_R).$
 
-- L'écart type d'un échantillon $S \sim \mathcal N(\mu_S,\sigma_S).$
+-   L'écart type d'un échantillon $S \sim \mathcal N(\mu_S,\sigma_S).$
 
 On définit alors les limites de surveillance et de contrôle pour chaque carte. Pour la carte de la moyenne :
 
-![](figure/carte_ctrl1.png)
-On se fixe un risque $\alpha$ de stoper la production alors que celle-ci est sous contrôle (***Fausses alertes***). On cherche donc un intervalle de confiance $1-\alpha$ de $\bar X$ 
-La distribution des moyennes étant normale on a 
+![](figure/carte_ctrl1.png) On se fixe un risque $\alpha$ de stoper la production alors que celle-ci est sous contrôle (***Fausses alertes***). On cherche donc un intervalle de confiance $1-\alpha$ de $\bar X$ La distribution des moyennes étant normale on a
 
 $$
 \begin{cases}
@@ -68,23 +63,23 @@ $$
 
 On pourra en conclure que la moyenne $\bar X$ de l'échantillon considéré n'est pas significativement différente de la moyenne $\mu$ (c'est à dire que le procédé est sous contrôle) si $\bar X \in [LI,LS].$
 
-Les ***limites de surveillance*** sont définies de façon à déterminer, au risque de 4.5%, les moyennes significativement différentes de la moyenne globale  :
+Les ***limites de surveillance*** sont définies de façon à déterminer, au risque de 4.5%, les moyennes significativement différentes de la moyenne globale :
 
-- Limite inférieure de surveillance : $LIS=\mu-2\frac{\sigma}{\sqrt n}$
+-   Limite inférieure de surveillance (LIS): $LIS=\mu-2\frac{\sigma}{\sqrt n}$
 
-- Limite supérieure de surveillance : $LSS=\mu+2\frac{\sigma}{\sqrt n}$
+-   Limite supérieure de surveillance (LSS): $LSS=\mu+2\frac{\sigma}{\sqrt n}$
 
-Les ***limites de contrôle*** sont définies de façon à déterminer, au risque de 0.3% de fausses alertes, les moyennes significativement différentes de la moyenne globale  :
+Les ***limites de contrôle*** sont définies de façon à déterminer, au risque de 0.3% de fausses alertes, les moyennes significativement différentes de la moyenne globale :
 
-- Limite inférieure de contrôle : $LIS=\mu-3\frac{\sigma}{\sqrt n}$
+-   Limite inférieure de contrôle (LIC): $LIC=\mu-3\frac{\sigma}{\sqrt n}$
 
-- Limite supérieure de contrôle : $LSS=\mu+3\frac{\sigma}{\sqrt n}$
+-   Limite supérieure de contrôle (LSC): $LSC=\mu+3\frac{\sigma}{\sqrt n}$
 
 ## Estimation des limites de contrôle pour la carte de la moyenne.
 
 Reprenons le cas précédent. Pour chaque échantillon on peut calculer $\bar y_j,R_j$ la moyenne et l'étendue.
 
-On a vu dans le chapitre précédent que $\hat\mu=\overline{\overline{y}}=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j}$ et que $\hat \sigma = \dfrac{\bar R}{d_2}$. Donc on a :
+On a vu dans le chapitre précédent que $\hat\mu=\overline{\overline{y}}=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j}$ et que $\hat \sigma = \dfrac{\bar R}{d_2}$. Donc on a : 
 $$
 \begin{cases}
 \widehat{LIC}= \bar{\bar{y}}-\frac{3}{\sqrt n} \frac{\overline R}{d_2} \\
@@ -94,11 +89,43 @@ $$
 
 ## Estimation des limites de contrôle pour la carte des étendues
 
-Pour l'estimation de $\mu_R$ on prend $\hat\mu_R=\bar R$, et pour l'estimation de $\sigma_R$ on prend $\hat \sigma_R=\frac{d_3}{d_2}\bar R$ où $d_3$ est l'écart type des étendues d'une loi normale centrée réduite.
-On a alors
+Pour l'estimation de $\mu_R$ on prend $\hat\mu_R=\bar R$, et pour l'estimation de $\sigma_R$ on prend $\hat \sigma_R=\frac{d_3}{d_2}\bar R$ où $d_3$ est l'écart type des étendues d'une loi normale centrée réduite. On a alors 
+
 $$
 \begin{cases}
 \widehat{LIC}= \overline{R}-3\frac{d_3}{d_2}\overline R \\
 \widehat{LSC}= \overline{R}+3\frac{d_3}{d_2}\overline R 
 \end{cases}
 $$
+## Estimation des limites de contrôle pour la carte des écarts types
+
+Pour l'estimation de $\mu_S$ on prend $\hat\mu_S=\bar S$, et pour l'estimation de $\sigma_S$ on prend $\hat \sigma_S=\frac{\sqrt{1-c_4^2}}{c_4}\bar S$. On a alors :
+
+$$
+\begin{cases}
+\widehat{LIC}= \overline{S}-3\frac{\sqrt{1-c_4^2}}{c_4}\overline S \\
+\widehat{LSC}= \overline{S}+3\frac{\sqrt{1-c_4^2}}{c_4}\overline S 
+\end{cases}
+$$
+
+## Retour sur l'exemple :
+
+```{r echo=F}
+Range<-function(x) return(max(x)-min(x))
+SD<-function(x) return(mean((x-mean(x))^2))
+tab<-data.frame(cbind(
+  M=apply(df,1,mean),
+  R=apply(df,1,Range),
+  S=apply(df,1,SD)))
+
+kable(head(tab),digits = 2)
+```
+
+Pour l'estimation de $\sigma$ on obtient 
+
+`r mean(tab$R)/coeff_correct[5,"d2"]` avec la moyenne des étendues et `r mean(tab$S)/coeff_correct[5,"c4"]`
+
+Donc ces deux valeurs sont proches. 
+
+
+

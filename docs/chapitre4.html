@@ -225,6 +225,7 @@ window.Quarto = {
   <li><a href="#distribution-des-paramètres" id="toc-distribution-des-paramètres" class="nav-link" data-scroll-target="#distribution-des-paramètres"><span class="header-section-number">4.2</span> Distribution des paramètres</a></li>
   <li><a href="#estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." id="toc-estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." class="nav-link" data-scroll-target="#estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne."><span class="header-section-number">4.3</span> Estimation des limites de contrôle pour la carte de la moyenne.</a></li>
   <li><a href="#estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" id="toc-estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" class="nav-link" data-scroll-target="#estimation-des-limites-de-contrôle-pour-la-carte-des-étendues"><span class="header-section-number">4.4</span> Estimation des limites de contrôle pour la carte des étendues</a></li>
+  <li><a href="#retour-sur-lexemple" id="toc-retour-sur-lexemple" class="nav-link" data-scroll-target="#retour-sur-lexemple"><span class="header-section-number">4.5</span> Retour sur l’exemple :</a></li>
   </ul>
 </nav>
     </div>
@@ -365,13 +366,13 @@ LS=\mu+z_{1-\alpha/2}\frac{\sigma}{\sqrt n} \\
 <p>On pourra en conclure que la moyenne <span class="math inline">\(\bar X\)</span> de l’échantillon considéré n’est pas significativement différente de la moyenne <span class="math inline">\(\mu\)</span> (c’est à dire que le procédé est sous contrôle) si <span class="math inline">\(\bar X&nbsp;\in [LI,LS].\)</span></p>
 <p>Les <strong><em>limites de surveillance</em></strong> sont définies de façon à déterminer, au risque de 4.5%, les moyennes significativement différentes de la moyenne globale :</p>
 <ul>
-<li><p>Limite inférieure de surveillance : <span class="math inline">\(LIS=\mu-2\frac{\sigma}{\sqrt n}\)</span></p></li>
-<li><p>Limite supérieure de surveillance : <span class="math inline">\(LSS=\mu+2\frac{\sigma}{\sqrt n}\)</span></p></li>
+<li><p>Limite inférieure de surveillance (LIS): <span class="math inline">\(LIS=\mu-2\frac{\sigma}{\sqrt n}\)</span></p></li>
+<li><p>Limite supérieure de surveillance (LSS): <span class="math inline">\(LSS=\mu+2\frac{\sigma}{\sqrt n}\)</span></p></li>
 </ul>
 <p>Les <strong><em>limites de contrôle</em></strong> sont définies de façon à déterminer, au risque de 0.3% de fausses alertes, les moyennes significativement différentes de la moyenne globale :</p>
 <ul>
-<li><p>Limite inférieure de contrôle : <span class="math inline">\(LIS=\mu-3\frac{\sigma}{\sqrt n}\)</span></p></li>
-<li><p>Limite supérieure de contrôle : <span class="math inline">\(LSS=\mu+3\frac{\sigma}{\sqrt n}\)</span></p></li>
+<li><p>Limite inférieure de contrôle (LIC): <span class="math inline">\(LIC=\mu-3\frac{\sigma}{\sqrt n}\)</span></p></li>
+<li><p>Limite supérieure de contrôle (LSC): <span class="math inline">\(LSC=\mu+3\frac{\sigma}{\sqrt n}\)</span></p></li>
 </ul>
 </section>
 <section id="estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." class="level2" data-number="4.3">
@@ -386,12 +387,71 @@ LS=\mu+z_{1-\alpha/2}\frac{\sigma}{\sqrt n} \\
 </section>
 <section id="estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="estimation-des-limites-de-contrôle-pour-la-carte-des-étendues"><span class="header-section-number">4.4</span> Estimation des limites de contrôle pour la carte des étendues</h2>
-<p>Pour l’estimation de <span class="math inline">\(\mu_R\)</span> on prend <span class="math inline">\(\hat\mu_R=\bar R\)</span>, et pour l’estimation de <span class="math inline">\(\sigma_R\)</span> on prend <span class="math inline">\(\hat \sigma_R=\frac{d_3}{d_2}\bar R\)</span> où <span class="math inline">\(d_3\)</span> est l’écart type des étendues d’une loi normale centrée réduite. On a alors <span class="math display">\[
+<p>Pour l’estimation de <span class="math inline">\(\mu_R\)</span> on prend <span class="math inline">\(\hat\mu_R=\bar R\)</span>, et pour l’estimation de <span class="math inline">\(\sigma_R\)</span> on prend <span class="math inline">\(\hat \sigma_R=\frac{d_3}{d_2}\bar R\)</span> où <span class="math inline">\(d_3\)</span> est l’écart type des étendues d’une loi normale centrée réduite. On a alors</p>
+<p><span class="math display">\[
 \begin{cases}
 \widehat{LIC}= \overline{R}-3\frac{d_3}{d_2}\overline R \\
 \widehat{LSC}= \overline{R}+3\frac{d_3}{d_2}\overline R
 \end{cases}
+\]</span> ## Estimation des limites de contrôle pour la carte des écarts types</p>
+<p>Pour l’estimation de <span class="math inline">\(\mu_S\)</span> on prend <span class="math inline">\(\hat\mu_S=\bar S\)</span>, et pour l’estimation de <span class="math inline">\(\sigma_S\)</span> on prend <span class="math inline">\(\hat \sigma_S=\frac{\sqrt{1-c_4^2}}{c_4}\bar S\)</span>. On a alors :</p>
+<p><span class="math display">\[
+\begin{cases}
+\widehat{LIC}= \overline{S}-3\frac{\sqrt{1-c_4^2}}{c_4}\overline S \\
+\widehat{LSC}= \overline{S}+3\frac{\sqrt{1-c_4^2}}{c_4}\overline S
+\end{cases}
 \]</span></p>
+</section>
+<section id="retour-sur-lexemple" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="retour-sur-lexemple"><span class="header-section-number">4.5</span> Retour sur l’exemple :</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">M</th>
+<th style="text-align: right;">R</th>
+<th style="text-align: right;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">99.92</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">0.61</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">99.90</td>
+<td style="text-align: right;">1.7</td>
+<td style="text-align: right;">0.38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">100.16</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">1.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">100.16</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">2.34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">99.66</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">1.75</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">100.16</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">0.52</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Pour l’estimation de <span class="math inline">\(\sigma\)</span> on obtient</p>
+<p>0.9666943 avec la moyenne des étendues et 0.9951602</p>
+<p>Donc ces deux valeurs sont proches.</p>
 
 
 </section>

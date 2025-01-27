@@ -18,22 +18,81 @@ La notion d'efficacité d'une carte de contrôle est sa capacité à détecter u
 
 Le dérèglement peut concerner un décentrage (dérèglement de la moyenne) ou bien une augmentation de la dispersion.
 
-## Déréglage de la moyenne 
+La notion d'efficacité est proche de la notion de puissance pour les tests statistiques.
 
-![](figure/decentrage_moy.png)
-Un décentrage de moyenne est exprimé en nombre d'écart type (unité standardisé) donc si $\mu_1$ est la moyenne décentrée, on lui associera le décentrage 
+## Faux positifs et Faux négatifs
+
+On va traduire dans le contexte de la MSP les notions vues sur les tests. 
+
+- Réalité (jamais connue) : dérive (ou non) de la production
+
+- Résultat du contrôle : détection (ou non) d'une dérive de production.
+
+Ceci conduit à deux types d'erreurs 
+
+```{=html}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky"></th>
+    <th class="tg-c3ow" colspan="2">Réalité</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">Déréglage</td>
+    <td class="tg-0pky">Non déréglage</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow" rowspan="2">carte de CTRL</td>
+    <td class="tg-0pky">Détection</td>
+    <td class="tg-0pky">VRAI POSITIF</td>
+    <td class="tg-0pky">FAUX POSITIF</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Non détection</td>
+    <td class="tg-0pky">FAUX NEGATIF</td>
+    <td class="tg-0pky">VRAI NEGATIF</td>
+  </tr>
+</tbody>
+</table>
+```
+
+Ce que l'on connait (par construction de la carte de contrôle) :
+
+- La probabilité d'obtenir un faux positif : 0.3 % (par définition des limites de contrôle)
+
+- La probabilité d'obtenir un vrai négatif : 99.7% (toujours par construction).
+
+Ce que l'on cherche :
+
+La probabilité $\beta$ d'obtenir un faux négatif  ou de manière équivalente la probabilité $1-\beta$ d'obtenir un vrai positif (appelée puissance du test).
+
+## Déréglage de la moyenne
+
+![](figure/decentrage_moy.png) Un décentrage de moyenne est exprimé en nombre d'écart type (unité standardisé) donc si $\mu_1$ est la moyenne décentrée, on lui associera le décentrage
 
 $$
 \rho=\frac{|\mu_1-\mu|}{\sigma}
 $$
 
-La probabilité $\beta$ de ne pas détecter le décentrage est alors 
+La probabilité $\beta$ de ne pas détecter le décentrage est alors
 
 $$
 \beta=\mathbb P(LIC<\widetilde X <LSC)
 $$
 
-où $\widetilde X \sim \mathcal N(\mu+\rho\sigma,\frac{\sigma}{\sqrt{n}}).$ Un calcul simple permet d'obtenir 
+où $\widetilde X \sim \mathcal N(\mu+\rho\sigma,\frac{\sigma}{\sqrt{n}}).$ Un calcul simple permet d'obtenir
 
 $$
 \beta = F(3-\rho\sqrt n)-F(-3-\rho\sqrt n)
@@ -41,7 +100,7 @@ $$
 
 où $F(x)=\mathbb P(X<x)$ est la fonction de répartition de la loi normale.
 
-***L'efficacité de la carte est mesurée par $1-\beta$ (appelée puissance de la carte). ***
+***L'efficacité de la carte est mesurée par*** $1-\beta$ ( puissance de la carte).
 
 On obtient ainsi les courbes d'efficacité de la carte de la moyenne en fonction de la taille $n$ des échantillons prélevés.
 
@@ -60,35 +119,31 @@ lines(rho,1-beta,col="darkred")
 legend("bottomright",c("n=5","n=10","n=15"),lty=rep(1,3),col=c("black","darkblue","darkred"))
 ```
 
-- On constate (ce qui est logique) que la probabilité de ne pas détecter un déréglage donné diminue en fonction de la taille de l'échantillon.
+-   On constate (ce qui est logique) que la probabilité de ne pas détecter un déréglage donné diminue en fonction de la taille de l'échantillon.
 
-- Détecter un déréglage $\rho=0$ correspond à une fausse alerte qui vaut pour la carte de la moyenne $\alpha=0.3\%$. 
+-   Détecter un déréglage $\rho=0$ correspond à une fausse alerte qui vaut pour la carte de la moyenne $\alpha=0.3\%$.
 
-## Déréglage de l'écart type 
+## Déréglage de l'écart type
 
 Ici on considère des décentrages $\rho>1$ (sinon il s'agit d'une amélioration de la dispersion).
 
-Un calcul similaire au précédent conduit à 
-$$
+Un calcul similaire au précédent conduit à $$
 \beta=F(\frac{3}{\rho})-F(\frac{-3}{\rho})
-$$
-Ici on constate que l'efficacité de la carte est indépendante de $n$ et qu'elle est très mauvaise. Il faut une très grande valeur de $\rho$ pour avoir une petite valeur de $\beta$.
+$$ Ici on constate que l'efficacité de la carte est indépendante de $n$ et qu'elle est très mauvaise. Il faut une très grande valeur de $\rho$ pour avoir une petite valeur de $\beta$.
 
-Par exemple pour $\rho=3$ on a $\beta=$ `r pnorm(3/3)-pnorm(-3/3)` c'est à dire pour un écart type qui triplerait la probabilité ne peut pas détecter ce dérèglement est de 68.3%. 
+Par exemple pour $\rho=3$ on a $\beta=$ `r pnorm(3/3)-pnorm(-3/3)` c'est à dire pour un écart type qui triplerait la probabilité ne peut pas détecter ce dérèglement est de 68.3%.
 
 ## Période opérationelle moyenne (Average Run Length)
 
-
 La Période Opérationnelle Moyenne correspond au nombre de prélèvements qu'il faut effectuer, en moyenne, pour sortir des limites de contrôle lorsque qu'un déréglage $\rho$ s'est produit.
 
-Le cas $\rho=0$ pour une carte de Shewhart avec des observations indépendantes correspond à une fausse alerte qui se produit dans $\alpha=0.3\%$ et correspond à 
+Le cas $\rho=0$ pour une carte de Shewhart avec des observations indépendantes correspond à une fausse alerte qui se produit dans $\alpha=0.3\%$ et correspond à
 
 $$
 ARL_0=\frac{1}{0.003}=333
-$$
-donc il faut en moyenne 334 prélèvements avant de détecter une fausse alerte.
+$$ donc il faut en moyenne 334 prélèvements avant de détecter une fausse alerte.
 
-$ARL$ est définie par 
+$ARL$ est définie par
 
 $$
 ARL_\rho=\frac 1{1-\beta}
@@ -115,9 +170,9 @@ lines(rho,ARL,col="darkred")
 legend("topright",c("n=5","n=10","n=15"),lty=rep(1,3),col=c("black","darkblue","darkred"))
 ```
 
-## Calibration des tailles de prélèvement 
+## Calibration des tailles de prélèvement
 
-La production initiale est $X\sim \mathcal N (\mu,\sigma)$ et la production décentrée vaut $\widetilde X \sim \mathcal N (\mu+\rho\sigma,\sigma)$. On sait calculer la probabilité $1-\beta$ de détecter le décentrage en fonction de $\rho$ et on a donc 
+La production initiale est $X\sim \mathcal N (\mu,\sigma)$ et la production décentrée vaut $\widetilde X \sim \mathcal N (\mu+\rho\sigma,\sigma)$. On sait calculer la probabilité $1-\beta$ de détecter le décentrage en fonction de $\rho$ et on a donc
 
 $$
 ARL_\rho=\frac 1{1-\beta}=\frac 1{1-F(3-\rho\sqrt n)+F(-3-\rho\sqrt n)}
@@ -136,27 +191,23 @@ J<-which.max(ARL<50)
 n[J]
 ```
 
-
-# Cartes aux limites modifiées 
+# Cartes aux limites modifiées
 
 Pour l'instant les cartes qui ont été proposées ne tiennent pas compte des tolérances imposées par le client. Elles reposent uniquement sur la distribution des observations et sur le % de fausses alertes que l'on souhaite observer (0.3% dans les cartes précédentes).
 
-- On suppose connaître les tolérances $TI,TS$ autorisées par le client. 
+-   On suppose connaître les tolérances $TI,TS$ autorisées par le client.
 
-- On suppose que la production suit une loi normale $\mathcal N(\mu,\sigma).$
-
+-   On suppose que la production suit une loi normale $\mathcal N(\mu,\sigma).$
 
 ## Cas n°1 : le procédé de fabrication n'est pas capable
 
-Dans ce cas on $Cam<1.33$, ce qui donne $TS-TI<1.33\times 6\sigma\simeq 8\sigma$. On voudrait pouvoir le plus rapidement possible détecter le problème, le seul paramètre sur lequel on peut jouer est la taille $n$ des prélèvements. En prenant 
-
+Dans ce cas on $Cam<1.33$, ce qui donne $TS-TI<1.33\times 6\sigma\simeq 8\sigma$. On voudrait pouvoir le plus rapidement possible détecter le problème, le seul paramètre sur lequel on peut jouer est la taille $n$ des prélèvements. En prenant
 
 $$
 n \geq \left( \frac{8\sigma}{TS-TI} \right)^2
-$$
-on pourra détecter plus rapidement le problème de capabilité du procédé de fabrication.
+$$ on pourra détecter plus rapidement le problème de capabilité du procédé de fabrication.
 
-### Exemple 
+### Exemple
 
 On suppose que $X \sim \mathcal N(10,2)$ on prélève 20 échantillons de taille $n=4$.
 
@@ -172,7 +223,7 @@ res=qcc(df,type="xbar",plot=F)
 plot(res)
 ```
 
-Supposons que l'intervalle de tolérance soit $10 \pm 3$. Alors on a   
+Supposons que l'intervalle de tolérance soit $10 \pm 3$. Alors on a\
 $n \geq$ `r (8*2/6)^2` (on prend $n=8$)
 
 ```{r}
@@ -180,14 +231,14 @@ df2<-data.frame(matrix(round(X,1),nrow=k,ncol=8))
 res<-qcc(df2,type="xbar",plot=F)
 plot(res)
 ```
+
 On constate que dès le 7ième prélèvement on trouve une valeur hors contrôle.
 
-## Cas n°2 : le procédé de fabrication est  capable
+## Cas n°2 : le procédé de fabrication est capable
 
 Par exemple si on a une prodcution $X \sim \mathcal N(3,0.5)$ avec des tolérances $TI=1$ et $TS=5$, on a $TS-TI >> 6\sigma$ donc on peut faire une carte de la moyenne aux limites modifiées les nouvelles limites $LIC^*,LSC^*$ étant égales à des moyennes modifiées $\mu_I,\mu_S.$
 
 ![](figure/carte_lim_mod.png)
-
 
 On définit les moyennes maximales refusables (inférieures et supérieures)
 
@@ -200,27 +251,23 @@ $$
 
 ## Remarque :
 
-Ce choix peut être relié au coefficient de performance défini dans le chapitre précédent $Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma}$. 
+Ce choix peut être relié au coefficient de performance défini dans le chapitre précédent $Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma}$.
 
-Si on remplace $\mu$ par $\mu_I$ on obtient $\frac{\min\left(\mu_I-TI;TS-\mu_I\right)}{3\sigma}=\min(1;\frac{TS-TI-3\sigma}{3\sigma}).$ 
+Si on remplace $\mu$ par $\mu_I$ on obtient $\frac{\min\left(\mu_I-TI;TS-\mu_I\right)}{3\sigma}=\min(1;\frac{TS-TI-3\sigma}{3\sigma}).$
 
-- Ce nombre vaut 1 si $\frac{TS-TI-3\sigma}{3\sigma}>1$ ce qui revient à $Cap>1.$ C'est à dire que lorsque le procédé est sous contrôle on va autoriser une déviation de la moyenne.
+-   Ce nombre vaut 1 si $\frac{TS-TI-3\sigma}{3\sigma}>1$ ce qui revient à $Cap>1.$ C'est à dire que lorsque le procédé est sous contrôle on va autoriser une déviation de la moyenne.
 
-- Ce nombre vaut $\frac{TS-TI-3\sigma}{3\sigma}$ sinon et dans ce cas $Cap<1,$ le procédé ne répond pas aux spécifications imposées par le client. Il faut dans ce cas agir sur le procédé. 
-
-
-
+-   Ce nombre vaut $\frac{TS-TI-3\sigma}{3\sigma}$ sinon et dans ce cas $Cap<1,$ le procédé ne répond pas aux spécifications imposées par le client. Il faut dans ce cas agir sur le procédé.
 
 ## Calibration de la taille des échantillons :
 
-On peut également définir  le ***déraglage maximal admissible*** $\rho_{max}$ par
+On peut également définir le ***déraglage maximal admissible*** $\rho_{max}$ par
 
 $$
 \rho_{max}=\min\left( \frac{\mu_S-\mu}{\sigma},\frac{\mu-\mu_I}{\sigma}\right)
 $$
 
-
-On va alors calibrer la taille $n$ des échantillons à prélever de façon à détecter le déréglage maximal admissible à un risque $\beta$ fixé de ne pas détecter ce déréglage maximal $\rho_max$. D'après ce qui précède $n$ sera le plus petit entier tel que
+On va alors calibrer la taille $n$ des échantillons à prélever de façon à détecter le déréglage maximal admissible à un risque $\beta$ fixé de ne pas détecter ce déréglage maximal $\rho_{max}$. D'après ce qui précède $n$ sera le plus petit entier tel que
 
 $$
 n \geq \left( \frac{3+z_{1-\beta}}{\rho_{max}} \right)^2
@@ -230,6 +277,6 @@ où $z_{1-\beta}$ est le quantile d'ordre $(1-\beta)$ de la loi normale.
 
 ## Retour à l'exemple
 
-Avec les valeurs précédentes on a $\rho_{max}=3.$ Si on veut détecter ce déréglage dans 95% des cas alors on doit avoir $n \geq 2.7$
+Avec les valeurs précédentes on a $\rho_{max}=3.$ Si on veut détecter ce déréglage dans 90% des cas alors on doit avoir $n \geq$ `r ((3-qnorm(0.1))/3)^2`
 
-Prélever des échantillons de taille $n=3$ suffit à détecter dans 95% des cas des décentrages d'au moins 3 écarts types. 
+Prélever des échantillons de taille $n=3$ suffit à détecter dans 95% des cas des décentrages d'au moins 3 écarts types.
