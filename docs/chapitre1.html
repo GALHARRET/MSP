@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Estimation des variations de production – MSP</title>
+<title>1&nbsp; Estimation des paramètres du procédé – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre2.html" rel="next">
+<link href="./chapitre3.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des paramètres du procédé</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,37 +178,31 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des paramètres du procédé</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
   </div>
 </li>
     </ul>
@@ -222,8 +216,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1.1</span> Introduction</a></li>
-  <li><a href="#estimation-de-la-dispersion-globale" id="toc-estimation-de-la-dispersion-globale" class="nav-link" data-scroll-target="#estimation-de-la-dispersion-globale"><span class="header-section-number">1.2</span> Estimation de la dispersion globale</a></li>
-  <li><a href="#estimation-de-la-dispersion-instantanée" id="toc-estimation-de-la-dispersion-instantanée" class="nav-link" data-scroll-target="#estimation-de-la-dispersion-instantanée"><span class="header-section-number">1.3</span> Estimation de la dispersion instantanée :</a></li>
+  <li><a href="#estimation-des-paramètres-globaux-mu_gsigma_g" id="toc-estimation-des-paramètres-globaux-mu_gsigma_g" class="nav-link" data-scroll-target="#estimation-des-paramètres-globaux-mu_gsigma_g"><span class="header-section-number">1.2</span> Estimation des paramètres globaux (<span class="math inline">\(\mu_G,\sigma_G\)</span>)</a></li>
+  <li><a href="#estimation-des-paramètres-instantanés-mu_isigma_i" id="toc-estimation-des-paramètres-instantanés-mu_isigma_i" class="nav-link" data-scroll-target="#estimation-des-paramètres-instantanés-mu_isigma_i"><span class="header-section-number">1.3</span> Estimation des paramètres instantanés (<span class="math inline">\(\mu_I,\sigma_I\)</span>):</a></li>
   </ul>
 </nav>
     </div>
@@ -232,7 +226,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des paramètres du procédé</span></h1>
 </div>
 
 
@@ -253,27 +247,14 @@ window.Quarto = {
 <h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
 <ul>
 <li><p>Un procédé de fabrication même lorsqu’il est sous contrôle connait des variations aléatoires (peu importantes).</p></li>
-<li><p>Ces variations sont assignables aux 5M (voir figure ). La dispersion globale du procédé de fabrication notée <span class="math inline">\(D_G\)</span> rend compte de ces fluctuations.</p></li>
+<li><p>Ces variations sont assignables aux 5M (voir figure). La dispersion globale du procédé de fabrication notée <span class="math inline">\(D_G\)</span> rend compte de ces fluctuations.</p></li>
 </ul>
 <p><img src="figure/figure_5M.png" class="img-fluid"> <a href="https://patrice-hardouin.canoprof.fr/eleve/Sciences%20en%20H%C3%B4tellerie-Restauration/MAN_HR/analyses_microbiologiques_eleve/activities/origine_non_conforme.xhtml">Lien vers le cours de Patrice Hardouin</a></p>
 <ul>
 <li>Les variations qui sont imputables aux machines sont particulièrement étudiées. On note <span class="math inline">\(D_M\)</span> la dispersion due aux machines, on parle aussi de dispersion instantanée.</li>
 </ul>
-<p>Il est clair que <span class="math inline">\(D_G \geq D_M.\)</span></p>
-</section>
-<section id="estimation-de-la-dispersion-globale" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="estimation-de-la-dispersion-globale"><span class="header-section-number">1.2</span> Estimation de la dispersion globale</h2>
-<p>On suppose que les observations suivent une loi normale de moyenne <span class="math inline">\(\mu\)</span> et d’écart type <span class="math inline">\(\sigma_G\)</span>. Cela permet de dire que la proportion théorique de données dans</p>
-<ul>
-<li><p><span class="math inline">\([\mu-\sigma_G,\mu+\sigma_G]\)</span> est de 68.3 %,</p></li>
-<li><p><span class="math inline">\([\mu-2\sigma_G,\mu+2\sigma_G]\)</span> est de 95.4 %,</p></li>
-<li><p><span class="math inline">\([\mu-3\sigma_G,\mu+3\sigma_G]\)</span> est de 99.7 %.</p></li>
-</ul>
-<p>Ainsi pour la dispersion globale on choisit <span class="math display">\[D_g=6\sigma_G.\]</span></p>
-<p>Pour l’estimation de <span class="math inline">\(D_M\)</span> on prélève un échantillon à un instant donné (ainsi les variations sont uniquement dues à la machine) et on suppose là-encore que les valeurs sont distribuées selon une loi normale de moyenne <span class="math inline">\(\mu\)</span> et d’écart type <span class="math inline">\(\sigma_M.\)</span> Naturellement, la dispersion instantanée sera définie par <span class="math inline">\(D_M=6\sigma_M.\)</span></p>
-<p>Les deux écarts types <span class="math inline">\(\sigma_M,\sigma_G\)</span> sont inconnus, en pratique, ils vont être estimés de la façon suivante :</p>
-<p>On note <span class="math inline">\(y_{ij}\)</span> la valeur <span class="math inline">\(i=1,...,n\)</span> de l’échantillon <span class="math inline">\(j=1,...,k.\)</span></p>
-<p>Exemple : on prélève 25 échantillons de 5 unités de production. Les observations fluctuent autour de <span class="math inline">\(y=1\)</span>. Ces fluctuations sont aléatoires et peu importantes (<span class="math inline">\(\pm\)</span> 5%).</p>
+<p>En pratique, on prélève <span class="math inline">\(k\)</span> échantillons de même effectif <span class="math inline">\(n\)</span>.</p>
+<p>Exemple : on prélève à intervalles réguliers 25 échantillons de 5 unités de production. Les observations fluctuent autour de <span class="math inline">\(y=1\)</span>. Ces fluctuations sont aléatoires et peu importantes (<span class="math inline">\(\pm\)</span> 5%).</p>
 <p>Les données sont disponibles <a href="cap_data.csv">ici</a></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -284,204 +265,140 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Une estimation de <span class="math inline">\(\mu\)</span> est <span class="math display">\[\hat \mu=\overline{\overline{y}}=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j},\]</span> et une estimation de <span class="math inline">\(\sigma_G\)</span> est <span class="math display">\[\hat \sigma_G= \sqrt{\frac{\displaystyle\sum_{j=1}^k\sum_{i=1}^n(y_{ij}-\hat \mu)^2}{n\times k-1}}.\]</span> Dans l’exemple on a <span class="math inline">\(\hat \sigma_G=\)</span> 0.02206.</p>
 </section>
-<section id="estimation-de-la-dispersion-instantanée" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="estimation-de-la-dispersion-instantanée"><span class="header-section-number">1.3</span> Estimation de la dispersion instantanée :</h2>
-<p>Il existe plusieurs estimations possibles de <span class="math inline">\(\sigma_M\)</span> :</p>
+<section id="estimation-des-paramètres-globaux-mu_gsigma_g" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="estimation-des-paramètres-globaux-mu_gsigma_g"><span class="header-section-number">1.2</span> Estimation des paramètres globaux (<span class="math inline">\(\mu_G,\sigma_G\)</span>)</h2>
+<p>Dans notre exemple précédent on estime la moyenne et l’écart type du procédé à partir des <span class="math inline">\(k\times n\)</span> observations :</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre1_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On suppose que les observations suivent une loi normale de moyenne <span class="math inline">\(\mu_G\)</span> et d’écart type <span class="math inline">\(\sigma_G\)</span>. Cela permet de dire que la proportion théorique de données dans</p>
+<ul>
+<li><p><span class="math inline">\([\mu_G-\sigma_G,\mu+\sigma_G]\)</span> est de 68.3 %,</p></li>
+<li><p><span class="math inline">\([\mu_G-2\sigma_G,\mu+2\sigma_G]\)</span> est de 95.4 %,</p></li>
+<li><p><span class="math inline">\([\mu_G-3\sigma_G,\mu+3\sigma_G]\)</span> est de 99.7 %.</p></li>
+</ul>
+<p>Pour la dispersion globale on choisit <span class="math display">\[D_g=6\sigma_G.\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Estimation des paramètres de production">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Estimation des paramètres de production
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On prélève <span class="math inline">\(k\)</span> échantillons de même effectif <span class="math inline">\(n\)</span>. On note <span class="math inline">\(y_{ij}\)</span> la valeur <span class="math inline">\(i=1,...,n\)</span> de l’échantillon <span class="math inline">\(j=1,...,k.\)</span> Une estimation de <span class="math inline">\(\mu_G\)</span> est <span class="math display">\[\hat \mu_G=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j},\]</span> et une estimation de <span class="math inline">\(\sigma_G\)</span> est <span class="math display">\[\hat \sigma_G= \sqrt{\frac{\displaystyle\sum_{j=1}^k\sum_{i=1}^n(y_{ij}-\hat \mu)^2}{n\times k-1}}.\]</span></p>
+</div>
+</div>
+<p>Calculer dans l’exemple une estimation de la moyenne et de l’écart type global :</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Voir la correction</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>obs)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>obs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="estimation-des-paramètres-instantanés-mu_isigma_i" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="estimation-des-paramètres-instantanés-mu_isigma_i"><span class="header-section-number">1.3</span> Estimation des paramètres instantanés (<span class="math inline">\(\mu_I,\sigma_I\)</span>):</h2>
+<p>On prélève un échantillon à un instant donné (ainsi les variations sont uniquement dues à la machine) et on suppose que les valeurs sont distribuées selon une loi normale de moyenne <span class="math inline">\(\mu_I\)</span> et d’écart type <span class="math inline">\(\sigma_I.\)</span> Naturellement, la dispersion instantanée sera définie par <span class="math inline">\(D_I=6\sigma_I.\)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On voit dans cet exemple que les variations instantanées sont assez fluctuantes (c’est logique puisque pour chaque estimation on ne considère que 5 observations…) .</p>
+<p>Raisonnablement on peut estimer que <span class="math inline">\(\mu_I\simeq \mu_G\)</span>, par contre il existe plusieurs estimations possibles de <span class="math inline">\(\sigma_I\)</span> :</p>
 <ul>
 <li><p>la première est basée sur le calcul des écarts types des <span class="math inline">\(k\)</span> échantillons prélevés.</p></li>
 <li><p>la deuxième est basée sur le calcul des étendues des <span class="math inline">\(k\)</span> échantillons prélevés.</p></li>
 </ul>
-<p>Pour ces calculs on appliquera des coefficients de correction qui sont donnés en fonction de <span class="math inline">\(n\)</span> dans le tableau suivant. Le coefficient <span class="math inline">\(d_2(n)\)</span> correspond à l’espérance de l’étendue d’une loi normale centrée réduite et <span class="math inline">\(c_4(n)\)</span> à l’espérance de l’écart type d’une loi normale centrée réduite. Ces valeurs peuvent très facilement être obtenues par simulation par exemple pour <span class="math inline">\(n=5\)</span> :</p>
+<p>Pour ces calculs on appliquera des coefficients de correction :</p>
+<ul>
+<li><p>Le coefficient <span class="math inline">\(d_2(n)\)</span> correspond à l’espérance de l’étendue d’une loi normale centrée réduite et</p></li>
+<li><p>Le coefficient <span class="math inline">\(c_4(n)\)</span> à l’espérance de l’écart type d’une loi normale centrée réduite.</p></li>
+</ul>
+<p>Les fonctions <em>c4,d2,d3</em> du package <em>multiSPC</em> permettent d’estimer ces paramètres :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">5</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>s<span class="ot">&lt;-</span><span class="fu">rep</span>(<span class="cn">NA</span>,B)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>R<span class="ot">&lt;-</span><span class="fu">rep</span>(<span class="cn">NA</span>,B)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    X<span class="ot">&lt;-</span><span class="fu">rnorm</span>(n)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    s[b]<span class="ot">&lt;-</span><span class="fu">sd</span>(X)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    R[b]<span class="ot">&lt;-</span><span class="fu">max</span>(X)<span class="sc">-</span><span class="fu">min</span>(X)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  c4<span class="ot">&lt;-</span><span class="fu">mean</span>(s)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  d2<span class="ot">&lt;-</span><span class="fu">mean</span>(R)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  d3<span class="ot">&lt;-</span><span class="fu">sd</span>(R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c4</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>table des coefficients c4, d2, d3</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">n</th>
-<th style="text-align: right;">c4</th>
-<th style="text-align: right;">d2</th>
-<th style="text-align: right;">d3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0.7971</td>
-<td style="text-align: right;">1.1273</td>
-<td style="text-align: right;">0.8513</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.8862</td>
-<td style="text-align: right;">1.6924</td>
-<td style="text-align: right;">0.8897</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0.9214</td>
-<td style="text-align: right;">2.0591</td>
-<td style="text-align: right;">0.8791</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0.9400</td>
-<td style="text-align: right;">2.3262</td>
-<td style="text-align: right;">0.8645</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0.9514</td>
-<td style="text-align: right;">2.5344</td>
-<td style="text-align: right;">0.8486</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0.9593</td>
-<td style="text-align: right;">2.7046</td>
-<td style="text-align: right;">0.8340</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0.9643</td>
-<td style="text-align: right;">2.8455</td>
-<td style="text-align: right;">0.8195</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">0.9695</td>
-<td style="text-align: right;">2.9704</td>
-<td style="text-align: right;">0.8076</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0.9730</td>
-<td style="text-align: right;">3.0786</td>
-<td style="text-align: right;">0.7969</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>On sait pour chaque échantillon <span class="math inline">\(j\)</span> de <span class="math inline">\(n\)</span> valeurs calculer une estimation de l’écart type <span class="math inline">\(\sigma_j\)</span> en calculant <span class="math display">\[s_j= \sqrt{\frac{\displaystyle\sum_{i=1}^n(y_{ij}-\bar y_j)^2}{n-1}},\]</span> où <span class="math inline">\(\bar y_j\)</span> est la moyenne de l’échantillon <span class="math inline">\(j.\)</span></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Estimation à partir des écarts types">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Estimation à partir des écarts types
 </div>
 </div>
-<section id="calcul-basé-sur-les-écarts-types-s_j" class="level4" data-number="1.3.0.1">
-<h4 data-number="1.3.0.1" class="anchored" data-anchor-id="calcul-basé-sur-les-écarts-types-s_j"><span class="header-section-number">1.3.0.1</span> Calcul basé sur les écarts types <span class="math inline">\(s_j\)</span></h4>
-<p>On sait pour chaque échantillon <span class="math inline">\(j\)</span> de <span class="math inline">\(n\)</span> valeurs calculer une estimation de l’écart type <span class="math inline">\(\sigma_j\)</span> en calculant <span class="math display">\[s_j= \sqrt{\frac{\displaystyle\sum_{i=1}^n(y_{ij}-\bar y_j)^2}{n-1}},\]</span> où <span class="math inline">\(\bar y_j\)</span> est la moyenne de l’échantillon <span class="math inline">\(j.\)</span></p>
-<p>Dans l’exemple les premiers écarts types valent</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">sample</th>
-<th style="text-align: right;">s_j</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.01560</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0.01229</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.02588</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0.01433</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0.02207</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0.02400</td>
-</tr>
-</tbody>
-</table>
+<div class="callout-body-container callout-body">
+<p>On considère <span class="math inline">\(k\)</span> prélèvements de taille <span class="math inline">\(n\)</span> dont les écarts types sont <span class="math inline">\(s_1,...,s_k,\)</span> on pose <span class="math inline">\(\bar S =\frac{\sum_{j=1}^k s_j}{k}\)</span>. Une estimation de l’écart type instantané <span class="math inline">\(\sigma_M\)</span> est donné par <span class="math display">\[
+\hat \sigma_M=\dfrac{\bar S}{c_4(n)}.
+\]</span></p>
 </div>
 </div>
-<p>On pose <span class="math inline">\(\bar S =\frac{\sum_{j=1}^k s_j}{k}\)</span> et alors une estimation de l’écart type instantané <span class="math inline">\(\sigma_M\)</span> est donné par</p>
-<p><span class="math display">\[
-\hat \sigma_M=\dfrac{\bar S}{c_4}
-\]</span> où <span class="math inline">\(c_4\)</span> est donné dans la table 1.</p>
-<p>On obtient <span class="math inline">\(\hat \sigma_M=\)</span> 0.0228258</p>
-</section>
-<section id="calcul-basé-sur-les-étendues-r_j" class="level4" data-number="1.3.0.2">
-<h4 data-number="1.3.0.2" class="anchored" data-anchor-id="calcul-basé-sur-les-étendues-r_j"><span class="header-section-number">1.3.0.2</span> Calcul basé sur les étendues <span class="math inline">\(R_j\)</span></h4>
-<p>Pour chaque échantillon <span class="math inline">\(j\)</span> on calcule l’étendue</p>
+<ul>
+<li>Pour chaque échantillon <span class="math inline">\(j\)</span> on calcule l’étendue</li>
+</ul>
 <p><span class="math display">\[
 R_j=\max(y_{ij})-\min(y_{ij})
 \]</span></p>
-<p>On pose <span class="math inline">\(\bar R =\frac{\sum_{j=1}^k R_j}{k}\)</span> et alors une estimation de l’écart type instantané <span class="math inline">\(\sigma_M\)</span> est donné par</p>
-<p><span class="math display">\[
-\hat \sigma_M=\dfrac{\bar R}{d_2}
+<div class="callout callout-style-default callout-note callout-titled" title="Estimation à partir des écarts types">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Estimation à partir des écarts types
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On considère <span class="math inline">\(k\)</span> prélèvements de taille <span class="math inline">\(n\)</span> dont les étendues sont <span class="math inline">\(R_1,...,R_k,\)</span> on pose <span class="math inline">\(\bar R =\frac{\sum_{j=1}^k R_j}{k}\)</span>. Une estimation de l’écart type instantané <span class="math inline">\(\sigma_M\)</span> est donné par <span class="math display">\[
+\hat \sigma_M=\dfrac{\bar R}{d_2(n)}.
 \]</span></p>
-<p>où <span class="math inline">\(d_2\)</span> est donné dans la table 1.</p>
-<p>Retour à l’exemple</p>
+</div>
+</div>
+<p>Faire ces deux calculs sur les données de l’exemple précédent.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Voir la correction</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation à partir des écarts types</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sample) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"s_j"</span><span class="ot">=</span><span class="fu">round</span>(<span class="fu">sd</span>(obs),<span class="dv">5</span>)) </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tab<span class="sc">$</span><span class="st">"s_j"</span>)<span class="sc">/</span><span class="fu">c4</span>(<span class="dv">5</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation à partir des étendues</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>etendue<span class="ot">&lt;-</span><span class="cf">function</span>(X){<span class="fu">return</span>(<span class="fu">max</span>(X)<span class="sc">-</span><span class="fu">min</span>(X))}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>tab2<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sample)<span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"R_j"</span><span class="ot">=</span><span class="fu">etendue</span>(obs))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tab2<span class="sc">$</span><span class="st">"R_j"</span>)<span class="sc">/</span><span class="fu">d2</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Et alors on obtient :</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">sample</th>
-<th style="text-align: right;">R_j</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.04128</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0.02866</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.07048</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0.03681</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0.05540</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0.06414</td>
-</tr>
-</tbody>
-</table>
+<div>
+<figure class="figure">
+<p><img src="chapitre1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<p>On obtient <span class="math inline">\(\hat \sigma_M=\)</span> <code>r</code></p>
-<p>On constate que les estimations obtenues à partir de <span class="math inline">\(\bar R\)</span> ou de <span class="math inline">\(\bar S\)</span> sont proches.</p>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -909,8 +826,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre2.html" class="pagination-link" aria-label="Capabilité">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapitre3.html" class="pagination-link" aria-label="Cartes de contrôle">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

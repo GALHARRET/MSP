@@ -42,21 +42,21 @@
   {
     "objectID": "chapitre1.html",
     "href": "chapitre1.html",
-    "title": "1  Estimation des variations de production",
+    "title": "1  Estimation des paramètres du procédé",
     "section": "",
-    "text": "1.1 Introduction\nLien vers le cours de Patrice Hardouin\nIl est clair que \\(D_G \\geq D_M.\\)",
+    "text": "1.1 Introduction\nLien vers le cours de Patrice Hardouin\nEn pratique, on prélève \\(k\\) échantillons de même effectif \\(n\\).\nExemple : on prélève à intervalles réguliers 25 échantillons de 5 unités de production. Les observations fluctuent autour de \\(y=1\\). Ces fluctuations sont aléatoires et peu importantes (\\(\\pm\\) 5%).\nLes données sont disponibles ici",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Estimation des variations de production</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Estimation des paramètres du procédé</span>"
     ]
   },
   {
     "objectID": "chapitre1.html#introduction",
     "href": "chapitre1.html#introduction",
-    "title": "1  Estimation des variations de production",
+    "title": "1  Estimation des paramètres du procédé",
     "section": "",
-    "text": "Un procédé de fabrication même lorsqu’il est sous contrôle connait des variations aléatoires (peu importantes).\nCes variations sont assignables aux 5M (voir figure ). La dispersion globale du procédé de fabrication notée \\(D_G\\) rend compte de ces fluctuations.\n\n\n\nLes variations qui sont imputables aux machines sont particulièrement étudiées. On note \\(D_M\\) la dispersion due aux machines, on parle aussi de dispersion instantanée.",
+    "text": "Un procédé de fabrication même lorsqu’il est sous contrôle connait des variations aléatoires (peu importantes).\nCes variations sont assignables aux 5M (voir figure). La dispersion globale du procédé de fabrication notée \\(D_G\\) rend compte de ces fluctuations.\n\n\n\nLes variations qui sont imputables aux machines sont particulièrement étudiées. On note \\(D_M\\) la dispersion due aux machines, on parle aussi de dispersion instantanée.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Estimation des variations de production</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Estimation des paramètres du procédé</span>"
     ]
   },
   {
@@ -64,7 +64,7 @@
     "href": "chapitre1.html#estimation-de-la-dispersion-globale",
     "title": "1  Estimation des variations de production",
     "section": "1.2 Estimation de la dispersion globale",
-    "text": "1.2 Estimation de la dispersion globale\nOn suppose que les observations suivent une loi normale de moyenne \\(\\mu\\) et d’écart type \\(\\sigma_G\\). Cela permet de dire que la proportion théorique de données dans\n\n\\([\\mu-\\sigma_G,\\mu+\\sigma_G]\\) est de 68.3 %,\n\\([\\mu-2\\sigma_G,\\mu+2\\sigma_G]\\) est de 95.4 %,\n\\([\\mu-3\\sigma_G,\\mu+3\\sigma_G]\\) est de 99.7 %.\n\nAinsi pour la dispersion globale on choisit \\[D_g=6\\sigma_G.\\]\nPour l’estimation de \\(D_M\\) on prélève un échantillon à un instant donné (ainsi les variations sont uniquement dues à la machine) et on suppose là-encore que les valeurs sont distribuées selon une loi normale de moyenne \\(\\mu\\) et d’écart type \\(\\sigma_M.\\) Naturellement, la dispersion instantanée sera définie par \\(D_M=6\\sigma_M.\\)\nLes deux écarts types \\(\\sigma_M,\\sigma_G\\) sont inconnus, en pratique, ils vont être estimés de la façon suivante :\nOn note \\(y_{ij}\\) la valeur \\(i=1,...,n\\) de l’échantillon \\(j=1,...,k.\\)\nExemple : on prélève 25 échantillons de 5 unités de production. Les observations fluctuent autour de \\(y=1\\). Ces fluctuations sont aléatoires et peu importantes (\\(\\pm\\) 5%).\nLes données sont disponibles ici\n\n\n\n\n\n\n\n\n\nUne estimation de \\(\\mu\\) est \\[\\hat \\mu=\\overline{\\overline{y}}=\\frac 1{k} \\displaystyle\\sum_{j=1}^k \\bar y_{j},\\] et une estimation de \\(\\sigma_G\\) est \\[\\hat \\sigma_G= \\sqrt{\\frac{\\displaystyle\\sum_{j=1}^k\\sum_{i=1}^n(y_{ij}-\\hat \\mu)^2}{n\\times k-1}}.\\] Dans l’exemple on a \\(\\hat \\sigma_G=\\) 0.02206.",
+    "text": "1.2 Estimation de la dispersion globale\nOn suppose que les observations suivent une loi normale de moyenne \\(\\mu\\) et d’écart type \\(\\sigma_G\\). Cela permet de dire que la proportion théorique de données dans\n\n\\([\\mu-\\sigma_G,\\mu+\\sigma_G]\\) est de 68.3 %,\n\\([\\mu-2\\sigma_G,\\mu+2\\sigma_G]\\) est de 95.4 %,\n\\([\\mu-3\\sigma_G,\\mu+3\\sigma_G]\\) est de 99.7 %.\n\nAinsi pour la dispersion globale on choisit \\[D_g=6\\sigma_G.\\]\nPour l’estimation de \\(D_M\\) on prélève un échantillon à un instant donné (ainsi les variations sont uniquement dues à la machine) et on suppose là-encore que les valeurs sont distribuées selon une loi normale de moyenne \\(\\mu\\) et d’écart type \\(\\sigma_M.\\) Naturellement, la dispersion instantanée sera définie par \\(D_M=6\\sigma_M.\\)\nLes deux écarts types \\(\\sigma_M,\\sigma_G\\) sont inconnus, en pratique, ils vont être estimés de la façon suivante :\nOn note \\(y_{ij}\\) la valeur \\(i=1,...,n\\) de l’échantillon \\(j=1,...,k.\\)\nExemple : on prélève 25 échantillons de 5 unités de production. Les observations fluctuent autour de \\(y=1\\). Ces fluctuations sont aléatoires et peu importantes (\\(\\pm\\) 5%).\nLes données sont disponibles ici\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEstimation des paramètres de production\n\n\n\nUne estimation de \\(\\mu\\) est \\[\\hat \\mu=\\frac 1{k} \\displaystyle\\sum_{j=1}^k \\bar y_{j},\\] et une estimation de \\(\\sigma_G\\) est \\[\\hat \\sigma_G= \\sqrt{\\frac{\\displaystyle\\sum_{j=1}^k\\sum_{i=1}^n(y_{ij}-\\hat \\mu)^2}{n\\times k-1}}.\\]\n\n\nCalculer dans l’exemple une estimation de la moyenne et de l’écart type global :\n\n\nVoir la correction\nmean(df$obs)\nsd(df$obs)",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Estimation des variations de production</span>"
     ]
@@ -74,7 +74,7 @@
     "href": "chapitre1.html#estimation-de-la-dispersion-instantanée",
     "title": "1  Estimation des variations de production",
     "section": "1.3 Estimation de la dispersion instantanée :",
-    "text": "1.3 Estimation de la dispersion instantanée :\nIl existe plusieurs estimations possibles de \\(\\sigma_M\\) :\n\nla première est basée sur le calcul des écarts types des \\(k\\) échantillons prélevés.\nla deuxième est basée sur le calcul des étendues des \\(k\\) échantillons prélevés.\n\nPour ces calculs on appliquera des coefficients de correction qui sont donnés en fonction de \\(n\\) dans le tableau suivant. Le coefficient \\(d_2(n)\\) correspond à l’espérance de l’étendue d’une loi normale centrée réduite et \\(c_4(n)\\) à l’espérance de l’écart type d’une loi normale centrée réduite. Ces valeurs peuvent très facilement être obtenues par simulation par exemple pour \\(n=5\\) :\n\nn&lt;-5\nB&lt;-10^6\ns&lt;-rep(NA,B)\nR&lt;-rep(NA,B)\n  for(b in 1:B){\n    X&lt;-rnorm(n)\n    s[b]&lt;-sd(X)\n    R[b]&lt;-max(X)-min(X)\n  }\n  c4&lt;-mean(s)\n  d2&lt;-mean(R)\n  d3&lt;-sd(R)\n\n\n\n\ntable des coefficients c4, d2, d3\n\n\nn\nc4\nd2\nd3\n\n\n\n\n2\n0.7971\n1.1273\n0.8513\n\n\n3\n0.8862\n1.6924\n0.8897\n\n\n4\n0.9214\n2.0591\n0.8791\n\n\n5\n0.9400\n2.3262\n0.8645\n\n\n6\n0.9514\n2.5344\n0.8486\n\n\n7\n0.9593\n2.7046\n0.8340\n\n\n8\n0.9643\n2.8455\n0.8195\n\n\n9\n0.9695\n2.9704\n0.8076\n\n\n10\n0.9730\n3.0786\n0.7969\n\n\n\n\n\n\n1.3.0.1 Calcul basé sur les écarts types \\(s_j\\)\nOn sait pour chaque échantillon \\(j\\) de \\(n\\) valeurs calculer une estimation de l’écart type \\(\\sigma_j\\) en calculant \\[s_j= \\sqrt{\\frac{\\displaystyle\\sum_{i=1}^n(y_{ij}-\\bar y_j)^2}{n-1}},\\] où \\(\\bar y_j\\) est la moyenne de l’échantillon \\(j.\\)\nDans l’exemple les premiers écarts types valent\n\n\n\n\n\nsample\ns_j\n\n\n\n\n1\n0.01560\n\n\n2\n0.01229\n\n\n3\n0.02588\n\n\n4\n0.01433\n\n\n5\n0.02207\n\n\n6\n0.02400\n\n\n\n\n\nOn pose \\(\\bar S =\\frac{\\sum_{j=1}^k s_j}{k}\\) et alors une estimation de l’écart type instantané \\(\\sigma_M\\) est donné par\n\\[\n\\hat \\sigma_M=\\dfrac{\\bar S}{c_4}\n\\] où \\(c_4\\) est donné dans la table 1.\nOn obtient \\(\\hat \\sigma_M=\\) 0.0228258\n\n\n1.3.0.2 Calcul basé sur les étendues \\(R_j\\)\nPour chaque échantillon \\(j\\) on calcule l’étendue\n\\[\nR_j=\\max(y_{ij})-\\min(y_{ij})\n\\]\nOn pose \\(\\bar R =\\frac{\\sum_{j=1}^k R_j}{k}\\) et alors une estimation de l’écart type instantané \\(\\sigma_M\\) est donné par\n\\[\n\\hat \\sigma_M=\\dfrac{\\bar R}{d_2}\n\\]\noù \\(d_2\\) est donné dans la table 1.\nRetour à l’exemple\n\n\n\n\n\nsample\nR_j\n\n\n\n\n1\n0.04128\n\n\n2\n0.02866\n\n\n3\n0.07048\n\n\n4\n0.03681\n\n\n5\n0.05540\n\n\n6\n0.06414\n\n\n\n\n\nOn obtient \\(\\hat \\sigma_M=\\) r\nOn constate que les estimations obtenues à partir de \\(\\bar R\\) ou de \\(\\bar S\\) sont proches.",
+    "text": "1.3 Estimation de la dispersion instantanée :\nIl existe plusieurs estimations possibles de \\(\\sigma_M\\) :\n\nla première est basée sur le calcul des écarts types des \\(k\\) échantillons prélevés.\nla deuxième est basée sur le calcul des étendues des \\(k\\) échantillons prélevés.\n\nPour ces calculs on appliquera des coefficients de correction qui sont donnés en fonction de \\(n\\) dans le tableau suivant. Le coefficient \\(d_2(n)\\) correspond à l’espérance de l’étendue d’une loi normale centrée réduite et \\(c_4(n)\\) à l’espérance de l’écart type d’une loi normale centrée réduite. Ces valeurs peuvent très facilement être obtenues par simulation par exemple pour \\(n=5\\) :\nLes fonctions c4,d2,d3 du package multiSPC permettent d’estimer ces paramètres :\n\nc4(5)\n\n\nOn sait pour chaque échantillon \\(j\\) de \\(n\\) valeurs calculer une estimation de l’écart type \\(\\sigma_j\\) en calculant \\[s_j= \\sqrt{\\frac{\\displaystyle\\sum_{i=1}^n(y_{ij}-\\bar y_j)^2}{n-1}},\\] où \\(\\bar y_j\\) est la moyenne de l’échantillon \\(j.\\)\n\n\n\n\n\n\n\nEstimation à partir des écarts types\n\n\n\nOn considère \\(k\\) prélèvements de taille \\(n\\) dont les écarts types sont \\(s_1,...,s_k,\\) on pose \\(\\bar S =\\frac{\\sum_{j=1}^k s_j}{k}\\). Une estimation de l’écart type instantané \\(\\sigma_M\\) est donné par \\[\n\\hat \\sigma_M=\\dfrac{\\bar S}{c_4(n)}.\n\\]\n\n\n\nPour chaque échantillon \\(j\\) on calcule l’étendue\n\n\\[\nR_j=\\max(y_{ij})-\\min(y_{ij})\n\\]\n\n\n\n\n\n\nEstimation à partir des écarts types\n\n\n\nOn considère \\(k\\) prélèvements de taille \\(n\\) dont les étendues sont \\(R_1,...,R_k,\\) on pose \\(\\bar R =\\frac{\\sum_{j=1}^k R_j}{k}\\). Une estimation de l’écart type instantané \\(\\sigma_M\\) est donné par \\[\n\\hat \\sigma_M=\\dfrac{\\bar R}{d_2(n)}.\n\\]\n\n\nFaire ces deux calculs sur les données de l’exemple précédent.\n\n\nVoir la correction\n# Estimation à partir des écarts types\ntab&lt;-df %&gt;% group_by(sample) %&gt;% summarise(\"s_j\"=round(sd(obs),5)) \nmean(tab$\"s_j\")/c4(5)\n\n# Estimation à partir des étendues\netendue&lt;-function(X){return(max(X)-min(X))}\ntab2&lt;-df %&gt;% group_by(sample)%&gt;% summarise(\"R_j\"=etendue(obs))\nmean(tab2$\"R_j\")/d2(5)",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Estimation des variations de production</span>"
     ]
@@ -82,41 +82,41 @@
   {
     "objectID": "chapitre3.html",
     "href": "chapitre3.html",
-    "title": "3  Cartes de contrôle",
+    "title": "2  Cartes de contrôle",
     "section": "",
-    "text": "3.1 Historique\nAvantages\nInconvénients",
+    "text": "2.1 Historique\nAvantages\nInconvénients",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes de contrôle</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cartes de contrôle</span>"
     ]
   },
   {
     "objectID": "chapitre3.html#historique",
     "href": "chapitre3.html#historique",
-    "title": "3  Cartes de contrôle",
+    "title": "2  Cartes de contrôle",
     "section": "",
     "text": "Inventées par Walter A. Shewhart (années 1920)\nS’utilisent dans de très nombreux secteurs d’activité (industrie, transport, service, …)\nSuivi et/ou amélioration d’un système de production\n\n\n\nTrès faciles à mettre en oeuvre\nTrès faciles à interpréter (graphiques)\n\n\n\nNe tient pas a priori compte des tolérances\nN’est pas toujours efficace (ex : si problème de déviation progressive)",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes de contrôle</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cartes de contrôle</span>"
     ]
   },
   {
     "objectID": "chapitre3.html#comprendre-les-variations-des-procédés-de-fabrication",
     "href": "chapitre3.html#comprendre-les-variations-des-procédés-de-fabrication",
-    "title": "3  Cartes de contrôle",
-    "section": "3.2 Comprendre les variations des procédés de fabrication",
-    "text": "3.2 Comprendre les variations des procédés de fabrication\nOn distingue plusieurs causes qui peuvent induire des variations dans un système de production :\n\ncauses aléatoires (communes) elles sont en grand nombre avec un effet individuel faible. On peut les modéliser par une variable aléatoire (en général gaussienne). Elles peuvent être corrigées par des actions sur le système global. Exemple : temps de trajet domicile-travail. Si il y a des feux rouges sur le trajet ceux-ci pourront être parfois verts ou rouges, il peut y avoir plus ou moins de circulation… Action globale : changer de route pour ne plus avoir de feux rouges !\ncauses assignables (spéciales) elles sont rares et ne peuvent pas être associées directement au procédé de fabrication (Deming 1986). Elles peuvent être corrigées par des actions locales. Exemple : un accident de la route se produit sur le trajet.\n\nUn processus est dit sous contrôle ou statistiquement stable lorsque les variations sont uniquement dûes à des causes aléatoires.",
+    "title": "2  Cartes de contrôle",
+    "section": "2.2 Comprendre les variations des procédés de fabrication",
+    "text": "2.2 Comprendre les variations des procédés de fabrication\nOn distingue plusieurs causes qui peuvent induire des variations dans un système de production :\n\ncauses aléatoires (communes) elles sont en grand nombre avec un effet individuel faible. On peut les modéliser par une variable aléatoire (en général gaussienne). Elles peuvent être corrigées par des actions sur le système global. Exemple : temps de trajet domicile-travail. Si il y a des feux rouges sur le trajet ceux-ci pourront être parfois verts ou rouges, il peut y avoir plus ou moins de circulation… Action globale : changer de route pour ne plus avoir de feux rouges !\ncauses assignables (spéciales) elles sont rares et ne peuvent pas être associées directement au procédé de fabrication (Deming 1986). Elles peuvent être corrigées par des actions locales. Exemple : un accident de la route se produit sur le trajet.\n\nUn processus est dit sous contrôle ou statistiquement stable lorsque les variations sont uniquement dûes à des causes aléatoires.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes de contrôle</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cartes de contrôle</span>"
     ]
   },
   {
     "objectID": "chapitre5.html",
     "href": "chapitre5.html",
-    "title": "5  Efficacité des cartes de Shewhart",
+    "title": "5  Cartes aux limites modifiées",
     "section": "",
-    "text": "5.1 Faux positifs et Faux négatifs\nLa notion d’efficacité d’une carte de contrôle est sa capacité à détecter un dérèglement alors que la production semble rester sous contrôle.\nLe dérèglement peut concerner un décentrage (dérèglement de la moyenne) ou bien une augmentation de la dispersion.\nLa notion d’efficacité est proche de la notion de puissance pour les tests statistiques.\nOn va traduire dans le contexte de la MSP les notions vues sur les tests.\nCeci conduit à deux types d’erreurs\nCe que l’on connait (par construction de la carte de contrôle) :\nCe que l’on cherche :\nLa probabilité \\(\\beta\\) d’obtenir un faux négatif ou de manière équivalente la probabilité \\(1-\\beta\\) d’obtenir un vrai positif (appelée puissance du test).",
+    "text": "5.1 Cas n°1 : le procédé de fabrication n’est pas capable\nPour l’instant les cartes qui ont été proposées ne tiennent pas compte des tolérances imposées par le client. Elles reposent uniquement sur la distribution des observations et sur le % de fausses alertes que l’on souhaite observer (0.3% dans les cartes précédentes).\nDans ce cas on \\(Cam&lt;1.33\\), ce qui donne \\(TS-TI&lt;1.33\\times 6\\sigma_I\\simeq 8\\sigma_I\\). On voudrait pouvoir le plus rapidement possible détecter le problème, le seul paramètre sur lequel on peut jouer est la taille \\(n\\) des prélèvements. En prenant\n\\[\nn \\geq \\left( \\frac{8\\sigma_I}{TS-TI} \\right)^2,\n\\]\non pourra détecter plus rapidement le problème de capabilité du procédé de fabrication.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
@@ -126,7 +126,7 @@
     "section": "5.2 Déréglage de la moyenne",
     "text": "5.2 Déréglage de la moyenne\n Un décentrage de moyenne est exprimé en nombre d’écart type (unité standardisé) donc si \\(\\mu_1\\) est la moyenne décentrée, on lui associera le décentrage\n\\[\n\\rho=\\frac{|\\mu_1-\\mu|}{\\sigma}\n\\]\nLa probabilité \\(\\beta\\) de ne pas détecter le décentrage est alors\n\\[\n\\beta=\\mathbb P(LIC&lt;\\widetilde X &lt;LSC)\n\\]\noù \\(\\widetilde X \\sim \\mathcal N(\\mu+\\rho\\sigma,\\frac{\\sigma}{\\sqrt{n}}).\\) Un calcul simple permet d’obtenir\n\\[\n\\beta = F(3-\\rho\\sqrt n)-F(-3-\\rho\\sqrt n)\n\\]\noù \\(F(x)=\\mathbb P(X&lt;x)\\) est la fonction de répartition de la loi normale.\nL’efficacité de la carte est mesurée par \\(1-\\beta\\) ( puissance de la carte).\nOn obtient ainsi les courbes d’efficacité de la carte de la moyenne en fonction de la taille \\(n\\) des échantillons prélevés.\n\n\n\n\n\n\n\n\n\n\nOn constate (ce qui est logique) que la probabilité de ne pas détecter un déréglage donné diminue en fonction de la taille de l’échantillon.\nDétecter un déréglage \\(\\rho=0\\) correspond à une fausse alerte qui vaut pour la carte de la moyenne \\(\\alpha=0.3\\%\\).",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
@@ -136,7 +136,7 @@
     "section": "5.3 Déréglage de l’écart type",
     "text": "5.3 Déréglage de l’écart type\nIci on considère des décentrages \\(\\rho&gt;1\\) (sinon il s’agit d’une amélioration de la dispersion).\nUn calcul similaire au précédent conduit à \\[\n\\beta=F(\\frac{3}{\\rho})-F(\\frac{-3}{\\rho})\n\\] Ici on constate que l’efficacité de la carte est indépendante de \\(n\\) et qu’elle est très mauvaise. Il faut une très grande valeur de \\(\\rho\\) pour avoir une petite valeur de \\(\\beta\\).\nPar exemple pour \\(\\rho=3\\) on a \\(\\beta=\\) 0.6826895 c’est à dire pour un écart type qui triplerait la probabilité ne peut pas détecter ce dérèglement est de 68.3%.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
@@ -146,7 +146,7 @@
     "section": "5.4 Période opérationelle moyenne (Average Run Length)",
     "text": "5.4 Période opérationelle moyenne (Average Run Length)\nLa Période Opérationnelle Moyenne correspond au nombre de prélèvements qu’il faut effectuer, en moyenne, pour sortir des limites de contrôle lorsque qu’un déréglage \\(\\rho\\) s’est produit.\nLe cas \\(\\rho=0\\) pour une carte de Shewhart avec des observations indépendantes correspond à une fausse alerte qui se produit dans \\(\\alpha=0.3\\%\\) et correspond à\n\\[\nARL_0=\\frac{1}{0.003}=333\n\\] donc il faut en moyenne 334 prélèvements avant de détecter une fausse alerte.\n\\(ARL\\) est définie par\n\\[\nARL_\\rho=\\frac 1{1-\\beta}\n\\]\nC’est donc l’inverse de la puissance (efficacité) de la carte, donc plus ce nombre sera petit plus la carte sera efficace.\nSi on reprend les courbes d’efficacité précédente on obtient :",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
@@ -156,77 +156,77 @@
     "section": "5.5 Calibration des tailles de prélèvement",
     "text": "5.5 Calibration des tailles de prélèvement\nLa production initiale est \\(X\\sim \\mathcal N (\\mu,\\sigma)\\) et la production décentrée vaut \\(\\widetilde X \\sim \\mathcal N (\\mu+\\rho\\sigma,\\sigma)\\). On sait calculer la probabilité \\(1-\\beta\\) de détecter le décentrage en fonction de \\(\\rho\\) et on a donc\n\\[\nARL_\\rho=\\frac 1{1-\\beta}=\\frac 1{1-F(3-\\rho\\sqrt n)+F(-3-\\rho\\sqrt n)}\n\\]\nExemple :\nConsidérons le problème suivant : on a un décentrage de moyenne de 0.5 écart type. On voudrait le détecter en moyenne avant 50 prélèvements. Quelle taille d’échantillon doit-on considérer ?\n\nn&lt;-seq(2,20,by=1)\nrho&lt;-.5\nbeta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))\nARL&lt;-1/(1-beta)\nJ&lt;-which.max(ARL&lt;50)\nn[J]\n\n[1] 4",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
     "objectID": "chapitre5.html#cas-n1-le-procédé-de-fabrication-nest-pas-capable",
     "href": "chapitre5.html#cas-n1-le-procédé-de-fabrication-nest-pas-capable",
-    "title": "5  Efficacité des cartes de Shewhart",
-    "section": "6.1 Cas n°1 : le procédé de fabrication n’est pas capable",
-    "text": "6.1 Cas n°1 : le procédé de fabrication n’est pas capable\nDans ce cas on \\(Cam&lt;1.33\\), ce qui donne \\(TS-TI&lt;1.33\\times 6\\sigma\\simeq 8\\sigma\\). On voudrait pouvoir le plus rapidement possible détecter le problème, le seul paramètre sur lequel on peut jouer est la taille \\(n\\) des prélèvements. En prenant\n\\[\nn \\geq \\left( \\frac{8\\sigma}{TS-TI} \\right)^2\n\\] on pourra détecter plus rapidement le problème de capabilité du procédé de fabrication.\n\n6.1.1 Exemple\nOn suppose que \\(X \\sim \\mathcal N(10,2)\\) on prélève 20 échantillons de taille \\(n=4\\).\n\nn=4\nk=20\nX&lt;-rnorm(n*k,10,2)\ndf&lt;-data.frame(matrix(X,nrow=k,ncol=n))\ncolnames(df)&lt;-paste(\"Mesure\",1:n,sep=\"\")\nkable(round(df,1))\n\n\n\n\nMesure1\nMesure2\nMesure3\nMesure4\n\n\n\n\n9.8\n11.4\n7.4\n10.9\n\n\n9.3\n9.5\n7.5\n10.6\n\n\n7.7\n15.4\n10.0\n9.4\n\n\n11.3\n13.7\n7.3\n10.9\n\n\n9.1\n5.7\n11.2\n10.3\n\n\n11.7\n11.0\n9.6\n12.2\n\n\n10.7\n11.2\n8.2\n10.7\n\n\n7.8\n11.4\n10.6\n14.2\n\n\n4.3\n9.3\n12.1\n10.4\n\n\n9.7\n8.7\n9.2\n9.8\n\n\n11.8\n10.1\n10.0\n9.2\n\n\n11.3\n11.5\n13.5\n8.3\n\n\n10.8\n8.3\n9.5\n10.1\n\n\n8.8\n11.1\n8.2\n10.8\n\n\n11.0\n10.3\n10.0\n8.8\n\n\n14.3\n11.7\n12.1\n11.0\n\n\n10.1\n11.4\n12.1\n10.7\n\n\n8.7\n9.7\n9.8\n8.2\n\n\n8.5\n8.9\n8.7\n12.7\n\n\n6.8\n11.1\n7.3\n11.1\n\n\n\n\nlibrary(qcc)\nres=qcc(df,type=\"xbar\",plot=F)\nplot(res)\n\n\n\n\n\n\n\n\nSupposons que l’intervalle de tolérance soit \\(10 \\pm 3\\). Alors on a\n\\(n \\geq\\) 7.1111111 (on prend \\(n=8\\))\n\ndf2&lt;-data.frame(matrix(round(X,1),nrow=k,ncol=8))\nres&lt;-qcc(df2,type=\"xbar\",plot=F)\nplot(res)\n\n\n\n\n\n\n\n\nOn constate que dès le 7ième prélèvement on trouve une valeur hors contrôle.",
+    "title": "5  Cartes aux limites modifiées",
+    "section": "",
+    "text": "5.1.1 Exemple\nOn suppose que \\(X \\sim \\mathcal N(10,2)\\) on prélève 20 échantillons de taille \\(n=4\\).\nLes données sont disponibles ici\nOn peut construire la carte de la moyenne :\n\n\n\n\n\n\n\n\n\nSupposons que l’intervalle de tolérance soit \\(10 \\pm 3\\). Alors on a\n\\(n \\geq\\) 7.1187849 (on prend \\(n=8\\))\n\nn=8\nLICm=mu-3*sigI/sqrt(n)\nLSCm=mu+3*sigI/sqrt(n)\nplot_chart(M,LIC=LICm,LSC=LSCm,Type = \"carte de la moyenne\")\n\n\n\n\n\n\n\n\nOn constate que dès le 8ième prélèvement on trouve une valeur hors contrôle.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
     "objectID": "chapitre5.html#cas-n2-le-procédé-de-fabrication-est-capable",
     "href": "chapitre5.html#cas-n2-le-procédé-de-fabrication-est-capable",
-    "title": "5  Efficacité des cartes de Shewhart",
-    "section": "6.2 Cas n°2 : le procédé de fabrication est capable",
-    "text": "6.2 Cas n°2 : le procédé de fabrication est capable\nPar exemple si on a une prodcution \\(X \\sim \\mathcal N(3,0.5)\\) avec des tolérances \\(TI=1\\) et \\(TS=5\\), on a \\(TS-TI &gt;&gt; 6\\sigma\\) donc on peut faire une carte de la moyenne aux limites modifiées les nouvelles limites \\(LIC^*,LSC^*\\) étant égales à des moyennes modifiées \\(\\mu_I,\\mu_S.\\)\n\nOn définit les moyennes maximales refusables (inférieures et supérieures)\n\\[\n\\begin{cases}\n\\mu_I=TI+3\\sigma \\\\\n\\mu_S=TS-3\\sigma\n\\end{cases}\n\\]",
+    "title": "5  Cartes aux limites modifiées",
+    "section": "5.2 Cas n°2 : le procédé de fabrication est capable",
+    "text": "5.2 Cas n°2 : le procédé de fabrication est capable\nPar exemple si on a une prodcution \\(X \\sim \\mathcal N(3,0.5)\\) avec des tolérances \\(TI=1\\) et \\(TS=5\\), on a \\(TS-TI &gt;&gt; 6\\sigma\\) donc on peut faire une carte de la moyenne aux limites modifiées les nouvelles limites \\(LIC^*,LSC^*\\) étant égales à des moyennes modifiées \\(\\mu_I,\\mu_S.\\)\n\nOn définit les moyennes maximales refusables (inférieures et supérieures)\n\\[\n\\begin{cases}\n\\mu_I=TI+3\\sigma \\\\\n\\mu_S=TS-3\\sigma\n\\end{cases}\n\\]",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
     "objectID": "chapitre5.html#remarque",
     "href": "chapitre5.html#remarque",
-    "title": "5  Efficacité des cartes de Shewhart",
-    "section": "6.3 Remarque :",
-    "text": "6.3 Remarque :\nCe choix peut être relié au coefficient de performance défini dans le chapitre précédent \\(Cmk=\\frac{\\min\\left(\\mu-TI;TS-\\mu\\right)}{3\\sigma}\\).\nSi on remplace \\(\\mu\\) par \\(\\mu_I\\) on obtient \\(\\frac{\\min\\left(\\mu_I-TI;TS-\\mu_I\\right)}{3\\sigma}=\\min(1;\\frac{TS-TI-3\\sigma}{3\\sigma}).\\)\n\nCe nombre vaut 1 si \\(\\frac{TS-TI-3\\sigma}{3\\sigma}&gt;1\\) ce qui revient à \\(Cap&gt;1.\\) C’est à dire que lorsque le procédé est sous contrôle on va autoriser une déviation de la moyenne.\nCe nombre vaut \\(\\frac{TS-TI-3\\sigma}{3\\sigma}\\) sinon et dans ce cas \\(Cap&lt;1,\\) le procédé ne répond pas aux spécifications imposées par le client. Il faut dans ce cas agir sur le procédé.",
+    "title": "5  Cartes aux limites modifiées",
+    "section": "5.3 Remarque :",
+    "text": "5.3 Remarque :\nCe choix peut être relié au coefficient de performance défini dans le chapitre précédent \\(Cmk=\\frac{\\min\\left(\\mu-TI;TS-\\mu\\right)}{3\\sigma}\\).\nSi on remplace \\(\\mu\\) par \\(\\mu_I\\) on obtient \\(\\frac{\\min\\left(\\mu_I-TI;TS-\\mu_I\\right)}{3\\sigma}=\\min(1;\\frac{TS-TI-3\\sigma}{3\\sigma}).\\)\n\nCe nombre vaut 1 si \\(\\frac{TS-TI-3\\sigma}{3\\sigma}&gt;1\\) ce qui revient à \\(Cap&gt;1.\\) C’est à dire que lorsque le procédé est sous contrôle on va autoriser une déviation de la moyenne.\nCe nombre vaut \\(\\frac{TS-TI-3\\sigma}{3\\sigma}\\) sinon et dans ce cas \\(Cap&lt;1,\\) le procédé ne répond pas aux spécifications imposées par le client. Il faut dans ce cas agir sur le procédé.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
     "objectID": "chapitre5.html#calibration-de-la-taille-des-échantillons",
     "href": "chapitre5.html#calibration-de-la-taille-des-échantillons",
-    "title": "5  Efficacité des cartes de Shewhart",
-    "section": "6.4 Calibration de la taille des échantillons :",
-    "text": "6.4 Calibration de la taille des échantillons :\nOn peut également définir le déraglage maximal admissible \\(\\rho_{max}\\) par\n\\[\n\\rho_{max}=\\min\\left( \\frac{\\mu_S-\\mu}{\\sigma},\\frac{\\mu-\\mu_I}{\\sigma}\\right)\n\\]\nOn va alors calibrer la taille \\(n\\) des échantillons à prélever de façon à détecter le déréglage maximal admissible à un risque \\(\\beta\\) fixé de ne pas détecter ce déréglage maximal \\(\\rho_{max}\\). D’après ce qui précède \\(n\\) sera le plus petit entier tel que\n\\[\nn \\geq \\left( \\frac{3+z_{1-\\beta}}{\\rho_{max}} \\right)^2\n\\]\noù \\(z_{1-\\beta}\\) est le quantile d’ordre \\((1-\\beta)\\) de la loi normale.",
+    "title": "5  Cartes aux limites modifiées",
+    "section": "5.4 Calibration de la taille des échantillons :",
+    "text": "5.4 Calibration de la taille des échantillons :\nOn peut également définir le déraglage maximal admissible \\(\\rho_{max}\\) par\n\\[\n\\rho_{max}=\\min\\left( \\frac{\\mu_S-\\mu}{\\sigma},\\frac{\\mu-\\mu_I}{\\sigma}\\right)\n\\]\nOn va alors calibrer la taille \\(n\\) des échantillons à prélever de façon à détecter le déréglage maximal admissible à un risque \\(\\beta\\) fixé de ne pas détecter ce déréglage maximal \\(\\rho_{max}\\). D’après ce qui précède \\(n\\) sera le plus petit entier tel que\n\\[\nn \\geq \\left( \\frac{3+z_{1-\\beta}}{\\rho_{max}} \\right)^2\n\\]\noù \\(z_{1-\\beta}\\) est le quantile d’ordre \\((1-\\beta)\\) de la loi normale.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
     "objectID": "chapitre5.html#retour-à-lexemple",
     "href": "chapitre5.html#retour-à-lexemple",
-    "title": "5  Efficacité des cartes de Shewhart",
-    "section": "6.5 Retour à l’exemple",
-    "text": "6.5 Retour à l’exemple\nAvec les valeurs précédentes on a \\(\\rho_{max}=3.\\) Si on veut détecter ce déréglage dans 90% des cas alors on doit avoir \\(n \\geq\\) 2.0368538\nPrélever des échantillons de taille \\(n=3\\) suffit à détecter dans 95% des cas des décentrages d’au moins 3 écarts types.",
+    "title": "5  Cartes aux limites modifiées",
+    "section": "5.5 Retour à l’exemple",
+    "text": "5.5 Retour à l’exemple\nAvec les valeurs précédentes on a \\(\\rho_{max}=3.\\) Si on veut détecter ce déréglage dans 90% des cas alors on doit avoir \\(n \\geq\\) 2.0368538\nPrélever des échantillons de taille \\(n=3\\) suffit à détecter dans 95% des cas des décentrages d’au moins 3 écarts types.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
     "objectID": "chapitre4.html",
     "href": "chapitre4.html",
-    "title": "4  Cartes de contrôles de Shewhart",
+    "title": "3  Cartes de contrôles de Shewhart",
     "section": "",
-    "text": "4.1 Principe\nOn va construire deux graphiques : une carte dite de position et une carte de dispersion.\nExemple\nSuivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.\nLes données sont disponibles ici\nX\nweight.1\nweight.2\nweight.3\nweight.4\nweight.5\n\n\n\n\n1\n98.6\n100.3\n100.9\n100.2\n99.6\n\n\n2\n100.3\n99.5\n98.9\n100.2\n100.6\n\n\n3\n99.2\n98.8\n101.5\n100.3\n101.0\n\n\n4\n101.1\n97.8\n98.9\n101.3\n101.7\n\n\n5\n101.0\n99.8\n97.3\n99.4\n100.8\n\n\n6\n101.1\n100.1\n99.0\n100.7\n99.9\ndf&lt;-data[,-1]\n## Carte de la moyenne avec la librairie qcc dans R\nX&lt;-qcc(df,type=\"xbar\",title=\"Carte de la moyenne\")\n\n\n\n\n\n\n\n## Carte de l'étendue avec la librairie qcc dans R\nX&lt;-qcc(df,type=\"R\",title=\"Carte de l'étendue\")\nPour chaque échantillon de 5 steacks on calcule la moyenne et l’étendue et on les reporte sur les cartes correspondantes.",
+    "text": "3.1 Principe\nOn va construire deux graphiques : une carte dite de position et une carte de dispersion.\nExemple\nSuivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.\nLes données sont disponibles ici\nX\nweight.1\nweight.2\nweight.3\nweight.4\nweight.5\n\n\n\n\n1\n98.6\n100.3\n100.9\n100.2\n99.6\n\n\n2\n100.3\n99.5\n98.9\n100.2\n100.6\n\n\n3\n99.2\n98.8\n101.5\n100.3\n101.0\n\n\n4\n101.1\n97.8\n98.9\n101.3\n101.7\n\n\n5\n101.0\n99.8\n97.3\n99.4\n100.8\n\n\n6\n101.1\n100.1\n99.0\n100.7\n99.9\nOn va construire les cartes de contrôle données ci-dessous\nPour chaque échantillon de 5 steacks on calcule la moyenne et l’écart type et on les reporte sur les cartes correspondantes.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
     ]
   },
   {
     "objectID": "chapitre4.html#distribution-des-paramètres",
     "href": "chapitre4.html#distribution-des-paramètres",
-    "title": "4  Cartes de contrôles de Shewhart",
-    "section": "4.2 Distribution des paramètres",
-    "text": "4.2 Distribution des paramètres\nOn suppose que tous les paramètres suivent une loi normale.\n\nLa moyenne d’un échantillon \\(\\bar X \\sim \\mathcal N(\\mu,\\frac{\\sigma}{\\sqrt n}).\\)\nL’étendue d’un échantillon \\(R \\sim \\mathcal N(\\mu_R,\\sigma_R).\\)\nL’écart type d’un échantillon \\(S \\sim \\mathcal N(\\mu_S,\\sigma_S).\\)\n\nOn définit alors les limites de surveillance et de contrôle pour chaque carte. Pour la carte de la moyenne :\n On se fixe un risque \\(\\alpha\\) de stoper la production alors que celle-ci est sous contrôle (Fausses alertes). On cherche donc un intervalle de confiance \\(1-\\alpha\\) de \\(\\bar X\\) La distribution des moyennes étant normale on a\n\\[\n\\begin{cases}\nLI=\\mu-z_{1-\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\\\\nLS=\\mu+z_{1-\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\\\\n\\mathbb P(LI&lt;\\bar X&lt;LS)=1-\\alpha\n\\end{cases}\n\\]\nOn pourra en conclure que la moyenne \\(\\bar X\\) de l’échantillon considéré n’est pas significativement différente de la moyenne \\(\\mu\\) (c’est à dire que le procédé est sous contrôle) si \\(\\bar X \\in [LI,LS].\\)\nLes limites de surveillance sont définies de façon à déterminer, au risque de 4.5%, les moyennes significativement différentes de la moyenne globale :\n\nLimite inférieure de surveillance (LIS): \\(LIS=\\mu-2\\frac{\\sigma}{\\sqrt n}\\)\nLimite supérieure de surveillance (LSS): \\(LSS=\\mu+2\\frac{\\sigma}{\\sqrt n}\\)\n\nLes limites de contrôle sont définies de façon à déterminer, au risque de 0.3% de fausses alertes, les moyennes significativement différentes de la moyenne globale :\n\nLimite inférieure de contrôle (LIC): \\(LIC=\\mu-3\\frac{\\sigma}{\\sqrt n}\\)\nLimite supérieure de contrôle (LSC): \\(LSC=\\mu+3\\frac{\\sigma}{\\sqrt n}\\)",
+    "title": "3  Cartes de contrôles de Shewhart",
+    "section": "3.2 Distribution des paramètres",
+    "text": "3.2 Distribution des paramètres\nOn suppose que tous les paramètres suivent une loi normale.\n\nLa moyenne d’un échantillon \\(\\bar Y \\sim \\mathcal N(\\mu,\\frac{\\sigma}{\\sqrt n}).\\)\nL’étendue d’un échantillon \\(R \\sim \\mathcal N(\\mu_R,\\sigma_R).\\)\nL’écart type d’un échantillon \\(S \\sim \\mathcal N(\\mu_S,\\sigma_S).\\)\n\nOn définit alors les limites de surveillance et de contrôle pour chaque carte. Pour la carte de la moyenne :\n On se fixe un risque \\(\\alpha\\) de stoper la production alors que celle-ci est sous contrôle (Fausses alertes). On cherche donc un intervalle de confiance \\(1-\\alpha\\) de \\(\\bar X\\) La distribution des moyennes étant normale on a\n\\[\n\\begin{cases}\nLI=\\mu-z_{1-\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\\\\nLS=\\mu+z_{1-\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\\\\n\\mathbb P(LI&lt;\\bar X&lt;LS)=1-\\alpha\n\\end{cases}\n\\]\nOn pourra en conclure que la moyenne \\(\\bar X\\) de l’échantillon considéré n’est pas significativement différente de la moyenne \\(\\mu\\) (c’est à dire que le procédé est sous contrôle) si \\(\\bar X \\in [LI,LS].\\)\nLes limites de surveillance sont définies de façon à déterminer, au risque de 4.5%, les moyennes significativement différentes de la moyenne globale :\n\nLimite inférieure de surveillance (LIS): \\(LIS=\\mu-2\\frac{\\sigma}{\\sqrt n}\\)\nLimite supérieure de surveillance (LSS): \\(LSS=\\mu+2\\frac{\\sigma}{\\sqrt n}\\)\n\nLes limites de contrôle sont définies de façon à déterminer, au risque de 0.3% de fausses alertes, les moyennes significativement différentes de la moyenne globale :\n\nLimite inférieure de contrôle (LIC): \\(LIC=\\mu-3\\frac{\\sigma}{\\sqrt n}\\)\nLimite supérieure de contrôle (LSC): \\(LSC=\\mu+3\\frac{\\sigma}{\\sqrt n}\\)\n\n\n\n\n\n\n\nLimites des cartes de contrôle\n\n\n\nOn a prélevé à intervalles réguliers \\(k\\) échantillons de \\(n\\) observations. On a calculé \\(\\bar y_j,R_j\\) la moyenne et l’étendue de chacun des \\(k\\) échantillons.\nPour construire :\n\nLa carte de la moyenne on utilise \\(\\hat \\mu_I=\\frac 1{k} \\displaystyle\\sum_{j=1}^k \\bar y_{j}\\) et \\(\\hat \\sigma_I = \\dfrac{\\bar R}{d_2}\\).\nLa carte de l’étendue on utilise \\(\\hat\\mu_R=\\bar R\\) et \\(\\hat \\sigma_R=\\frac{d_3}{d_2}\\bar R\\).\nLa carte de l’écart type on utilise \\(\\hat\\mu_S=\\bar S\\) et \\(\\hat \\sigma_S=\\frac{\\sqrt{1-c_4^2}}{c_4}\\bar S\\).",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
     ]
   },
   {
@@ -244,7 +244,7 @@
     "href": "chapitre4.html#estimation-des-limites-de-contrôle-pour-la-carte-des-étendues",
     "title": "4  Cartes de contrôles de Shewhart",
     "section": "4.4 Estimation des limites de contrôle pour la carte des étendues",
-    "text": "4.4 Estimation des limites de contrôle pour la carte des étendues\nPour l’estimation de \\(\\mu_R\\) on prend \\(\\hat\\mu_R=\\bar R\\), et pour l’estimation de \\(\\sigma_R\\) on prend \\(\\hat \\sigma_R=\\frac{d_3}{d_2}\\bar R\\) où \\(d_3\\) est l’écart type des étendues d’une loi normale centrée réduite. On a alors\n\\[\n\\begin{cases}\n\\widehat{LIC}= \\overline{R}-3\\frac{d_3}{d_2}\\overline R \\\\\n\\widehat{LSC}= \\overline{R}+3\\frac{d_3}{d_2}\\overline R\n\\end{cases}\n\\] ## Estimation des limites de contrôle pour la carte des écarts types\nPour l’estimation de \\(\\mu_S\\) on prend \\(\\hat\\mu_S=\\bar S\\), et pour l’estimation de \\(\\sigma_S\\) on prend \\(\\hat \\sigma_S=\\frac{\\sqrt{1-c_4^2}}{c_4}\\bar S\\). On a alors :\n\\[\n\\begin{cases}\n\\widehat{LIC}= \\overline{S}-3\\frac{\\sqrt{1-c_4^2}}{c_4}\\overline S \\\\\n\\widehat{LSC}= \\overline{S}+3\\frac{\\sqrt{1-c_4^2}}{c_4}\\overline S\n\\end{cases}\n\\]",
+    "text": "4.4 Estimation des limites de contrôle pour la carte des étendues\nPour l’estimation de \\(\\mu_R\\) on prend \\(\\hat\\mu_R=\\bar R\\), et pour l’estimation de \\(\\sigma_R\\) on prend \\(\\hat \\sigma_R=\\frac{d_3}{d_2}\\bar R\\) où \\(d_3\\) est l’écart type des étendues d’une loi normale centrée réduite. On a : \\[\n\\begin{cases}\n\\widehat{LIC}= \\overline{R}-3\\frac{d_3}{d_2}\\overline R \\\\\n\\widehat{LSC}= \\overline{R}+3\\frac{d_3}{d_2}\\overline R\n\\end{cases}\n\\]",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
     ]
@@ -252,51 +252,51 @@
   {
     "objectID": "chapitre6.html",
     "href": "chapitre6.html",
-    "title": "6  Carte EWMA",
+    "title": "4  Carte EWMA",
     "section": "",
-    "text": "6.1 Introduction\nLa carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à interpréter. Cependant elle n’a pas une très grande efficacité surtout :\nExemple :\nOn suit une production de caractéristique \\(\\mu=15\\) et \\(\\sigma=2\\). Pour ce faire 14 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 4ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).\nUne des solutions est la carte EWMA",
+    "text": "4.1 Introduction\nLa carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à interpréter. Cependant elle n’a pas une très grande efficacité surtout :\nExemple :\nOn suit une production de caractéristique \\(\\mu=15\\) et \\(\\sigma=0.5\\). Pour ce faire 10 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 7ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).\nUne des solutions est la carte EWMA",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Carte EWMA</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Carte EWMA</span>"
     ]
   },
   {
     "objectID": "chapitre6.html#introduction",
     "href": "chapitre6.html#introduction",
-    "title": "6  Carte EWMA",
+    "title": "4  Carte EWMA",
     "section": "",
     "text": "en cas de faibles et moyennes déviations\nen cas de structure d’autocorrélation, c’est à dire lorsque le passé a une influence, par exemple lorsqu’une tendance croissante apparaît.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Carte EWMA</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Carte EWMA</span>"
     ]
   },
   {
     "objectID": "chapitre6.html#définition-des-cartes-ewma",
     "href": "chapitre6.html#définition-des-cartes-ewma",
-    "title": "6  Carte EWMA",
-    "section": "6.2 Définition des cartes EWMA",
-    "text": "6.2 Définition des cartes EWMA\nEWMA : Exponentially Weighted Moving Average\nOn définit la statistique \\(z_i\\) par une relation de récurrence pour tout \\(i=1,...,k\\)\n\\[\nz_i=\\lambda \\bar x_i +(1-\\lambda)z_{i-1},\n\\]\noù \\(\\bar x_i\\) est la moyenne des unités pour le prélèvement \\(i\\) et \\(0&lt;\\lambda\\leq 1\\) est un réel qui sera choisi en fonction du poids que l’on veut donner aux données précédentes. En effet, en général on choisit \\(z_0=\\mu\\) (moyenne du procédé de fabrication). On a \\[\n\\begin{cases}\nz_1=\\lambda \\bar x_1+(1-\\lambda)\\mu \\\\\nz_2=\\lambda \\bar x_2+(1-\\lambda)z_1= \\lambda \\bar x_2+\\lambda(1-\\lambda)\\bar x_1+(1-\\lambda)^2\\mu \\\\\nz_3=\\lambda \\bar x_3+\\lambda(1-\\lambda)\\bar x_2+\\lambda(1-\\lambda)^2\\bar x_1+\n(1-\\lambda)^3\\mu \\\\\n\\ldots\n\\end{cases}\n\\]\n\n\n\n\n\n\n\n\n\n\nLa cas \\(\\lambda=1\\) correspond à la carte de Shewhart sur la moyenne.\nOn constate que \\(\\bar x_i\\) a une importance d’autant plus importante dans \\(z_i\\) que \\(\\lambda\\) est grand.\nEn général on utilise \\(0.25&lt;\\lambda&lt;0.5\\).",
+    "title": "4  Carte EWMA",
+    "section": "4.2 Définition des cartes EWMA",
+    "text": "4.2 Définition des cartes EWMA\nEWMA : Exponentially Weighted Moving Average\nOn définit la statistique \\(z_i\\) par une relation de récurrence pour tout \\(i=1,...,k\\)\n\\[\nz_i=\\lambda \\bar x_i +(1-\\lambda)z_{i-1},\n\\]\noù \\(\\bar x_i\\) est la moyenne des unités pour le prélèvement \\(i\\) et \\(0&lt;\\lambda\\leq 1\\) est un réel qui sera choisi en fonction du poids que l’on veut donner aux données précédentes. En effet, en général on choisit \\(z_0=\\mu\\) (moyenne du procédé de fabrication). On a \\[\n\\begin{cases}\nz_1=\\lambda \\bar x_1+(1-\\lambda)\\mu \\\\\nz_2=\\lambda \\bar x_2+(1-\\lambda)z_1= \\lambda \\bar x_2+\\lambda(1-\\lambda)\\bar x_1+(1-\\lambda)^2\\mu \\\\\nz_3=\\lambda \\bar x_3+\\lambda(1-\\lambda)\\bar x_2+\\lambda(1-\\lambda)^2\\bar x_1+\n(1-\\lambda)^3\\mu \\\\\n\\ldots\n\\end{cases}\n\\]\n\n\n\n\n\n\n\n\n\n\nLa cas \\(\\lambda=1\\) correspond à la carte de Shewhart sur la moyenne.\nOn constate que \\(\\bar x_i\\) a une importance d’autant plus importante dans \\(z_i\\) que \\(\\lambda\\) est grand.\nEn général on utilise \\(0.25&lt;\\lambda&lt;0.5\\).",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Carte EWMA</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Carte EWMA</span>"
     ]
   },
   {
     "objectID": "chapitre6.html#limites-de-contrôle-des-cartes-ewma",
     "href": "chapitre6.html#limites-de-contrôle-des-cartes-ewma",
-    "title": "6  Carte EWMA",
-    "section": "6.3 Limites de contrôle des cartes EWMA",
-    "text": "6.3 Limites de contrôle des cartes EWMA\nLes limites de ces cartes sont variables (en fonction de \\(i\\)) pour \\(X\\sim \\mathcal N(\\mu,\\sigma)\\) on a :\n\\[\nLC = \\mu  \\pm L\\frac{\\sigma}{\\sqrt{n}}\\times \\sqrt {\\frac{\\lambda}{2-\\lambda}[1-(1-\\lambda)^{2i}] }\n\\]\n\nLorsque le nombre \\(i\\) de prélèvement est très grand alors \\(LC = \\mu  \\pm L\\frac{\\sigma}{\\sqrt{n}}\\times \\sqrt {\\frac{\\lambda}{2-\\lambda}}\\). Dans ce cas on peut jouer sur ce paramètre \\(L\\) pour améliorer l’efficacité de la carte en fonction de \\(\\lambda\\).\nOn constate que sur les petites déviations de production l’efficacité des cartes EWMA est bien supérieure à celle de la carte de Shewhart.",
+    "title": "4  Carte EWMA",
+    "section": "4.3 Limites de contrôle des cartes EWMA",
+    "text": "4.3 Limites de contrôle des cartes EWMA\nLes limites de ces cartes sont variables (en fonction de \\(i\\)) pour \\(X\\sim \\mathcal N(\\mu,\\sigma)\\) on a :\\[LC = \\mu  \\pm L\\frac{\\sigma}{\\sqrt{n}}\\times \\sqrt {\\frac{\\lambda}{2-\\lambda}[1-(1-\\lambda)^{2i}] }.\\]\n\nLorsque le nombre \\(i\\) de prélèvement est très grand alors \\(LC = \\mu  \\pm L\\frac{\\sigma}{\\sqrt{n}}\\times \\sqrt {\\frac{\\lambda}{2-\\lambda}}\\). Dans ce cas on peut jouer sur ce paramètre \\(L\\) pour améliorer l’efficacité de la carte en fonction de \\(\\lambda\\).\nOn constate que sur les petites déviations de production l’efficacité des cartes EWMA est bien supérieure à celle de la carte de Shewhart.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Carte EWMA</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Carte EWMA</span>"
     ]
   },
   {
     "objectID": "chapitre6.html#retour-à-lexemple",
     "href": "chapitre6.html#retour-à-lexemple",
-    "title": "6  Carte EWMA",
-    "section": "6.4 Retour à l’exemple :",
-    "text": "6.4 Retour à l’exemple :\nOn constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 8ième prélèvement.\n\nY&lt;-ewma(data,center = 15,std.dev = 2,sizes = 4)",
+    "title": "4  Carte EWMA",
+    "section": "4.4 Retour à l’exemple :",
+    "text": "4.4 Retour à l’exemple :\nOn constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 5ième prélèvement.\n\nlambda=0.25\nZ&lt;-ewma_cart1(data,n,mu=mu,sig=sig,lambda=lambda)\nplot_chart(Z$z,LIC=Z$LIC,LSC=Z$LSC,Type=\"Carte EWMA\")",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Carte EWMA</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Carte EWMA</span>"
     ]
   },
   {
@@ -364,7 +364,7 @@
     "href": "chapitre2.html#indices-de-capabilité-globale",
     "title": "2  Capabilité",
     "section": "",
-    "text": "2.1.1 Définition\nDans la suite \\(TS,TI\\) désigneront la tolérance supérieure et inférieure du procédé de fabrication.\nComme précédemment on distingue la variabilité globale du procédé et celle uniquement attribuable à la machine.\nOn définit deux types d’indices de capabilité :\n\nLa capabilité globale du procédé de fabrication (appelée aussi coefficient d’aptitude du procédé) \\[\nCap=\\frac{TS-TI}{D_G}\n\\]\nLa capabilité machine (appelée aussi coefficient d’aptitude du moyen)\n\n\\[\nCam=\\frac{TS-TI}{D_M}\n\\]\n\n\n2.1.2 Interprétation/ Inconvénient :\nIl est clair que lorsque \\(Cap&lt;1\\) le procédé n’est pas capable, il faut le revoir afin d’obtenir une production conforme aux tolérances. Par contre si \\(Cap&gt;2\\) on va considérer que le procédé est capable dans la mesure où la dispersion naturelle des observation est 2 fois moins importante que l’intervalle de tolérance.\nLes deux indicateurs précédents ont un gros inconvénient dans la mesure où ils ne permettent pas de juger du décentrage éventuel du procédé. Par exemple, dans le cas d’une loi normale, on peut avoir une situation comme celle ci-dessous :\n On voit que le procédé est bien dans l’intervalle de tolérance avec une valeur \\(Cap&gt;2\\) mais qu’il est clairement décentré. Donc il faut définir de nouveaux indices de capabilité qui vont permettre de juger de la justesse du procédé !",
+    "text": "2.1.1 Définition\nDans la suite \\(TS,TI\\) désigneront la tolérance supérieure et inférieure du procédé de fabrication.\nComme précédemment on distingue la variabilité globale du procédé et celle uniquement attribuable à la machine.\nOn définit deux types d’indices de capabilité :\n\nLa capabilité globale du procédé de fabrication (appelée aussi coefficient d’aptitude du procédé) \\[\nCap=\\frac{TS-TI}{D_G}\n\\]\nLa capabilité machine (appelée aussi coefficient d’aptitude du moyen)\n\n\\[\nCam=\\frac{TS-TI}{D_I}\n\\]\n\n\n2.1.2 Interprétation/ Inconvénient :\nIl est clair que lorsque \\(Cap&lt;1\\) le procédé n’est pas capable, il faut le revoir afin d’obtenir une production conforme aux tolérances. Par contre si \\(Cap&gt;2\\) on va considérer que le procédé est capable dans la mesure où la dispersion naturelle des observation est 2 fois moins importante que l’intervalle de tolérance.\nLes deux indicateurs précédents ont un gros inconvénient dans la mesure où ils ne permettent pas de juger du décentrage éventuel du procédé. Par exemple, dans le cas d’une loi normale, on peut avoir une situation comme celle ci-dessous :\n On voit que le procédé est bien dans l’intervalle de tolérance avec une valeur \\(Cap&gt;2\\) mais qu’il est clairement décentré. Donc il faut définir de nouveaux indices de capabilité qui vont permettre de juger de la justesse du procédé !",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capabilité</span>"
     ]
@@ -374,7 +374,7 @@
     "href": "chapitre2.html#indices-de-capabilité-de-centrage",
     "title": "2  Capabilité",
     "section": "2.2 Indices de capabilité de centrage",
-    "text": "2.2 Indices de capabilité de centrage\nLe coefficient de performance du procédé est\n\\[\nCpk=\\frac{\\min\\left(\\mu-TI;TS-\\mu\\right)}{3\\sigma_{g}},\n\\]\net celui la machine est\n\\[\nCmk=\\frac{\\min\\left(\\mu-TI;TS-\\mu\\right)}{3\\sigma_{i}}.\n\\]\nIl est clair que l’on a :\n\n\\(Cap&gt;Cpk,\\)\n\\(Cam&gt;Cmk.\\)\n\nOn utilisera la norme suivante :\nUn procédé (respectivement une machine) est capable si \\(Cpk&gt;1.33\\) (respectivement \\(Cmk&gt;1.33\\))\n\n2.2.1 Intervalles de confiance\nLes calculs de \\(Cap\\) et de \\(Cpk\\) sont basés sur des estimations de l’écart type \\(\\sigma_G\\). Dans le cas d’une loi normale on sait construire un intervalle de confiance de \\(\\sigma_G\\), on en déduit que\n\nL’intervalle \\(\\left[\\widehat C_{ap}\\sqrt{\\dfrac{\\chi^2_{n-1}(\\alpha/2)}{n-1}};\\widehat C_{ap}\\sqrt{\\dfrac{\\chi^2_{n-1}(1-\\alpha/2)}{n-1}}\\right]\\) est un intervalle de confiance de \\(Cap\\) au niveau de confiance \\(100(1-\\alpha)\\) %.\nL’intervalle \\(\\left[\\widehat C_{pk}\\left(1-z_{1-\\alpha/2}\\sqrt{\\dfrac{1}{9n\\widehat C_{pk}^2}+\\dfrac{1}{2(n-1)}}\\right);\\widehat C_{pk}\\left( 1+z_{1-\\alpha/2}\\sqrt{\\dfrac{1}{9n\\widehat C_{pk}^2}+\\dfrac{1}{2(n-1)}}\\right)\\right]\\) est un intervalle de confiance de \\(C_{pk}\\) au niveau de confiance \\(100(1-\\alpha)\\) %.\n\n\n\n2.2.2 Fin de l’exemple\nOn suppose que les tolérance sont \\(TI=0.9\\) et \\(TS=1.1\\).\nOn a \\(\\hat Cap=\\) 1.51 et \\(\\hat Cam=\\) 1.43.\nLa moyenne du procédé est estimé par \\(\\hat \\mu=\\overline{\\overline X}=\\) 0.999. Donc on a \\(\\hat Cpk=\\) 1.5 et \\(\\hat Cmk=\\) 1.41.\nL’intervalle de confiance de \\(Cap\\) est 1.32, 1.7 et celui de \\(Cpk\\) est 1.3, 1.69.",
+    "text": "2.2 Indices de capabilité de centrage\nLe coefficient de performance du procédé est\n\\[\nCpk=\\frac{\\min\\left(\\mu-TI;TS-\\mu\\right)}{3\\sigma_{G}},\n\\]\net celui la machine est\n\\[\nCmk=\\frac{\\min\\left(\\mu-TI;TS-\\mu\\right)}{3\\sigma_{I}}.\n\\]\nIl est clair que l’on a :\n\n\\(Cap&gt;Cpk,\\)\n\\(Cam&gt;Cmk.\\)\n\nOn utilisera la norme suivante :\nUn procédé (respectivement une machine) est capable si \\(Cpk&gt;1.33\\) (respectivement \\(Cmk&gt;1.33\\))\n\n2.2.1 Intervalles de confiance\nLes calculs de \\(Cap\\) et de \\(Cpk\\) sont basés sur des estimations de l’écart type \\(\\sigma_G\\). Dans le cas d’une loi normale on sait construire un intervalle de confiance de \\(\\sigma_G\\), on en déduit que\n\nL’intervalle \\(\\left[\\widehat C_{ap}\\sqrt{\\dfrac{\\chi^2_{n-1}(\\alpha/2)}{n-1}};\\widehat C_{ap}\\sqrt{\\dfrac{\\chi^2_{n-1}(1-\\alpha/2)}{n-1}}\\right]\\) est un intervalle de confiance de \\(Cap\\) au niveau de confiance \\(100(1-\\alpha)\\) %.\nL’intervalle \\(\\left[\\widehat C_{pk}\\left(1-z_{1-\\alpha/2}\\sqrt{\\dfrac{1}{9n\\widehat C_{pk}^2}+\\dfrac{1}{2(n-1)}}\\right);\\widehat C_{pk}\\left( 1+z_{1-\\alpha/2}\\sqrt{\\dfrac{1}{9n\\widehat C_{pk}^2}+\\dfrac{1}{2(n-1)}}\\right)\\right]\\) est un intervalle de confiance de \\(C_{pk}\\) au niveau de confiance \\(100(1-\\alpha)\\) %.\n\nDe même pour \\(C_{am},C_{mk}\\)\n\n\n2.2.2 Fin de l’exemple\nOn suppose que les tolérance sont \\(TI=0.9\\) et \\(TS=1.1\\). En utilisant la fonction capability du package multiSPC calculer les indices de capabilité associés à ce procédé de fabrication.\n\n\nVoir la correction\nlibrary(multiSPC)\ndf&lt;-read.csv(\"cap_data.csv\",sep=\",\")\nmu=mean(df$obs)\nsG=sd(df$obs)\nsI=df|&gt; group_by(sample) |&gt; summarise(S=sd(obs)) |&gt; select(S) |&gt;unlist() |&gt; mean()/c4(5)\ncapability(n=5,mu=mu,sI=sI,sG=sG,TI=0.9,TS=1.1)",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capabilité</span>"
     ]
@@ -386,17 +386,77 @@
     "section": "",
     "text": "Réalité (jamais connue) : dérive (ou non) de la production\nRésultat du contrôle : détection (ou non) d’une dérive de production.\n\n\n\n\n\n\n\n\n\nRéalité\n\n\n\n\n\n\nDéréglage\nNon déréglage\n\n\ncarte de CTRL\nDétection\nVRAI POSITIF\nFAUX POSITIF\n\n\nNon détection\nFAUX NEGATIF\nVRAI NEGATIF\n\n\n\n\n\nLa probabilité d’obtenir un faux positif : 0.3 % (par définition des limites de contrôle)\nLa probabilité d’obtenir un vrai négatif : 99.7% (toujours par construction).",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Efficacité des cartes de Shewhart</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cartes aux limites modifiées</span>"
     ]
   },
   {
     "objectID": "chapitre4.html#retour-sur-lexemple",
     "href": "chapitre4.html#retour-sur-lexemple",
+    "title": "3  Cartes de contrôles de Shewhart",
+    "section": "3.3 Retour sur l’exemple :",
+    "text": "3.3 Retour sur l’exemple :\n\nCalculer les limites de contrôles des cartes de la moyenne et de l’écart type.\nConstruire les cartes s’obtiennent en utilisant la fonction plot_chart() du package multiSPC.\n\n\n\nVoir la correction\ndf&lt;-data[,-1]\nn=ncol(df)\nM=apply(df,1,mean)\nS=apply(df,1,sd)\nmu=mean(M)\nsigI=mean(S)/c4(n)\nLICm=mu-3*sigI/sqrt(n)\nLSCm=mu+3*sigI/sqrt(n)\nLICs=mean(S)-3*mean(S)*sqrt(1-c4(n)^2)/c4(n)\nLSCs=mean(S)+3*mean(S)*sqrt(1-c4(n)^2)/c4(n)\nplot_chart(M,LIC=LICm,LSC=LSCm,Type = \"carte de la moyenne\")\nplot_chart(S,LIC=LICs,LSC=LSCs,Type = \"carte de l'écart type\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre1.html#estimation-des-paramètres-globaux-mu_gsigma_g",
+    "href": "chapitre1.html#estimation-des-paramètres-globaux-mu_gsigma_g",
+    "title": "1  Estimation des paramètres du procédé",
+    "section": "1.2 Estimation des paramètres globaux (\\(\\mu_G,\\sigma_G\\))",
+    "text": "1.2 Estimation des paramètres globaux (\\(\\mu_G,\\sigma_G\\))\nDans notre exemple précédent on estime la moyenne et l’écart type du procédé à partir des \\(k\\times n\\) observations :\n\n\n\n\n\n\n\n\n\nOn suppose que les observations suivent une loi normale de moyenne \\(\\mu_G\\) et d’écart type \\(\\sigma_G\\). Cela permet de dire que la proportion théorique de données dans\n\n\\([\\mu_G-\\sigma_G,\\mu+\\sigma_G]\\) est de 68.3 %,\n\\([\\mu_G-2\\sigma_G,\\mu+2\\sigma_G]\\) est de 95.4 %,\n\\([\\mu_G-3\\sigma_G,\\mu+3\\sigma_G]\\) est de 99.7 %.\n\nPour la dispersion globale on choisit \\[D_g=6\\sigma_G.\\]\n\n\n\n\n\n\nEstimation des paramètres de production\n\n\n\nOn prélève \\(k\\) échantillons de même effectif \\(n\\). On note \\(y_{ij}\\) la valeur \\(i=1,...,n\\) de l’échantillon \\(j=1,...,k.\\) Une estimation de \\(\\mu_G\\) est \\[\\hat \\mu_G=\\frac 1{k} \\displaystyle\\sum_{j=1}^k \\bar y_{j},\\] et une estimation de \\(\\sigma_G\\) est \\[\\hat \\sigma_G= \\sqrt{\\frac{\\displaystyle\\sum_{j=1}^k\\sum_{i=1}^n(y_{ij}-\\hat \\mu)^2}{n\\times k-1}}.\\]\n\n\nCalculer dans l’exemple une estimation de la moyenne et de l’écart type global :\n\n\nVoir la correction\nmean(df$obs)\nsd(df$obs)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Estimation des paramètres du procédé</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre1.html#estimation-des-paramètres-instantanés-mu_isigma_i",
+    "href": "chapitre1.html#estimation-des-paramètres-instantanés-mu_isigma_i",
+    "title": "1  Estimation des paramètres du procédé",
+    "section": "1.3 Estimation des paramètres instantanés (\\(\\mu_I,\\sigma_I\\)):",
+    "text": "1.3 Estimation des paramètres instantanés (\\(\\mu_I,\\sigma_I\\)):\nOn prélève un échantillon à un instant donné (ainsi les variations sont uniquement dues à la machine) et on suppose que les valeurs sont distribuées selon une loi normale de moyenne \\(\\mu_I\\) et d’écart type \\(\\sigma_I.\\) Naturellement, la dispersion instantanée sera définie par \\(D_I=6\\sigma_I.\\)\n\n\n\n\n\n\n\n\n\nOn voit dans cet exemple que les variations instantanées sont assez fluctuantes (c’est logique puisque pour chaque estimation on ne considère que 5 observations…) .\nRaisonnablement on peut estimer que \\(\\mu_I\\simeq \\mu_G\\), par contre il existe plusieurs estimations possibles de \\(\\sigma_I\\) :\n\nla première est basée sur le calcul des écarts types des \\(k\\) échantillons prélevés.\nla deuxième est basée sur le calcul des étendues des \\(k\\) échantillons prélevés.\n\nPour ces calculs on appliquera des coefficients de correction :\n\nLe coefficient \\(d_2(n)\\) correspond à l’espérance de l’étendue d’une loi normale centrée réduite et\nLe coefficient \\(c_4(n)\\) à l’espérance de l’écart type d’une loi normale centrée réduite.\n\nLes fonctions c4,d2,d3 du package multiSPC permettent d’estimer ces paramètres :\n\nc4(5)\n\n\nOn sait pour chaque échantillon \\(j\\) de \\(n\\) valeurs calculer une estimation de l’écart type \\(\\sigma_j\\) en calculant \\[s_j= \\sqrt{\\frac{\\displaystyle\\sum_{i=1}^n(y_{ij}-\\bar y_j)^2}{n-1}},\\] où \\(\\bar y_j\\) est la moyenne de l’échantillon \\(j.\\)\n\n\n\n\n\n\n\nEstimation à partir des écarts types\n\n\n\nOn considère \\(k\\) prélèvements de taille \\(n\\) dont les écarts types sont \\(s_1,...,s_k,\\) on pose \\(\\bar S =\\frac{\\sum_{j=1}^k s_j}{k}\\). Une estimation de l’écart type instantané \\(\\sigma_M\\) est donné par \\[\n\\hat \\sigma_M=\\dfrac{\\bar S}{c_4(n)}.\n\\]\n\n\n\nPour chaque échantillon \\(j\\) on calcule l’étendue\n\n\\[\nR_j=\\max(y_{ij})-\\min(y_{ij})\n\\]\n\n\n\n\n\n\nEstimation à partir des écarts types\n\n\n\nOn considère \\(k\\) prélèvements de taille \\(n\\) dont les étendues sont \\(R_1,...,R_k,\\) on pose \\(\\bar R =\\frac{\\sum_{j=1}^k R_j}{k}\\). Une estimation de l’écart type instantané \\(\\sigma_M\\) est donné par \\[\n\\hat \\sigma_M=\\dfrac{\\bar R}{d_2(n)}.\n\\]\n\n\nFaire ces deux calculs sur les données de l’exemple précédent.\n\n\nVoir la correction\n# Estimation à partir des écarts types\ntab&lt;-df %&gt;% group_by(sample) %&gt;% summarise(\"s_j\"=round(sd(obs),5)) \nmean(tab$\"s_j\")/c4(5)\n\n# Estimation à partir des étendues\netendue&lt;-function(X){return(max(X)-min(X))}\ntab2&lt;-df %&gt;% group_by(sample)%&gt;% summarise(\"R_j\"=etendue(obs))\nmean(tab2$\"R_j\")/d2(5)\n\n\nEt alors on obtient :",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Estimation des paramètres du procédé</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre4.html#estimation-des-limites-de-contrôle-pour-la-carte-des-écarts-types",
+    "href": "chapitre4.html#estimation-des-limites-de-contrôle-pour-la-carte-des-écarts-types",
     "title": "4  Cartes de contrôles de Shewhart",
-    "section": "4.5 Retour sur l’exemple :",
-    "text": "4.5 Retour sur l’exemple :\n\n\n\n\n\nM\nR\nS\n\n\n\n\n99.92\n2.3\n0.61\n\n\n99.90\n1.7\n0.38\n\n\n100.16\n2.7\n1.06\n\n\n100.16\n3.9\n2.34\n\n\n99.66\n3.7\n1.75\n\n\n100.16\n2.1\n0.52\n\n\n\n\n\nPour l’estimation de \\(\\sigma\\) on obtient\n0.9666943 avec la moyenne des étendues et 0.9951602\nDonc ces deux valeurs sont proches.",
+    "section": "4.5 Estimation des limites de contrôle pour la carte des écarts types",
+    "text": "4.5 Estimation des limites de contrôle pour la carte des écarts types\nPour l’estimation de \\(\\mu_S\\) on prend \\(\\hat\\mu_S=\\bar S\\), et pour l’estimation de \\(\\sigma_S\\) on prend \\(\\hat \\sigma_S=\\frac{\\sqrt{1-c_4^2}}{c_4}\\bar S\\). On a alors :\n\\[\n\\begin{cases}\n\\widehat{LIC}= \\overline{S}-3\\frac{\\sqrt{1-c_4^2}}{c_4}\\overline S \\\\\n\\widehat{LSC}= \\overline{S}+3\\frac{\\sqrt{1-c_4^2}}{c_4}\\overline S\n\\end{cases}\n\\]",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre4.html#efficacité-des-cartes-de-shewhart",
+    "href": "chapitre4.html#efficacité-des-cartes-de-shewhart",
+    "title": "3  Cartes de contrôles de Shewhart",
+    "section": "3.4 Efficacité des cartes de Shewhart",
+    "text": "3.4 Efficacité des cartes de Shewhart\nLa notion d’efficacité d’une carte de contrôle est sa capacité à détecter un dérèglement alors que la production semble rester sous contrôle.\nLe dérèglement peut concerner un décentrage (dérèglement de la moyenne) ou bien une augmentation de la dispersion.\nLa notion d’efficacité est proche de la notion de puissance pour les tests statistiques.\n\n3.4.1 Faux positifs et Faux négatifs\nOn va traduire dans le contexte de la MSP les notions vues sur les tests.\n\nRéalité (jamais connue) : dérive (ou non) de la production\nRésultat du contrôle : détection (ou non) d’une dérive de production.\n\nCeci conduit à deux types d’erreurs\n\n\n\n\n\n\n\nRéalité\n\n\n\n\n\n\nDéréglage\nNon déréglage\n\n\ncarte de CTRL\nDétection\nVRAI POSITIF\nFAUX POSITIF\n\n\nNon détection\nFAUX NEGATIF\nVRAI NEGATIF\n\n\n\nCe que l’on connait (par construction de la carte de contrôle) :\n\nLa probabilité d’obtenir un faux positif : 0.3 % (par définition des limites de contrôle)\nLa probabilité d’obtenir un vrai négatif : 99.7% (toujours par construction).\n\nCe que l’on cherche :\nLa probabilité \\(\\beta\\) d’obtenir un faux négatif ou de manière équivalente la probabilité \\(1-\\beta\\) d’obtenir un vrai positif (appelée puissance du test).\n\n\n3.4.2 Déréglage de la moyenne\n Un décentrage de moyenne est exprimé en nombre d’écart type (unité standardisé) donc si \\(\\mu_1\\) est la moyenne décentrée, on lui associera le décentrage\n\\[\n\\rho=\\frac{|\\mu_1-\\mu|}{\\sigma}\n\\]\nLa probabilité \\(\\beta\\) de ne pas détecter le décentrage est alors\n\\[\n\\beta=\\mathbb P(LIC&lt;\\widetilde X &lt;LSC)\n\\]\noù \\(\\widetilde X \\sim \\mathcal N(\\mu+\\rho\\sigma,\\frac{\\sigma}{\\sqrt{n}}).\\) Un calcul simple permet d’obtenir\n\\[\n\\beta = F(3-\\rho\\sqrt n)-F(-3-\\rho\\sqrt n)\n\\]\noù \\(F(x)=\\mathbb P(X&lt;x)\\) est la fonction de répartition de la loi normale.\nL’efficacité de la carte est mesurée par \\(1-\\beta\\) ( puissance de la carte).\nOn obtient ainsi les courbes d’efficacité de la carte de la moyenne en fonction de la taille \\(n\\) des échantillons prélevés.\n\n\n\n\n\n\n\n\n\n\nOn constate (ce qui est logique) que la probabilité de ne pas détecter un déréglage donné diminue en fonction de la taille de l’échantillon.\nDétecter un déréglage \\(\\rho=0\\) correspond à une fausse alerte qui vaut pour la carte de la moyenne \\(\\alpha=0.3\\%\\).\n\n\n\n3.4.3 Déréglage de l’écart type\nIci on considère des décentrages \\(\\rho&gt;1\\) (sinon il s’agit d’une amélioration de la dispersion).\nUn calcul similaire au précédent conduit à \\[\n\\beta=F(\\frac{3}{\\rho})-F(\\frac{-3}{\\rho})\n\\] Ici on constate que l’efficacité de la carte est indépendante de \\(n\\) et qu’elle est très mauvaise. Il faut une très grande valeur de \\(\\rho\\) pour avoir une petite valeur de \\(\\beta\\).\nPar exemple pour \\(\\rho=3\\) on a \\(\\beta=\\) 0.6826895 c’est à dire pour un écart type qui triplerait la probabilité ne peut pas détecter ce dérèglement est de 68.3%.\n\n\n3.4.4 Période opérationelle moyenne (Average Run Length)\nLa Période Opérationnelle Moyenne correspond au nombre de prélèvements qu’il faut effectuer, en moyenne, pour sortir des limites de contrôle lorsque qu’un déréglage \\(\\rho\\) s’est produit.\nLe cas \\(\\rho=0\\) pour une carte de Shewhart avec des observations indépendantes correspond à une fausse alerte qui se produit dans \\(\\alpha=0.3\\%\\) et correspond à\n\\[\nARL_0=\\frac{1}{0.003}=333\n\\] donc il faut en moyenne 334 prélèvements avant de détecter une fausse alerte.\n\\(ARL\\) est définie par\n\\[\nARL_\\rho=\\frac 1{1-\\beta}\n\\]\nC’est donc l’inverse de la puissance (efficacité) de la carte, donc plus ce nombre sera petit plus la carte sera efficace.\nSi on reprend les courbes d’efficacité précédente on obtient :\n\n\n\n\n\n\n\n\n\n\n\n3.4.5 Calibration des tailles de prélèvement\nLa production initiale est \\(X\\sim \\mathcal N (\\mu,\\sigma)\\) et la production décentrée vaut \\(\\widetilde X \\sim \\mathcal N (\\mu+\\rho\\sigma,\\sigma)\\). On sait calculer la probabilité \\(1-\\beta\\) de détecter le décentrage en fonction de \\(\\rho\\) et on a donc\n\\[\nARL_\\rho=\\frac 1{1-\\beta}=\\frac 1{1-F(3-\\rho\\sqrt n)+F(-3-\\rho\\sqrt n)}\n\\]\nExemple :\nConsidérons le problème suivant : on a un décentrage de moyenne de 0.5 écart type. On voudrait le détecter en moyenne avant 50 prélèvements. Quelle taille d’échantillon doit-on considérer ?\n\nn&lt;-seq(2,20,by=1)\nrho&lt;-.5\nbeta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))\nARL&lt;-1/(1-beta)\nJ&lt;-which.max(ARL&lt;50)\nn[J]\n\n[1] 4",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
+    ]
+  },
+  {
+    "objectID": "exercice.html",
+    "href": "exercice.html",
+    "title": "5  Exercice",
+    "section": "",
+    "text": "5.1 Premier travail : cartes univariées\nOn considère le jeu de données X qui correspond au suivi de 5 caractéristiques d’une production.\nLes 15 premiers prélèvements ont été effectués pour les 10 min et vont servir à mettre en place les limites de contrôle. Les prélèvements suivants (16 à 40) ont été réalisés 6 fois par jour.\nlibrary(multiSPC)\nload(\"X.rda\")\ndim(X)\n\n[1] 40  5  6\n\nX1=X[1:15,,]\nk1=dim(X1)[1]\np=dim(X1)[2]\nn=dim(X1)[3]\n# Pour sélectionner les 15 prélèvements de 6 observations pour la variable 1  \nX1[,1,]\n\n             obs 1    obs 2    obs 3    obs 4    obs 5    obs 6\nprelev 1  23.76246 23.40527 24.91360 25.41634 23.29637 24.98259\nprelev 2  26.47183 24.34791 26.39461 25.38975 24.20868 26.16872\nprelev 3  26.04362 25.19139 26.07489 25.45882 24.60888 24.62398\nprelev 4  25.10706 25.88083 23.70325 25.34959 23.48259 24.90549\nprelev 5  23.61300 23.54233 23.70711 27.18749 24.50389 25.03395\nprelev 6  24.72257 24.19010 24.89519 23.95908 25.47115 23.40282\nprelev 7  23.28691 24.56824 24.92739 24.70540 26.37064 24.77298\nprelev 8  26.08343 24.47033 24.36704 24.87880 26.08653 25.58326\nprelev 9  26.18530 24.89157 23.66520 25.22682 24.76154 25.53291\nprelev 10 23.52080 23.79163 26.13552 25.10471 24.63480 24.22959\nprelev 11 24.58895 24.62262 25.59954 24.86031 24.57686 25.86795\nprelev 12 25.40909 25.26060 24.08024 25.38977 25.34972 25.00771\nprelev 13 24.43261 24.24110 24.86680 24.02565 24.87711 24.29757\nprelev 14 23.78666 24.80767 25.89863 24.23327 25.45326 24.78892\nprelev 15 24.43656 24.63109 25.67316 24.21859 25.62118 24.29264\nQue peut-on en déduire ?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercice</span>"
+    ]
+  },
+  {
+    "objectID": "exercice.html#premier-travail-cartes-univariées",
+    "href": "exercice.html#premier-travail-cartes-univariées",
+    "title": "5  Exercice",
+    "section": "",
+    "text": "Calculer les limites des cartes sur les 15 premiers points :\n\n\n\n\nAppliquer les limites de contrôles sur les 25 autres prélèvements et interpréter les résultats.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercice</span>"
     ]
   }
 ]

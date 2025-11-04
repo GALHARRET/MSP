@@ -1,55 +1,31 @@
-# Estimation des variations de production
+# Estimation des paramètres du procédé
 
 ```{r echo=F}
 knitr::opts_chunk$set(echo = TRUE)
 suppressPackageStartupMessages(
   {
-  library(tidyverse)
+library(tidyverse)
 library(ggplot2)
 library(knitr)
-library(qcc)
+library(multiSPC)
 library(readxl)
   }
 )
-coeff_correct<-read.csv("coeff_correct.csv",sep=",")  
 ```
 
 ## Introduction
 
 -   Un procédé de fabrication même lorsqu'il est sous contrôle connait des variations aléatoires (peu importantes).
 
--   Ces variations sont assignables aux 5M (voir figure ). La dispersion globale du procédé de fabrication notée $D_G$ rend compte de ces fluctuations.
+-   Ces variations sont assignables aux 5M (voir figure). La dispersion globale du procédé de fabrication notée $D_G$ rend compte de ces fluctuations.
 
 ![](figure/figure_5M.png) [Lien vers le cours de Patrice Hardouin](https://patrice-hardouin.canoprof.fr/eleve/Sciences%20en%20H%C3%B4tellerie-Restauration/MAN_HR/analyses_microbiologiques_eleve/activities/origine_non_conforme.xhtml)
 
 -   Les variations qui sont imputables aux machines sont particulièrement étudiées. On note $D_M$ la dispersion due aux machines, on parle aussi de dispersion instantanée.
 
-Il est clair que $D_G \geq D_M.$
+En pratique, on prélève $k$ échantillons de même effectif $n$.
 
-## Estimation de la dispersion globale
-
-On suppose que les observations suivent une loi normale de moyenne $\mu$ et d'écart type $\sigma_G$. Cela permet de dire que la proportion théorique de données dans
-
--   $[\mu-\sigma_G,\mu+\sigma_G]$ est de 68.3 %,
-
--   $[\mu-2\sigma_G,\mu+2\sigma_G]$ est de 95.4 %,
-
--   $[\mu-3\sigma_G,\mu+3\sigma_G]$ est de 99.7 %.
-
-Ainsi pour la dispersion globale on choisit $$D_g=6\sigma_G.$$
-
-Pour l'estimation de $D_M$ on prélève un échantillon à un instant donné (ainsi les variations sont uniquement dues à la machine) et on suppose là-encore que les valeurs sont distribuées selon une loi normale de moyenne $\mu$ et d'écart type $\sigma_M.$ Naturellement, la dispersion instantanée sera définie par $D_M=6\sigma_M.$
-
-Les deux écarts types $\sigma_M,\sigma_G$ sont inconnus, en pratique, ils vont être estimés de la façon suivante :
-
-```{=tex}
-\begin{quote}
-    On prélève $k$ échantillons de même effectif $n$.  
-\end{quote}
-```
-On note $y_{ij}$ la valeur $i=1,...,n$ de l'échantillon $j=1,...,k.$
-
-Exemple : on prélève 25 échantillons de 5 unités de production. Les observations fluctuent autour de $y=1$. Ces fluctuations sont aléatoires et peu importantes ($\pm$ 5%).
+Exemple : on prélève à intervalles réguliers 25 échantillons de 5 unités de production. Les observations fluctuent autour de $y=1$. Ces fluctuations sont aléatoires et peu importantes ($\pm$ 5%).
 
 Les données sont disponibles [ici](cap_data.csv)
 
@@ -59,82 +35,128 @@ ggplot(df,aes(x=sample,y=obs))+
   ylim(0.9,1.1)+geom_point()+theme_minimal()
 ```
 
-Une estimation de $\mu$ est $$\hat \mu=\overline{\overline{y}}=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j},$$ et une estimation de $\sigma_G$ est $$\hat \sigma_G= \sqrt{\frac{\displaystyle\sum_{j=1}^k\sum_{i=1}^n(y_{ij}-\hat \mu)^2}{n\times k-1}}.$$ Dans l'exemple on a $\hat \sigma_G=$ `r round(sd(df$obs),5)`.
+## Estimation des paramètres globaux ($\mu_G,\sigma_G$)
 
-## Estimation de la dispersion instantanée :
+Dans notre exemple précédent on estime la moyenne et l'écart type du procédé à partir des $k\times n$ observations :
 
-Il existe plusieurs estimations possibles de $\sigma_M$ :
+```{r echo=F, warning=FALSE}
+df<-read.csv("cap_data.csv",sep=",")
+ggplot(df,aes(x=sample,y=obs))+
+  geom_point()+
+  geom_hline(yintercept = c(mean(df$obs),mean(df$obs)-3*sd(df$obs),mean(df$obs)+3*sd(df$obs)),color="red")+
+  annotate("text",label=expression(mu[G]),x=26,y=mean(df$obs)+0.005,size=6,color="red")+
+  annotate("text",label=expression(mu[G]+3*sigma[G]),x=24,y=mean(df$obs)+3*sd(df$obs)+0.005,size=6,color="red")+
+  annotate("text",label=expression(mu[G]-3*sigma[G]),x=24,y=mean(df$obs)-3*sd(df$obs)+0.005,size=6,color="red")+
+  theme_minimal()
+```
+
+On suppose que les observations suivent une loi normale de moyenne $\mu_G$ et d'écart type $\sigma_G$. Cela permet de dire que la proportion théorique de données dans
+
+-   $[\mu_G-\sigma_G,\mu+\sigma_G]$ est de 68.3 %,
+
+-   $[\mu_G-2\sigma_G,\mu+2\sigma_G]$ est de 95.4 %,
+
+-   $[\mu_G-3\sigma_G,\mu+3\sigma_G]$ est de 99.7 %.
+
+Pour la dispersion globale on choisit $$D_g=6\sigma_G.$$
+
+::: {.callout-note title="Estimation des paramètres de production"}
+On prélève $k$ échantillons de même effectif $n$. On note $y_{ij}$ la valeur $i=1,...,n$ de l'échantillon $j=1,...,k.$ Une estimation de $\mu_G$ est $$\hat \mu_G=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j},$$ et une estimation de $\sigma_G$ est $$\hat \sigma_G= \sqrt{\frac{\displaystyle\sum_{j=1}^k\sum_{i=1}^n(y_{ij}-\hat \mu)^2}{n\times k-1}}.$$
+:::
+
+Calculer dans l'exemple une estimation de la moyenne et de l'écart type global :
+
+```{r eval=F}
+#| code-fold: true
+#| code-summary: "Voir la correction"
+mean(df$obs)
+sd(df$obs)
+```
+
+## Estimation des paramètres instantanés ($\mu_I,\sigma_I$):
+
+On prélève un échantillon à un instant donné (ainsi les variations sont uniquement dues à la machine) et on suppose que les valeurs sont distribuées selon une loi normale de moyenne $\mu_I$ et d'écart type $\sigma_I.$ Naturellement, la dispersion instantanée sera définie par $D_I=6\sigma_I.$
+
+```{r echo=F}
+k=dim(df)[1]
+tab1<-df %>% group_by(sample) %>% summarise("s_j"=round(sd(obs),5)) 
+tab2<-df %>% group_by(sample) %>% summarise("M_j"=round(mean(obs),5)) 
+df2=data.frame(sample=tab2$sample,M=tab2$M_j,
+               min=tab2$M_j-3*tab1$s_j,max=tab2$M_j+3*tab1$s_j)
+ggplot(df2,aes(x=sample,y=M))+
+  geom_point(colour="red")+
+  geom_errorbar(aes(ymin = min,ymax=max),colour="red")+
+  geom_point(data=df,aes(x=sample,y=obs))+
+  theme_minimal()
+```
+
+On voit dans cet exemple que les variations instantanées sont assez fluctuantes (c'est logique puisque pour chaque estimation on ne considère que 5 observations...) .
+
+Raisonnablement on peut estimer que $\mu_I\simeq \mu_G$, par contre il existe plusieurs estimations possibles de $\sigma_I$ :
 
 -   la première est basée sur le calcul des écarts types des $k$ échantillons prélevés.
 
 -   la deuxième est basée sur le calcul des étendues des $k$ échantillons prélevés.
 
-Pour ces calculs on appliquera des coefficients de correction qui sont donnés en fonction de $n$ dans le tableau suivant. Le coefficient $d_2(n)$ correspond à l'espérance de l'étendue d'une loi normale centrée réduite et $c_4(n)$ à l'espérance de l'écart type d'une loi normale centrée réduite. Ces valeurs peuvent très facilement être obtenues par simulation par exemple pour $n=5$ :
+Pour ces calculs on appliquera des coefficients de correction :
+
+-   Le coefficient $d_2(n)$ correspond à l'espérance de l'étendue d'une loi normale centrée réduite et
+
+-   Le coefficient $c_4(n)$ à l'espérance de l'écart type d'une loi normale centrée réduite.
+
+Les fonctions *c4,d2,d3* du package *multiSPC* permettent d'estimer ces paramètres :
 
 ```{r eval=F}
-n<-5
-B<-10^6
-s<-rep(NA,B)
-R<-rep(NA,B)
-  for(b in 1:B){
-    X<-rnorm(n)
-    s[b]<-sd(X)
-    R[b]<-max(X)-min(X)
-  }
-  c4<-mean(s)
-  d2<-mean(R)
-  d3<-sd(R)
+c4(5)
 ```
 
-```{r echo=F}
-kable(coeff_correct[,-1],row.names = F,digits = c(0,4,4,4),
-      caption = "table des coefficients c4, d2, d3")
-```
+-   On sait pour chaque échantillon $j$ de $n$ valeurs calculer une estimation de l'écart type $\sigma_j$ en calculant $$s_j= \sqrt{\frac{\displaystyle\sum_{i=1}^n(y_{ij}-\bar y_j)^2}{n-1}},$$ où $\bar y_j$ est la moyenne de l'échantillon $j.$
 
-#### Calcul basé sur les écarts types $s_j$
-
-On sait pour chaque échantillon $j$ de $n$ valeurs calculer une estimation de l'écart type $\sigma_j$ en calculant $$s_j= \sqrt{\frac{\displaystyle\sum_{i=1}^n(y_{ij}-\bar y_j)^2}{n-1}},$$ où $\bar y_j$ est la moyenne de l'échantillon $j.$
-
-Dans l'exemple les premiers écarts types valent
-
-```{r echo=F}
-tab<-df %>% group_by(sample) %>% summarise("s_j"=round(sd(obs),5)) 
-kable(head(tab))
-```
-
-On pose $\bar S =\frac{\sum_{j=1}^k s_j}{k}$ et alors une estimation de l'écart type instantané $\sigma_M$ est donné par
-
+::: {.callout-note title="Estimation à partir des écarts types"}
+On considère $k$ prélèvements de taille $n$ dont les écarts types sont $s_1,...,s_k,$ on pose $\bar S =\frac{\sum_{j=1}^k s_j}{k}$. Une estimation de l'écart type instantané $\sigma_M$ est donné par $$
+\hat \sigma_M=\dfrac{\bar S}{c_4(n)}.
 $$
-\hat \sigma_M=\dfrac{\bar S}{c_4}
-$$ où $c_4$ est donné dans la table 1.
+:::
 
-On obtient $\hat \sigma_M=$ `r mean(tab$"s_j")/coeff_correct[4,"c4"]`
-
-#### Calcul basé sur les étendues $R_j$
-
-Pour chaque échantillon $j$ on calcule l'étendue
+-   Pour chaque échantillon $j$ on calcule l'étendue
 
 $$
 R_j=\max(y_{ij})-\min(y_{ij})
 $$
 
-On pose $\bar R =\frac{\sum_{j=1}^k R_j}{k}$ et alors une estimation de l'écart type instantané $\sigma_M$ est donné par
-
+::: {.callout-note title="Estimation à partir des écarts types"}
+On considère $k$ prélèvements de taille $n$ dont les étendues sont $R_1,...,R_k,$ on pose $\bar R =\frac{\sum_{j=1}^k R_j}{k}$. Une estimation de l'écart type instantané $\sigma_M$ est donné par $$
+\hat \sigma_M=\dfrac{\bar R}{d_2(n)}.
 $$
-\hat \sigma_M=\dfrac{\bar R}{d_2}
-$$
+:::
 
-où $d_2$ est donné dans la table 1.
+Faire ces deux calculs sur les données de l'exemple précédent.
 
-Retour à l'exemple
+```{r eval=F}
+#| code-fold: true
+#| code-summary: "Voir la correction"
 
-```{r echo=F}
-etendue<-function(X){return(max(X)-min(X))} 
+# Estimation à partir des écarts types
+tab<-df %>% group_by(sample) %>% summarise("s_j"=round(sd(obs),5)) 
+mean(tab$"s_j")/c4(5)
+
+# Estimation à partir des étendues
+etendue<-function(X){return(max(X)-min(X))}
 tab2<-df %>% group_by(sample)%>% summarise("R_j"=etendue(obs))
-kable(head(tab2))
-s_M=mean(tab2$"R_j")/coeff_correct[4,"d2"]
+mean(tab2$"R_j")/d2(5)
 ```
 
-On obtient $\hat \sigma_M=$ `r`
+Et alors on obtient :
 
-On constate que les estimations obtenues à partir de $\bar R$ ou de $\bar S$ sont proches.
+```{r echo=F}
+k=dim(df)[1]
+tab1<-df %>% group_by(sample) %>% summarise("s_j"=round(sd(obs),5)) 
+tab2<-df %>% group_by(sample) %>% summarise("M_j"=round(mean(obs),5)) 
+df2=data.frame(sample=tab1$sample,M=mean(tab2$M_j),
+               min=mean(tab2$M_j)-3*mean(tab1$s_j)/c4(5),max=mean(tab2$M_j)+3*mean(tab1$s_j)/c4(5))
+ggplot(df2,aes(x=sample,y=M))+
+  geom_point(colour="red")+
+  geom_errorbar(aes(ymin = min,ymax=max),colour="red")+
+  geom_point(data=df,aes(x=sample,y=obs))+
+  theme_minimal()
+```

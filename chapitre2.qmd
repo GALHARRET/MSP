@@ -17,7 +17,7 @@ On définit deux types d'indices de capabilité :
 -   La capabilité machine (appelée aussi coefficient d'aptitude du moyen)
 
 $$
-Cam=\frac{TS-TI}{D_M}
+Cam=\frac{TS-TI}{D_I}
 $$
 
 ### Interprétation/ Inconvénient :
@@ -33,13 +33,13 @@ Les deux indicateurs précédents ont un gros inconvénient dans la mesure où i
 Le coefficient de performance du procédé est
 
 $$
-Cpk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{g}},
+Cpk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{G}},
 $$
 
 et celui la machine est
 
 $$
-Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{i}}.
+Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{I}}.
 $$
 
 Il est clair que l'on a :
@@ -60,28 +60,19 @@ Les calculs de $Cap$ et de $Cpk$ sont basés sur des estimations de l'écart typ
 
 2.  L'intervalle $\left[\widehat C_{pk}\left(1-z_{1-\alpha/2}\sqrt{\dfrac{1}{9n\widehat C_{pk}^2}+\dfrac{1}{2(n-1)}}\right);\widehat C_{pk}\left( 1+z_{1-\alpha/2}\sqrt{\dfrac{1}{9n\widehat C_{pk}^2}+\dfrac{1}{2(n-1)}}\right)\right]$ est un intervalle de confiance de $C_{pk}$ au niveau de confiance $100(1-\alpha)$ %.
 
+De même pour $C_{am},C_{mk}$
+
 ### Fin de l'exemple
 
-On suppose que les tolérance sont $TI=0.9$ et $TS=1.1$.
+On suppose que les tolérance sont $TI=0.9$ et $TS=1.1$. En utilisant la fonction ***capability*** du package multiSPC calculer les indices de capabilité associés à ce procédé de fabrication.
 
-```{r echo=F}
+```{r eval=F}
+#| code-fold: true
+#| code-summary: "Voir la correction"
+library(multiSPC)
 df<-read.csv("cap_data.csv",sep=",")
-s_M=0.02337536
-TI=0.9
-TS=1.1
-s_G=round(sd(df$obs),5)
-Cap=(TS-TI)/(6*s_G)
-m<-mean(df$obs)
-Cpk=min(m-TI,TS-m)/(3*s_G)
-Cam=(TS-TI)/(6*s_M)
-Cmk=min(m-TI,TS-m)/(3*s_M)
-n<-125
-IC1<-c(sqrt(qchisq(.025,n-1)/(n-1))*Cap,sqrt(qchisq(.975,n-1)/(n-1))*Cap)
-IC2<-c(Cpk*(1-qnorm(.975)*sqrt(1/(9*Cpk^2*n)+1/(2*(n-1)))),Cpk*(1+qnorm(.975)*sqrt(1/(9*Cpk^2*n)+1/(2*(n-1)))))
+mu=mean(df$obs)
+sG=sd(df$obs)
+sI=df|> group_by(sample) |> summarise(S=sd(obs)) |> select(S) |>unlist() |> mean()/c4(5)
+capability(n=5,mu=mu,sI=sI,sG=sG,TI=0.9,TS=1.1)
 ```
-
-On a $\hat Cap=$ `r round(Cap,2)` et $\hat Cam=$ `r round(Cam,2)`.
-
-La moyenne du procédé est estimé par $\hat \mu=\overline{\overline X}=$ `r round(m,3)`. Donc on a $\hat Cpk=$ `r round(Cpk,2)` et $\hat Cmk=$ `r round(Cmk,2)`.
-
-L'intervalle de confiance de $Cap$ est `r round(IC1,2)` et celui de $Cpk$ est `r round(IC2,2)`.

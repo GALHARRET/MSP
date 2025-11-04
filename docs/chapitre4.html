@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Cartes de contrôles de Shewhart – MSP</title>
+<title>3&nbsp; Cartes de contrôles de Shewhart – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre5.html" rel="next">
+<link href="./chapitre6.html" rel="next">
 <link href="./chapitre3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre4.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,37 +178,31 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des paramètres du procédé</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
   </div>
 </li>
     </ul>
@@ -221,11 +215,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#principe" id="toc-principe" class="nav-link active" data-scroll-target="#principe"><span class="header-section-number">4.1</span> Principe</a></li>
-  <li><a href="#distribution-des-paramètres" id="toc-distribution-des-paramètres" class="nav-link" data-scroll-target="#distribution-des-paramètres"><span class="header-section-number">4.2</span> Distribution des paramètres</a></li>
-  <li><a href="#estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." id="toc-estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." class="nav-link" data-scroll-target="#estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne."><span class="header-section-number">4.3</span> Estimation des limites de contrôle pour la carte de la moyenne.</a></li>
-  <li><a href="#estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" id="toc-estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" class="nav-link" data-scroll-target="#estimation-des-limites-de-contrôle-pour-la-carte-des-étendues"><span class="header-section-number">4.4</span> Estimation des limites de contrôle pour la carte des étendues</a></li>
-  <li><a href="#retour-sur-lexemple" id="toc-retour-sur-lexemple" class="nav-link" data-scroll-target="#retour-sur-lexemple"><span class="header-section-number">4.5</span> Retour sur l’exemple :</a></li>
+  <li><a href="#principe" id="toc-principe" class="nav-link active" data-scroll-target="#principe"><span class="header-section-number">3.1</span> Principe</a></li>
+  <li><a href="#distribution-des-paramètres" id="toc-distribution-des-paramètres" class="nav-link" data-scroll-target="#distribution-des-paramètres"><span class="header-section-number">3.2</span> Distribution des paramètres</a></li>
+  <li><a href="#retour-sur-lexemple" id="toc-retour-sur-lexemple" class="nav-link" data-scroll-target="#retour-sur-lexemple"><span class="header-section-number">3.3</span> Retour sur l’exemple :</a></li>
+  <li><a href="#efficacité-des-cartes-de-shewhart" id="toc-efficacité-des-cartes-de-shewhart" class="nav-link" data-scroll-target="#efficacité-des-cartes-de-shewhart"><span class="header-section-number">3.4</span> Efficacité des cartes de Shewhart</a>
+  <ul class="collapse">
+  <li><a href="#faux-positifs-et-faux-négatifs" id="toc-faux-positifs-et-faux-négatifs" class="nav-link" data-scroll-target="#faux-positifs-et-faux-négatifs"><span class="header-section-number">3.4.1</span> Faux positifs et Faux négatifs</a></li>
+  <li><a href="#déréglage-de-la-moyenne" id="toc-déréglage-de-la-moyenne" class="nav-link" data-scroll-target="#déréglage-de-la-moyenne"><span class="header-section-number">3.4.2</span> Déréglage de la moyenne</a></li>
+  <li><a href="#déréglage-de-lécart-type" id="toc-déréglage-de-lécart-type" class="nav-link" data-scroll-target="#déréglage-de-lécart-type"><span class="header-section-number">3.4.3</span> Déréglage de l’écart type</a></li>
+  <li><a href="#période-opérationelle-moyenne-average-run-length" id="toc-période-opérationelle-moyenne-average-run-length" class="nav-link" data-scroll-target="#période-opérationelle-moyenne-average-run-length"><span class="header-section-number">3.4.4</span> Période opérationelle moyenne (Average Run Length)</a></li>
+  <li><a href="#calibration-des-tailles-de-prélèvement" id="toc-calibration-des-tailles-de-prélèvement" class="nav-link" data-scroll-target="#calibration-des-tailles-de-prélèvement"><span class="header-section-number">3.4.5</span> Calibration des tailles de prélèvement</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -234,7 +234,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></h1>
 </div>
 
 
@@ -251,8 +251,8 @@ window.Quarto = {
 </header>
 
 
-<section id="principe" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="principe"><span class="header-section-number">4.1</span> Principe</h2>
+<section id="principe" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="principe"><span class="header-section-number">3.1</span> Principe</h2>
 <p>On va construire deux graphiques : une carte dite de position et une carte de dispersion.</p>
 <p><strong><em>Exemple</em></strong></p>
 <p>Suivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.</p>
@@ -323,10 +323,8 @@ window.Quarto = {
 </table>
 </div>
 </div>
+<p>On va construire les cartes de contrôle données ci-dessous</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>data[,<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Carte de la moyenne avec la librairie qcc dans R</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">qcc</span>(df,<span class="at">type=</span><span class="st">"xbar"</span>,<span class="at">title=</span><span class="st">"Carte de la moyenne"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -334,8 +332,6 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Carte de l'étendue avec la librairie qcc dans R</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">qcc</span>(df,<span class="at">type=</span><span class="st">"R"</span>,<span class="at">title=</span><span class="st">"Carte de l'étendue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -344,13 +340,13 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Pour chaque échantillon de 5 steacks on calcule la moyenne et l’étendue et on les reporte sur les cartes correspondantes.</p>
+<p>Pour chaque échantillon de 5 steacks on calcule la moyenne et l’écart type et on les reporte sur les cartes correspondantes.</p>
 </section>
-<section id="distribution-des-paramètres" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="distribution-des-paramètres"><span class="header-section-number">4.2</span> Distribution des paramètres</h2>
+<section id="distribution-des-paramètres" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="distribution-des-paramètres"><span class="header-section-number">3.2</span> Distribution des paramètres</h2>
 <p>On suppose que tous les paramètres suivent une loi normale.</p>
 <ul>
-<li><p>La moyenne d’un échantillon <span class="math inline">\(\bar X \sim \mathcal N(\mu,\frac{\sigma}{\sqrt n}).\)</span></p></li>
+<li><p>La moyenne d’un échantillon <span class="math inline">\(\bar Y \sim \mathcal N(\mu,\frac{\sigma}{\sqrt n}).\)</span></p></li>
 <li><p>L’étendue d’un échantillon <span class="math inline">\(R \sim \mathcal N(\mu_R,\sigma_R).\)</span></p></li>
 <li><p>L’écart type d’un échantillon <span class="math inline">\(S \sim \mathcal N(\mu_S,\sigma_S).\)</span></p></li>
 </ul>
@@ -374,86 +370,193 @@ LS=\mu+z_{1-\alpha/2}\frac{\sigma}{\sqrt n} \\
 <li><p>Limite inférieure de contrôle (LIC): <span class="math inline">\(LIC=\mu-3\frac{\sigma}{\sqrt n}\)</span></p></li>
 <li><p>Limite supérieure de contrôle (LSC): <span class="math inline">\(LSC=\mu+3\frac{\sigma}{\sqrt n}\)</span></p></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Limites des cartes de contrôle">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Limites des cartes de contrôle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On a prélevé à intervalles réguliers <span class="math inline">\(k\)</span> échantillons de <span class="math inline">\(n\)</span> observations. On a calculé <span class="math inline">\(\bar y_j,R_j\)</span> la moyenne et l’étendue de chacun des <span class="math inline">\(k\)</span> échantillons.</p>
+<p>Pour construire :</p>
+<ul>
+<li><p>La carte de la moyenne on utilise <span class="math inline">\(\hat \mu_I=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j}\)</span> et <span class="math inline">\(\hat \sigma_I = \dfrac{\bar R}{d_2}\)</span>.</p></li>
+<li><p>La carte de l’étendue on utilise <span class="math inline">\(\hat\mu_R=\bar R\)</span> et <span class="math inline">\(\hat \sigma_R=\frac{d_3}{d_2}\bar R\)</span>.</p></li>
+<li><p>La carte de l’écart type on utilise <span class="math inline">\(\hat\mu_S=\bar S\)</span> et <span class="math inline">\(\hat \sigma_S=\frac{\sqrt{1-c_4^2}}{c_4}\bar S\)</span>.</p></li>
+</ul>
+</div>
+</div>
 </section>
-<section id="estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne." class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="estimation-des-limites-de-contrôle-pour-la-carte-de-la-moyenne."><span class="header-section-number">4.3</span> Estimation des limites de contrôle pour la carte de la moyenne.</h2>
-<p>Reprenons le cas précédent. Pour chaque échantillon on peut calculer <span class="math inline">\(\bar y_j,R_j\)</span> la moyenne et l’étendue.</p>
-<p>On a vu dans le chapitre précédent que <span class="math inline">\(\hat\mu=\overline{\overline{y}}=\frac 1{k} \displaystyle\sum_{j=1}^k \bar y_{j}\)</span> et que <span class="math inline">\(\hat \sigma = \dfrac{\bar R}{d_2}\)</span>. Donc on a : <span class="math display">\[
-\begin{cases}
-\widehat{LIC}= \bar{\bar{y}}-\frac{3}{\sqrt n} \frac{\overline R}{d_2} \\
-\widehat{LSC}= \bar{\bar{y}}+\frac{3}{\sqrt n} \frac{\overline R}{d_2}
-\end{cases}
-\]</span></p>
-</section>
-<section id="estimation-des-limites-de-contrôle-pour-la-carte-des-étendues" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="estimation-des-limites-de-contrôle-pour-la-carte-des-étendues"><span class="header-section-number">4.4</span> Estimation des limites de contrôle pour la carte des étendues</h2>
-<p>Pour l’estimation de <span class="math inline">\(\mu_R\)</span> on prend <span class="math inline">\(\hat\mu_R=\bar R\)</span>, et pour l’estimation de <span class="math inline">\(\sigma_R\)</span> on prend <span class="math inline">\(\hat \sigma_R=\frac{d_3}{d_2}\bar R\)</span> où <span class="math inline">\(d_3\)</span> est l’écart type des étendues d’une loi normale centrée réduite. On a alors</p>
-<p><span class="math display">\[
-\begin{cases}
-\widehat{LIC}= \overline{R}-3\frac{d_3}{d_2}\overline R \\
-\widehat{LSC}= \overline{R}+3\frac{d_3}{d_2}\overline R
-\end{cases}
-\]</span> ## Estimation des limites de contrôle pour la carte des écarts types</p>
-<p>Pour l’estimation de <span class="math inline">\(\mu_S\)</span> on prend <span class="math inline">\(\hat\mu_S=\bar S\)</span>, et pour l’estimation de <span class="math inline">\(\sigma_S\)</span> on prend <span class="math inline">\(\hat \sigma_S=\frac{\sqrt{1-c_4^2}}{c_4}\bar S\)</span>. On a alors :</p>
-<p><span class="math display">\[
-\begin{cases}
-\widehat{LIC}= \overline{S}-3\frac{\sqrt{1-c_4^2}}{c_4}\overline S \\
-\widehat{LSC}= \overline{S}+3\frac{\sqrt{1-c_4^2}}{c_4}\overline S
-\end{cases}
-\]</span></p>
-</section>
-<section id="retour-sur-lexemple" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="retour-sur-lexemple"><span class="header-section-number">4.5</span> Retour sur l’exemple :</h2>
+<section id="retour-sur-lexemple" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="retour-sur-lexemple"><span class="header-section-number">3.3</span> Retour sur l’exemple :</h2>
+<ol type="1">
+<li><p>Calculer les limites de contrôles des cartes de la moyenne et de l’écart type.</p></li>
+<li><p>Construire les cartes s’obtiennent en utilisant la fonction <em>plot_chart()</em> du package <em>multiSPC</em>.</p></li>
+</ol>
 <div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<details class="code-fold">
+<summary>Voir la correction</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>data[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">ncol</span>(df)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(df,<span class="dv">1</span>,mean)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">apply</span>(df,<span class="dv">1</span>,sd)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">mean</span>(M)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sigI<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>LICm<span class="ot">=</span>mu<span class="dv">-3</span><span class="sc">*</span>sigI<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>LSCm<span class="ot">=</span>mu<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span>sigI<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>LICs<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span><span class="fu">mean</span>(S)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">c4</span>(n)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>LSCs<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">mean</span>(S)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">c4</span>(n)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(M,<span class="at">LIC=</span>LICm,<span class="at">LSC=</span>LSCm,<span class="at">Type =</span> <span class="st">"carte de la moyenne"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(S,<span class="at">LIC=</span>LICs,<span class="at">LSC=</span>LSCs,<span class="at">Type =</span> <span class="st">"carte de l'écart type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="efficacité-des-cartes-de-shewhart" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="efficacité-des-cartes-de-shewhart"><span class="header-section-number">3.4</span> Efficacité des cartes de Shewhart</h2>
+<p>La notion d’efficacité d’une carte de contrôle est sa capacité à détecter un dérèglement alors que la production semble rester sous contrôle.</p>
+<p>Le dérèglement peut concerner un décentrage (dérèglement de la moyenne) ou bien une augmentation de la dispersion.</p>
+<p>La notion d’efficacité est proche de la notion de puissance pour les tests statistiques.</p>
+<section id="faux-positifs-et-faux-négatifs" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="faux-positifs-et-faux-négatifs"><span class="header-section-number">3.4.1</span> Faux positifs et Faux négatifs</h3>
+<p>On va traduire dans le contexte de la MSP les notions vues sur les tests.</p>
+<ul>
+<li><p>Réalité (jamais connue) : dérive (ou non) de la production</p></li>
+<li><p>Résultat du contrôle : détection (ou non) d’une dérive de production.</p></li>
+</ul>
+<p>Ceci conduit à deux types d’erreurs</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg caption-top table" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;">M</th>
-<th style="text-align: right;">R</th>
-<th style="text-align: right;">S</th>
+<th class="tg-0pky" data-quarto-table-cell-role="th"></th>
+<th class="tg-0pky" data-quarto-table-cell-role="th"></th>
+<th colspan="2" class="tg-c3ow" data-quarto-table-cell-role="th">Réalité</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">99.92</td>
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">0.61</td>
+<td class="tg-0pky"></td>
+<td class="tg-0pky"></td>
+<td class="tg-0pky">Déréglage</td>
+<td class="tg-0pky">Non déréglage</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">99.90</td>
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">0.38</td>
+<td rowspan="2" class="tg-c3ow">carte de CTRL</td>
+<td class="tg-0pky">Détection</td>
+<td class="tg-0pky">VRAI POSITIF</td>
+<td class="tg-0pky">FAUX POSITIF</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">100.16</td>
-<td style="text-align: right;">2.7</td>
-<td style="text-align: right;">1.06</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">100.16</td>
-<td style="text-align: right;">3.9</td>
-<td style="text-align: right;">2.34</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">99.66</td>
-<td style="text-align: right;">3.7</td>
-<td style="text-align: right;">1.75</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">100.16</td>
-<td style="text-align: right;">2.1</td>
-<td style="text-align: right;">0.52</td>
+<td class="tg-0pky">Non détection</td>
+<td class="tg-0pky">FAUX NEGATIF</td>
+<td class="tg-0pky">VRAI NEGATIF</td>
 </tr>
 </tbody>
 </table>
+<p>Ce que l’on connait (par construction de la carte de contrôle) :</p>
+<ul>
+<li><p>La probabilité d’obtenir un faux positif : 0.3 % (par définition des limites de contrôle)</p></li>
+<li><p>La probabilité d’obtenir un vrai négatif : 99.7% (toujours par construction).</p></li>
+</ul>
+<p>Ce que l’on cherche :</p>
+<p>La probabilité <span class="math inline">\(\beta\)</span> d’obtenir un faux négatif ou de manière équivalente la probabilité <span class="math inline">\(1-\beta\)</span> d’obtenir un vrai positif (appelée puissance du test).</p>
+</section>
+<section id="déréglage-de-la-moyenne" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="déréglage-de-la-moyenne"><span class="header-section-number">3.4.2</span> Déréglage de la moyenne</h3>
+<p><img src="figure/decentrage_moy.png" class="img-fluid"> Un décentrage de moyenne est exprimé en nombre d’écart type (unité standardisé) donc si <span class="math inline">\(\mu_1\)</span> est la moyenne décentrée, on lui associera le décentrage</p>
+<p><span class="math display">\[
+\rho=\frac{|\mu_1-\mu|}{\sigma}
+\]</span></p>
+<p>La probabilité <span class="math inline">\(\beta\)</span> de ne pas détecter le décentrage est alors</p>
+<p><span class="math display">\[
+\beta=\mathbb P(LIC&lt;\widetilde X &lt;LSC)
+\]</span></p>
+<p>où <span class="math inline">\(\widetilde X \sim \mathcal N(\mu+\rho\sigma,\frac{\sigma}{\sqrt{n}}).\)</span> Un calcul simple permet d’obtenir</p>
+<p><span class="math display">\[
+\beta = F(3-\rho\sqrt n)-F(-3-\rho\sqrt n)
+\]</span></p>
+<p>où <span class="math inline">\(F(x)=\mathbb P(X&lt;x)\)</span> est la fonction de répartition de la loi normale.</p>
+<p><strong><em>L’efficacité de la carte est mesurée par</em></strong> <span class="math inline">\(1-\beta\)</span> ( puissance de la carte).</p>
+<p>On obtient ainsi les courbes d’efficacité de la carte de la moyenne en fonction de la taille <span class="math inline">\(n\)</span> des échantillons prélevés.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre4_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<p>Pour l’estimation de <span class="math inline">\(\sigma\)</span> on obtient</p>
-<p>0.9666943 avec la moyenne des étendues et 0.9951602</p>
-<p>Donc ces deux valeurs sont proches.</p>
+</div>
+<ul>
+<li><p>On constate (ce qui est logique) que la probabilité de ne pas détecter un déréglage donné diminue en fonction de la taille de l’échantillon.</p></li>
+<li><p>Détecter un déréglage <span class="math inline">\(\rho=0\)</span> correspond à une fausse alerte qui vaut pour la carte de la moyenne <span class="math inline">\(\alpha=0.3\%\)</span>.</p></li>
+</ul>
+</section>
+<section id="déréglage-de-lécart-type" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="déréglage-de-lécart-type"><span class="header-section-number">3.4.3</span> Déréglage de l’écart type</h3>
+<p>Ici on considère des décentrages <span class="math inline">\(\rho&gt;1\)</span> (sinon il s’agit d’une amélioration de la dispersion).</p>
+<p>Un calcul similaire au précédent conduit à <span class="math display">\[
+\beta=F(\frac{3}{\rho})-F(\frac{-3}{\rho})
+\]</span> Ici on constate que l’efficacité de la carte est indépendante de <span class="math inline">\(n\)</span> et qu’elle est très mauvaise. Il faut une très grande valeur de <span class="math inline">\(\rho\)</span> pour avoir une petite valeur de <span class="math inline">\(\beta\)</span>.</p>
+<p>Par exemple pour <span class="math inline">\(\rho=3\)</span> on a <span class="math inline">\(\beta=\)</span> 0.6826895 c’est à dire pour un écart type qui triplerait la probabilité ne peut pas détecter ce dérèglement est de 68.3%.</p>
+</section>
+<section id="période-opérationelle-moyenne-average-run-length" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="période-opérationelle-moyenne-average-run-length"><span class="header-section-number">3.4.4</span> Période opérationelle moyenne (Average Run Length)</h3>
+<p>La Période Opérationnelle Moyenne correspond au nombre de prélèvements qu’il faut effectuer, en moyenne, pour sortir des limites de contrôle lorsque qu’un déréglage <span class="math inline">\(\rho\)</span> s’est produit.</p>
+<p>Le cas <span class="math inline">\(\rho=0\)</span> pour une carte de Shewhart avec des observations indépendantes correspond à une fausse alerte qui se produit dans <span class="math inline">\(\alpha=0.3\%\)</span> et correspond à</p>
+<p><span class="math display">\[
+ARL_0=\frac{1}{0.003}=333
+\]</span> donc il faut en moyenne 334 prélèvements avant de détecter une fausse alerte.</p>
+<p><span class="math inline">\(ARL\)</span> est définie par</p>
+<p><span class="math display">\[
+ARL_\rho=\frac 1{1-\beta}
+\]</span></p>
+<p><strong><em>C’est donc l’inverse de la puissance (efficacité) de la carte, donc plus ce nombre sera petit plus la carte sera efficace.</em></strong></p>
+<p>Si on reprend les courbes d’efficacité précédente on obtient :</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre4_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calibration-des-tailles-de-prélèvement" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="calibration-des-tailles-de-prélèvement"><span class="header-section-number">3.4.5</span> Calibration des tailles de prélèvement</h3>
+<p>La production initiale est <span class="math inline">\(X\sim \mathcal N (\mu,\sigma)\)</span> et la production décentrée vaut <span class="math inline">\(\widetilde X \sim \mathcal N (\mu+\rho\sigma,\sigma)\)</span>. On sait calculer la probabilité <span class="math inline">\(1-\beta\)</span> de détecter le décentrage en fonction de <span class="math inline">\(\rho\)</span> et on a donc</p>
+<p><span class="math display">\[
+ARL_\rho=\frac 1{1-\beta}=\frac 1{1-F(3-\rho\sqrt n)+F(-3-\rho\sqrt n)}
+\]</span></p>
+<p>Exemple :</p>
+<p>Considérons le problème suivant : on a un décentrage de moyenne de 0.5 écart type. On voudrait le détecter en moyenne avant 50 prélèvements. Quelle taille d’échantillon doit-on considérer ?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">2</span>,<span class="dv">20</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>rho<span class="ot">&lt;-</span>.<span class="dv">5</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>beta<span class="ot">=</span><span class="fu">pnorm</span>(<span class="dv">3</span><span class="sc">-</span>rho<span class="sc">*</span><span class="fu">sqrt</span>(n))<span class="sc">-</span><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">-</span>rho<span class="sc">*</span><span class="fu">sqrt</span>(n))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ARL<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>beta)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>J<span class="ot">&lt;-</span><span class="fu">which.max</span>(ARL<span class="sc">&lt;</span><span class="dv">50</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>n[J]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -877,12 +980,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chapitre3.html" class="pagination-link" aria-label="Cartes de contrôle">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre5.html" class="pagination-link" aria-label="Efficacité des cartes de Shewhart">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapitre6.html" class="pagination-link" aria-label="Carte EWMA">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

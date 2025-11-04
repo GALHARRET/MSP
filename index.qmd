@@ -7,34 +7,38 @@ suppressPackageStartupMessages(
     library(tidyverse)
     library(ggplot2)
     library(knitr)
-    library(qcc)
+    library(multiSPC)
     library(readxl)
     library(cowplot)
-
   }
 )
-coeff_correct<-read.csv("coeff_correct.csv",sep=",")  
 ```
 
 La Maitrise Statistique des Procédés (MSP) ou Statistical Process Control (SPC) est une branche des statistiques qui s'intéresse au suivi dans le temps d'un processus (par exemple un procédé de fabrication). Historiquement les premières approches de la MSP ont été introduites par W. A. Shewhart dans les années 1920 alors qu'il travaillait dans les laboratoires BELL.
 
 ![Walter A. Shewhart, source= Wikipédia](figure/WAShewhart.png)
 
-- L'objectif est de pouvoir s'assurer que la production est stable avec un minimum de produits non conformes aux spécifications. 
+-   L'objectif est de pouvoir s'assurer que la production est stable avec un minimum de produits non conformes aux spécifications.
 
-- Le contrôle doit être simple à mettre en oeuvre et aussi permettre un suivi au plus près pour pouvoir détecter le plus tôt possible les déviations de production.
+-   Le contrôle doit être simple à mettre en oeuvre et aussi permettre un suivi au plus près pour pouvoir détecter le plus tôt possible les déviations de production.
+
+
+:::{.callout-important title="Package à installer"}
+Télécharger et installer le package [multiSPC_0.1.1](multiSPC_0.1.1.tar.gz)
+sur R.
+:::
 
 ## But : vérifier la qualité de réalisation
 
 Définir des indicateurs permettant de détecter des modifications inhabituelles au niveau :
 
-- du procédé de fabrication,
+-   du procédé de fabrication,
 
-- des instruments de mesure,
+-   des instruments de mesure,
 
-- de la qualité des matières premières,
+-   de la qualité des matières premières,
 
-- de la qualité des lots de produits finis.
+-   de la qualité des lots de produits finis.
 
 Ces vérifications seront réalisées sur la base de prélèvements d'échantillon.
 
@@ -42,16 +46,13 @@ Ces vérifications seront réalisées sur la base de prélèvements d'échantill
 
 Lorsque l'on prélève des échantillons dans une production même si les conditions opérationnelles sont strictement identiques on n'obtiendra pas les mêmes moyennes ni les mêmes écarts types.
 
-
-
-:::{.callout-note}
+::: callout-note
 ## Côté Math {#callout-1}
-Si les observations $X_1,...,X_n$ sont prélevées indépendamment dans une population normale de moyenne $\mu$ et d'écart type $\sigma$ alors la moyenne de ces observations 
-$$\bar X = \frac 1{n}\sum_{i=1}^nX_i \sim \mathcal N(\mu,\frac{\sigma}{\sqrt{n}}).$$
+
+Si les observations $X_1,...,X_n$ sont prélevées indépendamment dans une population normale de moyenne $\mu$ et d'écart type $\sigma$ alors la moyenne de ces observations $$\bar X = \frac 1{n}\sum_{i=1}^nX_i \sim \mathcal N(\mu,\frac{\sigma}{\sqrt{n}}).$$
 :::
 
-Pour illustrer ce résultat :
-Dans l'exemple suivant on prélève des échantillons de taille $n=5$ dans une production normale dont la caractéristique moyenne est 100 et l'écart type 5.
+Pour illustrer ce résultat : Dans l'exemple suivant on prélève des échantillons de taille $n=5$ dans une production normale dont la caractéristique moyenne est 100 et l'écart type 5.
 
 ```{r echo=F}
 n=5
@@ -77,42 +78,35 @@ Compte tenu de la fluctuation d'échantillonage, on est obligé de se fixer un r
 
 Dans l'exemple précédent on voit que l'on rejetterai à tord un des échantillons !
 
-
 ## La MSP dans l'amélioration continue
 
-- La qualité du produit n’est pas le simple
-respect d’une spécification.
+-   La qualité du produit n’est pas le simple respect d’une spécification.
 
-- L’objectif est représenté comme un
-processus de réduction de la dispersion
-des caractéristiques du produit.
+-   L’objectif est représenté comme un processus de réduction de la dispersion des caractéristiques du produit.
 
-- Eviter la production de défectueux, c'est à dire d'avoir des produits qui ne répondent pas à des spécifications.
+-   Eviter la production de défectueux, c'est à dire d'avoir des produits qui ne répondent pas à des spécifications.
 
 ## Méthode $6\sigma$ :
 
 Historiquement mise en place par Mikel Harry dans les années 80.
 
-- une méthode d’amélioration de la qualité qui repose sur la maîtrise statistique des procédés,
+-   une méthode d’amélioration de la qualité qui repose sur la maîtrise statistique des procédés,
 
-- une méthode de management qui repose sur une
-organisation très encadrée de la conduite de projets.
+-   une méthode de management qui repose sur une organisation très encadrée de la conduite de projets.
 
-Dans la boîte à outils 6 sigma on a :
-- de nombreux outils d’analyse du procédé,
-d’analyse statistique (MSP, plans d’expériences)
+Dans la boîte à outils 6 sigma on a : - de nombreux outils d’analyse du procédé, d’analyse statistique (MSP, plans d’expériences)
 
-- un mode d’emploi sur la manière de les combiner
+-   un mode d’emploi sur la manière de les combiner
 
 ### DMAIC (Define, Measure, Analyse, Improve, Control)
 
 ![Les $6\sigma$ résumés](figure/6SIG_rules.png)
 
-### Les $6\sigma$ en MSP 
+### Les $6\sigma$ en MSP
 
 Toute production a une variabilité naturelle (mesurée par $\sigma$ pour une loi normale).
 
-$\leadsto$ Il faut que cette variabilité naturelle reste dans des limites de variations admissibles autour d'une valeur cible.  
+$\leadsto$ Il faut que cette variabilité naturelle reste dans des limites de variations admissibles autour d'une valeur cible.
 
 $\leadsto$ La moyenne de la production doit être proche de la valeur cible.
 
@@ -130,10 +124,8 @@ ggplot(data = data.frame(x = c(60,140)), aes(x))+
   geom_segment(aes(x=70,xend=130,y=.095,yend=.095),arrow = arrow(ends = "both",length=unit(0.20,"cm"),),color="red")
 ```
 
-
-:::{.callout-note}
+::: callout-note
 ## % de Faux positifs avec la règle des $6\sigma$
+
 Si on considère que l'échantillon est conforme lorsque sa moyenne appartient à l'intervalle $[\mu-3\frac{\sigma}{\sqrt{n}},\mu+3\frac{\sigma}{\sqrt{n}}]$ alors on aura `r round(100*(2-2*pnorm(3)),1)` % d'échantillons déclarés à tord non conformes (faux positifs).
 :::
-
-

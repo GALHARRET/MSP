@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Carte EWMA – MSP</title>
+<title>4&nbsp; Carte EWMA – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre5.html" rel="prev">
+<link href="./exercice.html" rel="next">
+<link href="./chapitre4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -143,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre6.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre6.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -177,37 +178,31 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des paramètres du procédé</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre6.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
   </div>
 </li>
     </ul>
@@ -220,10 +215,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">6.1</span> Introduction</a></li>
-  <li><a href="#définition-des-cartes-ewma" id="toc-définition-des-cartes-ewma" class="nav-link" data-scroll-target="#définition-des-cartes-ewma"><span class="header-section-number">6.2</span> Définition des cartes EWMA</a></li>
-  <li><a href="#limites-de-contrôle-des-cartes-ewma" id="toc-limites-de-contrôle-des-cartes-ewma" class="nav-link" data-scroll-target="#limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">6.3</span> Limites de contrôle des cartes EWMA</a></li>
-  <li><a href="#retour-à-lexemple" id="toc-retour-à-lexemple" class="nav-link" data-scroll-target="#retour-à-lexemple"><span class="header-section-number">6.4</span> Retour à l’exemple :</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
+  <li><a href="#définition-des-cartes-ewma" id="toc-définition-des-cartes-ewma" class="nav-link" data-scroll-target="#définition-des-cartes-ewma"><span class="header-section-number">4.2</span> Définition des cartes EWMA</a></li>
+  <li><a href="#limites-de-contrôle-des-cartes-ewma" id="toc-limites-de-contrôle-des-cartes-ewma" class="nav-link" data-scroll-target="#limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">4.3</span> Limites de contrôle des cartes EWMA</a></li>
+  <li><a href="#retour-à-lexemple" id="toc-retour-à-lexemple" class="nav-link" data-scroll-target="#retour-à-lexemple"><span class="header-section-number">4.4</span> Retour à l’exemple :</a></li>
   </ul>
 </nav>
     </div>
@@ -232,7 +227,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carte EWMA</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></h1>
 </div>
 
 
@@ -249,15 +244,15 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
 <p>La carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à interpréter. Cependant elle n’a pas une très grande efficacité surtout :</p>
 <ul>
 <li><p>en cas de faibles et moyennes déviations</p></li>
 <li><p>en cas de structure d’autocorrélation, c’est à dire lorsque le passé a une influence, par exemple lorsqu’une tendance croissante apparaît.</p></li>
 </ul>
 <p><strong><em>Exemple :</em></strong></p>
-<p>On suit une production de caractéristique <span class="math inline">\(\mu=15\)</span> et <span class="math inline">\(\sigma=2\)</span>. Pour ce faire 14 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 4ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).</p>
+<p>On suit une production de caractéristique <span class="math inline">\(\mu=15\)</span> et <span class="math inline">\(\sigma=0.5\)</span>. Pour ce faire 10 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 7ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).</p>
 <div class="cell" data-warnings="false">
 <div class="cell-output-display">
 <div>
@@ -269,8 +264,8 @@ window.Quarto = {
 </div>
 <p>Une des solutions est la carte EWMA</p>
 </section>
-<section id="définition-des-cartes-ewma" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="définition-des-cartes-ewma"><span class="header-section-number">6.2</span> Définition des cartes EWMA</h2>
+<section id="définition-des-cartes-ewma" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="définition-des-cartes-ewma"><span class="header-section-number">4.2</span> Définition des cartes EWMA</h2>
 <p><strong><em>EWMA : Exponentially Weighted Moving Average</em></strong></p>
 <p>On définit la statistique <span class="math inline">\(z_i\)</span> par une relation de récurrence pour tout <span class="math inline">\(i=1,...,k\)</span></p>
 <p><span class="math display">\[
@@ -300,12 +295,9 @@ z_3=\lambda \bar x_3+\lambda(1-\lambda)\bar x_2+\lambda(1-\lambda)^2\bar x_1+
 <li><p>En général on utilise <span class="math inline">\(0.25&lt;\lambda&lt;0.5\)</span>.</p></li>
 </ul>
 </section>
-<section id="limites-de-contrôle-des-cartes-ewma" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">6.3</span> Limites de contrôle des cartes EWMA</h2>
-<p>Les limites de ces cartes sont variables (en fonction de <span class="math inline">\(i\)</span>) pour <span class="math inline">\(X\sim \mathcal N(\mu,\sigma)\)</span> on a :</p>
-<p><span class="math display">\[
-LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] }
-\]</span></p>
+<section id="limites-de-contrôle-des-cartes-ewma" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">4.3</span> Limites de contrôle des cartes EWMA</h2>
+<p>Les limites de ces cartes sont variables (en fonction de <span class="math inline">\(i\)</span>) pour <span class="math inline">\(X\sim \mathcal N(\mu,\sigma)\)</span> on a :<span class="math display">\[LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] }.\]</span></p>
 <ul>
 <li><p>Lorsque le nombre <span class="math inline">\(i\)</span> de prélèvement est très grand alors <span class="math inline">\(LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}}\)</span>. Dans ce cas on peut jouer sur ce paramètre <span class="math inline">\(L\)</span> pour améliorer l’efficacité de la carte en fonction de <span class="math inline">\(\lambda\)</span>.</p></li>
 <li><p>On constate que sur les petites déviations de production l’efficacité des cartes EWMA est bien supérieure à celle de la carte de Shewhart.</p></li>
@@ -320,11 +312,13 @@ LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}[1-
 </div>
 </div>
 </section>
-<section id="retour-à-lexemple" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="retour-à-lexemple"><span class="header-section-number">6.4</span> Retour à l’exemple :</h2>
-<p>On constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 8ième prélèvement.</p>
+<section id="retour-à-lexemple" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="retour-à-lexemple"><span class="header-section-number">4.4</span> Retour à l’exemple :</h2>
+<p>On constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 5ième prélèvement.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">ewma</span>(data,<span class="at">center =</span> <span class="dv">15</span>,<span class="at">std.dev =</span> <span class="dv">2</span>,<span class="at">sizes =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lambda<span class="ot">=</span><span class="fl">0.25</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Z<span class="ot">&lt;-</span><span class="fu">ewma_cart1</span>(data,n,<span class="at">mu=</span>mu,<span class="at">sig=</span>sig,<span class="at">lambda=</span>lambda)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(Z<span class="sc">$</span>z,<span class="at">LIC=</span>Z<span class="sc">$</span>LIC,<span class="at">LSC=</span>Z<span class="sc">$</span>LSC,<span class="at">Type=</span><span class="st">"Carte EWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -757,11 +751,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapitre5.html" class="pagination-link" aria-label="Efficacité des cartes de Shewhart">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span>
+      <a href="./chapitre4.html" class="pagination-link" aria-label="Cartes de contrôles de Shewhart">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./exercice.html" class="pagination-link" aria-label="Exercice">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercice</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

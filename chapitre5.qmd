@@ -1,242 +1,53 @@
-# Efficacité des cartes de Shewhart
-
-```{r echo=F, eval=T}
-knitr::opts_chunk$set(echo = TRUE)
-suppressPackageStartupMessages(
-{
-library(tidyverse)
-library(ggplot2)
-library(knitr)
-library(qcc)
-library(readxl)
-  }
-)
-coeff_correct<-read.csv("coeff_correct.csv",sep=",")  
-```
-
-La notion d'efficacité d'une carte de contrôle est sa capacité à détecter un dérèglement alors que la production semble rester sous contrôle.
-
-Le dérèglement peut concerner un décentrage (dérèglement de la moyenne) ou bien une augmentation de la dispersion.
-
-La notion d'efficacité est proche de la notion de puissance pour les tests statistiques.
-
-## Faux positifs et Faux négatifs
-
-On va traduire dans le contexte de la MSP les notions vues sur les tests. 
-
-- Réalité (jamais connue) : dérive (ou non) de la production
-
-- Résultat du contrôle : détection (ou non) d'une dérive de production.
-
-Ceci conduit à deux types d'erreurs 
-
-```{=html}
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky"></th>
-    <th class="tg-c3ow" colspan="2">Réalité</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky">Déréglage</td>
-    <td class="tg-0pky">Non déréglage</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow" rowspan="2">carte de CTRL</td>
-    <td class="tg-0pky">Détection</td>
-    <td class="tg-0pky">VRAI POSITIF</td>
-    <td class="tg-0pky">FAUX POSITIF</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Non détection</td>
-    <td class="tg-0pky">FAUX NEGATIF</td>
-    <td class="tg-0pky">VRAI NEGATIF</td>
-  </tr>
-</tbody>
-</table>
-```
-
-Ce que l'on connait (par construction de la carte de contrôle) :
-
-- La probabilité d'obtenir un faux positif : 0.3 % (par définition des limites de contrôle)
-
-- La probabilité d'obtenir un vrai négatif : 99.7% (toujours par construction).
-
-Ce que l'on cherche :
-
-La probabilité $\beta$ d'obtenir un faux négatif  ou de manière équivalente la probabilité $1-\beta$ d'obtenir un vrai positif (appelée puissance du test).
-
-## Déréglage de la moyenne
-
-![](figure/decentrage_moy.png) Un décentrage de moyenne est exprimé en nombre d'écart type (unité standardisé) donc si $\mu_1$ est la moyenne décentrée, on lui associera le décentrage
-
-$$
-\rho=\frac{|\mu_1-\mu|}{\sigma}
-$$
-
-La probabilité $\beta$ de ne pas détecter le décentrage est alors
-
-$$
-\beta=\mathbb P(LIC<\widetilde X <LSC)
-$$
-
-où $\widetilde X \sim \mathcal N(\mu+\rho\sigma,\frac{\sigma}{\sqrt{n}}).$ Un calcul simple permet d'obtenir
-
-$$
-\beta = F(3-\rho\sqrt n)-F(-3-\rho\sqrt n)
-$$
-
-où $F(x)=\mathbb P(X<x)$ est la fonction de répartition de la loi normale.
-
-***L'efficacité de la carte est mesurée par*** $1-\beta$ ( puissance de la carte).
-
-On obtient ainsi les courbes d'efficacité de la carte de la moyenne en fonction de la taille $n$ des échantillons prélevés.
-
-```{r echo=F}
-rho<-seq(-3,3,by=.01)
-n<-5
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-plot(rho,1-beta,type="l",xlab=expression(rho),ylab="puissance",
-     main="Efficacité de la carte de la moyenne")
-n<-10
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-lines(rho,1-beta,col="darkblue")
-n<-15
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-lines(rho,1-beta,col="darkred")
-legend("bottomright",c("n=5","n=10","n=15"),lty=rep(1,3),col=c("black","darkblue","darkred"))
-```
-
--   On constate (ce qui est logique) que la probabilité de ne pas détecter un déréglage donné diminue en fonction de la taille de l'échantillon.
-
--   Détecter un déréglage $\rho=0$ correspond à une fausse alerte qui vaut pour la carte de la moyenne $\alpha=0.3\%$.
-
-## Déréglage de l'écart type
-
-Ici on considère des décentrages $\rho>1$ (sinon il s'agit d'une amélioration de la dispersion).
-
-Un calcul similaire au précédent conduit à $$
-\beta=F(\frac{3}{\rho})-F(\frac{-3}{\rho})
-$$ Ici on constate que l'efficacité de la carte est indépendante de $n$ et qu'elle est très mauvaise. Il faut une très grande valeur de $\rho$ pour avoir une petite valeur de $\beta$.
-
-Par exemple pour $\rho=3$ on a $\beta=$ `r pnorm(3/3)-pnorm(-3/3)` c'est à dire pour un écart type qui triplerait la probabilité ne peut pas détecter ce dérèglement est de 68.3%.
-
-## Période opérationelle moyenne (Average Run Length)
-
-La Période Opérationnelle Moyenne correspond au nombre de prélèvements qu'il faut effectuer, en moyenne, pour sortir des limites de contrôle lorsque qu'un déréglage $\rho$ s'est produit.
-
-Le cas $\rho=0$ pour une carte de Shewhart avec des observations indépendantes correspond à une fausse alerte qui se produit dans $\alpha=0.3\%$ et correspond à
-
-$$
-ARL_0=\frac{1}{0.003}=333
-$$ donc il faut en moyenne 334 prélèvements avant de détecter une fausse alerte.
-
-$ARL$ est définie par
-
-$$
-ARL_\rho=\frac 1{1-\beta}
-$$
-
-***C'est donc l'inverse de la puissance (efficacité) de la carte, donc plus ce nombre sera petit plus la carte sera efficace.***
-
-Si on reprend les courbes d'efficacité précédente on obtient :
-
-```{r echo=F}
-rho<-seq(-3,3,by=.01)
-n<-5
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-ARL<-1/(1-beta)
-plot(rho,ARL,type="l")
-n<-10
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-ARL<-1/(1-beta)
-lines(rho,ARL,col="darkblue")
-n<-15
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-ARL<-1/(1-beta)
-lines(rho,ARL,col="darkred")
-legend("topright",c("n=5","n=10","n=15"),lty=rep(1,3),col=c("black","darkblue","darkred"))
-```
-
-## Calibration des tailles de prélèvement
-
-La production initiale est $X\sim \mathcal N (\mu,\sigma)$ et la production décentrée vaut $\widetilde X \sim \mathcal N (\mu+\rho\sigma,\sigma)$. On sait calculer la probabilité $1-\beta$ de détecter le décentrage en fonction de $\rho$ et on a donc
-
-$$
-ARL_\rho=\frac 1{1-\beta}=\frac 1{1-F(3-\rho\sqrt n)+F(-3-\rho\sqrt n)}
-$$
-
-Exemple :
-
-Considérons le problème suivant : on a un décentrage de moyenne de 0.5 écart type. On voudrait le détecter en moyenne avant 50 prélèvements. Quelle taille d'échantillon doit-on considérer ?
-
-```{r}
-n<-seq(2,20,by=1)
-rho<-.5
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-ARL<-1/(1-beta)
-J<-which.max(ARL<50)
-n[J]
-```
-
 # Cartes aux limites modifiées
 
 Pour l'instant les cartes qui ont été proposées ne tiennent pas compte des tolérances imposées par le client. Elles reposent uniquement sur la distribution des observations et sur le % de fausses alertes que l'on souhaite observer (0.3% dans les cartes précédentes).
 
 -   On suppose connaître les tolérances $TI,TS$ autorisées par le client.
 
--   On suppose que la production suit une loi normale $\mathcal N(\mu,\sigma).$
+-   On suppose que la production instantanée suit une loi normale $\mathcal N(\mu_I,\sigma_I).$
 
 ## Cas n°1 : le procédé de fabrication n'est pas capable
 
-Dans ce cas on $Cam<1.33$, ce qui donne $TS-TI<1.33\times 6\sigma\simeq 8\sigma$. On voudrait pouvoir le plus rapidement possible détecter le problème, le seul paramètre sur lequel on peut jouer est la taille $n$ des prélèvements. En prenant
+Prenons un exemple :
+On suppose que la production instantanée $Y \sim \mathcal N(10,2)$ et que l'intervalle de tolérance soit $10 \pm 3$.
+
+On peut calculer $Cam=\frac{TS-TI}{6\times \sigma_I}=0.5$. Le procédé n'est donc pas capable !
+
+On voudrait construire des limites de contrôle sur la carte de la moyenne qui tiennent compte des tolérances : les limites sont $LIC=\mu_I-3\sigma_I/\sqrt{n}$ et $LSC=\mu_I+3\sigma_I/\sqrt{n}$, ce qui donne : $LSC-LIC=6\sigma_I/\sqrt n$ 
+
+Lorsque le procédé n'est pas capable $Cam<1.33$, ce qui donne $TS-TI<1.33\times 6\sigma_I\simeq 8\sigma_I$. En prenant
 
 $$
-n \geq \left( \frac{8\sigma}{TS-TI} \right)^2
-$$ on pourra détecter plus rapidement le problème de capabilité du procédé de fabrication.
+n \geq \left( \frac{8\sigma_I}{TS-TI} \right)^2,
+$$ 
 
-### Exemple
+on aura $LSC-LIC<0.75\times (TS-TI)$.
 
-On suppose que $X \sim \mathcal N(10,2)$ on prélève 20 échantillons de taille $n=4$.
 
-```{r}
-n=4
+```{r echo=F}
+set.seed("3344")
+library(multiSPC)
+TI=7
+TS=13
+muI=10
+sigI=2
+n=floor((8*sigI/(TS-TI))^2)+1
 k=20
-X<-rnorm(n*k,10,2)
+X<-rnorm(n*k,muI,sigI)
 df<-data.frame(matrix(X,nrow=k,ncol=n))
-colnames(df)<-paste("Mesure",1:n,sep="")
-kable(round(df,1))
-library(qcc)
-res=qcc(df,type="xbar",plot=F)
-plot(res)
+M=apply(df,1,mean)
+LICm=muI-3*sigI/sqrt(n)
+LSCm=muI+3*sigI/sqrt(n)
+plot_chart(M,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")+
+  geom_hline(yintercept = c(7,13),colour="blue",size=1.5)+
+  annotate("text",x=2,y=13.3,label="TS",colour="blue")+
+  annotate("text",x=2,y=6.7,label="TI",colour="blue")
 ```
 
-Supposons que l'intervalle de tolérance soit $10 \pm 3$. Alors on a\
-$n \geq$ `r (8*2/6)^2` (on prend $n=8$)
-
-```{r}
-df2<-data.frame(matrix(round(X,1),nrow=k,ncol=8))
-res<-qcc(df2,type="xbar",plot=F)
-plot(res)
-```
-
-On constate que dès le 7ième prélèvement on trouve une valeur hors contrôle.
 
 ## Cas n°2 : le procédé de fabrication est capable
 
-Par exemple si on a une prodcution $X \sim \mathcal N(3,0.5)$ avec des tolérances $TI=1$ et $TS=5$, on a $TS-TI >> 6\sigma$ donc on peut faire une carte de la moyenne aux limites modifiées les nouvelles limites $LIC^*,LSC^*$ étant égales à des moyennes modifiées $\mu_I,\mu_S.$
+Par exemple si on a une production $Y \sim \mathcal N(10,0.5)$ avec les mêmes tolérances $TI=7$ et $TS=13$, on a $TS-TI >> 6\sigma$ donc on peut faire une carte de la moyenne aux limites modifiées les nouvelles limites $LIC^*,LSC^*$ étant égales à des moyennes modifiées $\mu_I,\mu_S.$
 
 ![](figure/carte_lim_mod.png)
 

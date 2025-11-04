@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Efficacité des cartes de Shewhart – MSP</title>
+<title>5&nbsp; Cartes aux limites modifiées – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cartes aux limites modifiées</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,7 +178,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des variations de production</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des paramètres du procédé</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -202,7 +202,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre5.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cartes aux limites modifiées</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -221,22 +221,14 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#faux-positifs-et-faux-négatifs" id="toc-faux-positifs-et-faux-négatifs" class="nav-link active" data-scroll-target="#faux-positifs-et-faux-négatifs"><span class="header-section-number">5.1</span> Faux positifs et Faux négatifs</a></li>
-  <li><a href="#déréglage-de-la-moyenne" id="toc-déréglage-de-la-moyenne" class="nav-link" data-scroll-target="#déréglage-de-la-moyenne"><span class="header-section-number">5.2</span> Déréglage de la moyenne</a></li>
-  <li><a href="#déréglage-de-lécart-type" id="toc-déréglage-de-lécart-type" class="nav-link" data-scroll-target="#déréglage-de-lécart-type"><span class="header-section-number">5.3</span> Déréglage de l’écart type</a></li>
-  <li><a href="#période-opérationelle-moyenne-average-run-length" id="toc-période-opérationelle-moyenne-average-run-length" class="nav-link" data-scroll-target="#période-opérationelle-moyenne-average-run-length"><span class="header-section-number">5.4</span> Période opérationelle moyenne (Average Run Length)</a></li>
-  <li><a href="#calibration-des-tailles-de-prélèvement" id="toc-calibration-des-tailles-de-prélèvement" class="nav-link" data-scroll-target="#calibration-des-tailles-de-prélèvement"><span class="header-section-number">5.5</span> Calibration des tailles de prélèvement</a></li>
-  <li><a href="#cartes-aux-limites-modifiées" id="toc-cartes-aux-limites-modifiées" class="nav-link" data-scroll-target="#cartes-aux-limites-modifiées"><span class="header-section-number">6</span> Cartes aux limites modifiées</a>
+  <li><a href="#cas-n1-le-procédé-de-fabrication-nest-pas-capable" id="toc-cas-n1-le-procédé-de-fabrication-nest-pas-capable" class="nav-link active" data-scroll-target="#cas-n1-le-procédé-de-fabrication-nest-pas-capable"><span class="header-section-number">5.1</span> Cas n°1 : le procédé de fabrication n’est pas capable</a>
   <ul class="collapse">
-  <li><a href="#cas-n1-le-procédé-de-fabrication-nest-pas-capable" id="toc-cas-n1-le-procédé-de-fabrication-nest-pas-capable" class="nav-link" data-scroll-target="#cas-n1-le-procédé-de-fabrication-nest-pas-capable"><span class="header-section-number">6.1</span> Cas n°1 : le procédé de fabrication n’est pas capable</a>
-  <ul class="collapse">
-  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">6.1.1</span> Exemple</a></li>
+  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">5.1.1</span> Exemple</a></li>
   </ul></li>
-  <li><a href="#cas-n2-le-procédé-de-fabrication-est-capable" id="toc-cas-n2-le-procédé-de-fabrication-est-capable" class="nav-link" data-scroll-target="#cas-n2-le-procédé-de-fabrication-est-capable"><span class="header-section-number">6.2</span> Cas n°2 : le procédé de fabrication est capable</a></li>
-  <li><a href="#remarque" id="toc-remarque" class="nav-link" data-scroll-target="#remarque"><span class="header-section-number">6.3</span> Remarque :</a></li>
-  <li><a href="#calibration-de-la-taille-des-échantillons" id="toc-calibration-de-la-taille-des-échantillons" class="nav-link" data-scroll-target="#calibration-de-la-taille-des-échantillons"><span class="header-section-number">6.4</span> Calibration de la taille des échantillons :</a></li>
-  <li><a href="#retour-à-lexemple" id="toc-retour-à-lexemple" class="nav-link" data-scroll-target="#retour-à-lexemple"><span class="header-section-number">6.5</span> Retour à l’exemple</a></li>
-  </ul></li>
+  <li><a href="#cas-n2-le-procédé-de-fabrication-est-capable" id="toc-cas-n2-le-procédé-de-fabrication-est-capable" class="nav-link" data-scroll-target="#cas-n2-le-procédé-de-fabrication-est-capable"><span class="header-section-number">5.2</span> Cas n°2 : le procédé de fabrication est capable</a></li>
+  <li><a href="#remarque" id="toc-remarque" class="nav-link" data-scroll-target="#remarque"><span class="header-section-number">5.3</span> Remarque :</a></li>
+  <li><a href="#calibration-de-la-taille-des-échantillons" id="toc-calibration-de-la-taille-des-échantillons" class="nav-link" data-scroll-target="#calibration-de-la-taille-des-échantillons"><span class="header-section-number">5.4</span> Calibration de la taille des échantillons :</a></li>
+  <li><a href="#retour-à-lexemple" id="toc-retour-à-lexemple" class="nav-link" data-scroll-target="#retour-à-lexemple"><span class="header-section-number">5.5</span> Retour à l’exemple</a></li>
   </ul>
 </nav>
     </div>
@@ -245,7 +237,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Efficacité des cartes de Shewhart</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cartes aux limites modifiées</span></h1>
 </div>
 
 
@@ -262,80 +254,23 @@ window.Quarto = {
 </header>
 
 
-<p>La notion d’efficacité d’une carte de contrôle est sa capacité à détecter un dérèglement alors que la production semble rester sous contrôle.</p>
-<p>Le dérèglement peut concerner un décentrage (dérèglement de la moyenne) ou bien une augmentation de la dispersion.</p>
-<p>La notion d’efficacité est proche de la notion de puissance pour les tests statistiques.</p>
-<section id="faux-positifs-et-faux-négatifs" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="faux-positifs-et-faux-négatifs"><span class="header-section-number">5.1</span> Faux positifs et Faux négatifs</h2>
-<p>On va traduire dans le contexte de la MSP les notions vues sur les tests.</p>
+<p>Pour l’instant les cartes qui ont été proposées ne tiennent pas compte des tolérances imposées par le client. Elles reposent uniquement sur la distribution des observations et sur le % de fausses alertes que l’on souhaite observer (0.3% dans les cartes précédentes).</p>
 <ul>
-<li><p>Réalité (jamais connue) : dérive (ou non) de la production</p></li>
-<li><p>Résultat du contrôle : détection (ou non) d’une dérive de production.</p></li>
+<li><p>On suppose connaître les tolérances <span class="math inline">\(TI,TS\)</span> autorisées par le client.</p></li>
+<li><p>On suppose que la production instantanée suit une loi normale <span class="math inline">\(\mathcal N(\mu_I,\sigma_I).\)</span></p></li>
 </ul>
-<p>Ceci conduit à deux types d’erreurs</p>
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-
-<table class="tg caption-top table" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th class="tg-0pky" data-quarto-table-cell-role="th"></th>
-<th class="tg-0pky" data-quarto-table-cell-role="th"></th>
-<th colspan="2" class="tg-c3ow" data-quarto-table-cell-role="th">Réalité</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td class="tg-0pky"></td>
-<td class="tg-0pky"></td>
-<td class="tg-0pky">Déréglage</td>
-<td class="tg-0pky">Non déréglage</td>
-</tr>
-<tr class="even">
-<td rowspan="2" class="tg-c3ow">carte de CTRL</td>
-<td class="tg-0pky">Détection</td>
-<td class="tg-0pky">VRAI POSITIF</td>
-<td class="tg-0pky">FAUX POSITIF</td>
-</tr>
-<tr class="odd">
-<td class="tg-0pky">Non détection</td>
-<td class="tg-0pky">FAUX NEGATIF</td>
-<td class="tg-0pky">VRAI NEGATIF</td>
-</tr>
-</tbody>
-</table>
-<p>Ce que l’on connait (par construction de la carte de contrôle) :</p>
-<ul>
-<li><p>La probabilité d’obtenir un faux positif : 0.3 % (par définition des limites de contrôle)</p></li>
-<li><p>La probabilité d’obtenir un vrai négatif : 99.7% (toujours par construction).</p></li>
-</ul>
-<p>Ce que l’on cherche :</p>
-<p>La probabilité <span class="math inline">\(\beta\)</span> d’obtenir un faux négatif ou de manière équivalente la probabilité <span class="math inline">\(1-\beta\)</span> d’obtenir un vrai positif (appelée puissance du test).</p>
-</section>
-<section id="déréglage-de-la-moyenne" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="déréglage-de-la-moyenne"><span class="header-section-number">5.2</span> Déréglage de la moyenne</h2>
-<p><img src="figure/decentrage_moy.png" class="img-fluid"> Un décentrage de moyenne est exprimé en nombre d’écart type (unité standardisé) donc si <span class="math inline">\(\mu_1\)</span> est la moyenne décentrée, on lui associera le décentrage</p>
+<section id="cas-n1-le-procédé-de-fabrication-nest-pas-capable" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="cas-n1-le-procédé-de-fabrication-nest-pas-capable"><span class="header-section-number">5.1</span> Cas n°1 : le procédé de fabrication n’est pas capable</h2>
+<p>Dans ce cas on <span class="math inline">\(Cam&lt;1.33\)</span>, ce qui donne <span class="math inline">\(TS-TI&lt;1.33\times 6\sigma_I\simeq 8\sigma_I\)</span>. On voudrait pouvoir le plus rapidement possible détecter le problème, le seul paramètre sur lequel on peut jouer est la taille <span class="math inline">\(n\)</span> des prélèvements. En prenant</p>
 <p><span class="math display">\[
-\rho=\frac{|\mu_1-\mu|}{\sigma}
+n \geq \left( \frac{8\sigma_I}{TS-TI} \right)^2,
 \]</span></p>
-<p>La probabilité <span class="math inline">\(\beta\)</span> de ne pas détecter le décentrage est alors</p>
-<p><span class="math display">\[
-\beta=\mathbb P(LIC&lt;\widetilde X &lt;LSC)
-\]</span></p>
-<p>où <span class="math inline">\(\widetilde X \sim \mathcal N(\mu+\rho\sigma,\frac{\sigma}{\sqrt{n}}).\)</span> Un calcul simple permet d’obtenir</p>
-<p><span class="math display">\[
-\beta = F(3-\rho\sqrt n)-F(-3-\rho\sqrt n)
-\]</span></p>
-<p>où <span class="math inline">\(F(x)=\mathbb P(X&lt;x)\)</span> est la fonction de répartition de la loi normale.</p>
-<p><strong><em>L’efficacité de la carte est mesurée par</em></strong> <span class="math inline">\(1-\beta\)</span> ( puissance de la carte).</p>
-<p>On obtient ainsi les courbes d’efficacité de la carte de la moyenne en fonction de la taille <span class="math inline">\(n\)</span> des échantillons prélevés.</p>
+<p>on pourra détecter plus rapidement le problème de capabilité du procédé de fabrication.</p>
+<section id="exemple" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="exemple"><span class="header-section-number">5.1.1</span> Exemple</h3>
+<p>On suppose que <span class="math inline">\(X \sim \mathcal N(10,2)\)</span> on prélève 20 échantillons de taille <span class="math inline">\(n=4\)</span>.</p>
+<p>Les données sont disponibles <a href="ex_lim_modif1.csv">ici</a></p>
+<p>On peut construire la carte de la moyenne :</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -345,33 +280,13 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<ul>
-<li><p>On constate (ce qui est logique) que la probabilité de ne pas détecter un déréglage donné diminue en fonction de la taille de l’échantillon.</p></li>
-<li><p>Détecter un déréglage <span class="math inline">\(\rho=0\)</span> correspond à une fausse alerte qui vaut pour la carte de la moyenne <span class="math inline">\(\alpha=0.3\%\)</span>.</p></li>
-</ul>
-</section>
-<section id="déréglage-de-lécart-type" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="déréglage-de-lécart-type"><span class="header-section-number">5.3</span> Déréglage de l’écart type</h2>
-<p>Ici on considère des décentrages <span class="math inline">\(\rho&gt;1\)</span> (sinon il s’agit d’une amélioration de la dispersion).</p>
-<p>Un calcul similaire au précédent conduit à <span class="math display">\[
-\beta=F(\frac{3}{\rho})-F(\frac{-3}{\rho})
-\]</span> Ici on constate que l’efficacité de la carte est indépendante de <span class="math inline">\(n\)</span> et qu’elle est très mauvaise. Il faut une très grande valeur de <span class="math inline">\(\rho\)</span> pour avoir une petite valeur de <span class="math inline">\(\beta\)</span>.</p>
-<p>Par exemple pour <span class="math inline">\(\rho=3\)</span> on a <span class="math inline">\(\beta=\)</span> 0.6826895 c’est à dire pour un écart type qui triplerait la probabilité ne peut pas détecter ce dérèglement est de 68.3%.</p>
-</section>
-<section id="période-opérationelle-moyenne-average-run-length" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="période-opérationelle-moyenne-average-run-length"><span class="header-section-number">5.4</span> Période opérationelle moyenne (Average Run Length)</h2>
-<p>La Période Opérationnelle Moyenne correspond au nombre de prélèvements qu’il faut effectuer, en moyenne, pour sortir des limites de contrôle lorsque qu’un déréglage <span class="math inline">\(\rho\)</span> s’est produit.</p>
-<p>Le cas <span class="math inline">\(\rho=0\)</span> pour une carte de Shewhart avec des observations indépendantes correspond à une fausse alerte qui se produit dans <span class="math inline">\(\alpha=0.3\%\)</span> et correspond à</p>
-<p><span class="math display">\[
-ARL_0=\frac{1}{0.003}=333
-\]</span> donc il faut en moyenne 334 prélèvements avant de détecter une fausse alerte.</p>
-<p><span class="math inline">\(ARL\)</span> est définie par</p>
-<p><span class="math display">\[
-ARL_\rho=\frac 1{1-\beta}
-\]</span></p>
-<p><strong><em>C’est donc l’inverse de la puissance (efficacité) de la carte, donc plus ce nombre sera petit plus la carte sera efficace.</em></strong></p>
-<p>Si on reprend les courbes d’efficacité précédente on obtient :</p>
+<p>Supposons que l’intervalle de tolérance soit <span class="math inline">\(10 \pm 3\)</span>. Alors on a<br>
+<span class="math inline">\(n \geq\)</span> 7.1187849 (on prend <span class="math inline">\(n=8\)</span>)</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">8</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>LICm<span class="ot">=</span>mu<span class="dv">-3</span><span class="sc">*</span>sigI<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>LSCm<span class="ot">=</span>mu<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span>sigI<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(M,<span class="at">LIC=</span>LICm,<span class="at">LSC=</span>LSCm,<span class="at">Type =</span> <span class="st">"carte de la moyenne"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -380,214 +295,11 @@ ARL_\rho=\frac 1{1-\beta}
 </div>
 </div>
 </div>
-</section>
-<section id="calibration-des-tailles-de-prélèvement" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="calibration-des-tailles-de-prélèvement"><span class="header-section-number">5.5</span> Calibration des tailles de prélèvement</h2>
-<p>La production initiale est <span class="math inline">\(X\sim \mathcal N (\mu,\sigma)\)</span> et la production décentrée vaut <span class="math inline">\(\widetilde X \sim \mathcal N (\mu+\rho\sigma,\sigma)\)</span>. On sait calculer la probabilité <span class="math inline">\(1-\beta\)</span> de détecter le décentrage en fonction de <span class="math inline">\(\rho\)</span> et on a donc</p>
-<p><span class="math display">\[
-ARL_\rho=\frac 1{1-\beta}=\frac 1{1-F(3-\rho\sqrt n)+F(-3-\rho\sqrt n)}
-\]</span></p>
-<p>Exemple :</p>
-<p>Considérons le problème suivant : on a un décentrage de moyenne de 0.5 écart type. On voudrait le détecter en moyenne avant 50 prélèvements. Quelle taille d’échantillon doit-on considérer ?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">2</span>,<span class="dv">20</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rho<span class="ot">&lt;-</span>.<span class="dv">5</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>beta<span class="ot">=</span><span class="fu">pnorm</span>(<span class="dv">3</span><span class="sc">-</span>rho<span class="sc">*</span><span class="fu">sqrt</span>(n))<span class="sc">-</span><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">-</span>rho<span class="sc">*</span><span class="fu">sqrt</span>(n))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ARL<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>beta)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>J<span class="ot">&lt;-</span><span class="fu">which.max</span>(ARL<span class="sc">&lt;</span><span class="dv">50</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>n[J]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
-</section>
-<section id="cartes-aux-limites-modifiées" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Cartes aux limites modifiées</h1>
-<p>Pour l’instant les cartes qui ont été proposées ne tiennent pas compte des tolérances imposées par le client. Elles reposent uniquement sur la distribution des observations et sur le % de fausses alertes que l’on souhaite observer (0.3% dans les cartes précédentes).</p>
-<ul>
-<li><p>On suppose connaître les tolérances <span class="math inline">\(TI,TS\)</span> autorisées par le client.</p></li>
-<li><p>On suppose que la production suit une loi normale <span class="math inline">\(\mathcal N(\mu,\sigma).\)</span></p></li>
-</ul>
-<section id="cas-n1-le-procédé-de-fabrication-nest-pas-capable" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="cas-n1-le-procédé-de-fabrication-nest-pas-capable"><span class="header-section-number">6.1</span> Cas n°1 : le procédé de fabrication n’est pas capable</h2>
-<p>Dans ce cas on <span class="math inline">\(Cam&lt;1.33\)</span>, ce qui donne <span class="math inline">\(TS-TI&lt;1.33\times 6\sigma\simeq 8\sigma\)</span>. On voudrait pouvoir le plus rapidement possible détecter le problème, le seul paramètre sur lequel on peut jouer est la taille <span class="math inline">\(n\)</span> des prélèvements. En prenant</p>
-<p><span class="math display">\[
-n \geq \left( \frac{8\sigma}{TS-TI} \right)^2
-\]</span> on pourra détecter plus rapidement le problème de capabilité du procédé de fabrication.</p>
-<section id="exemple" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="exemple"><span class="header-section-number">6.1.1</span> Exemple</h3>
-<p>On suppose que <span class="math inline">\(X \sim \mathcal N(10,2)\)</span> on prélève 20 échantillons de taille <span class="math inline">\(n=4\)</span>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">4</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">20</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">rnorm</span>(n<span class="sc">*</span>k,<span class="dv">10</span>,<span class="dv">2</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">matrix</span>(X,<span class="at">nrow=</span>k,<span class="at">ncol=</span>n))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df)<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">"Mesure"</span>,<span class="dv">1</span><span class="sc">:</span>n,<span class="at">sep=</span><span class="st">""</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">round</span>(df,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Mesure1</th>
-<th style="text-align: right;">Mesure2</th>
-<th style="text-align: right;">Mesure3</th>
-<th style="text-align: right;">Mesure4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">9.8</td>
-<td style="text-align: right;">11.4</td>
-<td style="text-align: right;">7.4</td>
-<td style="text-align: right;">10.9</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">9.3</td>
-<td style="text-align: right;">9.5</td>
-<td style="text-align: right;">7.5</td>
-<td style="text-align: right;">10.6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7.7</td>
-<td style="text-align: right;">15.4</td>
-<td style="text-align: right;">10.0</td>
-<td style="text-align: right;">9.4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">11.3</td>
-<td style="text-align: right;">13.7</td>
-<td style="text-align: right;">7.3</td>
-<td style="text-align: right;">10.9</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">9.1</td>
-<td style="text-align: right;">5.7</td>
-<td style="text-align: right;">11.2</td>
-<td style="text-align: right;">10.3</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">11.7</td>
-<td style="text-align: right;">11.0</td>
-<td style="text-align: right;">9.6</td>
-<td style="text-align: right;">12.2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">10.7</td>
-<td style="text-align: right;">11.2</td>
-<td style="text-align: right;">8.2</td>
-<td style="text-align: right;">10.7</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">7.8</td>
-<td style="text-align: right;">11.4</td>
-<td style="text-align: right;">10.6</td>
-<td style="text-align: right;">14.2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4.3</td>
-<td style="text-align: right;">9.3</td>
-<td style="text-align: right;">12.1</td>
-<td style="text-align: right;">10.4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">9.7</td>
-<td style="text-align: right;">8.7</td>
-<td style="text-align: right;">9.2</td>
-<td style="text-align: right;">9.8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">11.8</td>
-<td style="text-align: right;">10.1</td>
-<td style="text-align: right;">10.0</td>
-<td style="text-align: right;">9.2</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">11.3</td>
-<td style="text-align: right;">11.5</td>
-<td style="text-align: right;">13.5</td>
-<td style="text-align: right;">8.3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">10.8</td>
-<td style="text-align: right;">8.3</td>
-<td style="text-align: right;">9.5</td>
-<td style="text-align: right;">10.1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8.8</td>
-<td style="text-align: right;">11.1</td>
-<td style="text-align: right;">8.2</td>
-<td style="text-align: right;">10.8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">11.0</td>
-<td style="text-align: right;">10.3</td>
-<td style="text-align: right;">10.0</td>
-<td style="text-align: right;">8.8</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">14.3</td>
-<td style="text-align: right;">11.7</td>
-<td style="text-align: right;">12.1</td>
-<td style="text-align: right;">11.0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">10.1</td>
-<td style="text-align: right;">11.4</td>
-<td style="text-align: right;">12.1</td>
-<td style="text-align: right;">10.7</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8.7</td>
-<td style="text-align: right;">9.7</td>
-<td style="text-align: right;">9.8</td>
-<td style="text-align: right;">8.2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">8.5</td>
-<td style="text-align: right;">8.9</td>
-<td style="text-align: right;">8.7</td>
-<td style="text-align: right;">12.7</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6.8</td>
-<td style="text-align: right;">11.1</td>
-<td style="text-align: right;">7.3</td>
-<td style="text-align: right;">11.1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qcc)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>res<span class="ot">=</span><span class="fu">qcc</span>(df,<span class="at">type=</span><span class="st">"xbar"</span>,<span class="at">plot=</span>F)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre5_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Supposons que l’intervalle de tolérance soit <span class="math inline">\(10 \pm 3\)</span>. Alors on a<br>
-<span class="math inline">\(n \geq\)</span> 7.1111111 (on prend <span class="math inline">\(n=8\)</span>)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="fu">round</span>(X,<span class="dv">1</span>),<span class="at">nrow=</span>k,<span class="at">ncol=</span><span class="dv">8</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>res<span class="ot">&lt;-</span><span class="fu">qcc</span>(df2,<span class="at">type=</span><span class="st">"xbar"</span>,<span class="at">plot=</span>F)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre5_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>On constate que dès le 7ième prélèvement on trouve une valeur hors contrôle.</p>
+<p>On constate que dès le 8ième prélèvement on trouve une valeur hors contrôle.</p>
 </section>
 </section>
-<section id="cas-n2-le-procédé-de-fabrication-est-capable" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="cas-n2-le-procédé-de-fabrication-est-capable"><span class="header-section-number">6.2</span> Cas n°2 : le procédé de fabrication est capable</h2>
+<section id="cas-n2-le-procédé-de-fabrication-est-capable" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="cas-n2-le-procédé-de-fabrication-est-capable"><span class="header-section-number">5.2</span> Cas n°2 : le procédé de fabrication est capable</h2>
 <p>Par exemple si on a une prodcution <span class="math inline">\(X \sim \mathcal N(3,0.5)\)</span> avec des tolérances <span class="math inline">\(TI=1\)</span> et <span class="math inline">\(TS=5\)</span>, on a <span class="math inline">\(TS-TI &gt;&gt; 6\sigma\)</span> donc on peut faire une carte de la moyenne aux limites modifiées les nouvelles limites <span class="math inline">\(LIC^*,LSC^*\)</span> étant égales à des moyennes modifiées <span class="math inline">\(\mu_I,\mu_S.\)</span></p>
 <p><img src="figure/carte_lim_mod.png" class="img-fluid"></p>
 <p>On définit les moyennes maximales refusables (inférieures et supérieures)</p>
@@ -598,8 +310,8 @@ n \geq \left( \frac{8\sigma}{TS-TI} \right)^2
 \end{cases}
 \]</span></p>
 </section>
-<section id="remarque" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="remarque"><span class="header-section-number">6.3</span> Remarque :</h2>
+<section id="remarque" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="remarque"><span class="header-section-number">5.3</span> Remarque :</h2>
 <p>Ce choix peut être relié au coefficient de performance défini dans le chapitre précédent <span class="math inline">\(Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma}\)</span>.</p>
 <p>Si on remplace <span class="math inline">\(\mu\)</span> par <span class="math inline">\(\mu_I\)</span> on obtient <span class="math inline">\(\frac{\min\left(\mu_I-TI;TS-\mu_I\right)}{3\sigma}=\min(1;\frac{TS-TI-3\sigma}{3\sigma}).\)</span></p>
 <ul>
@@ -607,8 +319,8 @@ n \geq \left( \frac{8\sigma}{TS-TI} \right)^2
 <li><p>Ce nombre vaut <span class="math inline">\(\frac{TS-TI-3\sigma}{3\sigma}\)</span> sinon et dans ce cas <span class="math inline">\(Cap&lt;1,\)</span> le procédé ne répond pas aux spécifications imposées par le client. Il faut dans ce cas agir sur le procédé.</p></li>
 </ul>
 </section>
-<section id="calibration-de-la-taille-des-échantillons" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="calibration-de-la-taille-des-échantillons"><span class="header-section-number">6.4</span> Calibration de la taille des échantillons :</h2>
+<section id="calibration-de-la-taille-des-échantillons" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="calibration-de-la-taille-des-échantillons"><span class="header-section-number">5.4</span> Calibration de la taille des échantillons :</h2>
 <p>On peut également définir le <strong><em>déraglage maximal admissible</em></strong> <span class="math inline">\(\rho_{max}\)</span> par</p>
 <p><span class="math display">\[
 \rho_{max}=\min\left( \frac{\mu_S-\mu}{\sigma},\frac{\mu-\mu_I}{\sigma}\right)
@@ -619,13 +331,12 @@ n \geq \left( \frac{3+z_{1-\beta}}{\rho_{max}} \right)^2
 \]</span></p>
 <p>où <span class="math inline">\(z_{1-\beta}\)</span> est le quantile d’ordre <span class="math inline">\((1-\beta)\)</span> de la loi normale.</p>
 </section>
-<section id="retour-à-lexemple" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="retour-à-lexemple"><span class="header-section-number">6.5</span> Retour à l’exemple</h2>
+<section id="retour-à-lexemple" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="retour-à-lexemple"><span class="header-section-number">5.5</span> Retour à l’exemple</h2>
 <p>Avec les valeurs précédentes on a <span class="math inline">\(\rho_{max}=3.\)</span> Si on veut détecter ce déréglage dans 90% des cas alors on doit avoir <span class="math inline">\(n \geq\)</span> 2.0368538</p>
 <p>Prélever des échantillons de taille <span class="math inline">\(n=3\)</span> suffit à détecter dans 95% des cas des décentrages d’au moins 3 écarts types.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
