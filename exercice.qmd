@@ -1,4 +1,4 @@
-# Exercice 
+# Exercice
 
 On considère le jeu de données [X](X.rda) qui correspond au suivi de 5 caractéristiques d'une production.
 
@@ -6,7 +6,7 @@ Les 15 premiers prélèvements ont été effectués pour les 10 min et vont serv
 
 ## Premier travail : cartes univariées
 
--  Calculer les limites des cartes sur les 15 premiers points :
+-   Calculer les limites des cartes sur les 15 premiers points :
 
 ```{r warning=FALSE, echo=TRUE}
 library(multiSPC)
@@ -19,7 +19,6 @@ n=dim(X1)[3]
 # Pour sélectionner les 15 prélèvements de 6 observations pour la variable 1  
 X1[,1,]
 ```
-
 
 ```{r echo=F,eval=F}
 M=S=matrix(NA,ncol=p,nrow=k1)
@@ -38,7 +37,6 @@ for(j in 1:p){
 }
 graph1
 ```
-
 
 Que peut-on en déduire ?
 
@@ -66,14 +64,14 @@ On va construire deux cartes de contrôle multivariée sur les 15 premières obs
 
 Fonction Moy_X() dans le package *multiSPC*.
 
-```{r eval=F}
+```{r echo=F,eval=F}
 Moy1=Moy_X(X1)
 GGally::ggpairs(as.data.frame(Moy1))
 ```
 
 -   Construire la carte de contrôle du $T^2$ de Hotelling. Que peut on en déduire ? Utiliser la fonction LSC_T2_Hotelling_kn() pour calculer les limites
 
-```{r}
+```{r echo=F,eval=F}
 res1=T2_Hotelling_kn(X1)
 LSC1=LSC_T2_Hotelling_kn(X1)
 plot_chart(res1,LSC=LSC1[1],Type="T2 Hotelling")
@@ -81,7 +79,7 @@ plot_chart(res1,LSC=LSC1[1],Type="T2 Hotelling")
 
 -   Construire la carte de contrôle du $T^2$ de Hotelling sur composantes principales à partir de la matrice $\tilde X$ définie précédemment. Justifier le nombre de composantes choisies.
 
-```{r eval=F}
+```{r echo=F,eval=F}
 resPC=Principal_Component_construction(Moy1,r=2,data2 = Moy_X(X2))
 resPC$sing.values
 resPC1=T2_Hotelling_k1(resPC$coord_PC1)
@@ -97,7 +95,7 @@ Pour les 25 derniers prélèvements :
 
 -   Construire la carte du $T^2$ de Hotelling en utilisant les limites Phase II obtenues à la question précédente.
 
-```{r eval=F}
+```{r echo=F,eval=F}
 res2=T2_Hotelling_kn(X2,
                     MoyT=Moy_T(X1),
                     S=covariance_X(X1))
@@ -106,7 +104,7 @@ plot_chart(res2,LSC=LSC2[2],Type="T2 Hotelling")
 
 -   Construire la carte du $T^2$ de Hotelling sur Composantes principales en utilisant les limites Phase II obtenues à la question précédente.
 
-```{r eval=F}
+```{r echo=F,eval=F}
 resPC2=T2_Hotelling_k1(resPC$coord_PC2,
                        MoyT=Moy_T(resPC$coord_PC1),
                        S=covariance_X(resPC$coord_PC1))
@@ -117,7 +115,7 @@ plot_chart(resPC2,LSC=LSC2[2],Type="T2 Hotelling")
 
 -   Les points HC dans la carte du T2 seront étudiés en utilisant la fonction T2_Hotelling_kn_MYT() et en suivant la procédure décrite p20 du cours (CM2).
 
-```{r eval=F}
+```{r echo=F,eval=F}
 ## HC 1 variable
 k_hc=which(res2>LSC1[2])
 MTY1=matrix(NA,nrow=length(k_hc),ncol=p)
@@ -174,12 +172,12 @@ T2_Hotelling_kn_MYT(k_hc[2],k=15,select = c(1,2,5),MoyT = Moy_T(X1),data = X2)
 
 -   Les points HC de la carte $T^2$ sur composantes principales seront étudiées par des cartes univariées sur les composantes principales. On interprêtera les résultats à partir du cercle de corrélation. Pour cette carte $\sigma_I$ sera égal à :
 
-```{r echo=TRUE, eval=F}
+```{r echo=F, eval=F}
 k2=dim(X2)[1]
 sig_I=sqrt(resPC$var_expl_PC*(k2-1))[1:2]
 ```
 
-```{r eval=F}
+```{r echo=F,eval=F}
 mu=apply(resPC$coord_PC1,2,mean)
 
 plot_chart(resPC$coord_PC2[,1],LIC=mu[1]-3*sig[1]/sqrt(k),LSC=mu[1]+3*sig[1]/sqrt(k))

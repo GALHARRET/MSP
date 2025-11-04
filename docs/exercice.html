@@ -295,39 +295,12 @@ prelev 15 24.43656 24.63109 25.67316 24.21859 25.62118 24.29264</code></pre>
 <li>Construire le graphe des corrélations des 5 caractéristiques sur la matrice <span class="math inline">\(\tilde X\)</span> de dimension <span class="math inline">\((k,p)\)</span> dont les élements <span class="math display">\[\tilde x_{ij}=\frac1{n}\sum_{m=1}^n x_{ijm}.\]</span></li>
 </ul>
 <p>Fonction Moy_X() dans le package <em>multiSPC</em>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Moy1<span class="ot">=</span><span class="fu">Moy_X</span>(X1)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="fu">as.data.frame</span>(Moy1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <ul>
 <li>Construire la carte de contrôle du <span class="math inline">\(T^2\)</span> de Hotelling. Que peut on en déduire ? Utiliser la fonction LSC_T2_Hotelling_kn() pour calculer les limites</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res1<span class="ot">=</span><span class="fu">T2_Hotelling_kn</span>(X1)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>LSC1<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_kn</span>(X1)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(res1,<span class="at">LSC=</span>LSC1[<span class="dv">1</span>],<span class="at">Type=</span><span class="st">"T2 Hotelling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in data.frame(t = 1:length(values), values = values, LIC = LIC, : row
-names were found from a short variable and have been discarded</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="exercice_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <ul>
 <li>Construire la carte de contrôle du <span class="math inline">\(T^2\)</span> de Hotelling sur composantes principales à partir de la matrice <span class="math inline">\(\tilde X\)</span> définie précédemment. Justifier le nombre de composantes choisies.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>resPC<span class="ot">=</span><span class="fu">Principal_Component_construction</span>(Moy1,<span class="at">r=</span><span class="dv">2</span>,<span class="at">data2 =</span> <span class="fu">Moy_X</span>(X2))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>resPC<span class="sc">$</span>sing.values</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>resPC1<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(resPC<span class="sc">$</span>coord_PC1)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>LSC2<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(resPC<span class="sc">$</span>coord_PC1)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(resPC1,<span class="at">LSC=</span>LSC2[<span class="dv">1</span>],<span class="at">Type=</span><span class="st">"T2 Hotelling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <ul>
 <li>Que peut-on déduire de ces résultats ?</li>
 </ul>
@@ -338,93 +311,18 @@ names were found from a short variable and have been discarded</code></pre>
 <ul>
 <li>Construire la carte du <span class="math inline">\(T^2\)</span> de Hotelling en utilisant les limites Phase II obtenues à la question précédente.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>res2<span class="ot">=</span><span class="fu">T2_Hotelling_kn</span>(X2,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">MoyT=</span><span class="fu">Moy_T</span>(X1),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">S=</span><span class="fu">covariance_X</span>(X1))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(res2,<span class="at">LSC=</span>LSC2[<span class="dv">2</span>],<span class="at">Type=</span><span class="st">"T2 Hotelling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <ul>
 <li>Construire la carte du <span class="math inline">\(T^2\)</span> de Hotelling sur Composantes principales en utilisant les limites Phase II obtenues à la question précédente.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>resPC2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(resPC<span class="sc">$</span>coord_PC2,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">MoyT=</span><span class="fu">Moy_T</span>(resPC<span class="sc">$</span>coord_PC1),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">S=</span><span class="fu">covariance_X</span>(resPC<span class="sc">$</span>coord_PC1))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(resPC2,<span class="at">LSC=</span>LSC2[<span class="dv">2</span>],<span class="at">Type=</span><span class="st">"T2 Hotelling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Quatrième travail : Etude des points HC sur les cartes multivariées</h1>
 <ul>
 <li>Les points HC dans la carte du T2 seront étudiés en utilisant la fonction T2_Hotelling_kn_MYT() et en suivant la procédure décrite p20 du cours (CM2).</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## HC 1 variable</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>k_hc<span class="ot">=</span><span class="fu">which</span>(res2<span class="sc">&gt;</span>LSC1[<span class="dv">2</span>])</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>MTY1<span class="ot">=</span><span class="fu">matrix</span>(<span class="cn">NA</span>,<span class="at">nrow=</span><span class="fu">length</span>(k_hc),<span class="at">ncol=</span>p)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(MTY1)<span class="ot">=</span>k_hc</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(MTY1)<span class="ot">=</span><span class="fu">colnames</span>(X1)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(k_hc)){</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p){</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  mty1<span class="ot">=</span><span class="fu">T2_Hotelling_kn_MYT</span>(k_hc[i],<span class="at">k=</span><span class="dv">15</span>,<span class="at">select =</span> j,<span class="at">MoyT =</span> <span class="fu">Moy_T</span>(X1),<span class="at">data =</span> X2)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  MTY1[i,j]<span class="ot">=</span><span class="fu">as.numeric</span>(mty1<span class="sc">$</span>T2<span class="sc">&gt;=</span>mty1<span class="sc">$</span>LSC)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>MTY1</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Pour k_hc=5, caract2 éliminée</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="do">## HC deux variables</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>MTY2<span class="ot">=</span><span class="fu">matrix</span>(<span class="cn">NA</span>,<span class="at">nrow=</span>p,<span class="at">ncol=</span>p)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(MTY2)<span class="ot">=</span><span class="fu">colnames</span>(MTY2)<span class="ot">=</span><span class="fu">colnames</span>(X1)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(p<span class="dv">-1</span>)){</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> (i<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>p){</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  mty2<span class="ot">=</span><span class="fu">T2_Hotelling_kn_MYT</span>(k_hc[<span class="dv">1</span>],<span class="at">k=</span><span class="dv">15</span>,<span class="at">select =</span> <span class="fu">c</span>(i,j),<span class="at">MoyT =</span> <span class="fu">Moy_T</span>(X1),<span class="at">data =</span> X2)</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  MTY2[i,j]<span class="ot">=</span><span class="fu">as.numeric</span>(mty2<span class="sc">$</span>T2<span class="sc">&gt;=</span>mty2<span class="sc">$</span>LSC)</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>MTY2</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Pour k_hc=5, caract 1, 3 et 4 éliminées</span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(p<span class="dv">-1</span>)){</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> (i<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>p){</span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  mty2<span class="ot">=</span><span class="fu">T2_Hotelling_kn_MYT</span>(k_hc[<span class="dv">2</span>],<span class="at">k=</span><span class="dv">15</span>,<span class="at">select =</span> <span class="fu">c</span>(i,j),<span class="at">MoyT =</span> <span class="fu">Moy_T</span>(X1),<span class="at">data =</span> X2)</span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  MTY2[i,j]<span class="ot">=</span><span class="fu">as.numeric</span>(mty2<span class="sc">$</span>T2<span class="sc">&gt;=</span>mty2<span class="sc">$</span>LSC)</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>MTY2</span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Pour k_hc=15 caract 3 et 4 éliminées</span></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(p<span class="dv">-1</span>)){</span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> (i<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>p){</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>  mty2<span class="ot">=</span><span class="fu">T2_Hotelling_kn_MYT</span>(k_hc[<span class="dv">3</span>],<span class="at">k=</span><span class="dv">15</span>,<span class="at">select =</span> <span class="fu">c</span>(i,j),<span class="at">MoyT =</span> <span class="fu">Moy_T</span>(X1),<span class="at">data =</span> X2)</span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>  MTY2[i,j]<span class="ot">=</span><span class="fu">as.numeric</span>(mty2<span class="sc">$</span>T2<span class="sc">&gt;=</span>mty2<span class="sc">$</span>LSC)</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>MTY2</span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Pour k_hc=24 caract 3,4,5 éliminées</span></span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="do">## HC 3 Variables</span></span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="fu">T2_Hotelling_kn_MYT</span>(k_hc[<span class="dv">2</span>],<span class="at">k=</span><span class="dv">15</span>,<span class="at">select =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>),<span class="at">MoyT =</span> <span class="fu">Moy_T</span>(X1),<span class="at">data =</span> X2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <ul>
 <li>Les points HC de la carte <span class="math inline">\(T^2\)</span> sur composantes principales seront étudiées par des cartes univariées sur les composantes principales. On interprêtera les résultats à partir du cercle de corrélation. Pour cette carte <span class="math inline">\(\sigma_I\)</span> sera égal à :</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>k2<span class="ot">=</span><span class="fu">dim</span>(X2)[<span class="dv">1</span>]</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sig_I<span class="ot">=</span><span class="fu">sqrt</span>(resPC<span class="sc">$</span>var_expl_PC<span class="sc">*</span>(k2<span class="dv">-1</span>))[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">apply</span>(resPC<span class="sc">$</span>coord_PC1,<span class="dv">2</span>,mean)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(resPC<span class="sc">$</span>coord_PC2[,<span class="dv">1</span>],<span class="at">LIC=</span>mu[<span class="dv">1</span>]<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span>sig[<span class="dv">1</span>]<span class="sc">/</span><span class="fu">sqrt</span>(k),<span class="at">LSC=</span>mu[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span>sig[<span class="dv">1</span>]<span class="sc">/</span><span class="fu">sqrt</span>(k))</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(resPC<span class="sc">$</span>coord_PC2[,<span class="dv">2</span>],<span class="at">LIC=</span>mu[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span>sig[<span class="dv">2</span>]<span class="sc">/</span><span class="fu">sqrt</span>(k),<span class="at">LSC=</span>mu[<span class="dv">2</span>]<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span>sig[<span class="dv">2</span>]<span class="sc">/</span><span class="fu">sqrt</span>(k))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="conclusion" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Conclusion</h1>
