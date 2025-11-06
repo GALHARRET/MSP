@@ -12,7 +12,8 @@ book:
     - chapitre1.qmd
     - chapitre3.qmd
     - chapitre4.qmd
-    - chapitre6.qmd
+    - chapitre7.qmd
+    - chapitre2.qmd
     - exercice.qmd
 bibliography: references.bib
 

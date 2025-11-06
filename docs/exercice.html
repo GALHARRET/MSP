@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Exercice – MSP</title>
+<title>6&nbsp; Exercice – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre6.html" rel="prev">
+<link href="./chapitre2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -143,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./exercice.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercice</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./exercice.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -189,19 +189,25 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exercice.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
   </div>
 </li>
     </ul>
@@ -214,11 +220,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#premier-travail-cartes-univariées" id="toc-premier-travail-cartes-univariées" class="nav-link active" data-scroll-target="#premier-travail-cartes-univariées"><span class="header-section-number">5.1</span> Premier travail : cartes univariées</a></li>
-  <li><a href="#deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements" id="toc-deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements" class="nav-link" data-scroll-target="#deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements"><span class="header-section-number">6</span> Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements)</a></li>
-  <li><a href="#troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes" id="toc-troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes" class="nav-link" data-scroll-target="#troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes"><span class="header-section-number">7</span> Troisième travail approche multivariée pour la construction des cartes à partir des limites précédentes</a></li>
-  <li><a href="#quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées" id="toc-quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées" class="nav-link" data-scroll-target="#quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées"><span class="header-section-number">8</span> Quatrième travail : Etude des points HC sur les cartes multivariées</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">9</span> Conclusion</a></li>
+  <li><a href="#premier-travail-cartes-univariées" id="toc-premier-travail-cartes-univariées" class="nav-link active" data-scroll-target="#premier-travail-cartes-univariées"><span class="header-section-number">6.1</span> Premier travail : cartes univariées</a></li>
+  <li><a href="#deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements" id="toc-deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements" class="nav-link" data-scroll-target="#deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements"><span class="header-section-number">7</span> Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements)</a></li>
+  <li><a href="#troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes" id="toc-troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes" class="nav-link" data-scroll-target="#troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes"><span class="header-section-number">8</span> Troisième travail approche multivariée pour la construction des cartes à partir des limites précédentes</a></li>
+  <li><a href="#quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées" id="toc-quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées" class="nav-link" data-scroll-target="#quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées"><span class="header-section-number">9</span> Quatrième travail : Etude des points HC sur les cartes multivariées</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">10</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -227,7 +233,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercice</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></h1>
 </div>
 
 
@@ -246,8 +252,8 @@ window.Quarto = {
 
 <p>On considère le jeu de données <a href="X.rda">X</a> qui correspond au suivi de 5 caractéristiques d’une production.</p>
 <p>Les 15 premiers prélèvements ont été effectués pour les 10 min et vont servir à mettre en place les limites de contrôle. Les prélèvements suivants (16 à 40) ont été réalisés 6 fois par jour.</p>
-<section id="premier-travail-cartes-univariées" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="premier-travail-cartes-univariées"><span class="header-section-number">5.1</span> Premier travail : cartes univariées</h2>
+<section id="premier-travail-cartes-univariées" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="premier-travail-cartes-univariées"><span class="header-section-number">6.1</span> Premier travail : cartes univariées</h2>
 <ul>
 <li>Calculer les limites des cartes sur les 15 premiers points :</li>
 </ul>
@@ -288,8 +294,8 @@ prelev 15 24.43656 24.63109 25.67316 24.21859 25.62118 24.29264</code></pre>
 <li>Appliquer les limites de contrôles sur les 25 autres prélèvements et interpréter les résultats.</li>
 </ul>
 </section>
-<section id="deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements)</h1>
+<section id="deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements)</h1>
 <p>On va construire deux cartes de contrôle multivariée sur les 15 premières observations afin de calculer les limites de contrôle qui seront utilisées pour les prélèvements en routine (25 dans notre cas).</p>
 <ul>
 <li>Construire le graphe des corrélations des 5 caractéristiques sur la matrice <span class="math inline">\(\tilde X\)</span> de dimension <span class="math inline">\((k,p)\)</span> dont les élements <span class="math display">\[\tilde x_{ij}=\frac1{n}\sum_{m=1}^n x_{ijm}.\]</span></li>
@@ -305,8 +311,8 @@ prelev 15 24.43656 24.63109 25.67316 24.21859 25.62118 24.29264</code></pre>
 <li>Que peut-on déduire de ces résultats ?</li>
 </ul>
 </section>
-<section id="troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Troisième travail approche multivariée pour la construction des cartes à partir des limites précédentes</h1>
+<section id="troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Troisième travail approche multivariée pour la construction des cartes à partir des limites précédentes</h1>
 <p>Pour les 25 derniers prélèvements :</p>
 <ul>
 <li>Construire la carte du <span class="math inline">\(T^2\)</span> de Hotelling en utilisant les limites Phase II obtenues à la question précédente.</li>
@@ -315,8 +321,8 @@ prelev 15 24.43656 24.63109 25.67316 24.21859 25.62118 24.29264</code></pre>
 <li>Construire la carte du <span class="math inline">\(T^2\)</span> de Hotelling sur Composantes principales en utilisant les limites Phase II obtenues à la question précédente.</li>
 </ul>
 </section>
-<section id="quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Quatrième travail : Etude des points HC sur les cartes multivariées</h1>
+<section id="quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Quatrième travail : Etude des points HC sur les cartes multivariées</h1>
 <ul>
 <li>Les points HC dans la carte du T2 seront étudiés en utilisant la fonction T2_Hotelling_kn_MYT() et en suivant la procédure décrite p20 du cours (CM2).</li>
 </ul>
@@ -324,8 +330,8 @@ prelev 15 24.43656 24.63109 25.67316 24.21859 25.62118 24.29264</code></pre>
 <li>Les points HC de la carte <span class="math inline">\(T^2\)</span> sur composantes principales seront étudiées par des cartes univariées sur les composantes principales. On interprêtera les résultats à partir du cercle de corrélation. Pour cette carte <span class="math inline">\(\sigma_I\)</span> sera égal à :</li>
 </ul>
 </section>
-<section id="conclusion" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Conclusion</h1>
+<section id="conclusion" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Conclusion</h1>
 <p>Conclure sur l’ensemble des résultats et interpréter les différences de résultats obtenus dans les différentes approches.</p>
 
 
@@ -751,8 +757,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapitre6.html" class="pagination-link" aria-label="Carte EWMA">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span>
+      <a href="./chapitre2.html" class="pagination-link" aria-label="Capabilité, Répétabilité, Reproductivité">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

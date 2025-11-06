@@ -212,11 +212,11 @@
   {
     "objectID": "chapitre4.html",
     "href": "chapitre4.html",
-    "title": "3  Cartes de contrôles de Shewhart",
+    "title": "3  Cartes univariées",
     "section": "",
-    "text": "3.1 Principe\nOn va construire deux graphiques : une carte dite de position et une carte de dispersion.\nExemple\nSuivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.\nLes données sont disponibles ici\nX\nweight.1\nweight.2\nweight.3\nweight.4\nweight.5\n\n\n\n\n1\n98.6\n100.3\n100.9\n100.2\n99.6\n\n\n2\n100.3\n99.5\n98.9\n100.2\n100.6\n\n\n3\n99.2\n98.8\n101.5\n100.3\n101.0\n\n\n4\n101.1\n97.8\n98.9\n101.3\n101.7\n\n\n5\n101.0\n99.8\n97.3\n99.4\n100.8\n\n\n6\n101.1\n100.1\n99.0\n100.7\n99.9\nOn va construire les cartes de contrôle données ci-dessous\nPour chaque échantillon de 5 steacks on calcule la moyenne et l’écart type et on les reporte sur les cartes correspondantes.",
+    "text": "3.1 Cartes de Shewart\nOn va construire deux graphiques : une carte dite de position et une carte de dispersion. Ces cartes sont appelées les cartes de Shewart.\nExemple\nSuivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.\nLes données sont disponibles ici\nX\nweight.1\nweight.2\nweight.3\nweight.4\nweight.5\n\n\n\n\n1\n98.6\n100.3\n100.9\n100.2\n99.6\n\n\n2\n100.3\n99.5\n98.9\n100.2\n100.6\n\n\n3\n99.2\n98.8\n101.5\n100.3\n101.0\n\n\n4\n101.1\n97.8\n98.9\n101.3\n101.7\n\n\n5\n101.0\n99.8\n97.3\n99.4\n100.8\n\n\n6\n101.1\n100.1\n99.0\n100.7\n99.9\nOn va construire les cartes de contrôle données ci-dessous\nPour chaque échantillon de 5 steacks on calcule la moyenne et l’écart type et on les reporte sur les cartes correspondantes.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes de contrôles de Shewhart</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes univariées</span>"
     ]
   },
   {
@@ -352,11 +352,11 @@
   {
     "objectID": "chapitre2.html",
     "href": "chapitre2.html",
-    "title": "2  Capabilité",
+    "title": "5  Capabilité, Répétabilité, Reproductivité",
     "section": "",
-    "text": "2.1 Indices de Capabilité globale :",
+    "text": "5.1 Capabilité d’un procédé de fabrication :\nDans la suite \\(TS,TI\\) désigneront la tolérance supérieure et inférieure du procédé de fabrication.\nComme précédemment on distingue la variabilité globale du procédé et celle uniquement attribuable à la machine.\nOn définit deux types d’indices de capabilité :\nIl est clair que lorsque \\(Cap&lt;1\\) le procédé n’est pas capable, il faut le revoir afin d’obtenir une production conforme aux tolérances. Par contre si \\(Cap&gt;2\\) on va considérer que le procédé est capable dans la mesure où la dispersion naturelle des observation est 2 fois moins importante que l’intervalle de tolérance.\nLes deux indicateurs précédents ont un gros inconvénient dans la mesure où ils ne permettent pas de juger du décentrage éventuel du procédé. Par exemple, dans le cas d’une loi normale, on peut avoir une situation comme celle ci-dessous :\nOn voit que le procédé est bien dans l’intervalle de tolérance avec une valeur \\(Cap&gt;2\\) mais qu’il est clairement décentré. Donc il faut définir de nouveaux indices de capabilité qui vont permettre de juger de la justesse du procédé !\nIl est clair que l’on a :\nOn utilisera la norme suivante :\nUn procédé (respectivement une machine) est capable si \\(Cpk&gt;1.33\\) (respectivement \\(Cmk&gt;1.33\\))",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capabilité</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Capabilité, Répétabilité, Reproductivité</span>"
     ]
   },
   {
@@ -442,21 +442,271 @@
   {
     "objectID": "exercice.html",
     "href": "exercice.html",
-    "title": "5  Exercice",
+    "title": "6  Exercice",
     "section": "",
-    "text": "5.1 Premier travail : cartes univariées\nOn considère le jeu de données X qui correspond au suivi de 5 caractéristiques d’une production.\nLes 15 premiers prélèvements ont été effectués pour les 10 min et vont servir à mettre en place les limites de contrôle. Les prélèvements suivants (16 à 40) ont été réalisés 6 fois par jour.\nlibrary(multiSPC)\nload(\"X.rda\")\ndim(X)\n\n[1] 40  5  6\n\nX1=X[1:15,,]\nk1=dim(X1)[1]\np=dim(X1)[2]\nn=dim(X1)[3]\n# Pour sélectionner les 15 prélèvements de 6 observations pour la variable 1  \nX1[,1,]\n\n             obs 1    obs 2    obs 3    obs 4    obs 5    obs 6\nprelev 1  23.76246 23.40527 24.91360 25.41634 23.29637 24.98259\nprelev 2  26.47183 24.34791 26.39461 25.38975 24.20868 26.16872\nprelev 3  26.04362 25.19139 26.07489 25.45882 24.60888 24.62398\nprelev 4  25.10706 25.88083 23.70325 25.34959 23.48259 24.90549\nprelev 5  23.61300 23.54233 23.70711 27.18749 24.50389 25.03395\nprelev 6  24.72257 24.19010 24.89519 23.95908 25.47115 23.40282\nprelev 7  23.28691 24.56824 24.92739 24.70540 26.37064 24.77298\nprelev 8  26.08343 24.47033 24.36704 24.87880 26.08653 25.58326\nprelev 9  26.18530 24.89157 23.66520 25.22682 24.76154 25.53291\nprelev 10 23.52080 23.79163 26.13552 25.10471 24.63480 24.22959\nprelev 11 24.58895 24.62262 25.59954 24.86031 24.57686 25.86795\nprelev 12 25.40909 25.26060 24.08024 25.38977 25.34972 25.00771\nprelev 13 24.43261 24.24110 24.86680 24.02565 24.87711 24.29757\nprelev 14 23.78666 24.80767 25.89863 24.23327 25.45326 24.78892\nprelev 15 24.43656 24.63109 25.67316 24.21859 25.62118 24.29264\nQue peut-on en déduire ?",
+    "text": "6.1 Premier travail : cartes univariées\nOn considère le jeu de données X qui correspond au suivi de 5 caractéristiques d’une production.\nLes 15 premiers prélèvements ont été effectués pour les 10 min et vont servir à mettre en place les limites de contrôle. Les prélèvements suivants (16 à 40) ont été réalisés 6 fois par jour.\nlibrary(multiSPC)\nload(\"X.rda\")\ndim(X)\n\n[1] 40  5  6\n\nX1=X[1:15,,]\nk1=dim(X1)[1]\np=dim(X1)[2]\nn=dim(X1)[3]\n# Pour sélectionner les 15 prélèvements de 6 observations pour la variable 1  \nX1[,1,]\n\n             obs 1    obs 2    obs 3    obs 4    obs 5    obs 6\nprelev 1  23.76246 23.40527 24.91360 25.41634 23.29637 24.98259\nprelev 2  26.47183 24.34791 26.39461 25.38975 24.20868 26.16872\nprelev 3  26.04362 25.19139 26.07489 25.45882 24.60888 24.62398\nprelev 4  25.10706 25.88083 23.70325 25.34959 23.48259 24.90549\nprelev 5  23.61300 23.54233 23.70711 27.18749 24.50389 25.03395\nprelev 6  24.72257 24.19010 24.89519 23.95908 25.47115 23.40282\nprelev 7  23.28691 24.56824 24.92739 24.70540 26.37064 24.77298\nprelev 8  26.08343 24.47033 24.36704 24.87880 26.08653 25.58326\nprelev 9  26.18530 24.89157 23.66520 25.22682 24.76154 25.53291\nprelev 10 23.52080 23.79163 26.13552 25.10471 24.63480 24.22959\nprelev 11 24.58895 24.62262 25.59954 24.86031 24.57686 25.86795\nprelev 12 25.40909 25.26060 24.08024 25.38977 25.34972 25.00771\nprelev 13 24.43261 24.24110 24.86680 24.02565 24.87711 24.29757\nprelev 14 23.78666 24.80767 25.89863 24.23327 25.45326 24.78892\nprelev 15 24.43656 24.63109 25.67316 24.21859 25.62118 24.29264\nQue peut-on en déduire ?",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercice</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exercice</span>"
     ]
   },
   {
     "objectID": "exercice.html#premier-travail-cartes-univariées",
     "href": "exercice.html#premier-travail-cartes-univariées",
-    "title": "5  Exercice",
+    "title": "6  Exercice",
     "section": "",
     "text": "Calculer les limites des cartes sur les 15 premiers points :\n\n\n\n\nAppliquer les limites de contrôles sur les 25 autres prélèvements et interpréter les résultats.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercice</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exercice</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html",
+    "href": "chapitre7.html",
+    "title": "4  Cartes multivariées",
+    "section": "",
+    "text": "4.1 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#introduction",
+    "href": "chapitre7.html#introduction",
+    "title": "4  Cartes multivariées",
+    "section": "",
+    "text": "Cours précédent : une caractéristique \\(X\\) de la production suivie au cours du temps par carte de la moyenne de Shewhart et carte EWMA\nCe cours : plusieurs variables \\(X_1,...,X_p\\) caractérisant la production. Il existe toujours des liens entre ces variables donc faire des cartes univariées n’est pas optimal.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#exemple",
+    "href": "chapitre7.html#exemple",
+    "title": "4  Cartes multivariées",
+    "section": "4.2 Exemple :",
+    "text": "4.2 Exemple :\n\nAu cours du processus de fabrication d’un tube en fibre de carbone spécifique, trois caractéristiques qualitatives corrélées sont mesurées : le diamètre intérieur, l’épaisseur et la longueur du tube.\nIci les données sont sous la forme d’une matrice à trois dimensions.\nOn note \\[X=[x_{tji}]\\] la matrice des données où \\(t\\) est le numéro du prélèvement (\\(t=1,...,k\\)), \\(j\\) est l’indice de la variable (\\(j=1,...,p\\)) et \\(i\\) le numéro de l’observation (\\(i=1,...,n\\)).\n\n\ndata(\"carbon1\")\nclass(carbon1)\n\n[1] \"array\"\n\ndim(carbon1)\n\n[1] 30  3  8",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#notations",
+    "href": "chapitre7.html#notations",
+    "title": "4  Cartes multivariées",
+    "section": "4.3 Notations",
+    "text": "4.3 Notations\n\nLes données sont dans une matrice à trois dimensions.\nOn replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice \\((k,p)\\) dont les éléments sont les moyennes.\n\n\nOn peut tracer le graphe de corrélation des 30 moyennes de \\(X=(X_1,X_2,X_3)\\) :\n\nM=Moy_X(carbon1)\nggpairs(M)\n\n\n\n\n\n\n\n\nOn en déduit que les corrélations entre les trois caractéristiques sont fortes et significatives.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#matrice-de-covariance",
+    "href": "chapitre7.html#matrice-de-covariance",
+    "title": "4  Cartes multivariées",
+    "section": "4.4 Matrice de covariance",
+    "text": "4.4 Matrice de covariance\n\nSoit \\(X,Y\\) deux variables aléatoires réelles, la covariance \\(\\sigma_{X,Y}=\\mathbb E \\left([X-\\mathbb E(X)][Y-\\mathbb E(Y)] \\right)\\). On a \\(\\sigma_{X,X}=\\sigma^2_X\\) (variance de X).\nSi les variables \\(X,Y\\) sont indépendantes alors \\(\\sigma_{X,Y}=0\\). (réciproque fausse)\nSoit \\((X_1,...,X_p)\\) des variables aléatoires réelles. On appelle matrice de covariance la matrice \\[\\Sigma=[\\sigma_{ij}]_{i,j=1,...,p}.\\]\n\nOn peut aussi écrire cette matrice sous forme vectorielle. Soit \\(X=(X_1,...,X_p)\\) la vecteur aléatoire alors \\[\\Sigma=\\mathbb E \\left([X-\\mathbb E(X)].[X-\\mathbb E(X)]^T \\right).\\]\n\n\n\n\n\n\nPropriétés de \\(\\Sigma\\)\n\n\n\n\n\\(\\Sigma\\) est symétrique donc elle est diagonalisable.\n\\(\\Sigma\\) est semi-définie positive, c’est à dire que ses valeurs propres \\(\\lambda_1,...\\lambda_p\\) sont postives ou nulles.\n\\(\\Sigma\\) est définie positive (vp strictement positives) si il n’existe aucune relation affine entre les variables \\((X_1,...,X_p)\\). Dans ce cas \\(\\Sigma\\) est inversible, c’est à dire qu’il existe une matrice notée \\(\\Sigma^{-1}\\) telle que \\[\\Sigma^{-1}.\\Sigma=\\Sigma.\\Sigma^{-1}=I_p\\]\n\n\n\nIl faut estimer cette matrice à partir de la matrice de données \\(X_{tji}\\) : il s’agit de la moyenne des covariances empiriques des \\(k\\) prélèvements.\n\n\n\n\n\n\nEstimation de \\(\\Sigma\\)\n\n\n\nPour \\(t=1,...,k\\) on calcule la covariance \\(S_t\\) de la matrice \\((X_{tji})_{ji}\\) et on choisit \\[\\hat\\Sigma\\simeq\\frac1{k}\\sum_{t=1}^kS_t.\\]\n\n\nLa fonction covariance_X du package multiSPC permet de réaliser ce calcul.\n\ncovariance_X(carbon1)\n\n                inner   thickness      length\ninner     0.002486845 0.003586726 0.006694762\nthickness 0.003586726 0.014491131 0.010203155\nlength    0.006694762 0.010203155 0.059207381\n\n\nRemarque : La corrélation est la covariance des variables standardisées.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#la-distribution-normale-multivariée",
+    "href": "chapitre7.html#la-distribution-normale-multivariée",
+    "title": "4  Cartes multivariées",
+    "section": "4.5 La distribution normale multivariée}",
+    "text": "4.5 La distribution normale multivariée}\nLa densité de probabilité de \\(X\\sim \\mathcal N(\\mu,\\sigma)\\) est pour \\(x\\in \\mathbb R\\) \\[f(x)=\\frac{1}{\\sigma\\sqrt{2\\pi}}e^{-\\frac1{2}[\\sigma^{-1}(x-\\mu)]^2}.\\]\nExemple : \\(\\mu=0,\\sigma=1\\), \\(\\varphi(x)=\\frac{1}{\\sqrt{2\\pi}}e^{-\\frac1{2}x^2}.\\)\nOn a \\(\\varphi(0)=\\) 0.4 et \\(\\varphi(2)=\\) 0.1\n\n\n\n\n\n\n\n\n\nLa densité de probabilité de \\((X_1,...,X_p)\\sim \\mathcal N_p(\\mu,\\Sigma)\\) est pour \\(x=(x_1,...,x_p)\\in \\mathbb R^p\\) \\[f_p(x)=\\frac{1}{|\\Sigma|^{-1/2}\\sqrt{2\\pi}}e^{-\\frac1{2}[(x-\\mu)^T\\Sigma^{-1}(x-\\mu)]}.\\]\n\n\n\nLoi Normale bivariée\n\n\n\nLa loi normale ci-dessus a pour paramètres \\(\\mu=\\begin{pmatrix}0\\\\0 \\end{pmatrix}\\) et \\(\\Sigma=\\begin{pmatrix} 1 & 0.5 \\\\ 0.5 & 1 \\end{pmatrix}\\).\nTout plan vertical passant par \\((0,0)\\) donne une loi normale centrée.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#cartes-de-contrôles-t2-hotelling",
+    "href": "chapitre7.html#cartes-de-contrôles-t2-hotelling",
+    "title": "4  Cartes multivariées",
+    "section": "4.6 Cartes de contrôles \\(T^2\\) Hotelling",
+    "text": "4.6 Cartes de contrôles \\(T^2\\) Hotelling\n\nLe vecteur des caractéristiques \\(X=(X_1,...,X_p)\\sim \\mathcal N_p(\\mu,\\Sigma).\\)\nPour un prélèvement \\(t\\), \\(\\bar X_{t}=(\\bar X_{t1},...,\\bar X_{tp})\\) avec \\(X_{t}=\\) i.i.d. de même loi que \\(X\\).\n\\(T_t^2\\) de Hotelling est défini par \\[T_t^2=(\\bar X_t-\\mu)^T.\\Sigma^{-1}.(\\bar X_t-\\mu).\\]\nEn pratique les paramètres \\(\\mu,\\Sigma\\) inconnus et approximés par \\(\\overline X\\) et \\(\\hat \\Sigma\\) (cf paragraphe précédent).\nApproximation de \\(T_t^2\\) donnée par \\[\n\\hat T_t^2=(\\bar X_t-\\overline{X})^T.\\hat \\Sigma^{-1}.(\\bar X_t-\\overline{X}).\n\\] La statistique \\(\\hat T_t^2\\) suit une loi de Fisher à \\((p,kn-k-p+1)\\) degrés de liberté.\n\n\n\n\n\n\n\nQuelques remarques\n\n\n\n\nLa statistique de Hotelling est une généralisation du \\(t\\) de Student. En effet pour \\(p=1\\) on retrouve la formule \\(T^2=t^2\\).\n\\(T_t^2\\) donne une mesure de l’éloignement de la moyenne d’un prélèvement \\(t\\) par rapport à la moyenne de la production (en multidimensionnel) donc c’est une généralisation de la carte de Shewart de la moyenne.\nComme les cartes de Shewhart elles vont permettre de détecter des grandes déviations de moyenne.\nConstruire une carte basée sur le \\(T^2\\) est alors possible dans la mesure où c’est un indicateur univarié (réel).\n\n\n\nLa moyenne empirique \\(\\overline X\\) est égale à\n\nMoy_T(carbon1)\n\n     inner  thickness     length \n 0.9949583  1.0372083 49.9843333 \n\n\nSur R :\n\nT2=T2_Hotelling_kn(data = carbon1)\nprint(T2)\n\n [1] 4.98848636 4.65756465 3.27858449 1.93129021 5.61700024 4.63924111\n [7] 5.50056763 0.86557296 2.87376790 0.48616297 2.39585925 1.98317510\n[13] 2.36109313 0.96030773 0.35242206 0.22362835 0.05247532 0.86290231\n[19] 3.42953651 1.08381086 0.45175392 2.73538851 9.43218347 2.92725106\n[25] 0.46222199 1.33752988 3.38986615 1.96857745 3.53540827 1.40366439",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#phase-ii-points-hors-contrôle",
+    "href": "chapitre7.html#phase-ii-points-hors-contrôle",
+    "title": "4  Cartes multivariées",
+    "section": "5.1 Phase II : points hors contrôle",
+    "text": "5.1 Phase II : points hors contrôle\n\nPour les caractéristiques univariées, lorsqu’un point est hors des limites de contrôles, il est évident que le procédé a eu une déviation non aléatoire.\nPour les caractéristiques multivariées, il est nécessaire d’identifier laquelle (lesquelles) a (ont) eu une déviation non aléatoire.\n\n\n\n\n\n\n\nMYT décomposition\n\n\n\nOn considère un prélèvement \\(t\\) Hors Contrôle, on note \\(\\mathcal{X}=(X_{tji})_{ji}\\) la matrice des caractéristique de ce prélèvement. On note \\(\\bar{\\mathcal{X}}=(\\bar{\\mathcal {X}}_1,...,\\bar{\\mathcal{X}}_p)\\) le vecteur des moyennes de ces caractéristiques.\n\nEtape 1 : Contribution individuelle.\n\n\nCalculer \\(T^2_{j}=\\frac{n(\\bar{\\mathcal {X}}_j-\\overline{\\overline X}_j)^2}{s_j^2}\\) pour chaque variable \\(j\\) où \\(s_j^2\\) est la variance de la caractéristique \\(\\bar{\\mathcal {X}}_j\\).\nCalculer pour \\(p=1\\), \\(LSC=\\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\\alpha).\\)\nExclure les variables \\(j\\) qui vérifient \\(T^2_j&gt;LSC.\\)\n\n\nEtape 2 : Contribution bivariée. On retire toutes variables identifiées à l’étape 1. On note \\(J\\) les indices des variables restantes\n\n\nPour \\(j,j'\\in J\\), calculer \\(T_{jj'}^2\\) correspondant aux colonnes \\(j,j'\\) de la matrice \\(\\mathcal{X}\\).\nCalculer pour \\(p=2\\), \\(LSC=\\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\\alpha).\\)\nExclure les variables \\(j,j'\\) qui vérifient \\(T^2_{jj'}&gt;LSC.\\) On itère les étapes précédentes jusqu’au modèle qui contient toutes les variables restantes.\n\n\n\nRetour sur l’exemple :\n\np=dim(carbon2)[2]\nk=dim(carbon2)[1]\nT2j=NULL\nfor(j in 1:p) T2j=c(T2j,T2_Hotelling_kn_MYT(k_hc=4,k=k,select=j,\n                                            data=carbon2,MoyT=Moy_T(carbon1))$T2)\nT2j \n\n    inner thickness    length \n 4.795952 12.259130  3.416894 \n\nT2_Hotelling_kn_MYT(k_hc=4,k=k,select=1,data=carbon2,MoyT=Moy_T(carbon1))$LSC\n\n[1] 8.135785\n\n\nLa variable tickness est donc exclue.\n\nT2_Hotelling_kn_MYT(k_hc=4,k=k,select=c(1,3),data=carbon2,MoyT=Moy_T(carbon1))\n\n$T2\n         [,1]\n[1,] 6.888749\n\n$LSC\n[1] 12.29269\n\n\nDonc cette valeur n’est pas HC sur les deux autres variables.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#etape-2",
+    "href": "chapitre7.html#etape-2",
+    "title": "4  Cartes multivariées",
+    "section": "5.2 Etape 2 :",
+    "text": "5.2 Etape 2 :\n\nT2_Hotelling_kn_MYT(k_hc=4,k=k,select=c(1,3),data=carbon2,MoyT=Moy_T(carbon1))\n\n$T2\n         [,1]\n[1,] 6.888749\n\n$LSC\n[1] 12.29269\n\n\nDonc cette valeur n’est pas HC sur les deux autres variables.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#exemple-1",
+    "href": "chapitre7.html#exemple-1",
+    "title": "4  Cartes multivariées",
+    "section": "5.4 Exemple :",
+    "text": "5.4 Exemple :\nOn considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.\n\ndata(\"bimetal1\")\nhead(bimetal1)\n\n     deflection curvature resistivity Hardness low side Hardness high side\n[1,]      20.84     39.84       14.98             21.88              25.87\n[2,]      20.89     39.94       14.91             22.03              25.97\n[3,]      21.13     40.12       15.58             22.13              26.11\n[4,]      20.42     39.78       14.73             21.46              25.74\n[5,]      21.29     40.31       15.56             22.65              26.22\n[6,]      21.08     39.98       15.19             22.22              25.91\n\n\nOn peut représenter les corrélations des caractéristiques :\n\nggpairs(bimetal1)\n\n\n\n\n\n\n\n\nCi dessous la carte de contrôle dans R pour la phase I :\n\nT2=T2_Hotelling_k1(bimetal1)\nLSCT2=LSC_T2_Hotelling_k1(bimetal1)\nplot_chart(T2,LSC=LSCT2[\"PhaseI\"],Type=\"T2 individuel Phase I\") \n\n\n\n\n\n\n\nT2=T2_Hotelling_k1(bimetal1[-c(16,20),])\nLSCT2=LSC_T2_Hotelling_k1(bimetal1[-c(16,20),])\nplot_chart(T2,LSC=LSCT2[\"PhaseI\"],Type=\"T2 individuel Phase I\") \n\n\n\n\n\n\n\n\nOn utilise les données bimetal2.\n\ndata(\"bimetal2\")\n\nT2=T2_Hotelling_k1(bimetal2,\n                      MoyT = Moy_T(bimetal1),\n                      S=covariance_X(bimetal1))\nplot_chart(T2,LSC=LSCT2[\"PhaseII\"],Type=\"T2 individuel Phase II\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#carte-sur-la-variance-généralisée",
+    "href": "chapitre7.html#carte-sur-la-variance-généralisée",
+    "title": "4  Cartes multivariées",
+    "section": "5.3 Carte sur la variance généralisée",
+    "text": "5.3 Carte sur la variance généralisée\n\nPour \\(X\\sim\\mathcal N_p(\\mu,\\Sigma)\\), la variance généralisée est définie comme le déterminant de la matrice de covariance \\(\\Sigma\\). Pour le prélèvement \\(t\\) on calcule \\[D_t=\\text{det}(\\Sigma_t).\\]\nComme précédemment la matrice \\(\\Sigma\\) est inconnue et donc elle est approximée à partir de \\(S\\).\n\n\nS=generalized_variance(carbon1)\nplot_chart(S$detSj,LIC=S$LIC,LSC=S$LSC,Type=\"Carte de la variance généralisée.\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#cartes-mewma",
+    "href": "chapitre7.html#cartes-mewma",
+    "title": "4  Cartes multivariées",
+    "section": "5.4 Cartes MEWMA",
+    "text": "5.4 Cartes MEWMA\n\nLes cartes \\(T^2\\) permettent comme les cartes de Shewart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.\nOn généralise les cartes EWMA à \\(p\\) variables. Etant données les \\(k\\) moyennes \\((\\bar X_1,..,\\bar X_k)\\) où \\(\\bar X_t\\in \\mathbb R^p\\), on calcule \\[Z_t=\\lambda \\bar X_t+(1-\\lambda)Z_{t-1},\\] pour \\(0&lt;\\lambda&lt;1.\\) En pratique on choisit souvent \\(\\lambda=0.1\\).\n\nCalcul de \\(T^2\\) :\n\nLa valeur de \\(T_t^2\\) est \\[T^2_t=(Z_t-\\bar Z)^T.\\Sigma_t .(Z_t-\\bar Z),\\] où \\(\\Sigma_t=\\dfrac{\\lambda[1-(1-\\lambda)^{2t}]}{2-\\lambda}\\Sigma.\\)\nComme précédemment on prend \\(\\hat \\Sigma \\simeq S\\).\nLe calcul de \\(LSC\\) est dans ce cas complexe\n\n\nlibrary(spc)\nLSC=mewma.crit(l=0.1, L0=200, p=3, hs=0, r=20)\n\nOn peut construire la carte MEWMA dans l’exemple sur le carbone :\n\ndata(\"carbon1\")\nT2=T2_MEWMA_kn(carbon1)\nplot_chart(T2,LSC=LSC,Type=\"Carte MEWMA\")\n\n\n\n\n\n\n\n\nOn peut aussi considérer des cartes MEWMA à données individuelles :\n\nT2=T2_MEWMA_k1(bimetal1)\nLSC=mewma.crit(l=0.1, L0=200, p=p, hs=0, r=20)\nplot_chart(T2,LSC=LSC,Type=\"Carte MEWMA\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#retour-sur-lexemple-carbon-1",
+    "href": "chapitre7.html#retour-sur-lexemple-carbon-1",
+    "title": "4  Cartes multivariées",
+    "section": "5.7 Retour sur l’exemple carbon 1",
+    "text": "5.7 Retour sur l’exemple carbon 1\n\ndata(\"carbon1\")\nresT2=T2_MEWMA_kn(carbon1)\nk=dim(carbon1)[1]\nggplot(data.frame(t=1:k,T2=resT2),aes(x=factor(t),y=T2))+\n  geom_point()+\n  geom_line(aes(x=t,y=T2))+\n  geom_hline(yintercept=LSC,linetype=\"dashed\",col=\"red\")+\n  geom_label(aes(x=t[k]-0.5,y=LSC,label=\"LSC\"),col=\"red\")+\n  labs(\n    x=\"prélèvement\",\n    y=\"Moyennes\",\n    title=\"Carte T^2 de Hotelling de la moyenne\"\n  )+\n  theme_minimal()\n\nWarning in geom_label(aes(x = t[k] - 0.5, y = LSC, label = \"LSC\"), col = \"red\"): All aesthetics have length 1, but the data has 30 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#t2-de-hotelling-pour-prélèvement-individuel",
+    "href": "chapitre7.html#t2-de-hotelling-pour-prélèvement-individuel",
+    "title": "4  Cartes multivariées",
+    "section": "5.2 \\(T^2\\) de Hotelling pour prélèvement individuel",
+    "text": "5.2 \\(T^2\\) de Hotelling pour prélèvement individuel\n\nDans de nombreuses applications on ne peut prélever qu’une seule observation (\\(n=1\\)) par prélèvement.\nCeci nécessite donc d’adapter la carte de Hotelling. Le problème étant l’approximation de la matrice de covariance \\(\\Sigma\\).\n\n\n\n\n\n\n\nEstimation de \\(\\Sigma\\)\n\n\n\n\nSullivan and Woodall (1996) ont proposé la matrice de covariance corrigée entre les \\(k\\) prélèvements \\(X_1,...,X_k\\in\\mathbb R^p\\) et leur moyenne empirique \\(\\overline{X}\\).\n\nDans R:\n\ncovariance_X(X)\n\n\nHolmes and Mergen (1993) ont proposé 1/2 fois la matrice de covariance corrigée entre les différences entre deux prélèvements consécutifs :\n\nDans R:\n\ncov(diff(X))/2\n\n\n\nCalcul du \\(T^2\\) et de LSC\nPour chaque prélèvement \\(t\\) on calcule \\[T^2_t=(X_t-\\bar X)^T.S^{-1}.(X_t-\\bar X).\\] Pour la phase I (mise en place de la carte) on utilise : \\[\nLSC=\\frac{(k-1)^2}{k}\\beta_{p/2,(m-p-1)/2}(\\alpha).\n\\] Pour la phase II on utilise (toujours avec le \\(k\\) de la phase I: \\[\nLSC=\\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\\alpha).\n\\]\nExemple: On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.\n\ndata(\"bimetal1\")\nhead(bimetal1)\n\n     deflection curvature resistivity Hardness low side Hardness high side\n[1,]      20.84     39.84       14.98             21.88              25.87\n[2,]      20.89     39.94       14.91             22.03              25.97\n[3,]      21.13     40.12       15.58             22.13              26.11\n[4,]      20.42     39.78       14.73             21.46              25.74\n[5,]      21.29     40.31       15.56             22.65              26.22\n[6,]      21.08     39.98       15.19             22.22              25.91\n\n\nOn peut représenter les corrélations des caractéristiques :\n\nggpairs(bimetal1)\n\n\n\n\n\n\n\n\nCi dessous la carte de contrôle dans R pour la phase I :\n\nS=cov(diff(bimetal1))/2\nT2=T2_Hotelling_k1(bimetal1,S = S)\nLSCT2=LSC_T2_Hotelling_k1(bimetal1)\nplot_chart(T2,LSC=LSCT2[\"PhaseI\"],Type=\"T2 individuel Phase I\") \n\n\n\n\n\n\n\n\nLes prélèvements 16, 19 et 20 sont exclus du calcul de LSC (car HC) :\n\ndf=bimetal1[-c(16,19,20),]\nS=cov(diff(df))/2\nT2=T2_Hotelling_k1(df,S = S)\nLSCT2=LSC_T2_Hotelling_k1(df)\nplot_chart(T2,LSC=LSCT2[\"PhaseI\"],Type=\"T2 individuel Phase I\")\n\n\n\n\n\n\n\n\nOn utilise les données bimetal2 pour suivre la production :\n\ndata(\"bimetal2\")\n\nT2=T2_Hotelling_k1(bimetal2,\n                      MoyT = Moy_T(df),\n                      S=S)\nplot_chart(T2,LSC=LSCT2[\"PhaseII\"],Type=\"T2 individuel Phase II\") \n\n\n\n\n\n\n\n\nDeux prélèvements sont HC on va comme précédemment s’intéresser aux caractéristiques impliquant la présence de ces points HC. On peut pour ce faire regarder les cartes de contrôles univariées puis bivariée en ces points.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#cartes-sur-composantes-principales",
+    "href": "chapitre7.html#cartes-sur-composantes-principales",
+    "title": "4  Cartes multivariées",
+    "section": "5.5 Cartes sur composantes principales",
+    "text": "5.5 Cartes sur composantes principales\nL’analyse en compsante principale (ACP) est une méthode factorielle qui permet de réduire la dimension d’une matrice en résumant les caractéristiques à travers des combinaisons linéaires de celles-ci (appelées composantes principales). Elle est particulièrement indiquée lorsque la corrélation entre les caractéristiques est forte.\n\n\n\n\n\n\nACP\n\n\n\nEtant donnée une matrice \\(X\\) centrée sur les colonnes de dimension \\(k,p\\). On diagonalise la matrice de covariance \\(\\Sigma\\) de \\(X\\) ie on écrit \\[\\Sigma=U\\Lambda U^T,\\] où \\(\\Lambda\\) est diagonale telle que \\(\\lambda_1\\geq ... \\geq \\lambda_p\\), \\(U\\) est une matrice orthogonale. - Les colonnes de \\(U\\) sont les scores factoriels des individus sur les composantes principales - Les valeurs propres \\(\\lambda_1\\) sont les variances des composantes principales.\n\n\nOn peut utiliser la fonction PCA du package FactoMineR :\n\ndata(bimetal1)\nlibrary(FactoMineR)\nX=scale(bimetal1[-c(16,19,20),],center=TRUE,scale=FALSE)\npca=PCA(X,scale.unit=F,graph = F)\n\nLe choix du nombre de composantes se fait en étudiant l’éboulis des valeurs propres\n\nlibrary(factoextra)\n\nWelcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa\n\nfviz_eig(pca)\n\n\n\n\n\n\n\n\nOn choisit ici deux composantes.\nOn peut représenter les caractéristiques initiales sur le plan factoriel :\n\nfviz_pca_var(pca)\n\n\n\n\n\n\n\n\nLe calcul de \\(T^2\\) se fait à partir des scores factoriels :\n\\[\nT^2=\\sum_{j=1}^p \\frac{u_j^2}{\\lambda_j^2}\n\\]\n\nr &lt;- 3\nscores &lt;- pca$ind$coord[,1:r]\nS=cov(diff(scores))/2\nT2pca=T2_Hotelling_k1(scores,S=S)\nLSCpca=LSC_T2_Hotelling_k1(scores)\nplot_chart(T2pca,LSC=LSCpca[\"PhaseI\"],Type=\"T2 sur composantes principales\")\n\n\n\n\n\n\n\n\nce qui donne sur les nouveaux points :\n\nX2=scale(bimetal2,scale=F)\nscores2=predict.PCA(pca,newdata = X2)$coord[,1:r]\nT2pca=T2_Hotelling_k1(scores2,\n                      S = S)\nplot_chart(T2pca,LSC=LSCpca[\"PhaseII\"],Type=\"T2 sur composantes principales\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#retour-sur-lexemple-bimetal1bimetal2",
+    "href": "chapitre7.html#retour-sur-lexemple-bimetal1bimetal2",
+    "title": "4  Cartes multivariées",
+    "section": "6.2 Retour sur l’exemple bimetal1/bimetal2",
+    "text": "6.2 Retour sur l’exemple bimetal1/bimetal2\n\nLa SVD dans R :\n\n\ndata(bimetal1)\nX=scale(bimetal1,center=TRUE,scale=FALSE)\nres=svd(X)\nU=res$u\nV=res$v\nLambda=res$d",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#choix-du-nombre-de-composantes",
+    "href": "chapitre7.html#choix-du-nombre-de-composantes",
+    "title": "4  Cartes multivariées",
+    "section": "6.3 Choix du nombre de composantes",
+    "text": "6.3 Choix du nombre de composantes\n\np=dim(X)[2]\nggplot(data.frame(PC=1:p,PourcentagePC=Lambda/sum(Lambda)),aes(x=PC,y=PourcentagePC))+\n  geom_col()+theme_minimal()\n\n\n\n\n\n\n\n\nOn choisit deux composantes.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#représentation-des-prélèvements-sur-les-deux-premières-composantes",
+    "href": "chapitre7.html#représentation-des-prélèvements-sur-les-deux-premières-composantes",
+    "title": "4  Cartes multivariées",
+    "section": "6.4 Représentation des prélèvements sur les deux premières composantes :",
+    "text": "6.4 Représentation des prélèvements sur les deux premières composantes :\nOn utilise :\n\nX_PC=U%*%diag(Lambda)\n\nce qui donne\n\nggplot(data.frame(PC1=X_PC[,1],PC2=X_PC[,2]),\n       aes(x=PC1,y=PC2))+\n  geom_point()+\n  geom_vline(xintercept = 0)+\n  geom_hline(yintercept = 0)+\n  theme_minimal()",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#cercle-des-corrélations",
+    "href": "chapitre7.html#cercle-des-corrélations",
+    "title": "4  Cartes multivariées",
+    "section": "6.5 Cercle des corrélations",
+    "text": "6.5 Cercle des corrélations\n\nXs=scale(bimetal1)\nn=nrow(Xs)\nres2=svd(Xs)\nR=as.data.frame(res2$v %*% diag(res2$d)/sqrt(n))\nrownames(R)=colnames(bimetal1)\ncolnames(R)=paste(\"PC\",1:dim(R),sep=\"\")\n\nWarning in 1:dim(R): numerical expression has 2 elements: only the first used\n\n\nce qui donne :\n\nlibrary(ggrepel)\nggplot(R, aes(x = PC1, y = PC2,label=rownames(R))) +\n  geom_segment(aes(xend = 0, yend = 0), color = \"grey\") +\n  #geom_point(color = \"blue\", size = 3) +\n  xlim(-1,1)+\n  ylim(-1,1)+\n  geom_label_repel(fill = \"white\", color = \"black\") +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  geom_vline(xintercept = 0, linetype = \"dashed\") +\n  #coord_equal() +\n  theme_minimal()",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#section",
+    "href": "chapitre7.html#section",
+    "title": "4  Cartes multivariées",
+    "section": "6.6 ",
+    "text": "6.6 \nOn en déduit la carte du \\(T^2\\) en prenant les deux premières colonnes de \\(X'\\)\n\nXPC=X_PC[,1:2]\nres=T2_Hotelling_k1(XPC)\nLSC=LSC_T2_Hotelling_k1(XPC)\nk=dim(XPC)[1]\nggplot(data.frame(t=1:k,T2=res),aes(x=factor(t),y=T2))+\n  geom_point()+\n  geom_line(aes(x=t,y=T2))+\n  geom_hline(yintercept = LSC[1],linetype=\"dashed\",col=\"red\")+\n  geom_label(aes(x=t[1]+0.5,y=LSC[1],label=\"LSC\"),col=\"red\")+\n  labs(\n    x=\"prélèvement\",\n    y=\"Moyennes\",\n    title=\"Carte du T2 de Hotelling\"\n  )+\n  theme_minimal()\n\nWarning in geom_label(aes(x = t[1] + 0.5, y = LSC[1], label = \"LSC\"), col = \"red\"): All aesthetics have length 1, but the data has 28 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre7.html#nouveaux-points",
+    "href": "chapitre7.html#nouveaux-points",
+    "title": "4  Cartes multivariées",
+    "section": "6.7 Nouveaux points",
+    "text": "6.7 Nouveaux points\nOn note \\(X_{new}\\) la matrice centrée sur les colonnes de la nouvelle base de donnée. On calcule les coordonnées de \\(X_{new}\\) sur les composantes principales : \\[\nX'_{new}=X_{new}.V\n\\] On en déduit :\n\nX2=(scale(bimetal2,center=TRUE,scale=FALSE)%*%V)[,1:2]\nres=T2_Hotelling_k1(X2,MoyT = Moy_T(XPC),\n                    S=covariance_X(XPC))\nk=dim(X2)[1]\nggplot(data.frame(t=1:k,T2=res),aes(x=factor(t),y=T2))+\n  geom_point()+\n  geom_line(aes(x=t,y=T2))+\n  geom_hline(yintercept = LSC[2],linetype=\"dashed\",col=\"red\")+\n  geom_label(aes(x=t[1]+0.5,y=LSC[2],label=\"LSC\"),col=\"red\")+\n  labs(\n    x=\"prélèvement\",\n    y=\"Moyennes\",\n    title=\"Carte du T2 de Hotelling\"\n  )+\n  theme_minimal()\n\nWarning in geom_label(aes(x = t[1] + 0.5, y = LSC[2], label = \"LSC\"), col = \"red\"): All aesthetics have length 1, but the data has 28 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cartes multivariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre4.html#cartes-de-shewart",
+    "href": "chapitre4.html#cartes-de-shewart",
+    "title": "3  Cartes univariées",
+    "section": "",
+    "text": "3.1.1 Distribution des paramètres\nOn suppose que tous les paramètres suivent une loi normale.\n\nLa moyenne d’un échantillon \\(\\bar Y \\sim \\mathcal N(\\mu,\\frac{\\sigma}{\\sqrt n}).\\)\nL’étendue d’un échantillon \\(R \\sim \\mathcal N(\\mu_R,\\sigma_R).\\)\nL’écart type d’un échantillon \\(S \\sim \\mathcal N(\\mu_S,\\sigma_S).\\)\n\nOn définit alors les limites de surveillance et de contrôle pour chaque carte. Pour la carte de la moyenne :\n On se fixe un risque \\(\\alpha\\) de stoper la production alors que celle-ci est sous contrôle (Fausses alertes). On cherche donc un intervalle de confiance \\(1-\\alpha\\) de \\(\\bar X\\) La distribution des moyennes étant normale on a\n\\[\n\\begin{cases}\nLI=\\mu-z_{1-\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\\\\nLS=\\mu+z_{1-\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\\\\n\\mathbb P(LI&lt;\\bar X&lt;LS)=1-\\alpha\n\\end{cases}\n\\]\nOn pourra en conclure que la moyenne \\(\\bar X\\) de l’échantillon considéré n’est pas significativement différente de la moyenne \\(\\mu\\) (c’est à dire que le procédé est sous contrôle) si \\(\\bar X \\in [LI,LS].\\)\nLes limites de surveillance sont définies de façon à déterminer, au risque de 4.5%, les moyennes significativement différentes de la moyenne globale :\n\nLimite inférieure de surveillance (LIS): \\(LIS=\\mu-2\\frac{\\sigma}{\\sqrt n}\\)\nLimite supérieure de surveillance (LSS): \\(LSS=\\mu+2\\frac{\\sigma}{\\sqrt n}\\)\n\nLes limites de contrôle sont définies de façon à déterminer, au risque de 0.3% de fausses alertes, les moyennes significativement différentes de la moyenne globale :\n\nLimite inférieure de contrôle (LIC): \\(LIC=\\mu-3\\frac{\\sigma}{\\sqrt n}\\)\nLimite supérieure de contrôle (LSC): \\(LSC=\\mu+3\\frac{\\sigma}{\\sqrt n}\\)\n\n\n\n\n\n\n\nLimites des cartes de contrôle\n\n\n\nOn a prélevé à intervalles réguliers \\(k\\) échantillons de \\(n\\) observations. On a calculé \\(\\bar y_j,R_j\\) la moyenne et l’étendue de chacun des \\(k\\) échantillons.\nPour construire :\n\nLa carte de la moyenne on utilise \\(\\hat \\mu_I=\\frac 1{k} \\displaystyle\\sum_{j=1}^k \\bar y_{j}\\) et \\(\\hat \\sigma_I = \\dfrac{\\bar R}{d_2}\\).\nLa carte de l’étendue on utilise \\(\\hat\\mu_R=\\bar R\\) et \\(\\hat \\sigma_R=\\frac{d_3}{d_2}\\bar R\\).\nLa carte de l’écart type on utilise \\(\\hat\\mu_S=\\bar S\\) et \\(\\hat \\sigma_S=\\frac{\\sqrt{1-c_4^2}}{c_4}\\bar S\\).\n\n\n\n\n\n3.1.2 Retour sur l’exemple :\n\nCalculer les limites de contrôles des cartes de la moyenne et de l’écart type.\nConstruire les cartes s’obtiennent en utilisant la fonction plot_chart() du package multiSPC.\n\n\n\nVoir la correction\ndf&lt;-data[,-1]\nn=ncol(df)\nM=apply(df,1,mean)\nS=apply(df,1,sd)\nmu=mean(M)\nsigI=mean(S)/c4(n)\nLICm=mu-3*sigI/sqrt(n)\nLSCm=mu+3*sigI/sqrt(n)\nLICs=mean(S)-3*mean(S)*sqrt(1-c4(n)^2)/c4(n)\nLSCs=mean(S)+3*mean(S)*sqrt(1-c4(n)^2)/c4(n)\nplot_chart(M,LIC=LICm,LSC=LSCm,Type = \"carte de la moyenne\")\nplot_chart(S,LIC=LICs,LSC=LSCs,Type = \"carte de l'écart type\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes univariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre4.html#carte-ewma",
+    "href": "chapitre4.html#carte-ewma",
+    "title": "3  Cartes univariées",
+    "section": "3.2 Carte EWMA",
+    "text": "3.2 Carte EWMA\n\n3.2.1 Introduction\nLa carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à interpréter. Cependant elle n’a pas une très grande efficacité surtout :\n\nen cas de faibles et moyennes déviations\nen cas de structure d’autocorrélation, c’est à dire lorsque le passé a une influence, par exemple lorsqu’une tendance croissante apparaît.\n\nExemple :\nOn suit une production de caractéristique \\(\\mu=15\\) et \\(\\sigma=0.5\\). Pour ce faire 10 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 7ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).\n\n\n\n\n\n\n\n\n\nUne des solutions est la carte EWMA\n\n\n3.2.2 Définition des cartes EWMA\nEWMA : Exponentially Weighted Moving Average\nOn définit la statistique \\(z_i\\) par une relation de récurrence pour tout \\(i=1,...,k\\)\n\\[\nz_i=\\lambda \\bar x_i +(1-\\lambda)z_{i-1},\n\\]\noù \\(\\bar x_i\\) est la moyenne des unités pour le prélèvement \\(i\\) et \\(0&lt;\\lambda\\leq 1\\) est un réel qui sera choisi en fonction du poids que l’on veut donner aux données précédentes. En effet, en général on choisit \\(z_0=\\mu\\) (moyenne du procédé de fabrication). On a \\[\n\\begin{cases}\nz_1=\\lambda \\bar x_1+(1-\\lambda)\\mu \\\\\nz_2=\\lambda \\bar x_2+(1-\\lambda)z_1= \\lambda \\bar x_2+\\lambda(1-\\lambda)\\bar x_1+(1-\\lambda)^2\\mu \\\\\nz_3=\\lambda \\bar x_3+\\lambda(1-\\lambda)\\bar x_2+\\lambda(1-\\lambda)^2\\bar x_1+\n(1-\\lambda)^3\\mu \\\\\n\\ldots\n\\end{cases}\n\\]\n\n\n\n\n\n\n\n\n\n\nLa cas \\(\\lambda=1\\) correspond à la carte de Shewhart sur la moyenne.\nOn constate que \\(\\bar x_i\\) a une importance d’autant plus importante dans \\(z_i\\) que \\(\\lambda\\) est grand.\nEn général on utilise \\(0.25&lt;\\lambda&lt;0.5\\).\n\n\n\n3.2.3 Limites de contrôle des cartes EWMA\nLes limites de ces cartes sont variables (en fonction de \\(i\\)) pour \\(X\\sim \\mathcal N(\\mu,\\sigma)\\) on a :\\[LC = \\mu  \\pm L\\frac{\\sigma}{\\sqrt{n}}\\times \\sqrt {\\frac{\\lambda}{2-\\lambda}[1-(1-\\lambda)^{2i}] },\\] en général avec \\(L=3\\).\nLorsque le nombre \\(i\\) de prélèvement est très grand alors \\(LC = \\mu  \\pm L\\frac{\\sigma}{\\sqrt{n}}\\times \\sqrt {\\frac{\\lambda}{2-\\lambda}}\\). Dans ce cas on peut jouer sur ce paramètre \\(L\\) pour améliorer l’efficacité de la carte en fonction de \\(\\lambda\\).\n\n\n3.2.4 Retour à l’exemple :\nOn constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 5ième prélèvement.\n\nlambda=0.25\nZ&lt;-ewma_cart1(data,n,mu=mu,sig=sig,lambda=lambda)\nplot_chart(Z$z,LIC=Z$LIC,LSC=Z$LSC,Type=\"Carte EWMA\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cartes univariées</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre2.html#capabilité-dun-procédé-de-fabrication",
+    "href": "chapitre2.html#capabilité-dun-procédé-de-fabrication",
+    "title": "5  Capabilité, Répétabilité, Reproductivité",
+    "section": "",
+    "text": "Capabilité\n\n\n\n\nLa capabilité globale du procédé de fabrication (appelée aussi coefficient d’aptitude du procédé) est \\[\nCap=\\frac{TS-TI}{D_G}.\n\\]\nLa capabilité machine (appelée aussi coefficient d’aptitude du moyen)\n\n\\[\nCam=\\frac{TS-TI}{D_I}.\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\nCapabilité (version 2)\n\n\n\nLe coefficient de performance du procédé est\n\\[\nCpk=\\frac{\\min\\left(\\mu-TI;TS-\\mu\\right)}{3\\sigma_{G}},\n\\] et celui la machine est \\[\nCmk=\\frac{\\min\\left(\\mu-TI;TS-\\mu\\right)}{3\\sigma_{I}}.\n\\]\n\n\n\n\n\\(Cap&gt;Cpk,\\)\n\\(Cam&gt;Cmk.\\)\n\n\n\n\n5.1.1 Intervalles de confiance\nLes calculs de \\(Cap\\) et de \\(Cpk\\) sont basés sur des estimations de l’écart type \\(\\sigma_G\\). Dans le cas d’une loi normale on sait construire un intervalle de confiance de \\(\\sigma_G\\), on en déduit que\n\nL’intervalle \\(\\left[\\widehat C_{ap}\\sqrt{\\dfrac{\\chi^2_{n-1}(\\alpha/2)}{n-1}};\\widehat C_{ap}\\sqrt{\\dfrac{\\chi^2_{n-1}(1-\\alpha/2)}{n-1}}\\right]\\) est un intervalle de confiance de \\(Cap\\) au niveau de confiance \\(100(1-\\alpha)\\) %.\nL’intervalle \\(\\left[\\widehat C_{pk}\\left(1-z_{1-\\alpha/2}\\sqrt{\\dfrac{1}{9n\\widehat C_{pk}^2}+\\dfrac{1}{2(n-1)}}\\right);\\widehat C_{pk}\\left( 1+z_{1-\\alpha/2}\\sqrt{\\dfrac{1}{9n\\widehat C_{pk}^2}+\\dfrac{1}{2(n-1)}}\\right)\\right]\\) est un intervalle de confiance de \\(C_{pk}\\) au niveau de confiance \\(100(1-\\alpha)\\) %.\n\nDe même pour \\(C_{am},C_{mk}\\)\n\n\n5.1.2 Fin de l’exemple\nOn suppose que les tolérance sont \\(TI=0.9\\) et \\(TS=1.1\\). En utilisant la fonction capability du package multiSPC calculer les indices de capabilité associés à ce procédé de fabrication.\n\n\nVoir la correction\nlibrary(multiSPC)\ndf&lt;-read.csv(\"cap_data.csv\",sep=\",\")\nmu=mean(df$obs)\nsG=sd(df$obs)\nsI=df|&gt; group_by(sample) |&gt; summarise(S=sd(obs)) |&gt; select(S) |&gt;unlist() |&gt; mean()/c4(5)\ncapability(n=5,mu=mu,sI=sI,sG=sG,TI=0.9,TS=1.1)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Capabilité, Répétabilité, Reproductivité</span>"
+    ]
+  },
+  {
+    "objectID": "chapitre2.html#analyse-de-la-qualité-dune-mesure",
+    "href": "chapitre2.html#analyse-de-la-qualité-dune-mesure",
+    "title": "5  Capabilité, Répétabilité, Reproductivité",
+    "section": "5.2 Analyse de la qualité d’une mesure",
+    "text": "5.2 Analyse de la qualité d’une mesure\nCette étape de vérification est indispensable dans tout système de contrôle de qualité.\nUne mesure doit être répétable et reproductible (R&R).\n\n5.2.1 R&R\n\n\n\n\n\n\nRépétabilité\n\n\n\nLa répétabilité désigne la capacité d’un processus, d’un instrument de mesure ou d’une expérience à produire des résultats identiques ou très proches lorsque les mêmes conditions (même opérateur, même équipement, …) sont appliquées plusieurs fois de suite sur une courte période.\n\n\nLa répétabilité est donc intrinsèquement liée à la qualité fournie par un instrument de mesure. On pourra vérifier que les spécifications de l’instrument sont bien conformes à des mesures effectuées in situ.\n\n\n\n\n\n\nReproductibilité\n\n\n\nLa reproductibilité désigne la capacité d’un processus, d’une expérience ou d’une mesure à produire des résultats similaires lorsqu’il est réalisé par des personnes différentes, dans des lieux différents, avec des équipements différents, ou à des moments différents.\n\n\nDans un système complet à l’erreur de la mesure proprement dite (R&R), s’ajoute la variabilité liée au produit :\n\\[\n\\sigma_{Total}^2=\\underbrace{\\sigma_{repetability}^2+\\sigma_{reproductivity}^2}_{\\sigma^2_{R\\& R}}+\\sigma_{product}^2.\n\\]\n\n\n\n\n\n\nRappel ANOVA\n\n\n\nOn considère \\(I\\) produits, \\(J\\) opérateurs et chaque mesure est repétée \\(K\\) fois Pour évaluer la répétabilité et la reproductibilité d’une mesure, on utilise un modèle d’ANOVA : Soit \\(Y_{ijk}\\) la mesure du produit \\(i\\) par l’opérateur \\(j\\) à la répétition \\(k\\).\nOn écrit \\[\nY_{ijk}=\\mu+\\alpha_i+\\beta_j+\\varepsilon_{ijk}\n\\] où on considère que \\(\\varepsilon_{ijk}\\sim \\mathcal N(0,\\sigma^2)\\).\nLes paramètres de ce modèle permettent d’évaluer l’ensemble des composantes de la variabilité totale de la mesure:\n\n\\((\\alpha_i)_i\\) pour la variabilité produit,\n\\((\\beta_j)_j\\) pour la reproductibilité,\n\\(\\sigma^2\\) pour la répétabilité\n\n\n\nExemple : On cherche à détecter les sources de variabilité d’une analyse par qPCR La réponse de la mesure dépend de la quantité d’ADN recherchée dans l’échantillon de départ.\n\n4 espèces différentes de mycoplasmes sont étudiées.\n2 opérateurs ont réalisé les mesures, sur 2 jours distincts, avec 4 répétitions à chaque fois. Les données sont disponibles ici.\n\n\n\n\n\n\n\n\n\n\nsouche\noperateur\njour\nrepetition\nreponse\n\n\n\n\n1\nS1\nO1\nJ1\nr1\n29.10\n\n\n2\nS1\nO1\nJ1\nr2\n28.35\n\n\n3\nS1\nO1\nJ1\nr3\n28.14\n\n\n4\nS1\nO1\nJ1\nr4\n28.28\n\n\n5\nS1\nO1\nJ2\nr1\n28.41\n\n\n6..63\n\n\n\n\n\n\n\n64\ns4\nO2\nJ2\nr4\n32.78\n\n\n\n\n\n\n\nDans cet exemple on va pouvoir évaluer la variabilité due au produit, à l’opérateur, au jour grâce à une Anova :\n\noptions(contrasts=c(\"contr.sum\",\"contr.sum\"))\nmodel &lt;- lm(reponse ~ souche+operateur+jour, data = data)\nanova(model)\n\nAnalysis of Variance Table\n\nResponse: reponse\n          Df  Sum Sq Mean Sq F value    Pr(&gt;F)    \nsouche     3 137.077  45.692 70.5476 &lt; 2.2e-16 ***\noperateur  1   5.499   5.499  8.4903  0.005064 ** \njour       1   0.011   0.011  0.0170  0.896647    \nResiduals 58  37.566   0.648                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nOn peut ainsi étudier :\n\nL’effet souche (\\(F(3,58)=70.5,p&lt;.001\\)) qui est significatif, l’effet opérateur (\\(F(1,58)=8.5,p=.005\\)) qui est également significatif et l’effet jour (\\(F(1,58)=0.02,p=.90\\)) qui ne l’est pas.\nLa variabilité associée au jour qui est une composante de la reproductibilité n’est pas considérée par la suite car très proche de 0.\nLe résidu correspond à la répétabilité de la mesure.\n\n\n\n\n\n\n\nRappel ANOVA à effets aléatoires\n\n\n\nPour évaluer la part de chaque composante de la variabilité on écrit \\[\nY_{ijk}=\\mu+\\alpha_i+\\beta_j+\\varepsilon_{ijk}\n\\]\noù on suppose que :\n\n\\(\\alpha_i\\sim \\mathcal N(0,\\sigma^2_\\alpha)\\) (\\(\\sigma^2_\\alpha\\) : variabilité produit),\n\\(\\beta_j\\sim \\mathcal N(0,\\sigma^2_\\beta)\\) (\\(\\sigma^2_\\beta\\) : reproductibilité),\n\\(\\varepsilon_{ijk}\\sim \\mathcal N(0,\\sigma^2)\\) (\\(\\sigma^2\\) : répétabilité).\n\n\n\nDans R, l’Anova à effets aléatoires :\n\nlibrary(lmerTest)\n\nLoading required package: lme4\n\n\nLoading required package: Matrix\n\n\n\nAttaching package: 'lmerTest'\n\n\nThe following object is masked from 'package:lme4':\n\n    lmer\n\n\nThe following object is masked from 'package:stats':\n\n    step\n\nmodel &lt;- lmer(reponse ~ 1 + (1|souche) + (1|operateur) , data = data)\nvc &lt;- as.data.frame(VarCorr(model))$vcov\nnames(vc)=as.data.frame(VarCorr(model))$grp\ndf=data.frame(variance=c(vc,sum(vc)),\"per_var\"=c(vc/sum(vc)*100,100))\nrownames(df)=c(\"Part\",\"reproductibiliy\",\"repetebility\",\"Total\")\n\n\n\n\n\n\n\n\n\n\nvariance\nper_var\n\n\n\n\nPart\n2.82\n78.12\n\n\nreproductibiliy\n0.15\n4.21\n\n\nrepetebility\n0.64\n17.67\n\n\nTotal\n3.60\n100.00\n\n\n\n\n\n\n\n[1] 21.88281\n\n\n\n\n\n\n\n\nInterprétation %RR\n\n\n\nOn utilise les références suivantes :\n\nSi %RR &lt; 10%, alors la mesure est répétable et reproductible,\nSi %RR est compris entre 10% et 30% alors la mesure est acceptable,\nAu delà de 30% il faut revoir le processus.\n\n\n\nDonc ici la mesure est acceptable.\n\n\n5.2.2 Capabilité d’un instrument de mesure.\nIl est évalué comme précédemment en considérant les tolérances inférieures et supérieures imposées par le client :\n\n\n\n\n\n\nCapabilité instrument de mesure\n\n\n\n\nCoefficient de capabilité d’un moyen de contrôle : \\[\nCmc=\\frac{TS-TI}{6\\sigma_{R\\&R}},\n\\] on doit avoir \\(Cmc&gt;4\\).",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Capabilité, Répétabilité, Reproductivité</span>"
     ]
   }
 ]

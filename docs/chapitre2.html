@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Capabilité – MSP</title>
+<title>5&nbsp; Capabilité, Répétabilité, Reproductivité – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre3.html" rel="next">
-<link href="./chapitre1.html" rel="prev">
+<link href="./exercice.html" rel="next">
+<link href="./chapitre7.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre2.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,26 +183,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes de contrôles de Shewhart</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
+  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
   </div>
 </li>
     </ul>
@@ -215,15 +221,15 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#indices-de-capabilité-globale" id="toc-indices-de-capabilité-globale" class="nav-link active" data-scroll-target="#indices-de-capabilité-globale"><span class="header-section-number">2.1</span> Indices de Capabilité globale :</a>
+  <li><a href="#capabilité-dun-procédé-de-fabrication" id="toc-capabilité-dun-procédé-de-fabrication" class="nav-link active" data-scroll-target="#capabilité-dun-procédé-de-fabrication"><span class="header-section-number">5.1</span> Capabilité d’un procédé de fabrication :</a>
   <ul class="collapse">
-  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1.1</span> Définition</a></li>
-  <li><a href="#interprétation-inconvénient" id="toc-interprétation-inconvénient" class="nav-link" data-scroll-target="#interprétation-inconvénient"><span class="header-section-number">2.1.2</span> Interprétation/ Inconvénient :</a></li>
+  <li><a href="#intervalles-de-confiance" id="toc-intervalles-de-confiance" class="nav-link" data-scroll-target="#intervalles-de-confiance"><span class="header-section-number">5.1.1</span> Intervalles de confiance</a></li>
+  <li><a href="#fin-de-lexemple" id="toc-fin-de-lexemple" class="nav-link" data-scroll-target="#fin-de-lexemple"><span class="header-section-number">5.1.2</span> Fin de l’exemple</a></li>
   </ul></li>
-  <li><a href="#indices-de-capabilité-de-centrage" id="toc-indices-de-capabilité-de-centrage" class="nav-link" data-scroll-target="#indices-de-capabilité-de-centrage"><span class="header-section-number">2.2</span> Indices de capabilité de centrage</a>
+  <li><a href="#analyse-de-la-qualité-dune-mesure" id="toc-analyse-de-la-qualité-dune-mesure" class="nav-link" data-scroll-target="#analyse-de-la-qualité-dune-mesure"><span class="header-section-number">5.2</span> Analyse de la qualité d’une mesure</a>
   <ul class="collapse">
-  <li><a href="#intervalles-de-confiance" id="toc-intervalles-de-confiance" class="nav-link" data-scroll-target="#intervalles-de-confiance"><span class="header-section-number">2.2.1</span> Intervalles de confiance</a></li>
-  <li><a href="#fin-de-lexemple" id="toc-fin-de-lexemple" class="nav-link" data-scroll-target="#fin-de-lexemple"><span class="header-section-number">2.2.2</span> Fin de l’exemple</a></li>
+  <li><a href="#rr" id="toc-rr" class="nav-link" data-scroll-target="#rr"><span class="header-section-number">5.2.1</span> R&amp;R</a></li>
+  <li><a href="#capabilité-dun-instrument-de-mesure." id="toc-capabilité-dun-instrument-de-mesure." class="nav-link" data-scroll-target="#capabilité-dun-instrument-de-mesure."><span class="header-section-number">5.2.2</span> Capabilité d’un instrument de mesure.</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -233,7 +239,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></h1>
 </div>
 
 
@@ -250,40 +256,54 @@ window.Quarto = {
 </header>
 
 
-<section id="indices-de-capabilité-globale" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="indices-de-capabilité-globale"><span class="header-section-number">2.1</span> Indices de Capabilité globale :</h2>
-<section id="définition" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1.1</span> Définition</h3>
+<section id="capabilité-dun-procédé-de-fabrication" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="capabilité-dun-procédé-de-fabrication"><span class="header-section-number">5.1</span> Capabilité d’un procédé de fabrication :</h2>
 <p>Dans la suite <span class="math inline">\(TS,TI\)</span> désigneront la tolérance supérieure et inférieure du procédé de fabrication.</p>
 <p>Comme précédemment on distingue la variabilité globale du procédé et celle uniquement attribuable à la machine.</p>
 <p>On définit deux types d’indices de capabilité :</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Capabilité">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Capabilité
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>La capabilité globale du procédé de fabrication (appelée aussi coefficient d’aptitude du procédé) <span class="math display">\[
-Cap=\frac{TS-TI}{D_G}
-\]</span></p></li>
-<li><p>La capabilité machine (appelée aussi coefficient d’aptitude du moyen)</p></li>
+<li>La capabilité globale du procédé de fabrication (appelée aussi coefficient d’aptitude du procédé) est <span class="math display">\[
+Cap=\frac{TS-TI}{D_G}.
+\]</span></li>
+<li>La capabilité machine (appelée aussi coefficient d’aptitude du moyen)</li>
 </ul>
 <p><span class="math display">\[
-Cam=\frac{TS-TI}{D_I}
+Cam=\frac{TS-TI}{D_I}.
 \]</span></p>
-</section>
-<section id="interprétation-inconvénient" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="interprétation-inconvénient"><span class="header-section-number">2.1.2</span> Interprétation/ Inconvénient :</h3>
+</div>
+</div>
 <p>Il est clair que lorsque <span class="math inline">\(Cap&lt;1\)</span> le procédé n’est pas capable, il faut le revoir afin d’obtenir une production conforme aux tolérances. Par contre si <span class="math inline">\(Cap&gt;2\)</span> on va considérer que le procédé est capable dans la mesure où la dispersion naturelle des observation est 2 fois moins importante que l’intervalle de tolérance.</p>
 <p>Les deux indicateurs précédents ont un gros inconvénient dans la mesure où ils ne permettent pas de juger du décentrage éventuel du procédé. Par exemple, dans le cas d’une loi normale, on peut avoir une situation comme celle ci-dessous :</p>
-<p><img src="figure/capabilite.png" class="img-fluid"> On voit que le procédé est bien dans l’intervalle de tolérance avec une valeur <span class="math inline">\(Cap&gt;2\)</span> mais qu’il est clairement décentré. Donc il faut définir de nouveaux indices de capabilité qui vont permettre de juger de la justesse du procédé !</p>
-</section>
-</section>
-<section id="indices-de-capabilité-de-centrage" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="indices-de-capabilité-de-centrage"><span class="header-section-number">2.2</span> Indices de capabilité de centrage</h2>
+<p><img src="figure/capabilite.png" class="img-fluid"></p>
+<p>On voit que le procédé est bien dans l’intervalle de tolérance avec une valeur <span class="math inline">\(Cap&gt;2\)</span> mais qu’il est clairement décentré. Donc il faut définir de nouveaux indices de capabilité qui vont permettre de juger de la justesse du procédé !</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Capabilité (version 2)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Capabilité (version 2)
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Le coefficient de performance du procédé est</p>
 <p><span class="math display">\[
 Cpk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{G}},
-\]</span></p>
-<p>et celui la machine est</p>
-<p><span class="math display">\[
+\]</span> et celui la machine est <span class="math display">\[
 Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{I}}.
 \]</span></p>
+</div>
+</div>
 <p>Il est clair que l’on a :</p>
 <ol type="1">
 <li><p><span class="math inline">\(Cap&gt;Cpk,\)</span></p></li>
@@ -291,8 +311,8 @@ Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{I}}.
 </ol>
 <p>On utilisera la norme suivante :</p>
 <p><strong><em>Un procédé (respectivement une machine) est capable si</em></strong> <span class="math inline">\(Cpk&gt;1.33\)</span> (respectivement <span class="math inline">\(Cmk&gt;1.33\)</span>)</p>
-<section id="intervalles-de-confiance" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="intervalles-de-confiance"><span class="header-section-number">2.2.1</span> Intervalles de confiance</h3>
+<section id="intervalles-de-confiance" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="intervalles-de-confiance"><span class="header-section-number">5.1.1</span> Intervalles de confiance</h3>
 <p>Les calculs de <span class="math inline">\(Cap\)</span> et de <span class="math inline">\(Cpk\)</span> sont basés sur des estimations de l’écart type <span class="math inline">\(\sigma_G\)</span>. Dans le cas d’une loi normale on sait construire un intervalle de confiance de <span class="math inline">\(\sigma_G\)</span>, on en déduit que</p>
 <ol type="1">
 <li><p>L’intervalle <span class="math inline">\(\left[\widehat C_{ap}\sqrt{\dfrac{\chi^2_{n-1}(\alpha/2)}{n-1}};\widehat C_{ap}\sqrt{\dfrac{\chi^2_{n-1}(1-\alpha/2)}{n-1}}\right]\)</span> est un intervalle de confiance de <span class="math inline">\(Cap\)</span> au niveau de confiance <span class="math inline">\(100(1-\alpha)\)</span> %.</p></li>
@@ -300,8 +320,8 @@ Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{I}}.
 </ol>
 <p>De même pour <span class="math inline">\(C_{am},C_{mk}\)</span></p>
 </section>
-<section id="fin-de-lexemple" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="fin-de-lexemple"><span class="header-section-number">2.2.2</span> Fin de l’exemple</h3>
+<section id="fin-de-lexemple" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="fin-de-lexemple"><span class="header-section-number">5.1.2</span> Fin de l’exemple</h3>
 <p>On suppose que les tolérance sont <span class="math inline">\(TI=0.9\)</span> et <span class="math inline">\(TS=1.1\)</span>. En utilisant la fonction <strong><em>capability</em></strong> du package multiSPC calculer les indices de capabilité associés à ce procédé de fabrication.</p>
 <div class="cell">
 <details class="code-fold">
@@ -313,6 +333,1202 @@ Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma_{I}}.
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sI<span class="ot">=</span>df<span class="sc">|&gt;</span> <span class="fu">group_by</span>(sample) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">S=</span><span class="fu">sd</span>(obs)) <span class="sc">|&gt;</span> <span class="fu">select</span>(S) <span class="sc">|&gt;</span><span class="fu">unlist</span>() <span class="sc">|&gt;</span> <span class="fu">mean</span>()<span class="sc">/</span><span class="fu">c4</span>(<span class="dv">5</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">capability</span>(<span class="at">n=</span><span class="dv">5</span>,<span class="at">mu=</span>mu,<span class="at">sI=</span>sI,<span class="at">sG=</span>sG,<span class="at">TI=</span><span class="fl">0.9</span>,<span class="at">TS=</span><span class="fl">1.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+</section>
+</section>
+<section id="analyse-de-la-qualité-dune-mesure" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="analyse-de-la-qualité-dune-mesure"><span class="header-section-number">5.2</span> Analyse de la qualité d’une mesure</h2>
+<p>Cette étape de vérification est indispensable dans tout système de contrôle de qualité.</p>
+<p>Une mesure doit être répétable et reproductible (R&amp;R).</p>
+<section id="rr" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="rr"><span class="header-section-number">5.2.1</span> R&amp;R</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Répétabilité">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Répétabilité
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La répétabilité désigne la capacité d’un processus, d’un instrument de mesure ou d’une expérience à produire des résultats identiques ou très proches lorsque les mêmes conditions (même opérateur, même équipement, …) sont appliquées plusieurs fois de suite sur une courte période.</p>
+</div>
+</div>
+<p>La répétabilité est donc intrinsèquement liée à la qualité fournie par un instrument de mesure. On pourra vérifier que les spécifications de l’instrument sont bien conformes à des mesures effectuées in situ.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Reproductibilité">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reproductibilité
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La reproductibilité désigne la capacité d’un processus, d’une expérience ou d’une mesure à produire des résultats similaires lorsqu’il est réalisé par des personnes différentes, dans des lieux différents, avec des équipements différents, ou à des moments différents.</p>
+</div>
+</div>
+<p>Dans un système complet à l’erreur de la mesure proprement dite (R&amp;R), s’ajoute la variabilité liée au produit :</p>
+<p><span class="math display">\[
+\sigma_{Total}^2=\underbrace{\sigma_{repetability}^2+\sigma_{reproductivity}^2}_{\sigma^2_{R\&amp; R}}+\sigma_{product}^2.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Rappel ANOVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rappel ANOVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On considère <span class="math inline">\(I\)</span> produits, <span class="math inline">\(J\)</span> opérateurs et chaque mesure est repétée <span class="math inline">\(K\)</span> fois Pour évaluer la répétabilité et la reproductibilité d’une mesure, on utilise un modèle d’ANOVA : Soit <span class="math inline">\(Y_{ijk}\)</span> la mesure du produit <span class="math inline">\(i\)</span> par l’opérateur <span class="math inline">\(j\)</span> à la répétition <span class="math inline">\(k\)</span>.<br>
+On écrit <span class="math display">\[
+Y_{ijk}=\mu+\alpha_i+\beta_j+\varepsilon_{ijk}
+\]</span> où on considère que <span class="math inline">\(\varepsilon_{ijk}\sim \mathcal N(0,\sigma^2)\)</span>.</p>
+<p>Les paramètres de ce modèle permettent d’évaluer l’ensemble des composantes de la variabilité totale de la mesure:</p>
+<ul>
+<li><p><span class="math inline">\((\alpha_i)_i\)</span> pour la variabilité produit,</p></li>
+<li><p><span class="math inline">\((\beta_j)_j\)</span> pour la reproductibilité,</p></li>
+<li><p><span class="math inline">\(\sigma^2\)</span> pour la répétabilité</p></li>
+</ul>
+</div>
+</div>
+<p><strong><em>Exemple :</em></strong> On cherche à détecter les sources de variabilité d’une analyse par qPCR La réponse de la mesure dépend de la quantité d’ADN recherchée dans l’échantillon de départ.</p>
+<ul>
+<li><p>4 espèces différentes de mycoplasmes sont étudiées.</p></li>
+<li><p>2 opérateurs ont réalisé les mesures, sur 2 jours distincts, avec 4 répétitions à chaque fois. Les données sont disponibles <a href="ex_qPCR.csv">ici</a>.</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="acurejsedd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#acurejsedd table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#acurejsedd thead, #acurejsedd tbody, #acurejsedd tfoot, #acurejsedd tr, #acurejsedd td, #acurejsedd th {
+  border-style: none;
+}
+
+#acurejsedd p {
+  margin: 0;
+  padding: 0;
+}
+
+#acurejsedd .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#acurejsedd .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#acurejsedd .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#acurejsedd .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#acurejsedd .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#acurejsedd .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#acurejsedd .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#acurejsedd .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#acurejsedd .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#acurejsedd .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#acurejsedd .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#acurejsedd .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#acurejsedd .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#acurejsedd .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#acurejsedd .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#acurejsedd .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#acurejsedd .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#acurejsedd .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#acurejsedd .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#acurejsedd .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#acurejsedd .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#acurejsedd .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#acurejsedd .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#acurejsedd .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#acurejsedd .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#acurejsedd .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#acurejsedd .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#acurejsedd .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#acurejsedd .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#acurejsedd .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#acurejsedd .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#acurejsedd .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#acurejsedd .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#acurejsedd .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#acurejsedd .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#acurejsedd .gt_left {
+  text-align: left;
+}
+
+#acurejsedd .gt_center {
+  text-align: center;
+}
+
+#acurejsedd .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#acurejsedd .gt_font_normal {
+  font-weight: normal;
+}
+
+#acurejsedd .gt_font_bold {
+  font-weight: bold;
+}
+
+#acurejsedd .gt_font_italic {
+  font-style: italic;
+}
+
+#acurejsedd .gt_super {
+  font-size: 65%;
+}
+
+#acurejsedd .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#acurejsedd .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#acurejsedd .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#acurejsedd .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#acurejsedd .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#acurejsedd .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#acurejsedd .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#acurejsedd .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#acurejsedd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="souche" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">souche</th>
+<th id="operateur" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">operateur</th>
+<th id="jour" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">jour</th>
+<th id="repetition" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">repetition</th>
+<th id="reponse" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">reponse</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row" style="font-family: Courier">1</td>
+<td class="gt_row gt_left" headers="stub_1_1 souche">S1</td>
+<td class="gt_row gt_left" headers="stub_1_1 operateur">O1</td>
+<td class="gt_row gt_left" headers="stub_1_1 jour">J1</td>
+<td class="gt_row gt_left" headers="stub_1_1 repetition">r1</td>
+<td class="gt_row gt_right" headers="stub_1_1 reponse">29.10</td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row" style="font-family: Courier">2</td>
+<td class="gt_row gt_left" headers="stub_1_2 souche">S1</td>
+<td class="gt_row gt_left" headers="stub_1_2 operateur">O1</td>
+<td class="gt_row gt_left" headers="stub_1_2 jour">J1</td>
+<td class="gt_row gt_left" headers="stub_1_2 repetition">r2</td>
+<td class="gt_row gt_right" headers="stub_1_2 reponse">28.35</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row" style="font-family: Courier">3</td>
+<td class="gt_row gt_left" headers="stub_1_3 souche">S1</td>
+<td class="gt_row gt_left" headers="stub_1_3 operateur">O1</td>
+<td class="gt_row gt_left" headers="stub_1_3 jour">J1</td>
+<td class="gt_row gt_left" headers="stub_1_3 repetition">r3</td>
+<td class="gt_row gt_right" headers="stub_1_3 reponse">28.14</td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row" style="font-family: Courier">4</td>
+<td class="gt_row gt_left" headers="stub_1_4 souche">S1</td>
+<td class="gt_row gt_left" headers="stub_1_4 operateur">O1</td>
+<td class="gt_row gt_left" headers="stub_1_4 jour">J1</td>
+<td class="gt_row gt_left" headers="stub_1_4 repetition">r4</td>
+<td class="gt_row gt_right" headers="stub_1_4 reponse">28.28</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_5" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row" style="font-family: Courier">5</td>
+<td class="gt_row gt_left" headers="stub_1_5 souche">S1</td>
+<td class="gt_row gt_left" headers="stub_1_5 operateur">O1</td>
+<td class="gt_row gt_left" headers="stub_1_5 jour">J2</td>
+<td class="gt_row gt_left" headers="stub_1_5 repetition">r1</td>
+<td class="gt_row gt_right" headers="stub_1_5 reponse">28.41</td>
+</tr>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row" style="font-family: Courier; font-size: x-small; background-color: #E4E4E4">6..63</td>
+<td class="gt_row gt_left" headers="stub_1_6 souche" style="background-color: #E4E4E4"></td>
+<td class="gt_row gt_left" headers="stub_1_6 operateur" style="background-color: #E4E4E4"></td>
+<td class="gt_row gt_left" headers="stub_1_6 jour" style="background-color: #E4E4E4"></td>
+<td class="gt_row gt_left" headers="stub_1_6 repetition" style="background-color: #E4E4E4"></td>
+<td class="gt_row gt_right" headers="stub_1_6 reponse" style="background-color: #E4E4E4"></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_7" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row" style="font-family: Courier">64</td>
+<td class="gt_row gt_left" headers="stub_1_7 souche">s4</td>
+<td class="gt_row gt_left" headers="stub_1_7 operateur">O2</td>
+<td class="gt_row gt_left" headers="stub_1_7 jour">J2</td>
+<td class="gt_row gt_left" headers="stub_1_7 repetition">r4</td>
+<td class="gt_row gt_right" headers="stub_1_7 reponse">32.78</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Dans cet exemple on va pouvoir évaluer la variabilité due au produit, à l’opérateur, au jour grâce à une Anova :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">contrasts=</span><span class="fu">c</span>(<span class="st">"contr.sum"</span>,<span class="st">"contr.sum"</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(reponse <span class="sc">~</span> souche<span class="sc">+</span>operateur<span class="sc">+</span>jour, <span class="at">data =</span> data)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: reponse
+          Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+souche     3 137.077  45.692 70.5476 &lt; 2.2e-16 ***
+operateur  1   5.499   5.499  8.4903  0.005064 ** 
+jour       1   0.011   0.011  0.0170  0.896647    
+Residuals 58  37.566   0.648                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>On peut ainsi étudier :</p>
+<ul>
+<li><p>L’effet souche (<span class="math inline">\(F(3,58)=70.5,p&lt;.001\)</span>) qui est significatif, l’effet opérateur (<span class="math inline">\(F(1,58)=8.5,p=.005\)</span>) qui est également significatif et l’effet jour (<span class="math inline">\(F(1,58)=0.02,p=.90\)</span>) qui ne l’est pas.</p></li>
+<li><p>La variabilité associée au jour qui est une composante de la reproductibilité n’est pas considérée par la suite car très proche de 0.</p></li>
+<li><p>Le résidu correspond à la répétabilité de la mesure.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Rappel ANOVA à effets aléatoires">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rappel ANOVA à effets aléatoires
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour évaluer la part de chaque composante de la variabilité on écrit <span class="math display">\[
+Y_{ijk}=\mu+\alpha_i+\beta_j+\varepsilon_{ijk}
+\]</span></p>
+<p>où on suppose que :</p>
+<ul>
+<li><p><span class="math inline">\(\alpha_i\sim \mathcal N(0,\sigma^2_\alpha)\)</span> (<span class="math inline">\(\sigma^2_\alpha\)</span> : variabilité produit),</p></li>
+<li><p><span class="math inline">\(\beta_j\sim \mathcal N(0,\sigma^2_\beta)\)</span> (<span class="math inline">\(\sigma^2_\beta\)</span> : reproductibilité),</p></li>
+<li><p><span class="math inline">\(\varepsilon_{ijk}\sim \mathcal N(0,\sigma^2)\)</span> (<span class="math inline">\(\sigma^2\)</span> : répétabilité).</p></li>
+</ul>
+</div>
+</div>
+<p>Dans R, l’Anova à effets aléatoires :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lme4</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lmerTest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:lme4':
+
+    lmer</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    step</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lmer</span>(reponse <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>souche) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>operateur) , <span class="at">data =</span> data)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>vc <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">VarCorr</span>(model))<span class="sc">$</span>vcov</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(vc)<span class="ot">=</span><span class="fu">as.data.frame</span>(<span class="fu">VarCorr</span>(model))<span class="sc">$</span>grp</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">variance=</span><span class="fu">c</span>(vc,<span class="fu">sum</span>(vc)),<span class="st">"per_var"</span><span class="ot">=</span><span class="fu">c</span>(vc<span class="sc">/</span><span class="fu">sum</span>(vc)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">100</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(df)<span class="ot">=</span><span class="fu">c</span>(<span class="st">"Part"</span>,<span class="st">"reproductibiliy"</span>,<span class="st">"repetebility"</span>,<span class="st">"Total"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="qwgvbczvyf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qwgvbczvyf table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#qwgvbczvyf thead, #qwgvbczvyf tbody, #qwgvbczvyf tfoot, #qwgvbczvyf tr, #qwgvbczvyf td, #qwgvbczvyf th {
+  border-style: none;
+}
+
+#qwgvbczvyf p {
+  margin: 0;
+  padding: 0;
+}
+
+#qwgvbczvyf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#qwgvbczvyf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qwgvbczvyf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qwgvbczvyf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#qwgvbczvyf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#qwgvbczvyf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#qwgvbczvyf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#qwgvbczvyf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#qwgvbczvyf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#qwgvbczvyf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#qwgvbczvyf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qwgvbczvyf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qwgvbczvyf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qwgvbczvyf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#qwgvbczvyf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qwgvbczvyf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#qwgvbczvyf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#qwgvbczvyf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#qwgvbczvyf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qwgvbczvyf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#qwgvbczvyf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qwgvbczvyf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#qwgvbczvyf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qwgvbczvyf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qwgvbczvyf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qwgvbczvyf .gt_left {
+  text-align: left;
+}
+
+#qwgvbczvyf .gt_center {
+  text-align: center;
+}
+
+#qwgvbczvyf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qwgvbczvyf .gt_font_normal {
+  font-weight: normal;
+}
+
+#qwgvbczvyf .gt_font_bold {
+  font-weight: bold;
+}
+
+#qwgvbczvyf .gt_font_italic {
+  font-style: italic;
+}
+
+#qwgvbczvyf .gt_super {
+  font-size: 65%;
+}
+
+#qwgvbczvyf .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#qwgvbczvyf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#qwgvbczvyf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#qwgvbczvyf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#qwgvbczvyf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#qwgvbczvyf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#qwgvbczvyf .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#qwgvbczvyf .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#qwgvbczvyf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="variance" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">variance</th>
+<th id="per_var" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">per_var</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Part</td>
+<td class="gt_row gt_right" headers="stub_1_1 variance">2.82</td>
+<td class="gt_row gt_right" headers="stub_1_1 per_var">78.12</td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">reproductibiliy</td>
+<td class="gt_row gt_right" headers="stub_1_2 variance">0.15</td>
+<td class="gt_row gt_right" headers="stub_1_2 per_var">4.21</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">repetebility</td>
+<td class="gt_row gt_right" headers="stub_1_3 variance">0.64</td>
+<td class="gt_row gt_right" headers="stub_1_3 per_var">17.67</td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Total</td>
+<td class="gt_row gt_right" headers="stub_1_4 variance">3.60</td>
+<td class="gt_row gt_right" headers="stub_1_4 per_var">100.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 21.88281</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Interprétation %RR">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interprétation %RR
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On utilise les références suivantes :</p>
+<ul>
+<li>Si %RR &lt; 10%, alors la mesure est répétable et reproductible,</li>
+<li>Si %RR est compris entre 10% et 30% alors la mesure est acceptable,</li>
+<li>Au delà de 30% il faut revoir le processus.</li>
+</ul>
+</div>
+</div>
+<p>Donc ici la mesure est acceptable.</p>
+</section>
+<section id="capabilité-dun-instrument-de-mesure." class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="capabilité-dun-instrument-de-mesure."><span class="header-section-number">5.2.2</span> Capabilité d’un instrument de mesure.</h3>
+<p>Il est évalué comme précédemment en considérant les tolérances inférieures et supérieures imposées par le client :</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Capabilité instrument de mesure">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Capabilité instrument de mesure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Coefficient de capabilité d’un moyen de contrôle : <span class="math display">\[
+Cmc=\frac{TS-TI}{6\sigma_{R\&amp;R}},
+\]</span> on doit avoir <span class="math inline">\(Cmc&gt;4\)</span>.</li>
+</ul>
+</div>
 </div>
 
 
@@ -739,13 +1955,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapitre1.html" class="pagination-link" aria-label="Estimation des paramètres du procédé">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des paramètres du procédé</span></span>
+      <a href="./chapitre7.html" class="pagination-link" aria-label="Cartes multivariées">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre3.html" class="pagination-link" aria-label="Cartes de contrôle">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./exercice.html" class="pagination-link" aria-label="Exercice">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
