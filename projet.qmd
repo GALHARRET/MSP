@@ -2,12 +2,57 @@
 
 On considère les données [ici](dataPI.xlsx) qui correspondent à un suivi individuel de 7 niveaux d'impuretés dans une bio-production.
 
-1. On se base uniquement sur les 30 premiers prélèvements pour construire les limites de contrôles de la carte du $T^2$.
+1.  On se base uniquement sur les 30 premiers prélèvements pour construire les limites de contrôles de la carte du $T^2$.
 
-a. Calculer le $T^2$, la limite de contrôle et construire la carte.
+<!-- -->
 
-b. Analyser la corrélation entre les 7 caractéristiques. Une carte sur composante principale vous paraît-elle justifiée ?
 
-c. Après avoir choisi le nombre de composantes principales à retenir construire la carte et les limites de contrôles correspondantes.
+a.  Analyser la corrélation entre les 7 caractéristiques. Une carte sur composante principale vous paraît-elle justifiée ?
 
-2. Appliquer les limites de contrôle précédentes aux autres prélèvements de ce jeu de données. On distinguera deux cartes et on comparera les résultats obtenus. Une étude systématique des éventuels points hors contrôle sera réalisée.
+b.  Calculer le $T^2$, la limite de contrôle et construire la carte en retirant les éventuels points HC.
+
+
+2.  Appliquer les limites de contrôle précédentes aux autres prélèvements de ce jeu de données.  Une étude systématique des éventuels points hors contrôle sera réalisée.  
+
+
+
+```{r echo=F, eval=F}
+library(multiSPC)
+df=as.matrix(readxl::read_excel("dataPI.xlsx"))
+dim(df)
+n=30
+df1=df[1:n,]
+df2=df[(n+1):(n+15),]
+
+T2=T2_Hotelling_k1(df1)
+LSC=LSC_T2_Hotelling_k1(df1)
+plot_chart(T2,LSC=LSC[1],Type="Carte T2 Phase I")
+
+# On retire 8 et 20
+df1=df1[-c(8,20),]
+T2=T2_Hotelling_k1(df1)
+LSC=LSC_T2_Hotelling_k1(df1)
+plot_chart(T2,LSC=LSC[1],Type="Carte T2 Phase I")
+
+pairs(df1)
+cor(df1)
+library(FactoMineR)
+pca=PCA(df1,scale.unit=T)
+library(factoextra)
+fviz_eig(pca)
+k=dim(df1)[1]
+T2= (df2[,1]-mean(df1[,1]))^2/var(df[,1])
+LSC=qt(0.995,k-1)
+plot_chart(T2,LSC=LSC,Type="Carte T2 Phase II")
+
+graph=list()
+for(i in 1:dim(df1)[2]){
+T2= (df2[,i]-mean(df1[,i]))^2/var(df[,i])
+LSC=qt(0.995,k-1)
+}
+
+library(gridExtra)
+grid.arrange(grobs=graph,ncol=2)
+```
+
+

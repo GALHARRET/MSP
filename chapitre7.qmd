@@ -113,7 +113,7 @@ La densité de probabilité de $(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)$ est 
 
 ## Cartes de contrôles $T^2$ Hotelling
 
-### Généralités 
+### Généralités
 
 -   Le vecteur des caractéristiques $X=(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma).$
 
@@ -169,10 +169,7 @@ Ce qui donne la carte suivante (sur les données ayant permis de calculer LSC) :
 plot_chart(T2,LSC=LSCT2["PhaseI"],Type="Carte du T2")
 ```
 
-
-
-### Application des limites de contrôle (Phase II) 
-
+### Application des limites de contrôle (Phase II)
 
 ```{r warning=F}
 data("carbon2")
@@ -184,18 +181,16 @@ plot_chart(T2,LSC=LSCT2["PhaseII"],Type="Carte T2 de Hotelling")
 
 On a prélevé 25 nouveaux échantillons et on identifie un point hors-contrôle (4ième prélèvement).
 
-
-
 -   Pour les caractéristiques univariées, lorsqu'un point est hors des limites de contrôles, il est évident que le procédé a eu une déviation non aléatoire.
 
 -   Pour les caractéristiques multivariées, il est nécessaire d'identifier laquelle (lesquelles) a (ont) eu une déviation non aléatoire.
 
-
-:::{.callout-note title="MYT décomposition"}
-
+::: {.callout-note title="MYT décomposition"}
 On considère un prélèvement $t$ Hors Contrôle, on note $\mathcal{X}=(X_{tji})_{ji}$ la matrice des caractéristique de ce prélèvement. On note $\bar{\mathcal{X}}=(\bar{\mathcal {X}}_1,...,\bar{\mathcal{X}}_p)$ le vecteur des moyennes de ces caractéristiques.
 
 1.  Etape 1 : Contribution individuelle.
+
+<!-- -->
 
 a.  Calculer $T^2_{j}=\frac{n(\bar{\mathcal {X}}_j-\overline{\overline X}_j)^2}{s_j^2}$ pour chaque variable $j$ où $s_j^2$ est la variance de la caractéristique $\bar{\mathcal {X}}_j$.
 
@@ -203,14 +198,17 @@ b.  Calculer pour $p=1$, $LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha).$
 
 c.  Exclure les variables $j$ qui vérifient $T^2_j>LSC.$
 
+<!-- -->
+
 2.  Etape 2 : Contribution bivariée. On retire toutes variables identifiées à l'étape 1. On note $J$ les indices des variables restantes
+
+<!-- -->
 
 a.  Pour $j,j'\in J$, calculer $T_{jj'}^2$ correspondant aux colonnes $j,j'$ de la matrice $\mathcal{X}$.
 
 b.  Calculer pour $p=2$, $LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha).$
 
-c.  Exclure les variables $j,j'$ qui vérifient $T^2_{jj'}>LSC.$
-On itère les étapes précédentes jusqu'au modèle qui contient toutes les variables restantes. 
+c.  Exclure les variables $j,j'$ qui vérifient $T^2_{jj'}>LSC.$ On itère les étapes précédentes jusqu'au modèle qui contient toutes les variables restantes.
 :::
 
 Retour sur l'exemple :
@@ -239,11 +237,11 @@ Donc cette valeur n'est pas HC sur les deux autres variables.
 
 -   Ceci nécessite donc d'adapter la carte de Hotelling. Le problème étant l'approximation de la matrice de covariance $\Sigma$.
 
-:::{.callout-note title="Estimation de $\Sigma$"}
-
+::: {.callout-note title="Estimation de $\\Sigma$"}
 -   Sullivan and Woodall (1996) ont proposé la matrice de covariance corrigée entre les $k$ prélèvements $X_1,...,X_k\in\mathbb R^p$ et leur moyenne empirique $\overline{X}$.
 
 Dans R:
+
 ```{r eval=F,echo=T}
 covariance_X(X)
 ```
@@ -256,7 +254,6 @@ Dans R:
 cov(diff(X))/2
 ```
 :::
-
 
 Calcul du $T^2$ et de LSC
 
@@ -301,7 +298,6 @@ LSCT2=LSC_T2_Hotelling_k1(df)
 plot_chart(T2,LSC=LSCT2["PhaseI"],Type="T2 individuel Phase I")
 ```
 
-
 On utilise les données bimetal2 pour suivre la production :
 
 ```{r warning=FALSE}
@@ -315,10 +311,7 @@ plot_chart(T2,LSC=LSCT2["PhaseII"],Type="T2 individuel Phase II")
 
 Deux prélèvements sont HC on va comme précédemment s'intéresser aux caractéristiques impliquant la présence de ces points HC. On peut pour ce faire regarder les cartes de contrôles univariées puis bivariée en ces points.
 
-
-
 ## Carte sur la variance généralisée
-
 
 -   Pour $X\sim\mathcal N_p(\mu,\Sigma)$, la variance généralisée est définie comme le déterminant de la matrice de covariance $\Sigma$. Pour le prélèvement $t$ on calcule $$D_t=\text{det}(\Sigma_t).$$
 -   Comme précédemment la matrice $\Sigma$ est inconnue et donc elle est approximée à partir de $S$.
@@ -369,12 +362,8 @@ plot_chart(T2,LSC=LSC,Type="Carte MEWMA")
 
 L'analyse en composante principale (ACP) est une méthode factorielle qui permet de réduire la dimension d'une matrice en résumant les caractéristiques à travers des combinaisons linéaires de celles-ci (appelées composantes principales). Elle est particulièrement indiquée lorsque la corrélation entre les caractéristiques est forte.
 
-:::{.callout-note title="ACP"}
-Etant donnée une matrice $X$ centrée sur les colonnes de dimension $k,p$. 
-On diagonalise la matrice de covariance $\Sigma$ de $X$ ie on écrit $$\Sigma=U\Lambda U^T,$$
-où $\Lambda$ est diagonale telle que $\lambda_1\geq ... \geq \lambda_p$, $U$ est une matrice orthogonale. 
-- Les colonnes de $U$ sont les scores factoriels des individus sur les composantes principales
-- Les valeurs propres $\lambda_1$ sont les variances des composantes principales.
+::: {.callout-note title="ACP"}
+Etant donnée une matrice $X$ centrée sur les colonnes de dimension $k,p$. On diagonalise la matrice de covariance $\Sigma$ de $X$ ie on écrit $$\Sigma=U\Lambda U^T,$$ où $\Lambda$ est diagonale telle que $\lambda_1\geq ... \geq \lambda_p$, $U$ est une matrice orthogonale. - Les colonnes de $U$ sont les scores factoriels des individus sur les composantes principales - Les valeurs propres $\lambda_1$ sont les variances des composantes principales.
 :::
 
 On peut utiliser la fonction ***PCA*** du package ***FactoMineR*** :
@@ -401,14 +390,10 @@ On peut représenter les caractéristiques initiales sur le plan factoriel :
 fviz_pca_var(pca)
 ```
 
-
-
-Le calcul de $T^2$ se fait à partir des scores factoriels :  
+Le calcul de $T^2$ se fait à partir des scores factoriels :\
 $$
 T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
 $$
-
-
 
 ```{r warning=FALSE}
 r <- 3
@@ -433,20 +418,15 @@ plot_chart(T2pca,LSC=LSCpca["PhaseII"],Type="T2 sur composantes principales")
 
 Revenons sur l'ACP : on sélectionne $r$ composantes principales (principe du coude par exemple) et soit $U_r$ les $r$ premières colonnes de la matrice des vecteurs propres de la matrice de covariance de $X$.
 
-Les scores des individus sur les composantes principales sont donnés par $T=X.U,$ donc si on pose $\hat X=T.U_r^T$ alors on a :
-$$
+Les scores des individus sur les composantes principales sont donnés par $T=X.U,$ donc si on pose $\hat X=T.U_r^T$ alors on a : $$
 X=\hat X+ E,
-$$
-où $E$ est la matrice des résidus.
+$$ où $E$ est la matrice des résidus.
 
-Pour projeté un nouveau jeu de données $X_{new}$ on commence par centré le jeu de données :
-$$
+Pour projeté un nouveau jeu de données $X_{new}$ on commence par centré le jeu de données : $$
 X^c_{new}=X_{new}-\bar X,
-$$
-où $\bar X$ est le vecteur des moyennes de la base de données initiales.
+$$ où $\bar X$ est le vecteur des moyennes de la base de données initiales.
 
 On calcule $T_{new}=X^c_{new}.U_r$ et donc $\hat X^c_{new}=T_{new}.U^T_r$.
-
 
 On va appliquer ce principe à la matrice $(k,np)$ correspondant aux données X qui seront empilées selon le troisème mode de $X$
 
@@ -480,7 +460,6 @@ plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
 
 Avec Parafac :
 
-
 ```{r}
 X1=carbon1
 model=parafac(X1,nfac=2)
@@ -495,4 +474,3 @@ plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase I")
 T2 <- T2_Hotelling_Parafac(res$A_new,S = cov(model$A))
 plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase II")
 ```
-
