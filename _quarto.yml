@@ -15,6 +15,7 @@ book:
     - chapitre7.qmd
     - chapitre2.qmd
     - exercice.qmd
+    - projet.qmd
 bibliography: references.bib
 
 format:

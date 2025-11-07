@@ -429,99 +429,70 @@ T2pca=T2_Hotelling_k1(scores2,
 plot_chart(T2pca,LSC=LSCpca["PhaseII"],Type="T2 sur composantes principales")
 ```
 
-### Cas général
+### Cas multivarié
 
-On considère un cube de données $[x_{tji}]$.
+Revenons sur l'ACP : on sélectionne $r$ composantes principales (principe du coude par exemple) et soit $U_r$ les $r$ premières colonnes de la matrice des vecteurs propres de la matrice de covariance de $X$.
 
-- On peut appliquer la méthode vue précédemment à la matrice  $(k,p)$ définie par 
-$$ 
-[\bar x_{tj}],
+Les scores des individus sur les composantes principales sont donnés par $T=X.U,$ donc si on pose $\hat X=T.U_r^T$ alors on a :
 $$
+X=\hat X+ E,
+$$
+où $E$ est la matrice des résidus.
 
-où $\bar x_{tj}=\frac 1{n}\sum_{i=1}^n x_{tji}$ (ie on prend la moyenne de chaque prélèvement).
+Pour projeté un nouveau jeu de données $X_{new}$ on commence par centré le jeu de données :
+$$
+X^c_{new}=X_{new}-\bar X,
+$$
+où $\bar X$ est le vecteur des moyennes de la base de données initiales.
 
-```{r echo=T}
-data(carbon1)
-k=dim(carbon1)[1]
-p=dim(carbon1)[2]
-n=dim(carbon1)[3]
-X=matrix(NA,nrow=k,ncol=p)
-for(t in 1:k){
-  X[t,]=t(apply(carbon1[t,,],1,mean))
-}
-colnames(X)=dimnames(carbon1)[[2]]
-Xc=scale(X,scale=F)
-```
+On calcule $T_{new}=X^c_{new}.U_r$ et donc $\hat X^c_{new}=T_{new}.U^T_r$.
 
-Ensuite on applique la méthode précédente à $Xc$ :
 
-```{r warning=F}
-pca=PCA(Xc,scale.unit=F,graph = F)
+On va appliquer ce principe à la matrice $(k,np)$ correspondant aux données X qui seront empilées selon le troisème mode de $X$
+
+```{r}
+X1=carbon1
+n=dim(X1)[3]
+X=NULL
+for(i in 1:n) X=cbind(X,X1[,,i])
+dim(X)
+Xc=scale(X,scale = F)
+M=apply(X,2,mean)
+pca=PCA(Xc,scale.unit = F,graph=F,ncp = dim(Xc)[2])
 fviz_eig(pca)
-r <- 2
-scores <- pca$ind$coord[,1:r]
-S=cov(diff(scores))/2
-T2pca=T2_Hotelling_k1(scores,S=S)
-LSCpca=LSC_T2_Hotelling_k1(scores)
-plot_chart(T2pca,LSC=LSCpca["PhaseI"],Type="T2 sur composantes principales")
+r=6
+scores=pca$ind$coord[,1:r]
+S=cov(scores)
+T2=T2_Hotelling_k1(scores,S = S)
+LSC=mean(T2)+3*sd(T2)
+plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase I")
+
+X2=carbon2
+X=NULL
+for(i in 1:n) X=cbind(X,X2[,,i])
+dim(X)
+Xc=scale(X,center=M,scale = F)
+
+scores2=predict(pca,newdata=Xc)$coord[,1:r]
+T2=T2_Hotelling_k1(scores2,S = S)
+plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
 ```
 
+Avec Parafac :
 
-- On peut appliquer une méthode de factorisation (Parafac) au cube de données :
 
-:::{.callout-note title="Parafac"}
+```{r}
+X1=carbon1
+model=parafac(X1,nfac=2)
+X2=carbon2
+res=predict_parafac(X2,model)
+# Hotelling T²
+T2 <- T2_Hotelling_Parafac(A = model$A)
 
-Le modèle Parafac permet d'approcher un cube de données $X\in \mathbb R^{k\times p \times n}$ en composantes canoniques 
-
-$$
-x_{tji} \simeq \hat x_{tji} \sum_{l=1}^r a_{il}b_{jl}c_{kl},
-$$
-où :
-
-- $a_{il}$ est le coefficient de la matrice $A$ de dimension $k,r$ du mode 1 (prélèvement),
-
-- $b_{jl}$ est le coefficient de la matrice $B$ de dimension $p,r$ du mode 2 (caractéristique),
-
-- $c_{il}$ est le coefficient de la matrice $A$ de dimension $n,r$ du mode 3 (observation).
-
-c'est une généralisation de l'ACP au cas trois voies.
-:::
-
-On peut alors calculer le résidu et faire une carte de contrôle basée sur ce résidu (carte SPE). 
-
-Pour chaque prélèvement $t$ le résidu est défini par 
-$$
-SPE_t=\Vert X_t-\hat X_t\Vert^2
-$$
-ce qui donne la carte de contrôle :
-
-```{r echo=T}
-X=carbon1
-model <- parafac(X, nfac = 2, nstart = 5)
-
-# Reconstruction du tenseur
-X_hat <- fitted(model)
-
-# Calcul du SPE pour chaque échantillon
-SPE <- apply((X - X_hat)^2, 1, sum)  # somme sur les modes 2 et 3
-
-plot_chart(SPE,LIC=mean(SPE) - 3*sd(SPE),LSC=mean(SPE) + 3*sd(SPE),Type="Carte des résidus de Parafac")
-```
-
-On peut aussi comme prédémment construire la carte de contrôle du $T^2$ : on considère la matrice des scores $A$ et on définit 
-
-$$
-T_t^2=A_{t\bullet}^T.\Sigma_A^{-1}.A_{t\bullet}
-$$
-où $A_{t\bullet}$ est la tième ligne de $A$ et $\Sigma_A$ la matrice de covariance de $A$.
-
-Sur R :
-
-```{r echo=T}
-A <- model$A  # Scores du mode échantillon
-cov_A <- cov(A)
-T2 <- apply(A, 1, function(t) t %*% solve(cov_A) %*% t)
-
-plot_chart(T2,LIC=mean(T2)-3*sd(T2),LSC=mean(T2)+3*sd(T2),Type="Carte T2 Parafac")
+LIC=mean(T2)-3*sd(T2)
+LSC=mean(T2)+3*sd(T2)
+plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase I")
+T2 <- T2_Hotelling_Parafac(res$A_new,S = cov(model$A))
+plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase II")
 ```
 

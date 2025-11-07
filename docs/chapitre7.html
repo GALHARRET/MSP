@@ -211,6 +211,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Projet</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -238,7 +244,7 @@ window.Quarto = {
   <li><a href="#cartes-sur-composantes-principales" id="toc-cartes-sur-composantes-principales" class="nav-link" data-scroll-target="#cartes-sur-composantes-principales"><span class="header-section-number">4.10</span> Cartes sur composantes principales</a>
   <ul class="collapse">
   <li><a href="#cartes-individuelles" id="toc-cartes-individuelles" class="nav-link" data-scroll-target="#cartes-individuelles"><span class="header-section-number">4.10.1</span> Cartes individuelles :</a></li>
-  <li><a href="#cas-général" id="toc-cas-général" class="nav-link" data-scroll-target="#cas-général"><span class="header-section-number">4.10.2</span> Cas général</a></li>
+  <li><a href="#cas-multivarié" id="toc-cas-multivarié" class="nav-link" data-scroll-target="#cas-multivarié"><span class="header-section-number">4.10.2</span> Cas multivarié</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -820,31 +826,107 @@ T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
 </div>
 </div>
 </section>
-<section id="cas-général" class="level3" data-number="4.10.2">
-<h3 data-number="4.10.2" class="anchored" data-anchor-id="cas-général"><span class="header-section-number">4.10.2</span> Cas général</h3>
-<p>On considère un cube de données <span class="math inline">\([x_{tji}]\)</span>.</p>
-<ul>
-<li>On peut appliquer la méthode vue précédemment à la matrice <span class="math inline">\((k,p)\)</span> définie par <span class="math display">\[
-[\bar x_{tj}],
-\]</span></li>
-</ul>
-<p>où <span class="math inline">\(\bar x_{tj}=\frac 1{n}\sum_{i=1}^n x_{tji}\)</span> (ie on prend la moyenne de chaque prélèvement).</p>
+<section id="cas-multivarié" class="level3" data-number="4.10.2">
+<h3 data-number="4.10.2" class="anchored" data-anchor-id="cas-multivarié"><span class="header-section-number">4.10.2</span> Cas multivarié</h3>
+<p>Revenons sur l’ACP : on sélectionne <span class="math inline">\(r\)</span> composantes principales (principe du coude par exemple) et soit <span class="math inline">\(U_r\)</span> les <span class="math inline">\(r\)</span> premières colonnes de la matrice des vecteurs propres de la matrice de covariance de <span class="math inline">\(X\)</span>.</p>
+<p>Les scores des individus sur les composantes principales sont donnés par <span class="math inline">\(T=X.U,\)</span> donc si on pose <span class="math inline">\(\hat X=T.U_r^T\)</span> alors on a : <span class="math display">\[
+X=\hat X+ E,
+\]</span> où <span class="math inline">\(E\)</span> est la matrice des résidus.</p>
+<p>Pour projeté un nouveau jeu de données <span class="math inline">\(X_{new}\)</span> on commence par centré le jeu de données : <span class="math display">\[
+X^c_{new}=X_{new}-\bar X,
+\]</span> où <span class="math inline">\(\bar X\)</span> est le vecteur des moyennes de la base de données initiales.</p>
+<p>On calcule <span class="math inline">\(T_{new}=X^c_{new}.U_r\)</span> et donc <span class="math inline">\(\hat X^c_{new}=T_{new}.U^T_r\)</span>.</p>
+<p>On va appliquer ce principe à la matrice <span class="math inline">\((k,np)\)</span> correspondant aux données X qui seront empilées selon le troisème mode de <span class="math inline">\(X\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(carbon1)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">dim</span>(carbon1)[<span class="dv">1</span>]</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fu">dim</span>(carbon1)[<span class="dv">2</span>]</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">dim</span>(carbon1)[<span class="dv">3</span>]</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">matrix</span>(<span class="cn">NA</span>,<span class="at">nrow=</span>k,<span class="at">ncol=</span>p)</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k){</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  X[t,]<span class="ot">=</span><span class="fu">t</span>(<span class="fu">apply</span>(carbon1[t,,],<span class="dv">1</span>,mean))</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X)<span class="ot">=</span><span class="fu">dimnames</span>(carbon1)[[<span class="dv">2</span>]]</span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">scale=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">dim</span>(X1)[<span class="dv">3</span>]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X1[,,i])</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30 24</code></pre>
 </div>
-<p>Ensuite on applique la méthode précédente à <span class="math inline">\(Xc\)</span> :</p>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">scale =</span> F)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(X,<span class="dv">2</span>,mean)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(Xc,<span class="at">scale.unit =</span> F,<span class="at">graph=</span>F,<span class="at">ncp =</span> <span class="fu">dim</span>(Xc)[<span class="dv">2</span>])</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span><span class="dv">6</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>scores<span class="ot">=</span>pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(scores)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S =</span> S)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X2[,,i])</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25 24</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">center=</span>M,<span class="at">scale =</span> F)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict</span>(pca,<span class="at">newdata=</span>Xc)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,<span class="at">S =</span> S)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Avec Parafac :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(Xc,<span class="at">scale.unit=</span>F,<span class="at">graph =</span> F)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>model<span class="ot">=</span><span class="fu">parafac</span>(X1,<span class="at">nfac=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |=======                                                               |  10%
+  |                                                                            
+  |==============                                                        |  20%
+  |                                                                            
+  |=====================                                                 |  30%
+  |                                                                            
+  |============================                                          |  40%
+  |                                                                            
+  |===================================                                   |  50%
+  |                                                                            
+  |==========================================                            |  60%
+  |                                                                            
+  |=================================================                     |  70%
+  |                                                                            
+  |========================================================              |  80%
+  |                                                                            
+  |===============================================================       |  90%
+  |                                                                            
+  |======================================================================| 100%</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>res<span class="ot">=</span><span class="fu">predict_parafac</span>(X2,model)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hotelling T²</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fu">T2_Hotelling_Parafac</span>(<span class="at">A =</span> model<span class="sc">$</span>A)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>LIC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LIC=</span>LIC,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 Parafac Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -852,97 +934,12 @@ T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(scores))<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S=</span>S)</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>LSCpca<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(scores)</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fu">T2_Hotelling_Parafac</span>(res<span class="sc">$</span>A_new,<span class="at">S =</span> <span class="fu">cov</span>(model<span class="sc">$</span>A))</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LIC=</span>LIC,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 Parafac Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="chapitre7_files/figure-html/unnamed-chunk-30-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>On peut appliquer une méthode de factorisation (Parafac) au cube de données :</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Parafac">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Parafac
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Le modèle Parafac permet d’approcher un cube de données <span class="math inline">\(X\in \mathbb R^{k\times p \times n}\)</span> en composantes canoniques</p>
-<p><span class="math display">\[
-x_{tji} \simeq \hat x_{tji} \sum_{l=1}^r a_{il}b_{jl}c_{kl},
-\]</span> où :</p>
-<ul>
-<li><p><span class="math inline">\(a_{il}\)</span> est le coefficient de la matrice <span class="math inline">\(A\)</span> de dimension <span class="math inline">\(k,r\)</span> du mode 1 (prélèvement),</p></li>
-<li><p><span class="math inline">\(b_{jl}\)</span> est le coefficient de la matrice <span class="math inline">\(B\)</span> de dimension <span class="math inline">\(p,r\)</span> du mode 2 (caractéristique),</p></li>
-<li><p><span class="math inline">\(c_{il}\)</span> est le coefficient de la matrice <span class="math inline">\(A\)</span> de dimension <span class="math inline">\(n,r\)</span> du mode 3 (observation).</p></li>
-</ul>
-<p>c’est une généralisation de l’ACP au cas trois voies.</p>
-</div>
-</div>
-<p>On peut alors calculer le résidu et faire une carte de contrôle basée sur ce résidu (carte SPE).</p>
-<p>Pour chaque prélèvement <span class="math inline">\(t\)</span> le résidu est défini par <span class="math display">\[
-SPE_t=\Vert X_t-\hat X_t\Vert^2
-\]</span> ce qui donne la carte de contrôle :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span>carbon1</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">parafac</span>(X, <span class="at">nfac =</span> <span class="dv">2</span>, <span class="at">nstart =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  |                                                                            
-  |                                                                      |   0%
-  |                                                                            
-  |==============                                                        |  20%
-  |                                                                            
-  |============================                                          |  40%
-  |                                                                            
-  |==========================================                            |  60%
-  |                                                                            
-  |========================================================              |  80%
-  |                                                                            
-  |======================================================================| 100%</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruction du tenseur</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>X_hat <span class="ot">&lt;-</span> <span class="fu">fitted</span>(model)</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul du SPE pour chaque échantillon</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>SPE <span class="ot">&lt;-</span> <span class="fu">apply</span>((X <span class="sc">-</span> X_hat)<span class="sc">^</span><span class="dv">2</span>, <span class="dv">1</span>, sum)  <span class="co"># somme sur les modes 2 et 3</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(SPE,<span class="at">LIC=</span><span class="fu">mean</span>(SPE) <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(SPE),<span class="at">LSC=</span><span class="fu">mean</span>(SPE) <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(SPE),<span class="at">Type=</span><span class="st">"Carte des résidus de Parafac"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>On peut aussi comme prédémment construire la carte de contrôle du <span class="math inline">\(T^2\)</span> : on considère la matrice des scores <span class="math inline">\(A\)</span> et on définit</p>
-<p><span class="math display">\[
-T_t^2=A_{t\bullet}^T.\Sigma_A^{-1}.A_{t\bullet}
-\]</span> où <span class="math inline">\(A_{t\bullet}\)</span> est la tième ligne de <span class="math inline">\(A\)</span> et <span class="math inline">\(\Sigma_A\)</span> la matrice de covariance de <span class="math inline">\(A\)</span>.</p>
-<p>Sur R :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> model<span class="sc">$</span>A  <span class="co"># Scores du mode échantillon</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>cov_A <span class="ot">&lt;-</span> <span class="fu">cov</span>(A)</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(A, <span class="dv">1</span>, <span class="cf">function</span>(t) t <span class="sc">%*%</span> <span class="fu">solve</span>(cov_A) <span class="sc">%*%</span> t)</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LIC=</span><span class="fu">mean</span>(T2)<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2),<span class="at">LSC=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2),<span class="at">Type=</span><span class="st">"Carte T2 Parafac"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

@@ -1,0 +1,13 @@
+# Projet
+
+On considère les données [ici](dataPI.xlsx) qui correspondent à un suivi individuel de 7 niveaux d'impuretés dans une bio-production.
+
+1. On se base uniquement sur les 30 premiers prélèvements pour construire les limites de contrôles de la carte du $T^2$.
+
+a. Calculer le $T^2$, la limite de contrôle et construire la carte.
+
+b. Analyser la corrélation entre les 7 caractéristiques. Une carte sur composante principale vous paraît-elle justifiée ?
+
+c. Après avoir choisi le nombre de composantes principales à retenir construire la carte et les limites de contrôles correspondantes.
+
+2. Appliquer les limites de contrôle précédentes aux autres prélèvements de ce jeu de données. On distinguera deux cartes et on comparera les résultats obtenus. Une étude systématique des éventuels points hors contrôle sera réalisée.
