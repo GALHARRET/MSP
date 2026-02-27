@@ -6,14 +6,14 @@ project:
 book:
   title: "MSP"
   author: "Galharret Jean-Michel"
-  date: "01/20/2025"
+  date: "Février 2026"
   chapters:
     - index.qmd
     - chapitre1.qmd
+    - chapitre2.qmd
     - chapitre3.qmd
     - chapitre4.qmd
     - chapitre7.qmd
-    - chapitre2.qmd
     - exercice.qmd
     - projet.qmd
 bibliography: references.bib

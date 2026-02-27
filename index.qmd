@@ -1,6 +1,6 @@
 # Introduction {.unnumbered}
 
-```{r echo=F}
+```{r echo=F, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 suppressPackageStartupMessages(
   {
@@ -78,9 +78,9 @@ Dans l'exemple précédent on voit que l'on rejetterai à tord un des échantill
 
 ## La MSP dans l'amélioration continue
 
--   La qualité du produit n’est pas le simple respect d’une spécification.
+-   La qualité du produit n'est pas le simple respect d'une spécification.
 
--   L’objectif est représenté comme un processus de réduction de la dispersion des caractéristiques du produit.
+-   L'objectif est représenté comme un processus de réduction de la dispersion des caractéristiques du produit.
 
 -   Eviter la production de défectueux, c'est à dire d'avoir des produits qui ne répondent pas à des spécifications.
 
@@ -88,13 +88,13 @@ Dans l'exemple précédent on voit que l'on rejetterai à tord un des échantill
 
 Historiquement mise en place par Mikel Harry dans les années 80.
 
--   une méthode d’amélioration de la qualité qui repose sur la maîtrise statistique des procédés,
+-   une méthode d'amélioration de la qualité qui repose sur la maîtrise statistique des procédés,
 
 -   une méthode de management qui repose sur une organisation très encadrée de la conduite de projets.
 
-Dans la boîte à outils 6 sigma on a : - de nombreux outils d’analyse du procédé, d’analyse statistique (MSP, plans d’expériences)
+Dans la boîte à outils 6 sigma on a : - de nombreux outils d'analyse du procédé, d'analyse statistique (MSP, plans d'expériences)
 
--   un mode d’emploi sur la manière de les combiner
+-   un mode d'emploi sur la manière de les combiner
 
 ### DMAIC (Define, Measure, Analyse, Improve, Control)
 

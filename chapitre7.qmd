@@ -1,6 +1,6 @@
 # Cartes multivariées
 
-```{r}
+```{r warning=FALSE}
 suppressPackageStartupMessages(
   {
     library(dplyr)
@@ -21,11 +21,19 @@ suppressPackageStartupMessages(
 
 ## Exemple :
 
--   Au cours du processus de fabrication d'un tube en fibre de carbone spécifique, trois caractéristiques qualitatives corrélées sont mesurées : le diamètre intérieur, l'épaisseur et la longueur du tube.
+Au cours du processus de fabrication d'un tube en fibre de carbone spécifique, trois caractéristiques qualitatives corrélées sont mesurées : le diamètre intérieur, l'épaisseur et la longueur du tube. Ici les données sont sous la forme d'une matrice à trois dimensions.
 
--   Ici les données sont sous la forme d'une matrice à trois dimensions.
+::: {.callout-tip title="Notation"}
+On note $$X=[x_{tji}]_{tji}$$ le tableau de données à trois dimensions avec :
 
--   On note $$X=[x_{tji}]$$ la matrice des données où $t$ est le numéro du prélèvement ($t=1,...,k$), $j$ est l'indice de la variable ($j=1,...,p$) et $i$ le numéro de l'observation ($i=1,...,n$).
+-   $t$ numéro du prélèvement ($t=1,...,k$),
+
+-   $j$ est l'indice de la variable ($j=1,...,p$) et
+
+-   $i$ le numéro de l'observation ($i=1,...,n$).
+:::
+
+Sur les données précédentes :
 
 ```{r echo=T}
 data("carbon1")
@@ -33,13 +41,9 @@ class(carbon1)
 dim(carbon1)
 ```
 
-## Notations
+Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
--   Les données sont dans une matrice à trois dimensions.
-
--   On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
-
-![](figure/cube_data.pdf)
+![](figure/cube.png)
 
 On peut tracer le graphe de corrélation des 30 moyennes de $X=(X_1,X_2,X_3)$ :
 
@@ -68,7 +72,7 @@ On peut aussi écrire cette matrice sous forme vectorielle. Soit $X=(X_1,...,X_p
 -   $\Sigma$ est définie positive (vp strictement positives) si il n'existe aucune relation affine entre les variables $(X_1,...,X_p)$. Dans ce cas $\Sigma$ est inversible, c'est à dire qu'il existe une matrice notée $\Sigma^{-1}$ telle que $$\Sigma^{-1}.\Sigma=\Sigma.\Sigma^{-1}=I_p$$
 :::
 
-Il faut estimer cette matrice à partir de la matrice de données $X_{tji}$ : il s'agit de la moyenne des covariances empiriques des $k$ prélèvements.
+Il faut estimer cette matrice à partir de la matrice des données $x_{tji}$ : il s'agit de la moyenne des covariances empiriques des $k$ prélèvements.
 
 ::: {.callout-note title="Estimation de $\\Sigma$"}
 Pour $t=1,...,k$ on calcule la covariance $S_t$ de la matrice $(X_{tji})_{ji}$ et on choisit $$\hat\Sigma\simeq\frac1{k}\sum_{t=1}^kS_t.$$
@@ -151,7 +155,7 @@ print(T2)
 
 ```
 
-### Construction de la carte (Phase I)
+### Construction de la carte :
 
 -   Pour la phase I (construction de la carte de Hotelling) on pose : $$LSC=\frac{p(k-1)(n-1)}{kn-k-p+1}F_{(p,kn-k-p+1)}(1-\alpha).$$
 
@@ -183,32 +187,19 @@ On a prélevé 25 nouveaux échantillons et on identifie un point hors-contrôle
 
 -   Pour les caractéristiques univariées, lorsqu'un point est hors des limites de contrôles, il est évident que le procédé a eu une déviation non aléatoire.
 
--   Pour les caractéristiques multivariées, il est nécessaire d'identifier laquelle (lesquelles) a (ont) eu une déviation non aléatoire.
+-   Pour les caractéristiques multivariées, il est nécessaire d'identifier laquelle (lesquelles) des caractéristiques a (ont) eu une déviation non aléatoire.
 
 ::: {.callout-note title="MYT décomposition"}
-On considère un prélèvement $t$ Hors Contrôle, on note $\mathcal{X}=(X_{tji})_{ji}$ la matrice des caractéristique de ce prélèvement. On note $\bar{\mathcal{X}}=(\bar{\mathcal {X}}_1,...,\bar{\mathcal{X}}_p)$ le vecteur des moyennes de ces caractéristiques.
+On considère qu'un prélèvement $t$ est hors-contrôle, on note $\textbf{X}_t=(X_{tji})_{1\leq j\leq p;1\leq i\leq n}$ la matrice des caractéristique de ce prélèvement. On note $\bar{\textbf{X}}_t=(\bar{X}^{(t)}_{1},...,\bar{X}^{(t)}_{p})$ le vecteur des moyennes de ces caractéristiques.
 
-1.  Etape 1 : Contribution individuelle.
+1.   Etape 1 : Contribution individuelle. Calculer $$t^2_{j}=\frac{n(\bar{X}^{(t)}_{j}-\overline{ X}_j)^2}{s_j^2}$$ pour chaque variable $j$ où $s_j^2$ est la variance de la caractéristique $X^{(t)}_j$. Calculer pour $p=1$, Exclure les variables $j$ qui vérifient $t^2_j>LSC,$ où $LSC=\frac{(k+1)(k-1)}{k(k-1)}F_{(p,k-1)}(1-\alpha).$
 
+```{=html}
 <!-- -->
-
-a.  Calculer $T^2_{j}=\frac{n(\bar{\mathcal {X}}_j-\overline{\overline X}_j)^2}{s_j^2}$ pour chaque variable $j$ où $s_j^2$ est la variance de la caractéristique $\bar{\mathcal {X}}_j$.
-
-b.  Calculer pour $p=1$, $LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha).$
-
-c.  Exclure les variables $j$ qui vérifient $T^2_j>LSC.$
-
-<!-- -->
-
-2.  Etape 2 : Contribution bivariée. On retire toutes variables identifiées à l'étape 1. On note $J$ les indices des variables restantes
-
-<!-- -->
-
-a.  Pour $j,j'\in J$, calculer $T_{jj'}^2$ correspondant aux colonnes $j,j'$ de la matrice $\mathcal{X}$.
-
-b.  Calculer pour $p=2$, $LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha).$
-
-c.  Exclure les variables $j,j'$ qui vérifient $T^2_{jj'}>LSC.$ On itère les étapes précédentes jusqu'au modèle qui contient toutes les variables restantes.
+```
+2.  Etape 2 : Contribution bivariée. On retire toutes variables identifiées à l'étape 1. On note $J$ les indices des variables restantes. Pour $j,j'\in J$, calculer $T_{jj'}^2$ correspondant aux colonnes $j,j'$ de la matrice $\textbf{X}_t$.
+3.  Exclure les variables $j,j'$ qui vérifient $T^2_{jj'}>LSC,$ où $LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha),$ pour $p=2.$
+4.  On itère les étapes précédentes jusqu'au modèle qui contient toutes les variables restantes.
 :::
 
 Retour sur l'exemple :
@@ -217,13 +208,16 @@ Retour sur l'exemple :
 p=dim(carbon2)[2]
 k=dim(carbon2)[1]
 T2j=NULL
-for(j in 1:p) T2j=c(T2j,T2_Hotelling_kn_MYT(k_hc=4,k=k,select=j,
-                                            data=carbon2,MoyT=Moy_T(carbon1))$T2)
+for(j in 1:p) T2j=c(T2j,T2_Hotelling_kn_MYT(k_hc=4,k=k,select=j,data=carbon2,MoyT=Moy_T(carbon1))$T2)
+
+## Valeurs des t2j :
 T2j 
+
+## Valeur de la LSC :
 T2_Hotelling_kn_MYT(k_hc=4,k=k,select=1,data=carbon2,MoyT=Moy_T(carbon1))$LSC
 ```
 
-La variable tickness est donc exclue.
+La variable tickness est donc exclue car sa valeur de $t^2$ est supérieure à $LSC$.
 
 ```{r}
 T2_Hotelling_kn_MYT(k_hc=4,k=k,select=c(1,3),data=carbon2,MoyT=Moy_T(carbon1))
@@ -257,14 +251,10 @@ cov(diff(X))/2
 
 Calcul du $T^2$ et de LSC
 
-Pour chaque prélèvement $t$ on calcule $$T^2_t=(X_t-\bar X)^T.S^{-1}.(X_t-\bar X).$$ Pour la phase I (mise en place de la carte) on utilise : 
-$$
+Pour chaque prélèvement $t$ on calcule $$T^2_t=(X_t-\bar X)^T.S^{-1}.(X_t-\bar X).$$ Pour la phase I (mise en place de la carte) on utilise : $$
 LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
-$$ 
-Pour la phase II on utilise (toujours avec le $k$ de la phase I: 
-$$
-LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
-$$
+$$ Pour la phase II on utilise (toujours avec le $k$ de la phase I: $$
+LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).$$
 
 ***Exemple:*** On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.
 
@@ -363,7 +353,11 @@ plot_chart(T2,LSC=LSC,Type="Carte MEWMA")
 L'analyse en composante principale (ACP) est une méthode factorielle qui permet de réduire la dimension d'une matrice en résumant les caractéristiques à travers des combinaisons linéaires de celles-ci (appelées composantes principales). Elle est particulièrement indiquée lorsque la corrélation entre les caractéristiques est forte.
 
 ::: {.callout-note title="ACP"}
-Etant donnée une matrice $X$ centrée sur les colonnes de dimension $k,p$. On diagonalise la matrice de covariance $\Sigma$ de $X$ ie on écrit $$\Sigma=U\Lambda U^T,$$ où $\Lambda$ est diagonale telle que $\lambda_1\geq ... \geq \lambda_p$, $U$ est une matrice orthogonale. - Les colonnes de $U$ sont les scores factoriels des individus sur les composantes principales - Les valeurs propres $\lambda_1$ sont les variances des composantes principales.
+Etant donnée une matrice $X$ centrée sur les colonnes de dimension $k,p$. On diagonalise la matrice de covariance $\Sigma$ de $X$ ie on écrit $$\Sigma=U\Lambda U^T,$$ où $\Lambda$ est diagonale telle que $\lambda_1\geq ... \geq \lambda_p$, $U$ est une matrice orthogonale.
+
+- Les colonnes de $U$ sont les scores factoriels des individus sur les composantes principales 
+
+- Les valeurs propres $\lambda_1$ sont les variances des composantes principales.
 :::
 
 On peut utiliser la fonction ***PCA*** du package ***FactoMineR*** :
@@ -458,19 +452,3 @@ T2=T2_Hotelling_k1(scores2,S = S)
 plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
 ```
 
-Avec Parafac :
-
-```{r}
-X1=carbon1
-model=parafac(X1,nfac=2)
-X2=carbon2
-res=predict_parafac(X2,model)
-# Hotelling T²
-T2 <- T2_Hotelling_Parafac(A = model$A)
-
-LIC=mean(T2)-3*sd(T2)
-LSC=mean(T2)+3*sd(T2)
-plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase I")
-T2 <- T2_Hotelling_Parafac(res$A_new,S = cov(model$A))
-plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase II")
-```

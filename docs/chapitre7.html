@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Cartes multivariées – MSP</title>
+<title>MSP - 5&nbsp; Cartes multivariées</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,30 +64,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre2.html" rel="next">
+<link href="./exercice.html" rel="next">
 <link href="./chapitre4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -96,42 +90,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -141,13 +107,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre7.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre7.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -156,7 +122,7 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">MSP</a> 
@@ -183,26 +149,26 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre7.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -220,31 +186,30 @@ window.Quarto = {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
-  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">4.2</span> Exemple :</a></li>
-  <li><a href="#notations" id="toc-notations" class="nav-link" data-scroll-target="#notations"><span class="header-section-number">4.3</span> Notations</a></li>
-  <li><a href="#matrice-de-covariance" id="toc-matrice-de-covariance" class="nav-link" data-scroll-target="#matrice-de-covariance"><span class="header-section-number">4.4</span> Matrice de covariance</a></li>
-  <li><a href="#la-distribution-normale-multivariée" id="toc-la-distribution-normale-multivariée" class="nav-link" data-scroll-target="#la-distribution-normale-multivariée"><span class="header-section-number">4.5</span> La distribution normale multivariée}</a></li>
-  <li><a href="#cartes-de-contrôles-t2-hotelling" id="toc-cartes-de-contrôles-t2-hotelling" class="nav-link" data-scroll-target="#cartes-de-contrôles-t2-hotelling"><span class="header-section-number">4.6</span> Cartes de contrôles <span class="math inline">\(T^2\)</span> Hotelling</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
+  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">5.2</span> Exemple :</a></li>
+  <li><a href="#matrice-de-covariance" id="toc-matrice-de-covariance" class="nav-link" data-scroll-target="#matrice-de-covariance"><span class="header-section-number">5.3</span> Matrice de covariance</a></li>
+  <li><a href="#la-distribution-normale-multivariée" id="toc-la-distribution-normale-multivariée" class="nav-link" data-scroll-target="#la-distribution-normale-multivariée"><span class="header-section-number">5.4</span> La distribution normale multivariée}</a></li>
+  <li><a href="#cartes-de-contrôles-t2-hotelling" id="toc-cartes-de-contrôles-t2-hotelling" class="nav-link" data-scroll-target="#cartes-de-contrôles-t2-hotelling"><span class="header-section-number">5.5</span> Cartes de contrôles <span class="math inline">\(T^2\)</span> Hotelling</a>
   <ul class="collapse">
-  <li><a href="#généralités" id="toc-généralités" class="nav-link" data-scroll-target="#généralités"><span class="header-section-number">4.6.1</span> Généralités</a></li>
-  <li><a href="#construction-de-la-carte-phase-i" id="toc-construction-de-la-carte-phase-i" class="nav-link" data-scroll-target="#construction-de-la-carte-phase-i"><span class="header-section-number">4.6.2</span> Construction de la carte (Phase I)</a></li>
-  <li><a href="#application-des-limites-de-contrôle-phase-ii" id="toc-application-des-limites-de-contrôle-phase-ii" class="nav-link" data-scroll-target="#application-des-limites-de-contrôle-phase-ii"><span class="header-section-number">4.6.3</span> Application des limites de contrôle (Phase II)</a></li>
+  <li><a href="#généralités" id="toc-généralités" class="nav-link" data-scroll-target="#généralités"><span class="header-section-number">5.5.1</span> Généralités</a></li>
+  <li><a href="#construction-de-la-carte" id="toc-construction-de-la-carte" class="nav-link" data-scroll-target="#construction-de-la-carte"><span class="header-section-number">5.5.2</span> Construction de la carte :</a></li>
+  <li><a href="#application-des-limites-de-contrôle-phase-ii" id="toc-application-des-limites-de-contrôle-phase-ii" class="nav-link" data-scroll-target="#application-des-limites-de-contrôle-phase-ii"><span class="header-section-number">5.5.3</span> Application des limites de contrôle (Phase II)</a></li>
   </ul></li>
-  <li><a href="#t2-de-hotelling-pour-prélèvement-individuel" id="toc-t2-de-hotelling-pour-prélèvement-individuel" class="nav-link" data-scroll-target="#t2-de-hotelling-pour-prélèvement-individuel"><span class="header-section-number">4.7</span> <span class="math inline">\(T^2\)</span> de Hotelling pour prélèvement individuel</a></li>
-  <li><a href="#carte-sur-la-variance-généralisée" id="toc-carte-sur-la-variance-généralisée" class="nav-link" data-scroll-target="#carte-sur-la-variance-généralisée"><span class="header-section-number">4.8</span> Carte sur la variance généralisée</a></li>
-  <li><a href="#cartes-mewma" id="toc-cartes-mewma" class="nav-link" data-scroll-target="#cartes-mewma"><span class="header-section-number">4.9</span> Cartes MEWMA</a></li>
-  <li><a href="#cartes-sur-composantes-principales" id="toc-cartes-sur-composantes-principales" class="nav-link" data-scroll-target="#cartes-sur-composantes-principales"><span class="header-section-number">4.10</span> Cartes sur composantes principales</a>
+  <li><a href="#t2-de-hotelling-pour-prélèvement-individuel" id="toc-t2-de-hotelling-pour-prélèvement-individuel" class="nav-link" data-scroll-target="#t2-de-hotelling-pour-prélèvement-individuel"><span class="header-section-number">5.6</span> <span class="math inline">\(T^2\)</span> de Hotelling pour prélèvement individuel</a></li>
+  <li><a href="#carte-sur-la-variance-généralisée" id="toc-carte-sur-la-variance-généralisée" class="nav-link" data-scroll-target="#carte-sur-la-variance-généralisée"><span class="header-section-number">5.7</span> Carte sur la variance généralisée</a></li>
+  <li><a href="#cartes-mewma" id="toc-cartes-mewma" class="nav-link" data-scroll-target="#cartes-mewma"><span class="header-section-number">5.8</span> Cartes MEWMA</a></li>
+  <li><a href="#cartes-sur-composantes-principales" id="toc-cartes-sur-composantes-principales" class="nav-link" data-scroll-target="#cartes-sur-composantes-principales"><span class="header-section-number">5.9</span> Cartes sur composantes principales</a>
   <ul class="collapse">
-  <li><a href="#cartes-individuelles" id="toc-cartes-individuelles" class="nav-link" data-scroll-target="#cartes-individuelles"><span class="header-section-number">4.10.1</span> Cartes individuelles :</a></li>
-  <li><a href="#cas-multivarié" id="toc-cas-multivarié" class="nav-link" data-scroll-target="#cas-multivarié"><span class="header-section-number">4.10.2</span> Cas multivarié</a></li>
+  <li><a href="#cartes-individuelles" id="toc-cartes-individuelles" class="nav-link" data-scroll-target="#cartes-individuelles"><span class="header-section-number">5.9.1</span> Cartes individuelles :</a></li>
+  <li><a href="#cas-multivarié" id="toc-cas-multivarié" class="nav-link" data-scroll-target="#cas-multivarié"><span class="header-section-number">5.9.2</span> Cas multivarié</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -254,7 +219,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></h1>
 </div>
 
 
@@ -267,9 +232,7 @@ window.Quarto = {
   </div>
   
 
-
 </header>
-
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(</span>
@@ -283,20 +246,35 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="introduction" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
 <ul>
 <li><p>Cours précédent : une caractéristique <span class="math inline">\(X\)</span> de la production suivie au cours du temps par carte de la moyenne de Shewhart et carte EWMA</p></li>
 <li><p>Ce cours : plusieurs variables <span class="math inline">\(X_1,...,X_p\)</span> caractérisant la production. Il existe toujours des liens entre ces variables donc faire des cartes univariées n’est pas optimal.</p></li>
 </ul>
 </section>
-<section id="exemple" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="exemple"><span class="header-section-number">4.2</span> Exemple :</h2>
+<section id="exemple" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="exemple"><span class="header-section-number">5.2</span> Exemple :</h2>
+<p>Au cours du processus de fabrication d’un tube en fibre de carbone spécifique, trois caractéristiques qualitatives corrélées sont mesurées : le diamètre intérieur, l’épaisseur et la longueur du tube. Ici les données sont sous la forme d’une matrice à trois dimensions.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Notation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On note <span class="math display">\[X=[x_{tji}]_{tji}\]</span> le tableau de données à trois dimensions avec :</p>
 <ul>
-<li><p>Au cours du processus de fabrication d’un tube en fibre de carbone spécifique, trois caractéristiques qualitatives corrélées sont mesurées : le diamètre intérieur, l’épaisseur et la longueur du tube.</p></li>
-<li><p>Ici les données sont sous la forme d’une matrice à trois dimensions.</p></li>
-<li><p>On note <span class="math display">\[X=[x_{tji}]\]</span> la matrice des données où <span class="math inline">\(t\)</span> est le numéro du prélèvement (<span class="math inline">\(t=1,...,k\)</span>), <span class="math inline">\(j\)</span> est l’indice de la variable (<span class="math inline">\(j=1,...,p\)</span>) et <span class="math inline">\(i\)</span> le numéro de l’observation (<span class="math inline">\(i=1,...,n\)</span>).</p></li>
+<li><p><span class="math inline">\(t\)</span> numéro du prélèvement (<span class="math inline">\(t=1,...,k\)</span>),</p></li>
+<li><p><span class="math inline">\(j\)</span> est l’indice de la variable (<span class="math inline">\(j=1,...,p\)</span>) et</p></li>
+<li><p><span class="math inline">\(i\)</span> le numéro de l’observation (<span class="math inline">\(i=1,...,n\)</span>).</p></li>
 </ul>
+</div>
+</div>
+<p>Sur les données précédentes :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"carbon1"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(carbon1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -308,30 +286,25 @@ window.Quarto = {
 <pre><code>[1] 30  3  8</code></pre>
 </div>
 </div>
-</section>
-<section id="notations" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="notations"><span class="header-section-number">4.3</span> Notations</h2>
-<ul>
-<li><p>Les données sont dans une matrice à trois dimensions.</p></li>
-<li><p>On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice <span class="math inline">\((k,p)\)</span> dont les éléments sont les moyennes.</p></li>
-</ul>
-<p><embed src="figure/cube_data.pdf" class="img-fluid"></p>
+<p>Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice <span class="math inline">\((k,p)\)</span> dont les éléments sont les moyennes.</p>
+<p><img src="figure/cube.png" class="img-fluid"></p>
 <p>On peut tracer le graphe de corrélation des 30 moyennes de <span class="math inline">\(X=(X_1,X_2,X_3)\)</span> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">Moy_X</span>(carbon1)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_point(): All aesthetics have length 1, but the data has 9 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
+<div class="cell-output-display">
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>On en déduit que les corrélations entre les trois caractéristiques sont fortes et significatives.</p>
 </section>
-<section id="matrice-de-covariance" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="matrice-de-covariance"><span class="header-section-number">4.4</span> Matrice de covariance</h2>
+<section id="matrice-de-covariance" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="matrice-de-covariance"><span class="header-section-number">5.3</span> Matrice de covariance</h2>
 <ul>
 <li><p>Soit <span class="math inline">\(X,Y\)</span> deux variables aléatoires réelles, la covariance <span class="math inline">\(\sigma_{X,Y}=\mathbb E \left([X-\mathbb E(X)][Y-\mathbb E(Y)] \right)\)</span>. On a <span class="math inline">\(\sigma_{X,X}=\sigma^2_X\)</span> (variance de X).</p></li>
 <li><p>Si les variables <span class="math inline">\(X,Y\)</span> sont indépendantes alors <span class="math inline">\(\sigma_{X,Y}=0\)</span>. (réciproque fausse)</p></li>
@@ -355,7 +328,7 @@ Propriétés de <span class="math inline">\(\Sigma\)</span>
 </ul>
 </div>
 </div>
-<p>Il faut estimer cette matrice à partir de la matrice de données <span class="math inline">\(X_{tji}\)</span> : il s’agit de la moyenne des covariances empiriques des <span class="math inline">\(k\)</span> prélèvements.</p>
+<p>Il faut estimer cette matrice à partir de la matrice des données <span class="math inline">\(x_{tji}\)</span> : il s’agit de la moyenne des covariances empiriques des <span class="math inline">\(k\)</span> prélèvements.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Estimation de $\Sigma$">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -371,7 +344,7 @@ Estimation de <span class="math inline">\(\Sigma\)</span>
 </div>
 <p>La fonction <em>covariance_X</em> du package <em>multiSPC</em> permet de réaliser ce calcul.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">covariance_X</span>(carbon1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">covariance_X</span>(carbon1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                inner   thickness      length
 inner     0.002486845 0.003586726 0.006694762
@@ -381,25 +354,21 @@ length    0.006694762 0.010203155 0.059207381</code></pre>
 </div>
 <p><em>Remarque :</em> La corrélation est la covariance des variables standardisées.</p>
 </section>
-<section id="la-distribution-normale-multivariée" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="la-distribution-normale-multivariée"><span class="header-section-number">4.5</span> La distribution normale multivariée}</h2>
+<section id="la-distribution-normale-multivariée" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="la-distribution-normale-multivariée"><span class="header-section-number">5.4</span> La distribution normale multivariée}</h2>
 <p>La densité de probabilité de <span class="math inline">\(X\sim \mathcal N(\mu,\sigma)\)</span> est pour <span class="math inline">\(x\in \mathbb R\)</span> <span class="math display">\[f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac1{2}[\sigma^{-1}(x-\mu)]^2}.\]</span></p>
 <p><em>Exemple :</em> <span class="math inline">\(\mu=0,\sigma=1\)</span>, <span class="math inline">\(\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac1{2}x^2}.\)</span></p>
 <p>On a <span class="math inline">\(\varphi(0)=\)</span> 0.4 et <span class="math inline">\(\varphi(2)=\)</span> 0.1</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>La densité de probabilité de <span class="math inline">\((X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)\)</span> est pour <span class="math inline">\(x=(x_1,...,x_p)\in \mathbb R^p\)</span> <span class="math display">\[f_p(x)=\frac{1}{|\Sigma|^{-1/2}\sqrt{2\pi}}e^{-\frac1{2}[(x-\mu)^T\Sigma^{-1}(x-\mu)]}.\]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figure/fig_3D_N_2.png" class="img-fluid figure-img"></p>
-<figcaption>Loi Normale bivariée</figcaption>
+<figcaption class="figure-caption">Loi Normale bivariée</figcaption>
 </figure>
 </div>
 <ul>
@@ -407,10 +376,10 @@ length    0.006694762 0.010203155 0.059207381</code></pre>
 <li><p>Tout plan vertical passant par <span class="math inline">\((0,0)\)</span> donne une loi normale centrée.</p></li>
 </ul>
 </section>
-<section id="cartes-de-contrôles-t2-hotelling" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="cartes-de-contrôles-t2-hotelling"><span class="header-section-number">4.6</span> Cartes de contrôles <span class="math inline">\(T^2\)</span> Hotelling</h2>
-<section id="généralités" class="level3" data-number="4.6.1">
-<h3 data-number="4.6.1" class="anchored" data-anchor-id="généralités"><span class="header-section-number">4.6.1</span> Généralités</h3>
+<section id="cartes-de-contrôles-t2-hotelling" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="cartes-de-contrôles-t2-hotelling"><span class="header-section-number">5.5</span> Cartes de contrôles <span class="math inline">\(T^2\)</span> Hotelling</h2>
+<section id="généralités" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="généralités"><span class="header-section-number">5.5.1</span> Généralités</h3>
 <ul>
 <li><p>Le vecteur des caractéristiques <span class="math inline">\(X=(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma).\)</span></p></li>
 <li><p>Pour un prélèvement <span class="math inline">\(t\)</span>, <span class="math inline">\(\bar X_{t}=(\bar X_{t1},...,\bar X_{tp})\)</span> avec <span class="math inline">\(X_{t}=\)</span> i.i.d. de même loi que <span class="math inline">\(X\)</span>.</p></li>
@@ -440,7 +409,7 @@ Quelques remarques
 </div>
 <p>La moyenne empirique <span class="math inline">\(\overline X\)</span> est égale à</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Moy_T</span>(carbon1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Moy_T</span>(carbon1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     inner  thickness     length 
  0.9949583  1.0372083 49.9843333 </code></pre>
@@ -448,8 +417,8 @@ Quelques remarques
 </div>
 <p>Sur R :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_kn</span>(<span class="at">data =</span> carbon1)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(T2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_kn</span>(<span class="at">data =</span> carbon1)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(T2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 4.98848636 4.65756465 3.27858449 1.93129021 5.61700024 4.63924111
  [7] 5.50056763 0.86557296 2.87376790 0.48616297 2.39585925 1.98317510
@@ -459,16 +428,16 @@ Quelques remarques
 </div>
 </div>
 </section>
-<section id="construction-de-la-carte-phase-i" class="level3" data-number="4.6.2">
-<h3 data-number="4.6.2" class="anchored" data-anchor-id="construction-de-la-carte-phase-i"><span class="header-section-number">4.6.2</span> Construction de la carte (Phase I)</h3>
+<section id="construction-de-la-carte" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="construction-de-la-carte"><span class="header-section-number">5.5.2</span> Construction de la carte :</h3>
 <ul>
 <li><p>Pour la phase I (construction de la carte de Hotelling) on pose : <span class="math display">\[LSC=\frac{p(k-1)(n-1)}{kn-k-p+1}F_{(p,kn-k-p+1)}(1-\alpha).\]</span></p></li>
 <li><p>Pour la phase II (futures observations,[!] <span class="math inline">\(k\)</span> est le nombre de prélèvements de la phase I) on pose : <span class="math display">\[LSC=\frac{p(k+1)(n-1)}{kn-k-p+1}F_{(p,kn-k-p+1)}(1-\alpha).\]</span></p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">dim</span>(carbon1)[<span class="dv">1</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>LSCT2<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_kn</span>(carbon1)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(LSCT2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">dim</span>(carbon1)[<span class="dv">1</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>LSCT2<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_kn</span>(carbon1)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(LSCT2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  PhaseI  PhaseII 
 11.35182 12.13470 </code></pre>
@@ -476,36 +445,28 @@ Quelques remarques
 </div>
 <p>Ce qui donne la carte suivante (sur les données ayant permis de calculer LSC) :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"Carte du T2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"Carte du T2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="application-des-limites-de-contrôle-phase-ii" class="level3" data-number="4.6.3">
-<h3 data-number="4.6.3" class="anchored" data-anchor-id="application-des-limites-de-contrôle-phase-ii"><span class="header-section-number">4.6.3</span> Application des limites de contrôle (Phase II)</h3>
+<section id="application-des-limites-de-contrôle-phase-ii" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="application-des-limites-de-contrôle-phase-ii"><span class="header-section-number">5.5.3</span> Application des limites de contrôle (Phase II)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"carbon2"</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_kn</span>(carbon2,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">MoyT =</span><span class="fu">Moy_T</span>(carbon1),</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S=</span><span class="fu">covariance_X</span>(carbon1))</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"Carte T2 de Hotelling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"carbon2"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_kn</span>(carbon2,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">MoyT =</span><span class="fu">Moy_T</span>(carbon1),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S=</span><span class="fu">covariance_X</span>(carbon1))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"Carte T2 de Hotelling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>On a prélevé 25 nouveaux échantillons et on identifie un point hors-contrôle (4ième prélèvement).</p>
 <ul>
 <li><p>Pour les caractéristiques univariées, lorsqu’un point est hors des limites de contrôles, il est évident que le procédé a eu une déviation non aléatoire.</p></li>
-<li><p>Pour les caractéristiques multivariées, il est nécessaire d’identifier laquelle (lesquelles) a (ont) eu une déviation non aléatoire.</p></li>
+<li><p>Pour les caractéristiques multivariées, il est nécessaire d’identifier laquelle (lesquelles) des caractéristiques a (ont) eu une déviation non aléatoire.</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="MYT décomposition">
 <div class="callout-header d-flex align-content-center">
@@ -517,48 +478,40 @@ MYT décomposition
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On considère un prélèvement <span class="math inline">\(t\)</span> Hors Contrôle, on note <span class="math inline">\(\mathcal{X}=(X_{tji})_{ji}\)</span> la matrice des caractéristique de ce prélèvement. On note <span class="math inline">\(\bar{\mathcal{X}}=(\bar{\mathcal {X}}_1,...,\bar{\mathcal{X}}_p)\)</span> le vecteur des moyennes de ces caractéristiques.</p>
+<p>On considère qu’un prélèvement <span class="math inline">\(t\)</span> est hors-contrôle, on note <span class="math inline">\(\textbf{X}_t=(X_{tji})_{1\leq j\leq p;1\leq i\leq n}\)</span> la matrice des caractéristique de ce prélèvement. On note <span class="math inline">\(\bar{\textbf{X}}_t=(\bar{X}^{(t)}_{1},...,\bar{X}^{(t)}_{p})\)</span> le vecteur des moyennes de ces caractéristiques.</p>
 <ol type="1">
-<li>Etape 1 : Contribution individuelle.</li>
-</ol>
-<!-- -->
-<ol type="a">
-<li><p>Calculer <span class="math inline">\(T^2_{j}=\frac{n(\bar{\mathcal {X}}_j-\overline{\overline X}_j)^2}{s_j^2}\)</span> pour chaque variable <span class="math inline">\(j\)</span> où <span class="math inline">\(s_j^2\)</span> est la variance de la caractéristique <span class="math inline">\(\bar{\mathcal {X}}_j\)</span>.</p></li>
-<li><p>Calculer pour <span class="math inline">\(p=1\)</span>, <span class="math inline">\(LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha).\)</span></p></li>
-<li><p>Exclure les variables <span class="math inline">\(j\)</span> qui vérifient <span class="math inline">\(T^2_j&gt;LSC.\)</span></p></li>
+<li>Etape 1 : Contribution individuelle. Calculer <span class="math display">\[t^2_{j}=\frac{n(\bar{X}^{(t)}_{j}-\overline{ X}_j)^2}{s_j^2}\]</span> pour chaque variable <span class="math inline">\(j\)</span> où <span class="math inline">\(s_j^2\)</span> est la variance de la caractéristique <span class="math inline">\(X^{(t)}_j\)</span>. Calculer pour <span class="math inline">\(p=1\)</span>, Exclure les variables <span class="math inline">\(j\)</span> qui vérifient <span class="math inline">\(t^2_j&gt;LSC,\)</span> où <span class="math inline">\(LSC=\frac{(k+1)(k-1)}{k(k-1)}F_{(p,k-1)}(1-\alpha).\)</span></li>
 </ol>
 <!-- -->
 <ol start="2" type="1">
-<li>Etape 2 : Contribution bivariée. On retire toutes variables identifiées à l’étape 1. On note <span class="math inline">\(J\)</span> les indices des variables restantes</li>
-</ol>
-<!-- -->
-<ol type="a">
-<li><p>Pour <span class="math inline">\(j,j'\in J\)</span>, calculer <span class="math inline">\(T_{jj'}^2\)</span> correspondant aux colonnes <span class="math inline">\(j,j'\)</span> de la matrice <span class="math inline">\(\mathcal{X}\)</span>.</p></li>
-<li><p>Calculer pour <span class="math inline">\(p=2\)</span>, <span class="math inline">\(LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha).\)</span></p></li>
-<li><p>Exclure les variables <span class="math inline">\(j,j'\)</span> qui vérifient <span class="math inline">\(T^2_{jj'}&gt;LSC.\)</span> On itère les étapes précédentes jusqu’au modèle qui contient toutes les variables restantes.</p></li>
+<li>Etape 2 : Contribution bivariée. On retire toutes variables identifiées à l’étape 1. On note <span class="math inline">\(J\)</span> les indices des variables restantes. Pour <span class="math inline">\(j,j'\in J\)</span>, calculer <span class="math inline">\(T_{jj'}^2\)</span> correspondant aux colonnes <span class="math inline">\(j,j'\)</span> de la matrice <span class="math inline">\(\textbf{X}_t\)</span>.</li>
+<li>Exclure les variables <span class="math inline">\(j,j'\)</span> qui vérifient <span class="math inline">\(T^2_{jj'}&gt;LSC,\)</span> où <span class="math inline">\(LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha),\)</span> pour <span class="math inline">\(p=2.\)</span></li>
+<li>On itère les étapes précédentes jusqu’au modèle qui contient toutes les variables restantes.</li>
 </ol>
 </div>
 </div>
 <p>Retour sur l’exemple :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fu">dim</span>(carbon2)[<span class="dv">2</span>]</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">dim</span>(carbon2)[<span class="dv">1</span>]</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>T2j<span class="ot">=</span><span class="cn">NULL</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) T2j<span class="ot">=</span><span class="fu">c</span>(T2j,<span class="fu">T2_Hotelling_kn_MYT</span>(<span class="at">k_hc=</span><span class="dv">4</span>,<span class="at">k=</span>k,<span class="at">select=</span>j,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">data=</span>carbon2,<span class="at">MoyT=</span><span class="fu">Moy_T</span>(carbon1))<span class="sc">$</span>T2)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>T2j </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fu">dim</span>(carbon2)[<span class="dv">2</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">dim</span>(carbon2)[<span class="dv">1</span>]</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>T2j<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) T2j<span class="ot">=</span><span class="fu">c</span>(T2j,<span class="fu">T2_Hotelling_kn_MYT</span>(<span class="at">k_hc=</span><span class="dv">4</span>,<span class="at">k=</span>k,<span class="at">select=</span>j,<span class="at">data=</span>carbon2,<span class="at">MoyT=</span><span class="fu">Moy_T</span>(carbon1))<span class="sc">$</span>T2)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Valeurs des t2j :</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>T2j </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    inner thickness    length 
  4.795952 12.259130  3.416894 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">T2_Hotelling_kn_MYT</span>(<span class="at">k_hc=</span><span class="dv">4</span>,<span class="at">k=</span>k,<span class="at">select=</span><span class="dv">1</span>,<span class="at">data=</span>carbon2,<span class="at">MoyT=</span><span class="fu">Moy_T</span>(carbon1))<span class="sc">$</span>LSC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Valeur de la LSC :</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">T2_Hotelling_kn_MYT</span>(<span class="at">k_hc=</span><span class="dv">4</span>,<span class="at">k=</span>k,<span class="at">select=</span><span class="dv">1</span>,<span class="at">data=</span>carbon2,<span class="at">MoyT=</span><span class="fu">Moy_T</span>(carbon1))<span class="sc">$</span>LSC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8.135785</code></pre>
 </div>
 </div>
-<p>La variable tickness est donc exclue.</p>
+<p>La variable tickness est donc exclue car sa valeur de <span class="math inline">\(t^2\)</span> est supérieure à <span class="math inline">\(LSC\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">T2_Hotelling_kn_MYT</span>(<span class="at">k_hc=</span><span class="dv">4</span>,<span class="at">k=</span>k,<span class="at">select=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),<span class="at">data=</span>carbon2,<span class="at">MoyT=</span><span class="fu">Moy_T</span>(carbon1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">T2_Hotelling_kn_MYT</span>(<span class="at">k_hc=</span><span class="dv">4</span>,<span class="at">k=</span>k,<span class="at">select=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),<span class="at">data=</span>carbon2,<span class="at">MoyT=</span><span class="fu">Moy_T</span>(carbon1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$T2
          [,1]
@@ -571,8 +524,8 @@ $LSC
 <p>Donc cette valeur n’est pas HC sur les deux autres variables.</p>
 </section>
 </section>
-<section id="t2-de-hotelling-pour-prélèvement-individuel" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="t2-de-hotelling-pour-prélèvement-individuel"><span class="header-section-number">4.7</span> <span class="math inline">\(T^2\)</span> de Hotelling pour prélèvement individuel</h2>
+<section id="t2-de-hotelling-pour-prélèvement-individuel" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="t2-de-hotelling-pour-prélèvement-individuel"><span class="header-section-number">5.6</span> <span class="math inline">\(T^2\)</span> de Hotelling pour prélèvement individuel</h2>
 <ul>
 <li><p>Dans de nombreuses applications on ne peut prélever qu’une seule observation (<span class="math inline">\(n=1\)</span>) par prélèvement.</p></li>
 <li><p>Ceci nécessite donc d’adapter la carte de Hotelling. Le problème étant l’approximation de la matrice de covariance <span class="math inline">\(\Sigma\)</span>.</p></li>
@@ -592,14 +545,14 @@ Estimation de <span class="math inline">\(\Sigma\)</span>
 </ul>
 <p>Dans R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">covariance_X</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">covariance_X</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Holmes and Mergen (1993) ont proposé 1/2 fois la matrice de covariance corrigée entre les différences entre deux prélèvements consécutifs :</li>
 </ul>
 <p>Dans R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(<span class="fu">diff</span>(X))<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(<span class="fu">diff</span>(X))<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -607,12 +560,11 @@ Estimation de <span class="math inline">\(\Sigma\)</span>
 <p>Pour chaque prélèvement <span class="math inline">\(t\)</span> on calcule <span class="math display">\[T^2_t=(X_t-\bar X)^T.S^{-1}.(X_t-\bar X).\]</span> Pour la phase I (mise en place de la carte) on utilise : <span class="math display">\[
 LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
 \]</span> Pour la phase II on utilise (toujours avec le <span class="math inline">\(k\)</span> de la phase I: <span class="math display">\[
-LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
-\]</span></p>
+LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).\]</span></p>
 <p><strong><em>Exemple:</em></strong> On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"bimetal1"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bimetal1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"bimetal1"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bimetal1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     deflection curvature resistivity Hardness low side Hardness high side
 [1,]      20.84     39.84       14.98             21.88              25.87
@@ -625,82 +577,62 @@ LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
 </div>
 <p>On peut représenter les corrélations des caractéristiques :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(bimetal1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(bimetal1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Ci dessous la carte de contrôle dans R pour la phase I :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(bimetal1))<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(bimetal1,<span class="at">S =</span> S)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>LSCT2<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(bimetal1)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 individuel Phase I"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(bimetal1))<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(bimetal1,<span class="at">S =</span> S)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>LSCT2<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(bimetal1)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 individuel Phase I"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Les prélèvements 16, 19 et 20 sont exclus du calcul de LSC (car HC) :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span>bimetal1[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">19</span>,<span class="dv">20</span>),]</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(df))<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(df,<span class="at">S =</span> S)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>LSCT2<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(df)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 individuel Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span>bimetal1[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">19</span>,<span class="dv">20</span>),]</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(df))<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(df,<span class="at">S =</span> S)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>LSCT2<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(df)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 individuel Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>On utilise les données bimetal2 pour suivre la production :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"bimetal2"</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(bimetal2,</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">MoyT =</span> <span class="fu">Moy_T</span>(df),</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S=</span>S)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 individuel Phase II"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"bimetal2"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(bimetal2,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">MoyT =</span> <span class="fu">Moy_T</span>(df),</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S=</span>S)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSCT2[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 individuel Phase II"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Deux prélèvements sont HC on va comme précédemment s’intéresser aux caractéristiques impliquant la présence de ces points HC. On peut pour ce faire regarder les cartes de contrôles univariées puis bivariée en ces points.</p>
 </section>
-<section id="carte-sur-la-variance-généralisée" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="carte-sur-la-variance-généralisée"><span class="header-section-number">4.8</span> Carte sur la variance généralisée</h2>
+<section id="carte-sur-la-variance-généralisée" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="carte-sur-la-variance-généralisée"><span class="header-section-number">5.7</span> Carte sur la variance généralisée</h2>
 <ul>
 <li>Pour <span class="math inline">\(X\sim\mathcal N_p(\mu,\Sigma)\)</span>, la variance généralisée est définie comme le déterminant de la matrice de covariance <span class="math inline">\(\Sigma\)</span>. Pour le prélèvement <span class="math inline">\(t\)</span> on calcule <span class="math display">\[D_t=\text{det}(\Sigma_t).\]</span></li>
 <li>Comme précédemment la matrice <span class="math inline">\(\Sigma\)</span> est inconnue et donc elle est approximée à partir de <span class="math inline">\(S\)</span>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">generalized_variance</span>(carbon1)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(S<span class="sc">$</span>detSj,<span class="at">LIC=</span>S<span class="sc">$</span>LIC,<span class="at">LSC=</span>S<span class="sc">$</span>LSC,<span class="at">Type=</span><span class="st">"Carte de la variance généralisée."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">generalized_variance</span>(carbon1)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(S<span class="sc">$</span>detSj,<span class="at">LIC=</span>S<span class="sc">$</span>LIC,<span class="at">LSC=</span>S<span class="sc">$</span>LSC,<span class="at">Type=</span><span class="st">"Carte de la variance généralisée."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="cartes-mewma" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="cartes-mewma"><span class="header-section-number">4.9</span> Cartes MEWMA</h2>
+<section id="cartes-mewma" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="cartes-mewma"><span class="header-section-number">5.8</span> Cartes MEWMA</h2>
 <ul>
 <li><p>Les cartes <span class="math inline">\(T^2\)</span> permettent comme les cartes de Shewart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.</p></li>
 <li><p>On généralise les cartes EWMA à <span class="math inline">\(p\)</span> variables. Etant données les <span class="math inline">\(k\)</span> moyennes <span class="math inline">\((\bar X_1,..,\bar X_k)\)</span> où <span class="math inline">\(\bar X_t\in \mathbb R^p\)</span>, on calcule <span class="math display">\[Z_t=\lambda \bar X_t+(1-\lambda)Z_{t-1},\]</span> pour <span class="math inline">\(0&lt;\lambda&lt;1.\)</span> En pratique on choisit souvent <span class="math inline">\(\lambda=0.1\)</span>.</p></li>
@@ -712,40 +644,32 @@ LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
 <li><p>Le calcul de <span class="math inline">\(LSC\)</span> est dans ce cas complexe</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spc)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mewma.crit</span>(<span class="at">l=</span><span class="fl">0.1</span>, <span class="at">L0=</span><span class="dv">200</span>, <span class="at">p=</span><span class="dv">3</span>, <span class="at">hs=</span><span class="dv">0</span>, <span class="at">r=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spc)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mewma.crit</span>(<span class="at">l=</span><span class="fl">0.1</span>, <span class="at">L0=</span><span class="dv">200</span>, <span class="at">p=</span><span class="dv">3</span>, <span class="at">hs=</span><span class="dv">0</span>, <span class="at">r=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>On peut construire la carte MEWMA dans l’exemple sur le carbone :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"carbon1"</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_MEWMA_kn</span>(carbon1)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"Carte MEWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"carbon1"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_MEWMA_kn</span>(carbon1)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"Carte MEWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>On peut aussi considérer des cartes MEWMA à données individuelles :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_MEWMA_k1</span>(bimetal1)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mewma.crit</span>(<span class="at">l=</span><span class="fl">0.1</span>, <span class="at">L0=</span><span class="dv">200</span>, <span class="at">p=</span>p, <span class="at">hs=</span><span class="dv">0</span>, <span class="at">r=</span><span class="dv">20</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"Carte MEWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_MEWMA_k1</span>(bimetal1)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mewma.crit</span>(<span class="at">l=</span><span class="fl">0.1</span>, <span class="at">L0=</span><span class="dv">200</span>, <span class="at">p=</span>p, <span class="at">hs=</span><span class="dv">0</span>, <span class="at">r=</span><span class="dv">20</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"Carte MEWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="cartes-sur-composantes-principales" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="cartes-sur-composantes-principales"><span class="header-section-number">4.10</span> Cartes sur composantes principales</h2>
-<section id="cartes-individuelles" class="level3" data-number="4.10.1">
-<h3 data-number="4.10.1" class="anchored" data-anchor-id="cartes-individuelles"><span class="header-section-number">4.10.1</span> Cartes individuelles :</h3>
+<section id="cartes-sur-composantes-principales" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="cartes-sur-composantes-principales"><span class="header-section-number">5.9</span> Cartes sur composantes principales</h2>
+<section id="cartes-individuelles" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="cartes-individuelles"><span class="header-section-number">5.9.1</span> Cartes individuelles :</h3>
 <p>L’analyse en composante principale (ACP) est une méthode factorielle qui permet de réduire la dimension d’une matrice en résumant les caractéristiques à travers des combinaisons linéaires de celles-ci (appelées composantes principales). Elle est particulièrement indiquée lorsque la corrélation entre les caractéristiques est forte.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="ACP">
 <div class="callout-header d-flex align-content-center">
@@ -757,41 +681,37 @@ ACP
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Etant donnée une matrice <span class="math inline">\(X\)</span> centrée sur les colonnes de dimension <span class="math inline">\(k,p\)</span>. On diagonalise la matrice de covariance <span class="math inline">\(\Sigma\)</span> de <span class="math inline">\(X\)</span> ie on écrit <span class="math display">\[\Sigma=U\Lambda U^T,\]</span> où <span class="math inline">\(\Lambda\)</span> est diagonale telle que <span class="math inline">\(\lambda_1\geq ... \geq \lambda_p\)</span>, <span class="math inline">\(U\)</span> est une matrice orthogonale. - Les colonnes de <span class="math inline">\(U\)</span> sont les scores factoriels des individus sur les composantes principales - Les valeurs propres <span class="math inline">\(\lambda_1\)</span> sont les variances des composantes principales.</p>
+<p>Etant donnée une matrice <span class="math inline">\(X\)</span> centrée sur les colonnes de dimension <span class="math inline">\(k,p\)</span>. On diagonalise la matrice de covariance <span class="math inline">\(\Sigma\)</span> de <span class="math inline">\(X\)</span> ie on écrit <span class="math display">\[\Sigma=U\Lambda U^T,\]</span> où <span class="math inline">\(\Lambda\)</span> est diagonale telle que <span class="math inline">\(\lambda_1\geq ... \geq \lambda_p\)</span>, <span class="math inline">\(U\)</span> est une matrice orthogonale.</p>
+<ul>
+<li><p>Les colonnes de <span class="math inline">\(U\)</span> sont les scores factoriels des individus sur les composantes principales</p></li>
+<li><p>Les valeurs propres <span class="math inline">\(\lambda_1\)</span> sont les variances des composantes principales.</p></li>
+</ul>
 </div>
 </div>
 <p>On peut utiliser la fonction <strong><em>PCA</em></strong> du package <strong><em>FactoMineR</em></strong> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bimetal1)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">scale</span>(bimetal1[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">19</span>,<span class="dv">20</span>),],<span class="at">center=</span><span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">FALSE</span>)</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(X,<span class="at">scale.unit=</span>F,<span class="at">graph =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bimetal1)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">scale</span>(bimetal1[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">19</span>,<span class="dv">20</span>),],<span class="at">center=</span><span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">FALSE</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(X,<span class="at">scale.unit=</span>F,<span class="at">graph =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Le choix du nombre de composantes se fait en étudiant l’éboulis des valeurs propres</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>On choisit ici deux composantes.</p>
 <p>On peut représenter les caractéristiques initiales sur le plan factoriel :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Le calcul de <span class="math inline">\(T^2\)</span> se fait à partir des scores factoriels :<br>
@@ -799,38 +719,30 @@ ACP
 T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(scores))<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S=</span>S)</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>LSCpca<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(scores)</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(scores))<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S=</span>S)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>LSCpca<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(scores)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>ce qui donne sur les nouveaux points :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span><span class="fu">scale</span>(bimetal2,<span class="at">scale=</span>F)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict.PCA</span>(pca,<span class="at">newdata =</span> X2)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S =</span> S)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span><span class="fu">scale</span>(bimetal2,<span class="at">scale=</span>F)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict.PCA</span>(pca,<span class="at">newdata =</span> X2)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S =</span> S)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="cas-multivarié" class="level3" data-number="4.10.2">
-<h3 data-number="4.10.2" class="anchored" data-anchor-id="cas-multivarié"><span class="header-section-number">4.10.2</span> Cas multivarié</h3>
+<section id="cas-multivarié" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="cas-multivarié"><span class="header-section-number">5.9.2</span> Cas multivarié</h3>
 <p>Revenons sur l’ACP : on sélectionne <span class="math inline">\(r\)</span> composantes principales (principe du coude par exemple) et soit <span class="math inline">\(U_r\)</span> les <span class="math inline">\(r\)</span> premières colonnes de la matrice des vecteurs propres de la matrice de covariance de <span class="math inline">\(X\)</span>.</p>
 <p>Les scores des individus sur les composantes principales sont donnés par <span class="math inline">\(T=X.U,\)</span> donc si on pose <span class="math inline">\(\hat X=T.U_r^T\)</span> alors on a : <span class="math display">\[
 X=\hat X+ E,
@@ -841,110 +753,44 @@ X^c_{new}=X_{new}-\bar X,
 <p>On calcule <span class="math inline">\(T_{new}=X^c_{new}.U_r\)</span> et donc <span class="math inline">\(\hat X^c_{new}=T_{new}.U^T_r\)</span>.</p>
 <p>On va appliquer ce principe à la matrice <span class="math inline">\((k,np)\)</span> correspondant aux données X qui seront empilées selon le troisème mode de <span class="math inline">\(X\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">dim</span>(X1)[<span class="dv">3</span>]</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X1[,,i])</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">dim</span>(X1)[<span class="dv">3</span>]</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X1[,,i])</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 30 24</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">scale =</span> F)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(X,<span class="dv">2</span>,mean)</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(Xc,<span class="at">scale.unit =</span> F,<span class="at">graph=</span>F,<span class="at">ncp =</span> <span class="fu">dim</span>(Xc)[<span class="dv">2</span>])</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">scale =</span> F)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(X,<span class="dv">2</span>,mean)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(Xc,<span class="at">scale.unit =</span> F,<span class="at">graph=</span>F,<span class="at">ncp =</span> <span class="fu">dim</span>(Xc)[<span class="dv">2</span>])</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
 </div>
-</div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span><span class="dv">6</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>scores<span class="ot">=</span>pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(scores)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S =</span> S)</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span><span class="dv">6</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>scores<span class="ot">=</span>pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(scores)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S =</span> S)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-2.png" class="img-fluid" width="672"></p>
 </div>
-</div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X2[,,i])</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X2[,,i])</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25 24</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">center=</span>M,<span class="at">scale =</span> F)</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict</span>(pca,<span class="at">newdata=</span>Xc)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,<span class="at">S =</span> S)</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">center=</span>M,<span class="at">scale =</span> F)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict</span>(pca,<span class="at">newdata=</span>Xc)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,<span class="at">S =</span> S)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Avec Parafac :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>model<span class="ot">=</span><span class="fu">parafac</span>(X1,<span class="at">nfac=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  |                                                                            
-  |                                                                      |   0%
-  |                                                                            
-  |=======                                                               |  10%
-  |                                                                            
-  |==============                                                        |  20%
-  |                                                                            
-  |=====================                                                 |  30%
-  |                                                                            
-  |============================                                          |  40%
-  |                                                                            
-  |===================================                                   |  50%
-  |                                                                            
-  |==========================================                            |  60%
-  |                                                                            
-  |=================================================                     |  70%
-  |                                                                            
-  |========================================================              |  80%
-  |                                                                            
-  |===============================================================       |  90%
-  |                                                                            
-  |======================================================================| 100%</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>res<span class="ot">=</span><span class="fu">predict_parafac</span>(X2,model)</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hotelling T²</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fu">T2_Hotelling_Parafac</span>(<span class="at">A =</span> model<span class="sc">$</span>A)</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>LIC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LIC=</span>LIC,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 Parafac Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fu">T2_Hotelling_Parafac</span>(res<span class="sc">$</span>A_new,<span class="at">S =</span> <span class="fu">cov</span>(model<span class="sc">$</span>A))</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LIC=</span>LIC,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 Parafac Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-30-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-29-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
@@ -988,7 +834,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1020,48 +877,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1071,17 +891,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1093,129 +904,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1259,7 +948,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1285,32 +973,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1372,18 +1034,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapitre4.html" class="pagination-link" aria-label="Cartes univariées">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span>
+      <a href="./chapitre4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre2.html" class="pagination-link" aria-label="Capabilité, Répétabilité, Reproductivité">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./exercice.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 
