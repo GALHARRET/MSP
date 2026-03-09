@@ -473,4 +473,7 @@ LSC=mean(T2)+3*sd(T2)
 plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase I")
 T2 <- T2_Hotelling_Parafac(res$A_new,S = cov(model$A))
 plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase II")
+
 ```
+
+Les données ![figure](cover.png)
