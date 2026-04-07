@@ -101,17 +101,19 @@ Les limites de ces cartes sont variables (en fonction de $i$) pour $X\sim \mathc
 
 Lorsque le nombre $i$ de prélèvement est très grand alors $LC = \mu \pm L\sigma\times \sqrt {\frac{\lambda}{2-\lambda}}$. Dans ce cas on peut jouer sur ce paramètre $L$ pour améliorer l'efficacité de la carte en fonction de $\lambda$.
 
+Lorsque l'on suit la moyenne des prélèvements (comme c'est le cas avec la carte de la moyenne) alors $L=\frac{2.7}{\sqrt{n}}.$
+
 ## Comparaison de la puissance de la carte EWMA et de la carte de la moyenne :
 
-On choisit $\lambda=0.1$.
+On choisit $\lambda=0.4$.
 
 ```{r}
-lambda=0.1
-Z<-ewma_cart(M,mu=mu,sig=sig,lambda=lambda,L = 2.7)
+lambda=0.4
+Z<-ewma_cart(M,mu=mu,sig=sig,lambda=lambda,L = 2.7/sqrt(n))
 plot_chart(Z$z,LIC=Z$LIC,LSC=Z$LSC,Type="Carte EWMA")
 ```
 
-Si on considère que la déviation commence à partir du 11ième prélèvement alors la carte EWMA la détectera 8 prélèvements plus tard.
+Si on considère que la déviation commence à partir du 11ième prélèvement alors la carte EWMA la détectera 4 prélèvements plus tard.
 
 Pour ce qui concerne la carte de la moyenne :
 

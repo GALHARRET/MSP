@@ -1,60 +1,76 @@
 # Exercice
 
-On considère le jeu de données [X](X.rda) qui correspond au suivi de 5 caractéristiques d'une production.
+- On considère le jeu de données [X](X.rda) qui correspond au suivi de 5 caractéristiques d'une production.
 
-Les 15 premiers prélèvements ont été effectués pour les 10 min et vont servir à mettre en place les limites de contrôle. Les prélèvements suivants (16 à 40) ont été réalisés 6 fois par jour.
-
-## Premier travail : cartes univariées
-
--   Calculer les limites des cartes sur les 15 premiers points :
+- On a prélevé 40 échantillons de 6 observations. Les 15 premiers prélèvements ont été effectués pendant 1 heure toutes les 10 min et vont servir à mettre en place les limites de contrôle. Les prélèvements suivants (16 à 40) ont été réalisés toutes les heures et 6 fois par jour.
 
 ```{r warning=FALSE, echo=TRUE}
 library(multiSPC)
 load("X.rda")
 dim(X)
-X1=X[1:15,,]
-k1=dim(X1)[1]
-p=dim(X1)[2]
-n=dim(X1)[3]
-# Pour sélectionner les 15 prélèvements de 6 observations pour la variable 1  
-X1[,1,]
 ```
+
+Il s'agit d'un cube de données (3 dimensions).
+
+
+## Premier travail : cartes univariées sur la première caractéristique
+
+Pour sélectionner la première caractéristique :
+
+```{r}
+data=X[,1,]
+```
+
+1. Construire les limites de contrôles de la carte de la moyenne et de l'écart type sur les 15 premiers prélèvements.
+
+```{r eval=FALSE,echo=FALSE}
+train=data[1:15,]
+n=dim(data)[2]
+M=apply(train,1,mean)
+SD=apply(train,1,sd)
+mu=mean(M)
+set.seed("44")
+c4=c4(n)
+sig=mean(SD)/c4
+LICm=mu-3*sig/sqrt(n)
+LSCm=mu+3*sig/sqrt(n)
+LICs=mean(SD)*(1-3*sqrt(1-c4^2)/c4)
+LSCs=mean(SD)*(1+3*sqrt(1-c4^2)/c4)
+plot_chart(M,LIC=LICm,LSC=LSCm,Type="Carte de la Moyenne")
+plot_chart(SD,LIC=LICs,LSC=LSCs,Type="Carte de l'écart type")
+```
+
+
+2. Appliquer les limites précédentes sur les 25 prélèvements suivants. Que peut-on en déduire ?
 
 ```{r echo=F,eval=F}
-M=S=matrix(NA,ncol=p,nrow=k1)
-for(j in 1:p){
-M[,j]=apply(X1[,j,],1,mean)
-S[,j]=apply(X1[,j,],1,sd)
-}
-mu=apply(M,2,mean)
-sig=apply(S,2,mean)
-sigI=sig/c4(n)
-LIC=mu-3*sigI/sqrt(n)
-LSC=mu+3*sigI/sqrt(n)
-graph1=list()
-for(j in 1:p){
-  graph1[[j]]=plot_chart(M[,j],LIC=LIC[j],LSC=LSC[j],Type = paste("caract.",j,sep=""))
-}
-graph1
+test=data[16:40,]
+Mt=apply(test,1,mean)
+SDt=apply(test,1,sd)
+plot_chart(Mt,LIC=LICm,LSC=LSCm)
+plot_chart(SDt,LIC=LICs,LSC=LSCs)
 ```
 
-Que peut-on en déduire ?
+3. Représenter la probabilité de détecter au premier prélèvement un décentrage $\mu_D$ variant de 25 à 29.
 
--   Appliquer les limites de contrôles sur les 25 autres prélèvements et interpréter les résultats.
-
-```{r warning=FALSE, echo=F, eval=F}
-X2=X[16:40,,]
-k2=dim(X2)[1]
-M=S=matrix(NA,ncol=p,nrow=k2)
-for(j in 1:p){
-M[,j]=apply(X2[,j,],1,mean)
-}
-graph2=list()
-for(j in 1:p){
-  graph2[[j]]=plot_chart(M[,j],LIC=LIC[j],LSC=LSC[j],Type = paste("caract.",j,sep=""))
-}
-graph2
+```{r echo=F, eval=F}
+mu_D=seq(25,29,by=0.01)
+proba=pnorm(LSCm,mu_D,sig,lower.tail = F)
+df=data.frame(mu_D=mu_D,proba=proba)
+library(ggplot2)
+ggplot(df,aes(x=mu_D,y=proba))+
+  geom_line()
 ```
+
+4. Construction de la carte EWMA, on suivra les moyennes des prélèvements de la phase de test en considérant $\lambda=0.1,0.2,0.3,0.4$. Quel est l'impact de ces différentes valeurs sur la carte ? 
+
+
+```{r echo=FALSE, eval=FALSE}
+Z=ewma_cart(Mt,mu=mu,sig=sig,lambda=0.3,L=2.7/sqrt(n))
+plot_chart(Z$z,LIC=Z$LIC,LSC=Z$LSC)
+```
+
+
 
 # Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements)
 

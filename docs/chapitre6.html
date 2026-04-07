@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre2.html" rel="next">
+<link href="./chapitre7.html" rel="next">
 <link href="./chapitre5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -201,26 +201,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span></a>
+  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  <a href="./chapitre2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exercice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./projet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Projet</span></span></a>
   </div>
 </li>
     </ul>
@@ -324,13 +318,14 @@ z_3=\lambda \bar x_3+\lambda(1-\lambda)\bar x_2+\lambda(1-\lambda)^2\bar x_1+
 <h2 data-number="4.3" class="anchored" data-anchor-id="limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">4.3</span> Limites de contrôle des cartes EWMA</h2>
 <p>Les limites de ces cartes sont variables (en fonction de <span class="math inline">\(i\)</span>) pour <span class="math inline">\(X\sim \mathcal N(\mu,\sigma)\)</span> on a :<span class="math display">\[LC(i) = \mu  \pm L\sigma \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] },\]</span> en général avec <span class="math inline">\(L=2.7\)</span>.</p>
 <p>Lorsque le nombre <span class="math inline">\(i\)</span> de prélèvement est très grand alors <span class="math inline">\(LC = \mu \pm L\sigma\times \sqrt {\frac{\lambda}{2-\lambda}}\)</span>. Dans ce cas on peut jouer sur ce paramètre <span class="math inline">\(L\)</span> pour améliorer l’efficacité de la carte en fonction de <span class="math inline">\(\lambda\)</span>.</p>
+<p>Lorsque l’on suit la moyenne des prélèvements (comme c’est le cas avec la carte de la moyenne) alors <span class="math inline">\(L=\frac{2.7}{\sqrt{n}}.\)</span></p>
 </section>
 <section id="comparaison-de-la-puissance-de-la-carte-ewma-et-de-la-carte-de-la-moyenne" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="comparaison-de-la-puissance-de-la-carte-ewma-et-de-la-carte-de-la-moyenne"><span class="header-section-number">4.4</span> Comparaison de la puissance de la carte EWMA et de la carte de la moyenne :</h2>
-<p>On choisit <span class="math inline">\(\lambda=0.1\)</span>.</p>
+<p>On choisit <span class="math inline">\(\lambda=0.4\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lambda<span class="ot">=</span><span class="fl">0.1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Z<span class="ot">&lt;-</span><span class="fu">ewma_cart</span>(M,<span class="at">mu=</span>mu,<span class="at">sig=</span>sig,<span class="at">lambda=</span>lambda,<span class="at">L =</span> <span class="fl">2.7</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lambda<span class="ot">=</span><span class="fl">0.4</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Z<span class="ot">&lt;-</span><span class="fu">ewma_cart</span>(M,<span class="at">mu=</span>mu,<span class="at">sig=</span>sig,<span class="at">lambda=</span>lambda,<span class="at">L =</span> <span class="fl">2.7</span><span class="sc">/</span><span class="fu">sqrt</span>(n))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(Z<span class="sc">$</span>z,<span class="at">LIC=</span>Z<span class="sc">$</span>LIC,<span class="at">LSC=</span>Z<span class="sc">$</span>LSC,<span class="at">Type=</span><span class="st">"Carte EWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -340,7 +335,7 @@ z_3=\lambda \bar x_3+\lambda(1-\lambda)\bar x_2+\lambda(1-\lambda)^2\bar x_1+
 </div>
 </div>
 </div>
-<p>Si on considère que la déviation commence à partir du 11ième prélèvement alors la carte EWMA la détectera 8 prélèvements plus tard.</p>
+<p>Si on considère que la déviation commence à partir du 11ième prélèvement alors la carte EWMA la détectera 4 prélèvements plus tard.</p>
 <p>Pour ce qui concerne la carte de la moyenne :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="dv">15</span></span>
@@ -783,8 +778,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre2.html" class="pagination-link" aria-label="Capabilité, Répétabilité, Reproductivité">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapitre7.html" class="pagination-link" aria-label="Cartes multivariées">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

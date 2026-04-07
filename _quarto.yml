@@ -2,7 +2,6 @@ project:
   type: book
   output-dir: docs
   
-
 book:
   title: "MSP"
   author: "Galharret Jean-Michel"
@@ -10,17 +9,11 @@ book:
   chapters:
     - index.qmd
     - chapitre1.qmd
-<<<<<<< HEAD
     - chapitre4.qmd
     - chapitre5.qmd
     - chapitre6.qmd
-    - chapitre2.qmd
-=======
-    - chapitre2.qmd
-    - chapitre3.qmd
-    - chapitre4.qmd
->>>>>>> b455c6501161b4d19580d5b2f7b50952699e2e12
     - chapitre7.qmd
+    - chapitre2.qmd
     - exercice.qmd
 bibliography: references.bib
 

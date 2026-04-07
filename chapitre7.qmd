@@ -43,13 +43,12 @@ dim(carbon1)
 
 Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
-<<<<<<< HEAD
+
 -   Les données sont dans une matrice à trois dimensions.
 
 -   On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
-=======
->>>>>>> b455c6501161b4d19580d5b2f7b50952699e2e12
+
 ![](figure/cube.png)
 
 On peut tracer le graphe de corrélation des 30 moyennes de $X=(X_1,X_2,X_3)$ :
@@ -463,7 +462,4 @@ scores2=predict(pca,newdata=Xc)$coord[,1:r]
 T2=T2_Hotelling_k1(scores2,S = S)
 plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
 ```
-<<<<<<< HEAD
-=======
 
->>>>>>> b455c6501161b4d19580d5b2f7b50952699e2e12
