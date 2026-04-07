@@ -1,6 +1,6 @@
 # Estimation des paramètres du procédé
 
-```{r echo=F}
+```{r echo=F, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 suppressPackageStartupMessages(
   {
