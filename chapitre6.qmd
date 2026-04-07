@@ -1,6 +1,6 @@
 # Carte EWMA
 
-```{r echo=F}
+```{r echo=F, warning=F}
 knitr::opts_chunk$set(echo = TRUE)
 suppressPackageStartupMessages(
   {
@@ -23,26 +23,37 @@ La carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à in
 
 ***Exemple :***
 
-On suit une production de caractéristique $\mu=15$ et $\sigma=0.5$. Pour ce faire 10 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 7ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).
+On suit une production de caractéristique $\mu=15$ et $\sigma=0.5$. 
+
+On suppose qu'à partir du 11-ième prélèvement la caractéristique connait une déviation de moyenne $\mu_D=15.5$ associée à une réduction de la variabilité $\sigma_D=0.25$. 
+
+Dans l'exemple ci-dessous on a fait des prélèvements de $n=3$ unités et on a construit la carte de moyenne.
 
 ```{r warnings=F,echo=F}
-set.seed("3344")
-n=4
-k=10
+set.seed("1")
+n=3
+k=30
 data=matrix(NA,nrow=k,ncol=n)
 mu=15
 sig=0.5
-data=rep(NA,k)
-data[1]=mu
-for(i in 2:k) data[i]<-data[i-1]+runif(1,0,0.25)
+
+for(i in 1:floor(k/3)) data[i,]<-rnorm(n,mu,sig)
+for(i in (floor(k/3)+1):k) data[i,]<-rnorm(n,mu+.5,sig/2)
 
 LICm=mu-3*sig/sqrt(n)
 LSCm=mu+3*sig/sqrt(n)
+M=apply(data,1,mean)
+plot_chart(M,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")
 
-plot_chart(data,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")
+SD=apply(data,1,sd)
+c4=c4(n)
+LICs=max(0,sig-3*(sqrt(1-c4^2)/c4)*sig)
+LSCs=sig+3*(sqrt(1-c4^2)/c4)*sig
+plot_chart(SD,LIC=LICs,LSC=LSCs,Type = "carte de l'écart type")
 ```
 
-Une des solutions est la carte EWMA
+La carte ne permet pas de détecter la déviation considérée.
+Une des solutions pour améliorer la détection de ce décentrage est la carte EWMA
 
 ## Définition des cartes EWMA
 
@@ -54,16 +65,13 @@ $$
 z_i=\lambda \bar x_i +(1-\lambda)z_{i-1},
 $$
 
-où $\bar x_i$ est la moyenne des unités pour le prélèvement $i$ et $0<\lambda\leq 1$ est un réel qui sera choisi en fonction du poids que l'on veut donner aux données précédentes. En effet, en général on choisit $z_0=\mu$ (moyenne du procédé de fabrication). On a 
-$$
-\begin{cases}
+où $\bar x_i$ est la moyenne des unités pour le prélèvement $i$ et $0<\lambda\leq 1$ est un réel qui sera choisi en fonction du poids que l'on veut donner aux données précédentes. En effet, en général on choisit $z_0=\mu$ (moyenne du procédé de fabrication). On a $$\begin{cases}
 z_1=\lambda \bar x_1+(1-\lambda)\mu \\
 z_2=\lambda \bar x_2+(1-\lambda)z_1= \lambda \bar x_2+\lambda(1-\lambda)\bar x_1+(1-\lambda)^2\mu \\
 z_3=\lambda \bar x_3+\lambda(1-\lambda)\bar x_2+\lambda(1-\lambda)^2\bar x_1+
 (1-\lambda)^3\mu \\
 \ldots
-\end{cases}
-$$
+\end{cases}$$
 
 ```{r echo=F}
 lambda<-seq(0,1,.01)
@@ -85,42 +93,36 @@ legend("topright",lty=rep(1,4),legend=c(expression(lambda),
 
 -   On constate que $\bar x_i$ a une importance d'autant plus importante dans $z_i$ que $\lambda$ est grand.
 
--   En général on utilise $0.25<\lambda<0.5$.
+-   En général on utilise $0.1<\lambda<0.5$.
 
 ## Limites de contrôle des cartes EWMA
 
-Les limites de ces cartes sont variables (en fonction de $i$) pour $X\sim \mathcal N(\mu,\sigma)$ on a :$$LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] }.$$
+Les limites de ces cartes sont variables (en fonction de $i$) pour $X\sim \mathcal N(\mu,\sigma)$ on a :$$LC(i) = \mu  \pm L\sigma \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] },$$ en général avec $L=2.7$.
 
--   Lorsque le nombre $i$ de prélèvement est très grand alors $LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}}$. Dans ce cas on peut jouer sur ce paramètre $L$ pour améliorer l'efficacité de la carte en fonction de $\lambda$.
+Lorsque le nombre $i$ de prélèvement est très grand alors $LC = \mu \pm L\sigma\times \sqrt {\frac{\lambda}{2-\lambda}}$. Dans ce cas on peut jouer sur ce paramètre $L$ pour améliorer l'efficacité de la carte en fonction de $\lambda$.
 
--   On constate que sur les petites déviations de production l'efficacité des cartes EWMA est bien supérieure à celle de la carte de Shewhart.
+## Comparaison de la puissance de la carte EWMA et de la carte de la moyenne :
 
-```{r echo=F}
-library(spc)
-l0<-1
-c0<-3
-l1 <- .25
-c1 <- 2.998
-l2 <- .50
-c2 <- 3.071
-rho <- seq(0.25,2,by=.05)
-arl0 <- sapply(rho,l=l0,c=c0,sided="two",xewma.arl)
-arl1 <- sapply(rho,l=l1,c=c1,sided="two",xewma.arl)
-arl2 <- sapply(rho,l=l2,c=c2,sided="two",xewma.arl)
-plot(rho,arl0,type="l",ylab="ARL",xlab=expression(rho))
-lines(rho,arl1,col=2)
-lines(rho,arl2,col=3)
-legend("topright",lty=rep(1,3),col=1:3,legend=c("Shewhart",
-                                                expression(paste(lambda,"=.25",", L=2.998")),
-                                                expression(paste(lambda,"=.50",", L= 3.071"))))
-```
-
-## Retour à l'exemple :
-
-On constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 5ième prélèvement.
+On choisit $\lambda=0.1$.
 
 ```{r}
-lambda=0.25
-Z<-ewma_cart1(data,n,mu=mu,sig=sig,lambda=lambda)
+lambda=0.1
+Z<-ewma_cart(M,mu=mu,sig=sig,lambda=lambda,L = 2.7)
 plot_chart(Z$z,LIC=Z$LIC,LSC=Z$LSC,Type="Carte EWMA")
 ```
+
+Si on considère que la déviation commence à partir du 11ième prélèvement alors la carte EWMA la détectera 8 prélèvements plus tard.
+
+Pour ce qui concerne la carte de la moyenne :
+
+```{r}
+mu=15
+sig=0.5
+n=3
+LSC=mu+3*sig/sqrt(n)
+muD=15.5
+print(paste("Il faudra en moyenne:",
+floor(1/pnorm(LSC,muD,sig/sqrt(n),lower.tail = F))+1,"prélèvements pour être sûr de détecter le décentrage de moyenne"))
+```
+
+

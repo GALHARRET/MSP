@@ -39,7 +39,7 @@ dim(carbon1)
 
 -   On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
-![](figure/cube_data.pdf)
+![](figure/cube.png)
 
 On peut tracer le graphe de corrélation des 30 moyennes de $X=(X_1,X_2,X_3)$ :
 
@@ -257,12 +257,9 @@ cov(diff(X))/2
 
 Calcul du $T^2$ et de LSC
 
-Pour chaque prélèvement $t$ on calcule $$T^2_t=(X_t-\bar X)^T.S^{-1}.(X_t-\bar X).$$ Pour la phase I (mise en place de la carte) on utilise : 
-$$
+Pour chaque prélèvement $t$ on calcule $$T^2_t=(X_t-\bar X)^T.S^{-1}.(X_t-\bar X).$$ Pour la phase I (mise en place de la carte) on utilise : $$
 LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
-$$ 
-Pour la phase II on utilise (toujours avec le $k$ de la phase I: 
-$$
+$$ Pour la phase II on utilise (toujours avec le $k$ de la phase I: $$
 LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
 $$
 
@@ -457,23 +454,3 @@ scores2=predict(pca,newdata=Xc)$coord[,1:r]
 T2=T2_Hotelling_k1(scores2,S = S)
 plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
 ```
-
-Avec Parafac :
-
-```{r}
-X1=carbon1
-model=parafac(X1,nfac=2)
-X2=carbon2
-res=predict_parafac(X2,model)
-# Hotelling T²
-T2 <- T2_Hotelling_Parafac(A = model$A)
-
-LIC=mean(T2)-3*sd(T2)
-LSC=mean(T2)+3*sd(T2)
-plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase I")
-T2 <- T2_Hotelling_Parafac(res$A_new,S = cov(model$A))
-plot_chart(T2,LIC=LIC,LSC=LSC,Type="T2 Parafac Phase II")
-
-```
-
-Les données ![figure](cover.png)

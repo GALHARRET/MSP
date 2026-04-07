@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre3.html" rel="next">
+<link href="./chapitre4.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -183,20 +183,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  <a href="./chapitre5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Efficacité des cartes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -207,14 +207,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./exercice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./projet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Projet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Projet</span></span></a>
   </div>
 </li>
     </ul>
@@ -255,6 +261,11 @@ window.Quarto = {
 </header>
 
 
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'knitr' was built under R version 4.4.3</code></pre>
+</div>
+</div>
 <section id="introduction" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
 <ul>
@@ -314,8 +325,8 @@ Estimation des paramètres de production
 <div class="cell">
 <details class="code-fold">
 <summary>Voir la correction</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>obs)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>obs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>obs)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>obs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -344,7 +355,7 @@ Estimation des paramètres de production
 </ul>
 <p>Les fonctions <em>c4,d2,d3</em> du package <em>multiSPC</em> permettent d’estimer ces paramètres :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c4</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c4</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>On sait pour chaque échantillon <span class="math inline">\(j\)</span> de <span class="math inline">\(n\)</span> valeurs calculer une estimation de l’écart type <span class="math inline">\(\sigma_j\)</span> en calculant <span class="math display">\[s_j= \sqrt{\frac{\displaystyle\sum_{i=1}^n(y_{ij}-\bar y_j)^2}{n-1}},\]</span> où <span class="math inline">\(\bar y_j\)</span> est la moyenne de l’échantillon <span class="math inline">\(j.\)</span></li>
@@ -360,7 +371,7 @@ Estimation à partir des écarts types
 </div>
 <div class="callout-body-container callout-body">
 <p>On considère <span class="math inline">\(k\)</span> prélèvements de taille <span class="math inline">\(n\)</span> dont les écarts types sont <span class="math inline">\(s_1,...,s_k,\)</span> on pose <span class="math inline">\(\bar S =\frac{\sum_{j=1}^k s_j}{k}\)</span>. Une estimation de l’écart type instantané <span class="math inline">\(\sigma_M\)</span> est donné par <span class="math display">\[
-\hat \sigma_M=\dfrac{\bar S}{c_4(n)}.
+\hat \sigma_I=\dfrac{\bar S}{c_4(n)}.
 \]</span></p>
 </div>
 </div>
@@ -381,7 +392,7 @@ Estimation à partir des écarts types
 </div>
 <div class="callout-body-container callout-body">
 <p>On considère <span class="math inline">\(k\)</span> prélèvements de taille <span class="math inline">\(n\)</span> dont les étendues sont <span class="math inline">\(R_1,...,R_k,\)</span> on pose <span class="math inline">\(\bar R =\frac{\sum_{j=1}^k R_j}{k}\)</span>. Une estimation de l’écart type instantané <span class="math inline">\(\sigma_M\)</span> est donné par <span class="math display">\[
-\hat \sigma_M=\dfrac{\bar R}{d_2(n)}.
+\hat \sigma_I=\dfrac{\bar R}{d_2(n)}.
 \]</span></p>
 </div>
 </div>
@@ -389,14 +400,14 @@ Estimation à partir des écarts types
 <div class="cell">
 <details class="code-fold">
 <summary>Voir la correction</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation à partir des écarts types</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sample) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"s_j"</span><span class="ot">=</span><span class="fu">round</span>(<span class="fu">sd</span>(obs),<span class="dv">5</span>)) </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tab<span class="sc">$</span><span class="st">"s_j"</span>)<span class="sc">/</span><span class="fu">c4</span>(<span class="dv">5</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation à partir des étendues</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>etendue<span class="ot">&lt;-</span><span class="cf">function</span>(X){<span class="fu">return</span>(<span class="fu">max</span>(X)<span class="sc">-</span><span class="fu">min</span>(X))}</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>tab2<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sample)<span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"R_j"</span><span class="ot">=</span><span class="fu">etendue</span>(obs))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tab2<span class="sc">$</span><span class="st">"R_j"</span>)<span class="sc">/</span><span class="fu">d2</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation à partir des écarts types</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sample) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"s_j"</span><span class="ot">=</span><span class="fu">round</span>(<span class="fu">sd</span>(obs),<span class="dv">5</span>)) </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tab<span class="sc">$</span><span class="st">"s_j"</span>)<span class="sc">/</span><span class="fu">c4</span>(<span class="dv">5</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation à partir des étendues</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>etendue<span class="ot">&lt;-</span><span class="cf">function</span>(X){<span class="fu">return</span>(<span class="fu">max</span>(X)<span class="sc">-</span><span class="fu">min</span>(X))}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>tab2<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sample)<span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"R_j"</span><span class="ot">=</span><span class="fu">etendue</span>(obs))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tab2<span class="sc">$</span><span class="st">"R_j"</span>)<span class="sc">/</span><span class="fu">d2</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Et alors on obtient :</p>
@@ -838,8 +849,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre3.html" class="pagination-link" aria-label="Cartes de contrôle">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapitre4.html" class="pagination-link" aria-label="Carte de contrôles">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

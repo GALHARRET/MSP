@@ -1,6 +1,6 @@
-# Efficacité des cartes 
+# Efficacité des cartes
 
-```{r echo=F, eval=T}
+```{r echo=F, eval=T,warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 suppressPackageStartupMessages(
 {
@@ -15,11 +15,11 @@ library(readxl)
 
 La notion d'efficacité d'une carte de contrôle est sa capacité à détecter un dérèglement alors que la production semble rester sous contrôle.
 
-Le dérèglement peut concerner un décentrage (dérèglement de la moyenne) ou bien une augmentation de la dispersion.
+Le dérèglement peut concerner un décentrage (dérèglement de la moyenne) ou bien une augmentation de la dispersion. On va s'intéresser uniquement au problème de décentrage.
 
 La notion d'efficacité est proche de la notion de puissance pour les tests statistiques.
 
-### Faux positifs et Faux négatifs
+## Faux positifs et Faux négatifs
 
 On va traduire dans le contexte de la MSP les notions vues sur les tests.
 
@@ -66,7 +66,6 @@ Ceci conduit à deux types d'erreurs
 </tbody>
 </table>
 ```
-
 Ce que l'on connait (par construction de la carte de contrôle) :
 
 -   La probabilité d'obtenir un faux positif : 0.3 % (par définition des limites de contrôle)
@@ -77,232 +76,93 @@ Ce que l'on cherche :
 
 La probabilité $\beta$ d'obtenir un faux négatif ou de manière équivalente la probabilité $1-\beta$ d'obtenir un vrai positif (appelée puissance du test).
 
-### Déréglage de la moyenne
+### Exemple :
 
-![](figure/decentrage_moy.png) Un décentrage de moyenne est exprimé en nombre d'écart type (unité standardisé) donc si $\mu_1$ est la moyenne décentrée, on lui associera le décentrage
+Soit une production $X\sim \mathcal N(100,5)$. On prélève des cartes de taille $n=4$ et on suit la moyenne des prélèvements $\bar X\sim \mathcal N(100,\frac5{\sqrt{4}})$.
+
+On peut calculer les LIC et LSC associés et supposons que la moyenne se décentre de +3 (donc $\tilde\mu=103$). La probabilité de détecter au premier prélèvement est alors :
+
+```{r echo=F,warning=FALSE}
+mu <- 100    
+sigma <- 5 
+n<-4
+x <- seq(mu - 4*sigma/sqrt(n), mu + 4*sigma/sqrt(n), length.out = 1000)
+y <- dnorm(x, mean = mu, sd = sigma/sqrt(n))
+y1 <- dnorm(x, mean = mu+3, sd = sigma/sqrt(n))
+LIC<-mu-3*sigma/sqrt(n)
+LSC<-mu+3*sigma/sqrt(n)
+
+x_hachure <- seq(LSC, 110, length.out = 100)
+y_hachure <- dnorm(x_hachure, mean = mu+3, sd = sigma/sqrt(n))
+df_hachure <- data.frame(x = x_hachure, y = y_hachure)
+
+
+ggplot(data.frame(x = x, y = y), aes(x = x, y = y)) +
+  geom_line(color = "blue", size = 1) +
+  labs(title = paste("Loi normale (μ=", mu, ", σ=", sigma, ")"),
+       x = "Valeur",
+       y = "Densité de probabilité") +
+  geom_vline(xintercept = mu, color = "blue", linetype = "dashed", size = 1) +
+  geom_ribbon(data = df_hachure, aes(ymin = 0, ymax = y), fill = "purple", alpha = 0.5) +
+  geom_vline(xintercept = c(LIC,LSC),col="red")+
+  geom_line(data=data.frame(x=x,y=y1),color = "purple", size = 1)+
+  geom_vline(xintercept = mu+3, color = "purple", linetype = "dashed", size = 1) +
+  annotate("text", x = 109, y = 0.01, label = expression(1-beta), color = "purple", vjust = -1) +
+  theme_bw()
+
+print(paste("La proba est égale à ",
+            round(pnorm(LSC,mu+3,sigma/sqrt(n),lower.tail = F),3)))
+
+```
+
+La probabilité $\beta$ de détecter le décentrage est
 
 $$
-\rho=\frac{|\mu_1-\mu|}{\sigma}
+1-\beta=\mathbb P(\widetilde X <LSI)+\mathbb P(\widetilde X >LSC)
 $$
 
-La probabilité $\beta$ de ne pas détecter le décentrage est alors
+où $\widetilde X \sim \mathcal N(\mu_D,\frac{\sigma}{\sqrt{n}}).$ Un calcul simple permet d'obtenir
 
 $$
-\beta=\mathbb P(LIC<\widetilde X <LSC)
+\beta = \Phi\left(\frac{LIC-\mu_D}{\sigma/\sqrt{n}}\right)-\left[1-\Phi\left(\frac{LSC-\mu_D}{\sigma/\sqrt{n}}\right)\right].
 $$
 
-où $\widetilde X \sim \mathcal N(\mu+\rho\sigma,\frac{\sigma}{\sqrt{n}}).$ Un calcul simple permet d'obtenir
-
-$$
-\beta = F(3-\rho\sqrt n)-F(-3-\rho\sqrt n)
-$$
-
-où $F(x)=\mathbb P(X<x)$ est la fonction de répartition de la loi normale.
+où $\Phi(x)=\mathbb P(X<x)$ est la fonction de répartition de la loi normale.
 
 ***L'efficacité de la carte est mesurée par*** $1-\beta$ ( puissance de la carte).
 
-On obtient ainsi les courbes d'efficacité de la carte de la moyenne en fonction de la taille $n$ des échantillons prélevés.
+On obtient ainsi les courbes d'efficacité de la carte de la moyenne en fonction de la taille $n$ des échantillons prélevés et de la magnitude du décentrage de moyenne.
 
 ```{r echo=F}
-rho<-seq(-3,3,by=.01)
-n<-5
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-plot(rho,1-beta,type="l",xlab=expression(rho),ylab="puissance",
-     main="Efficacité de la carte de la moyenne")
-n<-10
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-lines(rho,1-beta,col="darkblue")
-n<-15
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-lines(rho,1-beta,col="darkred")
-legend("bottomright",c("n=5","n=10","n=15"),lty=rep(1,3),col=c("black","darkblue","darkred"))
+n<-4:6
+mu<-100
+sigma<-5
+muD=seq(100,115,by=.01)
+size<-c()
+power<-c()
+for(i in 1:length(n)){
+  LSC=mu+3*sigma/sqrt(n[i])
+  size<-c(size,rep(n[i],length(muD)))
+  power<-c(power,pnorm(LSC,muD,sigma/sqrt(n[i]),lower.tail = F))
+}
+df=data.frame(muD=rep(muD,3),size=as.factor(size),power=power)
+ggplot(df,aes(x=muD,y=power,col=size))+
+  geom_line()+
+  theme_bw()
+
 ```
 
--   On constate (ce qui est logique) que la probabilité de ne pas détecter un déréglage donné diminue en fonction de la taille de l'échantillon.
+-   On constate que la probabilité de détecter un déréglage donné augmente lorsque la taille de l'échantillon augmente.
 
--   Détecter un déréglage $\rho=0$ correspond à une fausse alerte qui vaut pour la carte de la moyenne $\alpha=0.3\%$.
+-   Détecter un faux déréglage correspond à une fausse alerte qui vaut pour la carte de la moyenne $\alpha=0.3\%$.
 
-### Déréglage de l'écart type
-
-Ici on considère des décentrages $\rho>1$ (sinon il s'agit d'une amélioration de la dispersion).
-
-Un calcul similaire au précédent conduit à $$
-\beta=F(\frac{3}{\rho})-F(\frac{-3}{\rho})
-$$ Ici on constate que l'efficacité de la carte est indépendante de $n$ et qu'elle est très mauvaise. Il faut une très grande valeur de $\rho$ pour avoir une petite valeur de $\beta$.
-
-Par exemple pour $\rho=3$ on a $\beta=$ `r pnorm(3/3)-pnorm(-3/3)` c'est à dire pour un écart type qui triplerait la probabilité ne peut pas détecter ce dérèglement est de 68.3%.
-
-### Période opérationelle moyenne (Average Run Length)
-
-La Période Opérationnelle Moyenne correspond au nombre de prélèvements qu'il faut effectuer, en moyenne, pour sortir des limites de contrôle lorsque qu'un déréglage $\rho$ s'est produit.
-
-Le cas $\rho=0$ pour une carte de Shewhart avec des observations indépendantes correspond à une fausse alerte qui se produit dans $\alpha=0.3\%$ et correspond à
-
-$$
-ARL_0=\frac{1}{0.003}=333
-$$ donc il faut en moyenne 334 prélèvements avant de détecter une fausse alerte.
-
-$ARL$ est définie par
-
-$$
-ARL_\rho=\frac 1{1-\beta}
-$$
-
-***C'est donc l'inverse de la puissance (efficacité) de la carte, donc plus ce nombre sera petit plus la carte sera efficace.***
-
-Si on reprend les courbes d'efficacité précédente on obtient :
-
-```{r echo=F}
-rho<-seq(-3,3,by=.01)
-n<-5
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-ARL<-1/(1-beta)
-plot(rho,ARL,type="l")
-n<-10
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-ARL<-1/(1-beta)
-lines(rho,ARL,col="darkblue")
-n<-15
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-ARL<-1/(1-beta)
-lines(rho,ARL,col="darkred")
-legend("topright",c("n=5","n=10","n=15"),lty=rep(1,3),col=c("black","darkblue","darkred"))
-```
-
-### Calibration des tailles de prélèvement
-
-La production initiale est $X\sim \mathcal N (\mu,\sigma)$ et la production décentrée vaut $\widetilde X \sim \mathcal N (\mu+\rho\sigma,\sigma)$. On sait calculer la probabilité $1-\beta$ de détecter le décentrage en fonction de $\rho$ et on a donc
-
-$$
-ARL_\rho=\frac 1{1-\beta}=\frac 1{1-F(3-\rho\sqrt n)+F(-3-\rho\sqrt n)}
-$$
-
-Exemple :
-
-Considérons le problème suivant : on a un décentrage de moyenne de 0.5 écart type. On voudrait le détecter en moyenne avant 50 prélèvements. Quelle taille d'échantillon doit-on considérer ?
+::: {.callout-note title="Période opérationnelle moyenne"}
+La période opérationnelle moyenne (POM) correspond au nombre moyen de prélèvements nécessaires pour être sûr de détecter un décentrage $$ POM=\frac{1}{1-\beta}.$$
+:::
 
 ```{r}
-n<-seq(2,20,by=1)
-rho<-.5
-beta=pnorm(3-rho*sqrt(n))-pnorm(-3-rho*sqrt(n))
-ARL<-1/(1-beta)
-J<-which.max(ARL<50)
-n[J]
+ggplot(df,aes(x=muD,y=1/power,col=size))+
+  geom_line()+
+  theme_bw()
 ```
 
-
-## Comparaison efficacité carte de Shewart/ EWMA :
-
-On constate que sur les petites déviations de production l'efficacité des cartes EWMA est bien supérieure à celle de la carte de Shewhart.
-
-```{r echo=F}
-library(spc)
-l0<-1
-c0<-3
-l1 <- .25
-c1 <- 2.998
-l2 <- .50
-c2 <- 3.071
-rho <- seq(0.25,2,by=.05)
-arl0 <- sapply(rho,l=l0,c=c0,sided="two",xewma.arl)
-arl1 <- sapply(rho,l=l1,c=c1,sided="two",xewma.arl)
-arl2 <- sapply(rho,l=l2,c=c2,sided="two",xewma.arl)
-plot(rho,arl0,type="l",ylab="ARL",xlab=expression(rho))
-lines(rho,arl1,col=2)
-lines(rho,arl2,col=3)
-legend("topright",lty=rep(1,3),col=1:3,legend=c("Shewhart",
-                                                expression(paste(lambda,"=.25",", L=2.998")),
-                                                expression(paste(lambda,"=.50",", L= 3.071"))))
-```
-
-
-# Cartes aux limites modifiées
-
-Pour l'instant les cartes qui ont été proposées ne tiennent pas compte des tolérances imposées par le client. Elles reposent uniquement sur la distribution des observations et sur le % de fausses alertes que l'on souhaite observer (0.3% dans les cartes précédentes).
-
--   On suppose connaître les tolérances $TI,TS$ autorisées par le client.
-
--   On suppose que la production instantanée suit une loi normale $\mathcal N(\mu_I,\sigma_I).$
-
-## Cas n°1 : le procédé de fabrication n'est pas capable
-
-Prenons un exemple : On suppose que la production instantanée $Y \sim \mathcal N(10,2)$ et que l'intervalle de tolérance soit $10 \pm 3$.
-
-On peut calculer $Cam=\frac{TS-TI}{6\times \sigma_I}=0.5$. Le procédé n'est donc pas capable !
-
-On voudrait construire des limites de contrôle sur la carte de la moyenne qui tiennent compte des tolérances : les limites sont $LIC=\mu_I-3\sigma_I/\sqrt{n}$ et $LSC=\mu_I+3\sigma_I/\sqrt{n}$, ce qui donne : $LSC-LIC=6\sigma_I/\sqrt n$
-
-Lorsque le procédé n'est pas capable $Cam<1.33$, ce qui donne $TS-TI<1.33\times 6\sigma_I\simeq 8\sigma_I$. En prenant
-
-$$
-n \geq \left( \frac{8\sigma_I}{TS-TI} \right)^2,
-$$
-
-on aura $LSC-LIC<0.75\times (TS-TI)$.
-
-```{r echo=F}
-set.seed("3344")
-library(multiSPC)
-TI=7
-TS=13
-muI=10
-sigI=2
-n=floor((8*sigI/(TS-TI))^2)+1
-k=20
-X<-rnorm(n*k,muI,sigI)
-df<-data.frame(matrix(X,nrow=k,ncol=n))
-M=apply(df,1,mean)
-LICm=muI-3*sigI/sqrt(n)
-LSCm=muI+3*sigI/sqrt(n)
-plot_chart(M,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")+
-  geom_hline(yintercept = c(7,13),colour="blue",size=1.5)+
-  annotate("text",x=2,y=13.3,label="TS",colour="blue")+
-  annotate("text",x=2,y=6.7,label="TI",colour="blue")
-```
-
-## Cas n°2 : le procédé de fabrication est capable
-
-Par exemple si on a une production $Y \sim \mathcal N(10,0.5)$ avec les mêmes tolérances $TI=7$ et $TS=13$, on a $TS-TI >> 6\sigma$ donc on peut faire une carte de la moyenne aux limites modifiées les nouvelles limites $LIC^*,LSC^*$ étant égales à des moyennes modifiées $\mu_I,\mu_S.$
-
-![](figure/carte_lim_mod.png)
-
-On définit les moyennes maximales refusables (inférieures et supérieures)
-
-$$
-\begin{cases}
-\mu_I=TI+3\sigma \\
-\mu_S=TS-3\sigma
-\end{cases}
-$$
-
-## Remarque :
-
-Ce choix peut être relié au coefficient de performance défini dans le chapitre précédent $Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma}$.
-
-Si on remplace $\mu$ par $\mu_I$ on obtient $\frac{\min\left(\mu_I-TI;TS-\mu_I\right)}{3\sigma}=\min(1;\frac{TS-TI-3\sigma}{3\sigma}).$
-
--   Ce nombre vaut 1 si $\frac{TS-TI-3\sigma}{3\sigma}>1$ ce qui revient à $Cap>1.$ C'est à dire que lorsque le procédé est sous contrôle on va autoriser une déviation de la moyenne.
-
--   Ce nombre vaut $\frac{TS-TI-3\sigma}{3\sigma}$ sinon et dans ce cas $Cap<1,$ le procédé ne répond pas aux spécifications imposées par le client. Il faut dans ce cas agir sur le procédé.
-
-## Calibration de la taille des échantillons :
-
-On peut également définir le ***déraglage maximal admissible*** $\rho_{max}$ par
-
-$$
-\rho_{max}=\min\left( \frac{\mu_S-\mu}{\sigma},\frac{\mu-\mu_I}{\sigma}\right)
-$$
-
-On va alors calibrer la taille $n$ des échantillons à prélever de façon à détecter le déréglage maximal admissible à un risque $\beta$ fixé de ne pas détecter ce déréglage maximal $\rho_{max}$. D'après ce qui précède $n$ sera le plus petit entier tel que
-
-$$
-n \geq \left( \frac{3+z_{1-\beta}}{\rho_{max}} \right)^2
-$$
-
-où $z_{1-\beta}$ est le quantile d'ordre $(1-\beta)$ de la loi normale.
-
-## Retour à l'exemple
-
-Avec les valeurs précédentes on a $\rho_{max}=3.$ Si on veut détecter ce déréglage dans 90% des cas alors on doit avoir $n \geq$ `r ((3-qnorm(0.1))/3)^2`
-
-Prélever des échantillons de taille $n=3$ suffit à détecter dans 95% des cas des décentrages d'au moins 3 écarts types.

@@ -1,6 +1,6 @@
-# Cartes univariées
+# Carte de contrôles
 
-```{r echo=F}
+```{r echo=F, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 suppressPackageStartupMessages(
   {
@@ -13,10 +13,40 @@ library(readxl)
 )
 ```
 
+## Historique
 
-## Cartes de Shewart
+-   Inventées par Walter A. Shewhart (années 1920)
 
-On va construire deux graphiques : une carte dite de position et une carte de dispersion. Ces cartes sont appelées les cartes de Shewart.
+-   S'utilisent dans de très nombreux secteurs d'activité (industrie, transport, service, ...)
+
+-   Suivi et/ou amélioration d'un système de production
+
+**Avantages**
+
+-   Très faciles à mettre en oeuvre
+
+-   Très faciles à interpréter (graphiques)
+
+**Inconvénients**
+
+-   Ne tient pas a priori compte des tolérances
+
+-   N'est pas toujours efficace (ex : si problème de déviation progressive)
+
+## Comprendre les variations des procédés de fabrication
+
+On distingue plusieurs causes qui peuvent induire des variations dans un système de production :
+
+-   ***causes aléatoires*** (communes) elles sont en grand nombre avec un effet individuel faible. On peut les modéliser par une variable aléatoire (en général gaussienne). Elles peuvent être corrigées par des actions sur le système global. Exemple : temps de trajet domicile-travail. Si il y a des feux rouges sur le trajet ceux-ci pourront être parfois verts ou rouges, il peut y avoir plus ou moins de circulation... Action globale : changer de route pour ne plus avoir de feux rouges !
+
+-   ***causes assignables*** (spéciales) elles sont rares et ne peuvent pas être associées directement au procédé de fabrication (Deming 1986). Elles peuvent être corrigées par des actions locales. Exemple : un accident de la route se produit sur le trajet.
+
+Un processus est dit ***sous contrôle ou statistiquement stable*** lorsque les variations sont uniquement dûes à des causes aléatoires.
+
+
+
+## Cartes de position et de dispersion
+
 
 ***Exemple***
 
@@ -98,19 +128,22 @@ Pour construire :
 
 ### Retour sur l'exemple :
 
-1.  Calculer les limites de contrôles des cartes de la moyenne et de l'écart type.
+1.  Calculer les limites de contrôles des cartes de la moyenne et de l'écart type en utilisant les 10 premiers prélèvements. Construire les cartes et vérifier qu'il n'y a pas de points hors limites
 
-2.  Construire les cartes s'obtiennent en utilisant la fonction *plot_chart()* du package *multiSPC*.
+2.  Construire les cartes correspondantes aux 14 autres prélèvements, on utilisera les limites précédentes.
 
-```{r eval=F}
+
+### Correction
+
+```{r}
 #| code-fold: true
 #| code-summary: "Voir la correction"
 
-
-df<-data[,-1]
+k=nrow(df)
 n=ncol(df)
-M=apply(df,1,mean)
-S=apply(df,1,sd)
+train=df[1:10,]
+M=apply(train,1,mean)
+S=apply(train,1,sd)
 mu=mean(M)
 sigI=mean(S)/c4(n)
 LICm=mu-3*sigI/sqrt(n)
@@ -119,113 +152,12 @@ LICs=mean(S)-3*mean(S)*sqrt(1-c4(n)^2)/c4(n)
 LSCs=mean(S)+3*mean(S)*sqrt(1-c4(n)^2)/c4(n)
 plot_chart(M,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")
 plot_chart(S,LIC=LICs,LSC=LSCs,Type = "carte de l'écart type")
+
+
+test=df[11:24,]
+Mt=apply(test,1,mean)
+St=apply(test,1,sd)
+plot_chart(M,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")
+plot_chart(S,LIC=LICs,LSC=LSCs,Type = "carte de l'écart type")
+
 ```
-
-
-## Carte EWMA
-
-```{r echo=F}
-knitr::opts_chunk$set(echo = TRUE)
-suppressPackageStartupMessages(
-  {
-library(tidyverse)
-library(ggplot2)
-library(knitr)
-library(multiSPC)
-library(readxl)
-  }
-)
-```
-
-### Introduction
-
-La carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à interpréter. Cependant elle n'a pas une très grande efficacité surtout :
-
--   en cas de faibles et moyennes déviations
-
--   en cas de structure d'autocorrélation, c'est à dire lorsque le passé a une influence, par exemple lorsqu'une tendance croissante apparaît.
-
-***Exemple :***
-
-On suit une production de caractéristique $\mu=15$ et $\sigma=0.5$. Pour ce faire 10 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 7ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).
-
-```{r warnings=F,echo=F}
-set.seed("3344")
-n=4
-k=10
-data=matrix(NA,nrow=k,ncol=n)
-mu=15
-sig=0.5
-data=rep(NA,k)
-data[1]=mu
-for(i in 2:k) data[i]<-data[i-1]+runif(1,0,0.25)
-
-LICm=mu-3*sig/sqrt(n)
-LSCm=mu+3*sig/sqrt(n)
-
-plot_chart(data,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")
-```
-
-Une des solutions est la carte EWMA
-
-### Définition des cartes EWMA
-
-***EWMA : Exponentially Weighted Moving Average***
-
-On définit la statistique $z_i$ par une relation de récurrence pour tout $i=1,...,k$
-
-$$
-z_i=\lambda \bar x_i +(1-\lambda)z_{i-1},
-$$
-
-où $\bar x_i$ est la moyenne des unités pour le prélèvement $i$ et $0<\lambda\leq 1$ est un réel qui sera choisi en fonction du poids que l'on veut donner aux données précédentes. En effet, en général on choisit $z_0=\mu$ (moyenne du procédé de fabrication). On a 
-$$
-\begin{cases}
-z_1=\lambda \bar x_1+(1-\lambda)\mu \\
-z_2=\lambda \bar x_2+(1-\lambda)z_1= \lambda \bar x_2+\lambda(1-\lambda)\bar x_1+(1-\lambda)^2\mu \\
-z_3=\lambda \bar x_3+\lambda(1-\lambda)\bar x_2+\lambda(1-\lambda)^2\bar x_1+
-(1-\lambda)^3\mu \\
-\ldots
-\end{cases}
-$$
-
-```{r echo=F}
-lambda<-seq(0,1,.01)
-
-plot(lambda,lambda,type="l",xlab=expression(lambda),
-     ylab="coefficient",ylim=c(0,0.6),
-     main=expression(paste("Poids des coefficients en fonction de ",lambda)))
-lines(lambda,lambda*(1-lambda),col=2)
-lines(lambda,lambda*(1-lambda)^2,col=3)
-lines(lambda,lambda*(1-lambda)^3,col=4)
-legend("topright",lty=rep(1,4),legend=c(expression(lambda),
-                                        expression(lambda*(1-lambda)),
-                                        expression(lambda*(1-lambda)^2),
-                                        expression(lambda*(1-lambda)^3)),
-       col=1:4)
-```
-
--   La cas $\lambda=1$ correspond à la carte de Shewhart sur la moyenne.
-
--   On constate que $\bar x_i$ a une importance d'autant plus importante dans $z_i$ que $\lambda$ est grand.
-
--   En général on utilise $0.25<\lambda<0.5$.
-
-### Limites de contrôle des cartes EWMA
-
-Les limites de ces cartes sont variables (en fonction de $i$) pour $X\sim \mathcal N(\mu,\sigma)$ on a :$$LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] },$$
-en général avec $L=3$.
-
-Lorsque le nombre $i$ de prélèvement est très grand alors $LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}}$. Dans ce cas on peut jouer sur ce paramètre $L$ pour améliorer l'efficacité de la carte en fonction de $\lambda$.
-
-
-### Retour à l'exemple :
-
-On constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 5ième prélèvement.
-
-```{r}
-lambda=0.25
-Z<-ewma_cart1(data,n,mu=mu,sig=sig,lambda=lambda)
-plot_chart(Z$z,LIC=Z$LIC,LSC=Z$LSC,Type="Carte EWMA")
-```
-

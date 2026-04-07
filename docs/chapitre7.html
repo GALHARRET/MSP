@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Cartes multivariées – MSP</title>
+<title>6&nbsp; Cartes multivariées – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre2.html" rel="next">
-<link href="./chapitre4.html" rel="prev">
+<link href="./exercice.html" rel="next">
+<link href="./chapitre2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre7.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre7.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,20 +183,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  <a href="./chapitre5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Efficacité des cartes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -207,14 +207,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./exercice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./projet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Projet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Projet</span></span></a>
   </div>
 </li>
     </ul>
@@ -227,24 +233,24 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
-  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">4.2</span> Exemple :</a></li>
-  <li><a href="#notations" id="toc-notations" class="nav-link" data-scroll-target="#notations"><span class="header-section-number">4.3</span> Notations</a></li>
-  <li><a href="#matrice-de-covariance" id="toc-matrice-de-covariance" class="nav-link" data-scroll-target="#matrice-de-covariance"><span class="header-section-number">4.4</span> Matrice de covariance</a></li>
-  <li><a href="#la-distribution-normale-multivariée" id="toc-la-distribution-normale-multivariée" class="nav-link" data-scroll-target="#la-distribution-normale-multivariée"><span class="header-section-number">4.5</span> La distribution normale multivariée}</a></li>
-  <li><a href="#cartes-de-contrôles-t2-hotelling" id="toc-cartes-de-contrôles-t2-hotelling" class="nav-link" data-scroll-target="#cartes-de-contrôles-t2-hotelling"><span class="header-section-number">4.6</span> Cartes de contrôles <span class="math inline">\(T^2\)</span> Hotelling</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">6.1</span> Introduction</a></li>
+  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">6.2</span> Exemple :</a></li>
+  <li><a href="#notations" id="toc-notations" class="nav-link" data-scroll-target="#notations"><span class="header-section-number">6.3</span> Notations</a></li>
+  <li><a href="#matrice-de-covariance" id="toc-matrice-de-covariance" class="nav-link" data-scroll-target="#matrice-de-covariance"><span class="header-section-number">6.4</span> Matrice de covariance</a></li>
+  <li><a href="#la-distribution-normale-multivariée" id="toc-la-distribution-normale-multivariée" class="nav-link" data-scroll-target="#la-distribution-normale-multivariée"><span class="header-section-number">6.5</span> La distribution normale multivariée}</a></li>
+  <li><a href="#cartes-de-contrôles-t2-hotelling" id="toc-cartes-de-contrôles-t2-hotelling" class="nav-link" data-scroll-target="#cartes-de-contrôles-t2-hotelling"><span class="header-section-number">6.6</span> Cartes de contrôles <span class="math inline">\(T^2\)</span> Hotelling</a>
   <ul class="collapse">
-  <li><a href="#généralités" id="toc-généralités" class="nav-link" data-scroll-target="#généralités"><span class="header-section-number">4.6.1</span> Généralités</a></li>
-  <li><a href="#construction-de-la-carte-phase-i" id="toc-construction-de-la-carte-phase-i" class="nav-link" data-scroll-target="#construction-de-la-carte-phase-i"><span class="header-section-number">4.6.2</span> Construction de la carte (Phase I)</a></li>
-  <li><a href="#application-des-limites-de-contrôle-phase-ii" id="toc-application-des-limites-de-contrôle-phase-ii" class="nav-link" data-scroll-target="#application-des-limites-de-contrôle-phase-ii"><span class="header-section-number">4.6.3</span> Application des limites de contrôle (Phase II)</a></li>
+  <li><a href="#généralités" id="toc-généralités" class="nav-link" data-scroll-target="#généralités"><span class="header-section-number">6.6.1</span> Généralités</a></li>
+  <li><a href="#construction-de-la-carte-phase-i" id="toc-construction-de-la-carte-phase-i" class="nav-link" data-scroll-target="#construction-de-la-carte-phase-i"><span class="header-section-number">6.6.2</span> Construction de la carte (Phase I)</a></li>
+  <li><a href="#application-des-limites-de-contrôle-phase-ii" id="toc-application-des-limites-de-contrôle-phase-ii" class="nav-link" data-scroll-target="#application-des-limites-de-contrôle-phase-ii"><span class="header-section-number">6.6.3</span> Application des limites de contrôle (Phase II)</a></li>
   </ul></li>
-  <li><a href="#t2-de-hotelling-pour-prélèvement-individuel" id="toc-t2-de-hotelling-pour-prélèvement-individuel" class="nav-link" data-scroll-target="#t2-de-hotelling-pour-prélèvement-individuel"><span class="header-section-number">4.7</span> <span class="math inline">\(T^2\)</span> de Hotelling pour prélèvement individuel</a></li>
-  <li><a href="#carte-sur-la-variance-généralisée" id="toc-carte-sur-la-variance-généralisée" class="nav-link" data-scroll-target="#carte-sur-la-variance-généralisée"><span class="header-section-number">4.8</span> Carte sur la variance généralisée</a></li>
-  <li><a href="#cartes-mewma" id="toc-cartes-mewma" class="nav-link" data-scroll-target="#cartes-mewma"><span class="header-section-number">4.9</span> Cartes MEWMA</a></li>
-  <li><a href="#cartes-sur-composantes-principales" id="toc-cartes-sur-composantes-principales" class="nav-link" data-scroll-target="#cartes-sur-composantes-principales"><span class="header-section-number">4.10</span> Cartes sur composantes principales</a>
+  <li><a href="#t2-de-hotelling-pour-prélèvement-individuel" id="toc-t2-de-hotelling-pour-prélèvement-individuel" class="nav-link" data-scroll-target="#t2-de-hotelling-pour-prélèvement-individuel"><span class="header-section-number">6.7</span> <span class="math inline">\(T^2\)</span> de Hotelling pour prélèvement individuel</a></li>
+  <li><a href="#carte-sur-la-variance-généralisée" id="toc-carte-sur-la-variance-généralisée" class="nav-link" data-scroll-target="#carte-sur-la-variance-généralisée"><span class="header-section-number">6.8</span> Carte sur la variance généralisée</a></li>
+  <li><a href="#cartes-mewma" id="toc-cartes-mewma" class="nav-link" data-scroll-target="#cartes-mewma"><span class="header-section-number">6.9</span> Cartes MEWMA</a></li>
+  <li><a href="#cartes-sur-composantes-principales" id="toc-cartes-sur-composantes-principales" class="nav-link" data-scroll-target="#cartes-sur-composantes-principales"><span class="header-section-number">6.10</span> Cartes sur composantes principales</a>
   <ul class="collapse">
-  <li><a href="#cartes-individuelles" id="toc-cartes-individuelles" class="nav-link" data-scroll-target="#cartes-individuelles"><span class="header-section-number">4.10.1</span> Cartes individuelles :</a></li>
-  <li><a href="#cas-multivarié" id="toc-cas-multivarié" class="nav-link" data-scroll-target="#cas-multivarié"><span class="header-section-number">4.10.2</span> Cas multivarié</a></li>
+  <li><a href="#cartes-individuelles" id="toc-cartes-individuelles" class="nav-link" data-scroll-target="#cartes-individuelles"><span class="header-section-number">6.10.1</span> Cartes individuelles :</a></li>
+  <li><a href="#cas-multivarié" id="toc-cas-multivarié" class="nav-link" data-scroll-target="#cas-multivarié"><span class="header-section-number">6.10.2</span> Cas multivarié</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -254,7 +260,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></h1>
 </div>
 
 
@@ -283,15 +289,15 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="introduction" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
 <ul>
 <li><p>Cours précédent : une caractéristique <span class="math inline">\(X\)</span> de la production suivie au cours du temps par carte de la moyenne de Shewhart et carte EWMA</p></li>
 <li><p>Ce cours : plusieurs variables <span class="math inline">\(X_1,...,X_p\)</span> caractérisant la production. Il existe toujours des liens entre ces variables donc faire des cartes univariées n’est pas optimal.</p></li>
 </ul>
 </section>
-<section id="exemple" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="exemple"><span class="header-section-number">4.2</span> Exemple :</h2>
+<section id="exemple" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="exemple"><span class="header-section-number">6.2</span> Exemple :</h2>
 <ul>
 <li><p>Au cours du processus de fabrication d’un tube en fibre de carbone spécifique, trois caractéristiques qualitatives corrélées sont mesurées : le diamètre intérieur, l’épaisseur et la longueur du tube.</p></li>
 <li><p>Ici les données sont sous la forme d’une matrice à trois dimensions.</p></li>
@@ -309,13 +315,13 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="notations" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="notations"><span class="header-section-number">4.3</span> Notations</h2>
+<section id="notations" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="notations"><span class="header-section-number">6.3</span> Notations</h2>
 <ul>
 <li><p>Les données sont dans une matrice à trois dimensions.</p></li>
 <li><p>On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice <span class="math inline">\((k,p)\)</span> dont les éléments sont les moyennes.</p></li>
 </ul>
-<p><embed src="figure/cube_data.pdf" class="img-fluid"></p>
+<p><img src="figure/cube.png" class="img-fluid"></p>
 <p>On peut tracer le graphe de corrélation des 30 moyennes de <span class="math inline">\(X=(X_1,X_2,X_3)\)</span> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">Moy_X</span>(carbon1)</span>
@@ -330,8 +336,8 @@ window.Quarto = {
 </div>
 <p>On en déduit que les corrélations entre les trois caractéristiques sont fortes et significatives.</p>
 </section>
-<section id="matrice-de-covariance" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="matrice-de-covariance"><span class="header-section-number">4.4</span> Matrice de covariance</h2>
+<section id="matrice-de-covariance" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="matrice-de-covariance"><span class="header-section-number">6.4</span> Matrice de covariance</h2>
 <ul>
 <li><p>Soit <span class="math inline">\(X,Y\)</span> deux variables aléatoires réelles, la covariance <span class="math inline">\(\sigma_{X,Y}=\mathbb E \left([X-\mathbb E(X)][Y-\mathbb E(Y)] \right)\)</span>. On a <span class="math inline">\(\sigma_{X,X}=\sigma^2_X\)</span> (variance de X).</p></li>
 <li><p>Si les variables <span class="math inline">\(X,Y\)</span> sont indépendantes alors <span class="math inline">\(\sigma_{X,Y}=0\)</span>. (réciproque fausse)</p></li>
@@ -381,8 +387,8 @@ length    0.006694762 0.010203155 0.059207381</code></pre>
 </div>
 <p><em>Remarque :</em> La corrélation est la covariance des variables standardisées.</p>
 </section>
-<section id="la-distribution-normale-multivariée" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="la-distribution-normale-multivariée"><span class="header-section-number">4.5</span> La distribution normale multivariée}</h2>
+<section id="la-distribution-normale-multivariée" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="la-distribution-normale-multivariée"><span class="header-section-number">6.5</span> La distribution normale multivariée}</h2>
 <p>La densité de probabilité de <span class="math inline">\(X\sim \mathcal N(\mu,\sigma)\)</span> est pour <span class="math inline">\(x\in \mathbb R\)</span> <span class="math display">\[f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac1{2}[\sigma^{-1}(x-\mu)]^2}.\]</span></p>
 <p><em>Exemple :</em> <span class="math inline">\(\mu=0,\sigma=1\)</span>, <span class="math inline">\(\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac1{2}x^2}.\)</span></p>
 <p>On a <span class="math inline">\(\varphi(0)=\)</span> 0.4 et <span class="math inline">\(\varphi(2)=\)</span> 0.1</p>
@@ -407,10 +413,10 @@ length    0.006694762 0.010203155 0.059207381</code></pre>
 <li><p>Tout plan vertical passant par <span class="math inline">\((0,0)\)</span> donne une loi normale centrée.</p></li>
 </ul>
 </section>
-<section id="cartes-de-contrôles-t2-hotelling" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="cartes-de-contrôles-t2-hotelling"><span class="header-section-number">4.6</span> Cartes de contrôles <span class="math inline">\(T^2\)</span> Hotelling</h2>
-<section id="généralités" class="level3" data-number="4.6.1">
-<h3 data-number="4.6.1" class="anchored" data-anchor-id="généralités"><span class="header-section-number">4.6.1</span> Généralités</h3>
+<section id="cartes-de-contrôles-t2-hotelling" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="cartes-de-contrôles-t2-hotelling"><span class="header-section-number">6.6</span> Cartes de contrôles <span class="math inline">\(T^2\)</span> Hotelling</h2>
+<section id="généralités" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="généralités"><span class="header-section-number">6.6.1</span> Généralités</h3>
 <ul>
 <li><p>Le vecteur des caractéristiques <span class="math inline">\(X=(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma).\)</span></p></li>
 <li><p>Pour un prélèvement <span class="math inline">\(t\)</span>, <span class="math inline">\(\bar X_{t}=(\bar X_{t1},...,\bar X_{tp})\)</span> avec <span class="math inline">\(X_{t}=\)</span> i.i.d. de même loi que <span class="math inline">\(X\)</span>.</p></li>
@@ -459,8 +465,8 @@ Quelques remarques
 </div>
 </div>
 </section>
-<section id="construction-de-la-carte-phase-i" class="level3" data-number="4.6.2">
-<h3 data-number="4.6.2" class="anchored" data-anchor-id="construction-de-la-carte-phase-i"><span class="header-section-number">4.6.2</span> Construction de la carte (Phase I)</h3>
+<section id="construction-de-la-carte-phase-i" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="construction-de-la-carte-phase-i"><span class="header-section-number">6.6.2</span> Construction de la carte (Phase I)</h3>
 <ul>
 <li><p>Pour la phase I (construction de la carte de Hotelling) on pose : <span class="math display">\[LSC=\frac{p(k-1)(n-1)}{kn-k-p+1}F_{(p,kn-k-p+1)}(1-\alpha).\]</span></p></li>
 <li><p>Pour la phase II (futures observations,[!] <span class="math inline">\(k\)</span> est le nombre de prélèvements de la phase I) on pose : <span class="math display">\[LSC=\frac{p(k+1)(n-1)}{kn-k-p+1}F_{(p,kn-k-p+1)}(1-\alpha).\]</span></p></li>
@@ -486,8 +492,8 @@ Quelques remarques
 </div>
 </div>
 </section>
-<section id="application-des-limites-de-contrôle-phase-ii" class="level3" data-number="4.6.3">
-<h3 data-number="4.6.3" class="anchored" data-anchor-id="application-des-limites-de-contrôle-phase-ii"><span class="header-section-number">4.6.3</span> Application des limites de contrôle (Phase II)</h3>
+<section id="application-des-limites-de-contrôle-phase-ii" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="application-des-limites-de-contrôle-phase-ii"><span class="header-section-number">6.6.3</span> Application des limites de contrôle (Phase II)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"carbon2"</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_kn</span>(carbon2,</span>
@@ -571,8 +577,8 @@ $LSC
 <p>Donc cette valeur n’est pas HC sur les deux autres variables.</p>
 </section>
 </section>
-<section id="t2-de-hotelling-pour-prélèvement-individuel" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="t2-de-hotelling-pour-prélèvement-individuel"><span class="header-section-number">4.7</span> <span class="math inline">\(T^2\)</span> de Hotelling pour prélèvement individuel</h2>
+<section id="t2-de-hotelling-pour-prélèvement-individuel" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="t2-de-hotelling-pour-prélèvement-individuel"><span class="header-section-number">6.7</span> <span class="math inline">\(T^2\)</span> de Hotelling pour prélèvement individuel</h2>
 <ul>
 <li><p>Dans de nombreuses applications on ne peut prélever qu’une seule observation (<span class="math inline">\(n=1\)</span>) par prélèvement.</p></li>
 <li><p>Ceci nécessite donc d’adapter la carte de Hotelling. Le problème étant l’approximation de la matrice de covariance <span class="math inline">\(\Sigma\)</span>.</p></li>
@@ -681,8 +687,8 @@ LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
 </div>
 <p>Deux prélèvements sont HC on va comme précédemment s’intéresser aux caractéristiques impliquant la présence de ces points HC. On peut pour ce faire regarder les cartes de contrôles univariées puis bivariée en ces points.</p>
 </section>
-<section id="carte-sur-la-variance-généralisée" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="carte-sur-la-variance-généralisée"><span class="header-section-number">4.8</span> Carte sur la variance généralisée</h2>
+<section id="carte-sur-la-variance-généralisée" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="carte-sur-la-variance-généralisée"><span class="header-section-number">6.8</span> Carte sur la variance généralisée</h2>
 <ul>
 <li>Pour <span class="math inline">\(X\sim\mathcal N_p(\mu,\Sigma)\)</span>, la variance généralisée est définie comme le déterminant de la matrice de covariance <span class="math inline">\(\Sigma\)</span>. Pour le prélèvement <span class="math inline">\(t\)</span> on calcule <span class="math display">\[D_t=\text{det}(\Sigma_t).\]</span></li>
 <li>Comme précédemment la matrice <span class="math inline">\(\Sigma\)</span> est inconnue et donc elle est approximée à partir de <span class="math inline">\(S\)</span>.</li>
@@ -699,8 +705,8 @@ LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
 </div>
 </div>
 </section>
-<section id="cartes-mewma" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="cartes-mewma"><span class="header-section-number">4.9</span> Cartes MEWMA</h2>
+<section id="cartes-mewma" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="cartes-mewma"><span class="header-section-number">6.9</span> Cartes MEWMA</h2>
 <ul>
 <li><p>Les cartes <span class="math inline">\(T^2\)</span> permettent comme les cartes de Shewart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.</p></li>
 <li><p>On généralise les cartes EWMA à <span class="math inline">\(p\)</span> variables. Etant données les <span class="math inline">\(k\)</span> moyennes <span class="math inline">\((\bar X_1,..,\bar X_k)\)</span> où <span class="math inline">\(\bar X_t\in \mathbb R^p\)</span>, on calcule <span class="math display">\[Z_t=\lambda \bar X_t+(1-\lambda)Z_{t-1},\]</span> pour <span class="math inline">\(0&lt;\lambda&lt;1.\)</span> En pratique on choisit souvent <span class="math inline">\(\lambda=0.1\)</span>.</p></li>
@@ -742,10 +748,10 @@ LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
 </div>
 </div>
 </section>
-<section id="cartes-sur-composantes-principales" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="cartes-sur-composantes-principales"><span class="header-section-number">4.10</span> Cartes sur composantes principales</h2>
-<section id="cartes-individuelles" class="level3" data-number="4.10.1">
-<h3 data-number="4.10.1" class="anchored" data-anchor-id="cartes-individuelles"><span class="header-section-number">4.10.1</span> Cartes individuelles :</h3>
+<section id="cartes-sur-composantes-principales" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="cartes-sur-composantes-principales"><span class="header-section-number">6.10</span> Cartes sur composantes principales</h2>
+<section id="cartes-individuelles" class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="cartes-individuelles"><span class="header-section-number">6.10.1</span> Cartes individuelles :</h3>
 <p>L’analyse en composante principale (ACP) est une méthode factorielle qui permet de réduire la dimension d’une matrice en résumant les caractéristiques à travers des combinaisons linéaires de celles-ci (appelées composantes principales). Elle est particulièrement indiquée lorsque la corrélation entre les caractéristiques est forte.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="ACP">
 <div class="callout-header d-flex align-content-center">
@@ -829,8 +835,8 @@ T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
 </div>
 </div>
 </section>
-<section id="cas-multivarié" class="level3" data-number="4.10.2">
-<h3 data-number="4.10.2" class="anchored" data-anchor-id="cas-multivarié"><span class="header-section-number">4.10.2</span> Cas multivarié</h3>
+<section id="cas-multivarié" class="level3" data-number="6.10.2">
+<h3 data-number="6.10.2" class="anchored" data-anchor-id="cas-multivarié"><span class="header-section-number">6.10.2</span> Cas multivarié</h3>
 <p>Revenons sur l’ACP : on sélectionne <span class="math inline">\(r\)</span> composantes principales (principe du coude par exemple) et soit <span class="math inline">\(U_r\)</span> les <span class="math inline">\(r\)</span> premières colonnes de la matrice des vecteurs propres de la matrice de covariance de <span class="math inline">\(X\)</span>.</p>
 <p>Les scores des individus sur les composantes principales sont donnés par <span class="math inline">\(T=X.U,\)</span> donc si on pose <span class="math inline">\(\hat X=T.U_r^T\)</span> alors on a : <span class="math display">\[
 X=\hat X+ E,
@@ -893,61 +899,6 @@ X^c_{new}=X_{new}-\bar X,
 </div>
 </div>
 </div>
-<p>Avec Parafac :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>model<span class="ot">=</span><span class="fu">parafac</span>(X1,<span class="at">nfac=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  |                                                                            
-  |                                                                      |   0%
-  |                                                                            
-  |=======                                                               |  10%
-  |                                                                            
-  |==============                                                        |  20%
-  |                                                                            
-  |=====================                                                 |  30%
-  |                                                                            
-  |============================                                          |  40%
-  |                                                                            
-  |===================================                                   |  50%
-  |                                                                            
-  |==========================================                            |  60%
-  |                                                                            
-  |=================================================                     |  70%
-  |                                                                            
-  |========================================================              |  80%
-  |                                                                            
-  |===============================================================       |  90%
-  |                                                                            
-  |======================================================================| 100%</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>res<span class="ot">=</span><span class="fu">predict_parafac</span>(X2,model)</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hotelling T²</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fu">T2_Hotelling_Parafac</span>(<span class="at">A =</span> model<span class="sc">$</span>A)</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>LIC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LIC=</span>LIC,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 Parafac Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fu">T2_Hotelling_Parafac</span>(res<span class="sc">$</span>A_new,<span class="at">S =</span> <span class="fu">cov</span>(model<span class="sc">$</span>A))</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LIC=</span>LIC,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 Parafac Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="chapitre7_files/figure-html/unnamed-chunk-30-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Les données <img src="cover.png" class="img-fluid" alt="figure"></p>
 
 
 </section>
@@ -1373,13 +1324,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapitre4.html" class="pagination-link" aria-label="Cartes univariées">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span>
+      <a href="./chapitre2.html" class="pagination-link" aria-label="Capabilité, Répétabilité, Reproductivité">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre2.html" class="pagination-link" aria-label="Capabilité, Répétabilité, Reproductivité">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilité, Répétabilité, Reproductivité</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./exercice.html" class="pagination-link" aria-label="Exercice">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercice</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

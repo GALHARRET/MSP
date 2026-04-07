@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Cartes univariées – MSP</title>
+<title>2&nbsp; Carte de contrôles – MSP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapitre7.html" rel="next">
-<link href="./chapitre3.html" rel="prev">
+<link href="./chapitre5.html" rel="next">
+<link href="./chapitre1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre4.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapitre4.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,20 +183,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  <a href="./chapitre5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Efficacité des cartes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapitre6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carte EWMA</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -207,8 +207,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapitre7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./exercice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercice</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./projet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Projet</span></span></a>
   </div>
 </li>
     </ul>
@@ -221,17 +233,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#cartes-de-shewart" id="toc-cartes-de-shewart" class="nav-link active" data-scroll-target="#cartes-de-shewart"><span class="header-section-number">3.1</span> Cartes de Shewart</a>
+  <li><a href="#historique" id="toc-historique" class="nav-link active" data-scroll-target="#historique"><span class="header-section-number">2.1</span> Historique</a></li>
+  <li><a href="#comprendre-les-variations-des-procédés-de-fabrication" id="toc-comprendre-les-variations-des-procédés-de-fabrication" class="nav-link" data-scroll-target="#comprendre-les-variations-des-procédés-de-fabrication"><span class="header-section-number">2.2</span> Comprendre les variations des procédés de fabrication</a></li>
+  <li><a href="#cartes-de-position-et-de-dispersion" id="toc-cartes-de-position-et-de-dispersion" class="nav-link" data-scroll-target="#cartes-de-position-et-de-dispersion"><span class="header-section-number">2.3</span> Cartes de position et de dispersion</a>
   <ul class="collapse">
-  <li><a href="#distribution-des-paramètres" id="toc-distribution-des-paramètres" class="nav-link" data-scroll-target="#distribution-des-paramètres"><span class="header-section-number">3.1.1</span> Distribution des paramètres</a></li>
-  <li><a href="#retour-sur-lexemple" id="toc-retour-sur-lexemple" class="nav-link" data-scroll-target="#retour-sur-lexemple"><span class="header-section-number">3.1.2</span> Retour sur l’exemple :</a></li>
-  </ul></li>
-  <li><a href="#carte-ewma" id="toc-carte-ewma" class="nav-link" data-scroll-target="#carte-ewma"><span class="header-section-number">3.2</span> Carte EWMA</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">3.2.1</span> Introduction</a></li>
-  <li><a href="#définition-des-cartes-ewma" id="toc-définition-des-cartes-ewma" class="nav-link" data-scroll-target="#définition-des-cartes-ewma"><span class="header-section-number">3.2.2</span> Définition des cartes EWMA</a></li>
-  <li><a href="#limites-de-contrôle-des-cartes-ewma" id="toc-limites-de-contrôle-des-cartes-ewma" class="nav-link" data-scroll-target="#limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">3.2.3</span> Limites de contrôle des cartes EWMA</a></li>
-  <li><a href="#retour-à-lexemple" id="toc-retour-à-lexemple" class="nav-link" data-scroll-target="#retour-à-lexemple"><span class="header-section-number">3.2.4</span> Retour à l’exemple :</a></li>
+  <li><a href="#distribution-des-paramètres" id="toc-distribution-des-paramètres" class="nav-link" data-scroll-target="#distribution-des-paramètres"><span class="header-section-number">2.3.1</span> Distribution des paramètres</a></li>
+  <li><a href="#retour-sur-lexemple" id="toc-retour-sur-lexemple" class="nav-link" data-scroll-target="#retour-sur-lexemple"><span class="header-section-number">2.3.2</span> Retour sur l’exemple :</a></li>
+  <li><a href="#correction" id="toc-correction" class="nav-link" data-scroll-target="#correction"><span class="header-section-number">2.3.3</span> Correction</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -241,7 +249,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cartes univariées</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></h1>
 </div>
 
 
@@ -258,9 +266,35 @@ window.Quarto = {
 </header>
 
 
-<section id="cartes-de-shewart" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="cartes-de-shewart"><span class="header-section-number">3.1</span> Cartes de Shewart</h2>
-<p>On va construire deux graphiques : une carte dite de position et une carte de dispersion. Ces cartes sont appelées les cartes de Shewart.</p>
+<section id="historique" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="historique"><span class="header-section-number">2.1</span> Historique</h2>
+<ul>
+<li><p>Inventées par Walter A. Shewhart (années 1920)</p></li>
+<li><p>S’utilisent dans de très nombreux secteurs d’activité (industrie, transport, service, …)</p></li>
+<li><p>Suivi et/ou amélioration d’un système de production</p></li>
+</ul>
+<p><strong>Avantages</strong></p>
+<ul>
+<li><p>Très faciles à mettre en oeuvre</p></li>
+<li><p>Très faciles à interpréter (graphiques)</p></li>
+</ul>
+<p><strong>Inconvénients</strong></p>
+<ul>
+<li><p>Ne tient pas a priori compte des tolérances</p></li>
+<li><p>N’est pas toujours efficace (ex : si problème de déviation progressive)</p></li>
+</ul>
+</section>
+<section id="comprendre-les-variations-des-procédés-de-fabrication" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="comprendre-les-variations-des-procédés-de-fabrication"><span class="header-section-number">2.2</span> Comprendre les variations des procédés de fabrication</h2>
+<p>On distingue plusieurs causes qui peuvent induire des variations dans un système de production :</p>
+<ul>
+<li><p><strong><em>causes aléatoires</em></strong> (communes) elles sont en grand nombre avec un effet individuel faible. On peut les modéliser par une variable aléatoire (en général gaussienne). Elles peuvent être corrigées par des actions sur le système global. Exemple : temps de trajet domicile-travail. Si il y a des feux rouges sur le trajet ceux-ci pourront être parfois verts ou rouges, il peut y avoir plus ou moins de circulation… Action globale : changer de route pour ne plus avoir de feux rouges !</p></li>
+<li><p><strong><em>causes assignables</em></strong> (spéciales) elles sont rares et ne peuvent pas être associées directement au procédé de fabrication (Deming 1986). Elles peuvent être corrigées par des actions locales. Exemple : un accident de la route se produit sur le trajet.</p></li>
+</ul>
+<p>Un processus est dit <strong><em>sous contrôle ou statistiquement stable</em></strong> lorsque les variations sont uniquement dûes à des causes aléatoires.</p>
+</section>
+<section id="cartes-de-position-et-de-dispersion" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="cartes-de-position-et-de-dispersion"><span class="header-section-number">2.3</span> Cartes de position et de dispersion</h2>
 <p><strong><em>Exemple</em></strong></p>
 <p>Suivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.</p>
 <p>Les données sont disponibles <a href="exemple_carte_Shewhart.csv">ici</a></p>
@@ -348,8 +382,8 @@ window.Quarto = {
 </div>
 </div>
 <p>Pour chaque échantillon de 5 steacks on calcule la moyenne et l’écart type et on les reporte sur les cartes correspondantes.</p>
-<section id="distribution-des-paramètres" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="distribution-des-paramètres"><span class="header-section-number">3.1.1</span> Distribution des paramètres</h3>
+<section id="distribution-des-paramètres" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="distribution-des-paramètres"><span class="header-section-number">2.3.1</span> Distribution des paramètres</h3>
 <p>On suppose que tous les paramètres suivent une loi normale.</p>
 <ul>
 <li><p>La moyenne d’un échantillon <span class="math inline">\(\bar Y \sim \mathcal N(\mu,\frac{\sigma}{\sqrt n}).\)</span></p></li>
@@ -396,100 +430,71 @@ Limites des cartes de contrôle
 </div>
 </div>
 </section>
-<section id="retour-sur-lexemple" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="retour-sur-lexemple"><span class="header-section-number">3.1.2</span> Retour sur l’exemple :</h3>
+<section id="retour-sur-lexemple" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="retour-sur-lexemple"><span class="header-section-number">2.3.2</span> Retour sur l’exemple :</h3>
 <ol type="1">
-<li><p>Calculer les limites de contrôles des cartes de la moyenne et de l’écart type.</p></li>
-<li><p>Construire les cartes s’obtiennent en utilisant la fonction <em>plot_chart()</em> du package <em>multiSPC</em>.</p></li>
+<li><p>Calculer les limites de contrôles des cartes de la moyenne et de l’écart type en utilisant les 10 premiers prélèvements. Construire les cartes et vérifier qu’il n’y a pas de points hors limites</p></li>
+<li><p>Construire les cartes correspondantes aux 14 autres prélèvements, on utilisera les limites précédentes.</p></li>
 </ol>
+</section>
+<section id="correction" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="correction"><span class="header-section-number">2.3.3</span> Correction</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Voir la correction</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>data[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">nrow</span>(df)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">ncol</span>(df)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(df,<span class="dv">1</span>,mean)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">apply</span>(df,<span class="dv">1</span>,sd)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">mean</span>(M)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sigI<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>LICm<span class="ot">=</span>mu<span class="dv">-3</span><span class="sc">*</span>sigI<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>LSCm<span class="ot">=</span>mu<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span>sigI<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>LICs<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span><span class="fu">mean</span>(S)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">c4</span>(n)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>LSCs<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">mean</span>(S)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">c4</span>(n)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(M,<span class="at">LIC=</span>LICm,<span class="at">LSC=</span>LSCm,<span class="at">Type =</span> <span class="st">"carte de la moyenne"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(S,<span class="at">LIC=</span>LICs,<span class="at">LSC=</span>LSCs,<span class="at">Type =</span> <span class="st">"carte de l'écart type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>train<span class="ot">=</span>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(train,<span class="dv">1</span>,mean)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">apply</span>(train,<span class="dv">1</span>,sd)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">mean</span>(M)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sigI<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>LICm<span class="ot">=</span>mu<span class="dv">-3</span><span class="sc">*</span>sigI<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>LSCm<span class="ot">=</span>mu<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span>sigI<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>LICs<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span><span class="fu">mean</span>(S)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">c4</span>(n)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>LSCs<span class="ot">=</span><span class="fu">mean</span>(S)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">mean</span>(S)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">c4</span>(n)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">c4</span>(n)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(M,<span class="at">LIC=</span>LICm,<span class="at">LSC=</span>LSCm,<span class="at">Type =</span> <span class="st">"carte de la moyenne"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-</div>
-</section>
-</section>
-<section id="carte-ewma" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="carte-ewma"><span class="header-section-number">3.2</span> Carte EWMA</h2>
-<section id="introduction" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.2.1</span> Introduction</h3>
-<p>La carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à interpréter. Cependant elle n’a pas une très grande efficacité surtout :</p>
-<ul>
-<li><p>en cas de faibles et moyennes déviations</p></li>
-<li><p>en cas de structure d’autocorrélation, c’est à dire lorsque le passé a une influence, par exemple lorsqu’une tendance croissante apparaît.</p></li>
-</ul>
-<p><strong><em>Exemple :</em></strong></p>
-<p>On suit une production de caractéristique <span class="math inline">\(\mu=15\)</span> et <span class="math inline">\(\sigma=0.5\)</span>. Pour ce faire 10 prélèvements de 4 unités de production ont été réalisés. On construit la carte de moyenne de Shewhart. A partir du 7ième prélèvement on constate une déviation de la moyenne et un décentrage supérieur. La carte de Shewhart ne détecte cette déviation que très tardivement (14ième prélèvement).</p>
-<div class="cell" data-warnings="false">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="chapitre4_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="chapitre4_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-</div>
-<p>Une des solutions est la carte EWMA</p>
-</section>
-<section id="définition-des-cartes-ewma" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="définition-des-cartes-ewma"><span class="header-section-number">3.2.2</span> Définition des cartes EWMA</h3>
-<p><strong><em>EWMA : Exponentially Weighted Moving Average</em></strong></p>
-<p>On définit la statistique <span class="math inline">\(z_i\)</span> par une relation de récurrence pour tout <span class="math inline">\(i=1,...,k\)</span></p>
-<p><span class="math display">\[
-z_i=\lambda \bar x_i +(1-\lambda)z_{i-1},
-\]</span></p>
-<p>où <span class="math inline">\(\bar x_i\)</span> est la moyenne des unités pour le prélèvement <span class="math inline">\(i\)</span> et <span class="math inline">\(0&lt;\lambda\leq 1\)</span> est un réel qui sera choisi en fonction du poids que l’on veut donner aux données précédentes. En effet, en général on choisit <span class="math inline">\(z_0=\mu\)</span> (moyenne du procédé de fabrication). On a <span class="math display">\[
-\begin{cases}
-z_1=\lambda \bar x_1+(1-\lambda)\mu \\
-z_2=\lambda \bar x_2+(1-\lambda)z_1= \lambda \bar x_2+\lambda(1-\lambda)\bar x_1+(1-\lambda)^2\mu \\
-z_3=\lambda \bar x_3+\lambda(1-\lambda)\bar x_2+\lambda(1-\lambda)^2\bar x_1+
-(1-\lambda)^3\mu \\
-\ldots
-\end{cases}
-\]</span></p>
-<div class="cell">
+<details class="code-fold">
+<summary>Voir la correction</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(S,<span class="at">LIC=</span>LICs,<span class="at">LSC=</span>LSCs,<span class="at">Type =</span> <span class="st">"carte de l'écart type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="chapitre4_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="chapitre4_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-</div>
-<ul>
-<li><p>La cas <span class="math inline">\(\lambda=1\)</span> correspond à la carte de Shewhart sur la moyenne.</p></li>
-<li><p>On constate que <span class="math inline">\(\bar x_i\)</span> a une importance d’autant plus importante dans <span class="math inline">\(z_i\)</span> que <span class="math inline">\(\lambda\)</span> est grand.</p></li>
-<li><p>En général on utilise <span class="math inline">\(0.25&lt;\lambda&lt;0.5\)</span>.</p></li>
-</ul>
-</section>
-<section id="limites-de-contrôle-des-cartes-ewma" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="limites-de-contrôle-des-cartes-ewma"><span class="header-section-number">3.2.3</span> Limites de contrôle des cartes EWMA</h3>
-<p>Les limites de ces cartes sont variables (en fonction de <span class="math inline">\(i\)</span>) pour <span class="math inline">\(X\sim \mathcal N(\mu,\sigma)\)</span> on a :<span class="math display">\[LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}[1-(1-\lambda)^{2i}] },\]</span> en général avec <span class="math inline">\(L=3\)</span>.</p>
-<p>Lorsque le nombre <span class="math inline">\(i\)</span> de prélèvement est très grand alors <span class="math inline">\(LC = \mu  \pm L\frac{\sigma}{\sqrt{n}}\times \sqrt {\frac{\lambda}{2-\lambda}}\)</span>. Dans ce cas on peut jouer sur ce paramètre <span class="math inline">\(L\)</span> pour améliorer l’efficacité de la carte en fonction de <span class="math inline">\(\lambda\)</span>.</p>
-</section>
-<section id="retour-à-lexemple" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="retour-à-lexemple"><span class="header-section-number">3.2.4</span> Retour à l’exemple :</h3>
-<p>On constate que contrairement à la carte de la moyenne la carte EWMA détecte le décentrage dès le 5ième prélèvement.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lambda<span class="ot">=</span><span class="fl">0.25</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Z<span class="ot">&lt;-</span><span class="fu">ewma_cart1</span>(data,n,<span class="at">mu=</span>mu,<span class="at">sig=</span>sig,<span class="at">lambda=</span>lambda)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(Z<span class="sc">$</span>z,<span class="at">LIC=</span>Z<span class="sc">$</span>LIC,<span class="at">LSC=</span>Z<span class="sc">$</span>LSC,<span class="at">Type=</span><span class="st">"Carte EWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Voir la correction</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>test<span class="ot">=</span>df[<span class="dv">11</span><span class="sc">:</span><span class="dv">24</span>,]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Mt<span class="ot">=</span><span class="fu">apply</span>(test,<span class="dv">1</span>,mean)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>St<span class="ot">=</span><span class="fu">apply</span>(test,<span class="dv">1</span>,sd)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(M,<span class="at">LIC=</span>LICm,<span class="at">LSC=</span>LSCm,<span class="at">Type =</span> <span class="st">"carte de la moyenne"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="chapitre4_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="chapitre4_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Voir la correction</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(S,<span class="at">LIC=</span>LICs,<span class="at">LSC=</span>LSCs,<span class="at">Type =</span> <span class="st">"carte de l'écart type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre4_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -919,13 +924,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapitre3.html" class="pagination-link" aria-label="Cartes de contrôle">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span>
+      <a href="./chapitre1.html" class="pagination-link" aria-label="Estimation des paramètres du procédé">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estimation des paramètres du procédé</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapitre7.html" class="pagination-link" aria-label="Cartes multivariées">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cartes multivariées</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapitre5.html" class="pagination-link" aria-label="Efficacité des cartes">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Efficacité des cartes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

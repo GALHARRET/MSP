@@ -113,8 +113,9 @@ c4(5)
 -   On sait pour chaque échantillon $j$ de $n$ valeurs calculer une estimation de l'écart type $\sigma_j$ en calculant $$s_j= \sqrt{\frac{\displaystyle\sum_{i=1}^n(y_{ij}-\bar y_j)^2}{n-1}},$$ où $\bar y_j$ est la moyenne de l'échantillon $j.$
 
 ::: {.callout-note title="Estimation à partir des écarts types"}
-On considère $k$ prélèvements de taille $n$ dont les écarts types sont $s_1,...,s_k,$ on pose $\bar S =\frac{\sum_{j=1}^k s_j}{k}$. Une estimation de l'écart type instantané $\sigma_M$ est donné par $$
-\hat \sigma_M=\dfrac{\bar S}{c_4(n)}.
+On considère $k$ prélèvements de taille $n$ dont les écarts types sont $s_1,...,s_k,$ on pose $\bar S =\frac{\sum_{j=1}^k s_j}{k}$. Une estimation de l'écart type instantané $\sigma_M$ est donné par 
+$$
+\hat \sigma_I=\dfrac{\bar S}{c_4(n)}.
 $$
 :::
 
@@ -125,8 +126,9 @@ R_j=\max(y_{ij})-\min(y_{ij})
 $$
 
 ::: {.callout-note title="Estimation à partir des écarts types"}
-On considère $k$ prélèvements de taille $n$ dont les étendues sont $R_1,...,R_k,$ on pose $\bar R =\frac{\sum_{j=1}^k R_j}{k}$. Une estimation de l'écart type instantané $\sigma_M$ est donné par $$
-\hat \sigma_M=\dfrac{\bar R}{d_2(n)}.
+On considère $k$ prélèvements de taille $n$ dont les étendues sont $R_1,...,R_k,$ on pose $\bar R =\frac{\sum_{j=1}^k R_j}{k}$. Une estimation de l'écart type instantané $\sigma_M$ est donné par 
+$$
+\hat \sigma_I=\dfrac{\bar R}{d_2(n)}.
 $$
 :::
 

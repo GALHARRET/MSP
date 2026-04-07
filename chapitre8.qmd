@@ -1,0 +1,90 @@
+# Cartes aux limites modifiées
+
+Pour l'instant les cartes qui ont été proposées ne tiennent pas compte des tolérances imposées par le client. Elles reposent uniquement sur la distribution des observations et sur le % de fausses alertes que l'on souhaite observer (0.3% dans les cartes précédentes).
+
+-   On suppose connaître les tolérances $TI,TS$ autorisées par le client.
+
+-   On suppose que la production instantanée suit une loi normale $\mathcal N(\mu_I,\sigma_I).$
+
+## Cas n°1 : le procédé de fabrication n'est pas capable
+
+Prenons un exemple : On suppose que la production instantanée $Y \sim \mathcal N(10,2)$ et que l'intervalle de tolérance soit $10 \pm 3$.
+
+On peut calculer $Cam=\frac{TS-TI}{6\times \sigma_I}=0.5$. Le procédé n'est donc pas capable !
+
+On voudrait construire des limites de contrôle sur la carte de la moyenne qui tiennent compte des tolérances : les limites sont $LIC=\mu_I-3\sigma_I/\sqrt{n}$ et $LSC=\mu_I+3\sigma_I/\sqrt{n}$, ce qui donne : $LSC-LIC=6\sigma_I/\sqrt n$
+
+Lorsque le procédé n'est pas capable $Cam<1.33$, ce qui donne $TS-TI<1.33\times 6\sigma_I\simeq 8\sigma_I$. En prenant
+
+$$
+n \geq \left( \frac{8\sigma_I}{TS-TI} \right)^2,
+$$
+
+on aura $LSC-LIC<0.75\times (TS-TI)$.
+
+```{r echo=F}
+set.seed("3344")
+library(multiSPC)
+TI=7
+TS=13
+muI=10
+sigI=2
+n=floor((8*sigI/(TS-TI))^2)+1
+k=20
+X<-rnorm(n*k,muI,sigI)
+df<-data.frame(matrix(X,nrow=k,ncol=n))
+M=apply(df,1,mean)
+LICm=muI-3*sigI/sqrt(n)
+LSCm=muI+3*sigI/sqrt(n)
+plot_chart(M,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")+
+  geom_hline(yintercept = c(7,13),colour="blue",size=1.5)+
+  annotate("text",x=2,y=13.3,label="TS",colour="blue")+
+  annotate("text",x=2,y=6.7,label="TI",colour="blue")
+```
+
+## Cas n°2 : le procédé de fabrication est capable
+
+Par exemple si on a une production $Y \sim \mathcal N(10,0.5)$ avec les mêmes tolérances $TI=7$ et $TS=13$, on a $TS-TI >> 6\sigma$ donc on peut faire une carte de la moyenne aux limites modifiées les nouvelles limites $LIC^*,LSC^*$ étant égales à des moyennes modifiées $\mu_I,\mu_S.$
+
+![](figure/carte_lim_mod.png)
+
+On définit les moyennes maximales refusables (inférieures et supérieures)
+
+$$
+\begin{cases}
+\mu_I=TI+3\sigma \\
+\mu_S=TS-3\sigma
+\end{cases}
+$$
+
+## Remarque :
+
+Ce choix peut être relié au coefficient de performance défini dans le chapitre précédent $Cmk=\frac{\min\left(\mu-TI;TS-\mu\right)}{3\sigma}$.
+
+Si on remplace $\mu$ par $\mu_I$ on obtient $\frac{\min\left(\mu_I-TI;TS-\mu_I\right)}{3\sigma}=\min(1;\frac{TS-TI-3\sigma}{3\sigma}).$
+
+-   Ce nombre vaut 1 si $\frac{TS-TI-3\sigma}{3\sigma}>1$ ce qui revient à $Cap>1.$ C'est à dire que lorsque le procédé est sous contrôle on va autoriser une déviation de la moyenne.
+
+-   Ce nombre vaut $\frac{TS-TI-3\sigma}{3\sigma}$ sinon et dans ce cas $Cap<1,$ le procédé ne répond pas aux spécifications imposées par le client. Il faut dans ce cas agir sur le procédé.
+
+## Calibration de la taille des échantillons :
+
+On peut également définir le ***déraglage maximal admissible*** $\rho_{max}$ par
+
+$$
+\rho_{max}=\min\left( \frac{\mu_S-\mu}{\sigma},\frac{\mu-\mu_I}{\sigma}\right)
+$$
+
+On va alors calibrer la taille $n$ des échantillons à prélever de façon à détecter le déréglage maximal admissible à un risque $\beta$ fixé de ne pas détecter ce déréglage maximal $\rho_{max}$. D'après ce qui précède $n$ sera le plus petit entier tel que
+
+$$
+n \geq \left( \frac{3+z_{1-\beta}}{\rho_{max}} \right)^2
+$$
+
+où $z_{1-\beta}$ est le quantile d'ordre $(1-\beta)$ de la loi normale.
+
+## Retour à l'exemple
+
+Avec les valeurs précédentes on a $\rho_{max}=3.$ Si on veut détecter ce déréglage dans 90% des cas alors on doit avoir $n \geq$ `r ((3-qnorm(0.1))/3)^2`
+
+Prélever des échantillons de taille $n=3$ suffit à détecter dans 95% des cas des décentrages d'au moins 3 écarts types.
