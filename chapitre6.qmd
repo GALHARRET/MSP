@@ -31,14 +31,16 @@ Dans l'exemple ci-dessous on a fait des prélèvements de $n=3$ unités et on a 
 
 ```{r warnings=F,echo=F}
 set.seed("1")
-n=3
-k=30
+n=4
+k=40
 data=matrix(NA,nrow=k,ncol=n)
 mu=15
 sig=0.5
 
 for(i in 1:floor(k/3)) data[i,]<-rnorm(n,mu,sig)
 for(i in (floor(k/3)+1):k) data[i,]<-rnorm(n,mu+.5,sig/2)
+#data=round(data,1)
+#write.csv(data,file="dataEWMA.csv")
 
 LICm=mu-3*sig/sqrt(n)
 LSCm=mu+3*sig/sqrt(n)

@@ -1,4 +1,4 @@
-# Carte de contrôles
+# Cartes de contrôle
 
 ```{r echo=F, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

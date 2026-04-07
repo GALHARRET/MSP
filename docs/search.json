@@ -112,41 +112,41 @@
   {
     "objectID": "chapitre4.html",
     "href": "chapitre4.html",
-    "title": "2  Carte de contrôles",
+    "title": "2  Cartes de contrôle",
     "section": "",
     "text": "2.1 Historique\nAvantages\nInconvénients",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Carte de contrôles</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cartes de contrôle</span>"
     ]
   },
   {
     "objectID": "chapitre4.html#historique",
     "href": "chapitre4.html#historique",
-    "title": "2  Carte de contrôles",
+    "title": "2  Cartes de contrôle",
     "section": "",
     "text": "Inventées par Walter A. Shewhart (années 1920)\nS’utilisent dans de très nombreux secteurs d’activité (industrie, transport, service, …)\nSuivi et/ou amélioration d’un système de production\n\n\n\nTrès faciles à mettre en oeuvre\nTrès faciles à interpréter (graphiques)\n\n\n\nNe tient pas a priori compte des tolérances\nN’est pas toujours efficace (ex : si problème de déviation progressive)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Carte de contrôles</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cartes de contrôle</span>"
     ]
   },
   {
     "objectID": "chapitre4.html#comprendre-les-variations-des-procédés-de-fabrication",
     "href": "chapitre4.html#comprendre-les-variations-des-procédés-de-fabrication",
-    "title": "2  Carte de contrôles",
+    "title": "2  Cartes de contrôle",
     "section": "2.2 Comprendre les variations des procédés de fabrication",
     "text": "2.2 Comprendre les variations des procédés de fabrication\nOn distingue plusieurs causes qui peuvent induire des variations dans un système de production :\n\ncauses aléatoires (communes) elles sont en grand nombre avec un effet individuel faible. On peut les modéliser par une variable aléatoire (en général gaussienne). Elles peuvent être corrigées par des actions sur le système global. Exemple : temps de trajet domicile-travail. Si il y a des feux rouges sur le trajet ceux-ci pourront être parfois verts ou rouges, il peut y avoir plus ou moins de circulation… Action globale : changer de route pour ne plus avoir de feux rouges !\ncauses assignables (spéciales) elles sont rares et ne peuvent pas être associées directement au procédé de fabrication (Deming 1986). Elles peuvent être corrigées par des actions locales. Exemple : un accident de la route se produit sur le trajet.\n\nUn processus est dit sous contrôle ou statistiquement stable lorsque les variations sont uniquement dûes à des causes aléatoires.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Carte de contrôles</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cartes de contrôle</span>"
     ]
   },
   {
     "objectID": "chapitre4.html#cartes-de-position-et-de-dispersion",
     "href": "chapitre4.html#cartes-de-position-et-de-dispersion",
-    "title": "2  Carte de contrôles",
+    "title": "2  Cartes de contrôle",
     "section": "2.3 Cartes de position et de dispersion",
     "text": "2.3 Cartes de position et de dispersion\nExemple\nSuivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.\nLes données sont disponibles ici\n\n\n\n\n\nX\nweight.1\nweight.2\nweight.3\nweight.4\nweight.5\n\n\n\n\n1\n98.6\n100.3\n100.9\n100.2\n99.6\n\n\n2\n100.3\n99.5\n98.9\n100.2\n100.6\n\n\n3\n99.2\n98.8\n101.5\n100.3\n101.0\n\n\n4\n101.1\n97.8\n98.9\n101.3\n101.7\n\n\n5\n101.0\n99.8\n97.3\n99.4\n100.8\n\n\n6\n101.1\n100.1\n99.0\n100.7\n99.9\n\n\n\n\n\nOn va construire les cartes de contrôle données ci-dessous\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPour chaque échantillon de 5 steacks on calcule la moyenne et l’écart type et on les reporte sur les cartes correspondantes.\n\n2.3.1 Distribution des paramètres\nOn suppose que tous les paramètres suivent une loi normale.\n\nLa moyenne d’un échantillon \\(\\bar Y \\sim \\mathcal N(\\mu,\\frac{\\sigma}{\\sqrt n}).\\)\nL’étendue d’un échantillon \\(R \\sim \\mathcal N(\\mu_R,\\sigma_R).\\)\nL’écart type d’un échantillon \\(S \\sim \\mathcal N(\\mu_S,\\sigma_S).\\)\n\nOn définit alors les limites de surveillance et de contrôle pour chaque carte. Pour la carte de la moyenne :\n On se fixe un risque \\(\\alpha\\) de stoper la production alors que celle-ci est sous contrôle (Fausses alertes). On cherche donc un intervalle de confiance \\(1-\\alpha\\) de \\(\\bar X\\) La distribution des moyennes étant normale on a\n\\[\n\\begin{cases}\nLI=\\mu-z_{1-\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\\\\nLS=\\mu+z_{1-\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\\\\n\\mathbb P(LI&lt;\\bar X&lt;LS)=1-\\alpha\n\\end{cases}\n\\]\nOn pourra en conclure que la moyenne \\(\\bar X\\) de l’échantillon considéré n’est pas significativement différente de la moyenne \\(\\mu\\) (c’est à dire que le procédé est sous contrôle) si \\(\\bar X \\in [LI,LS].\\)\nLes limites de surveillance sont définies de façon à déterminer, au risque de 4.5%, les moyennes significativement différentes de la moyenne globale :\n\nLimite inférieure de surveillance (LIS): \\(LIS=\\mu-2\\frac{\\sigma}{\\sqrt n}\\)\nLimite supérieure de surveillance (LSS): \\(LSS=\\mu+2\\frac{\\sigma}{\\sqrt n}\\)\n\nLes limites de contrôle sont définies de façon à déterminer, au risque de 0.3% de fausses alertes, les moyennes significativement différentes de la moyenne globale :\n\nLimite inférieure de contrôle (LIC): \\(LIC=\\mu-3\\frac{\\sigma}{\\sqrt n}\\)\nLimite supérieure de contrôle (LSC): \\(LSC=\\mu+3\\frac{\\sigma}{\\sqrt n}\\)\n\n\n\n\n\n\n\nLimites des cartes de contrôle\n\n\n\nOn a prélevé à intervalles réguliers \\(k\\) échantillons de \\(n\\) observations. On a calculé \\(\\bar y_j,R_j\\) la moyenne et l’étendue de chacun des \\(k\\) échantillons.\nPour construire :\n\nLa carte de la moyenne on utilise \\(\\hat \\mu_I=\\frac 1{k} \\displaystyle\\sum_{j=1}^k \\bar y_{j}\\) et \\(\\hat \\sigma_I = \\dfrac{\\bar R}{d_2}\\).\nLa carte de l’étendue on utilise \\(\\hat\\mu_R=\\bar R\\) et \\(\\hat \\sigma_R=\\frac{d_3}{d_2}\\bar R\\).\nLa carte de l’écart type on utilise \\(\\hat\\mu_S=\\bar S\\) et \\(\\hat \\sigma_S=\\frac{\\sqrt{1-c_4^2}}{c_4}\\bar S\\).\n\n\n\n\n\n2.3.2 Retour sur l’exemple :\n\nCalculer les limites de contrôles des cartes de la moyenne et de l’écart type en utilisant les 10 premiers prélèvements. Construire les cartes et vérifier qu’il n’y a pas de points hors limites\nConstruire les cartes correspondantes aux 14 autres prélèvements, on utilisera les limites précédentes.\n\n\n\n2.3.3 Correction\n\n\nVoir la correction\nk=nrow(df)\nn=ncol(df)\ntrain=df[1:10,]\nM=apply(train,1,mean)\nS=apply(train,1,sd)\nmu=mean(M)\nsigI=mean(S)/c4(n)\nLICm=mu-3*sigI/sqrt(n)\nLSCm=mu+3*sigI/sqrt(n)\nLICs=mean(S)-3*mean(S)*sqrt(1-c4(n)^2)/c4(n)\nLSCs=mean(S)+3*mean(S)*sqrt(1-c4(n)^2)/c4(n)\nplot_chart(M,LIC=LICm,LSC=LSCm,Type = \"carte de la moyenne\")\n\n\n\n\n\n\n\n\n\nVoir la correction\nplot_chart(S,LIC=LICs,LSC=LSCs,Type = \"carte de l'écart type\")\n\n\n\n\n\n\n\n\n\nVoir la correction\ntest=df[11:24,]\nMt=apply(test,1,mean)\nSt=apply(test,1,sd)\nplot_chart(M,LIC=LICm,LSC=LSCm,Type = \"carte de la moyenne\")\n\n\n\n\n\n\n\n\n\nVoir la correction\nplot_chart(S,LIC=LICs,LSC=LSCs,Type = \"carte de l'écart type\")",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Carte de contrôles</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cartes de contrôle</span>"
     ]
   },
   {
@@ -412,11 +412,11 @@
   {
     "objectID": "exercice.html",
     "href": "exercice.html",
-    "title": "7  Exercice",
+    "title": "7  Exercices",
     "section": "",
-    "text": "7.1 Premier travail : cartes univariées sur la première caractéristique\nIl s’agit d’un cube de données (3 dimensions).\nPour sélectionner la première caractéristique :\ndata=X[,1,]",
+    "text": "Exercice 1\nlibrary(multiSPC)\nload(\"X.rda\")\ndim(X)\n\n[1] 40  5  6\nIl s’agit d’un cube de données (3 dimensions).",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercice</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercices</span>"
     ]
   },
   {
@@ -432,11 +432,51 @@
   {
     "objectID": "exercice.html#premier-travail-cartes-univariées-sur-la-première-caractéristique",
     "href": "exercice.html#premier-travail-cartes-univariées-sur-la-première-caractéristique",
-    "title": "7  Exercice",
-    "section": "",
-    "text": "Construire les limites de contrôles de la carte de la moyenne et de l’écart type sur les 15 premiers prélèvements.\n\n\nAppliquer les limites précédentes sur les 25 prélèvements suivants. Que peut-on en déduire ?\n\n\nReprésenter la probabilité de détecter au premier prélèvement un décentrage \\(\\mu_D\\) variant de 25 à 29.\n\n\nConstruction de la carte EWMA, on suivra les moyennes des prélèvements de la phase de test en considérant \\(\\lambda=0.1,0.2,0.3,0.4\\). Quel est l’impact de ces différentes valeurs sur la carte ?",
+    "title": "7  Exercices",
+    "section": "Premier travail : cartes univariées sur la première caractéristique",
+    "text": "Premier travail : cartes univariées sur la première caractéristique\nPour sélectionner la première caractéristique :\n\ndata=X[,1,]\n\n\nConstruire les limites de contrôles de la carte de la moyenne et de l’écart type sur les 15 premiers prélèvements.\n\n\nAppliquer les limites précédentes sur les 25 prélèvements suivants. Que peut-on en déduire ?\n\n\nReprésenter la probabilité de détecter au premier prélèvement un décentrage \\(\\mu_D\\) variant de 25 à 29.\n\n\nConstruction de la carte EWMA, on suivra les moyennes des prélèvements de la phase de test en considérant \\(\\lambda=0.1,0.2,0.3,0.4\\). Quel est l’impact de ces différentes valeurs sur la carte ?",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercice</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercices</span>"
+    ]
+  },
+  {
+    "objectID": "exercice.html#deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements",
+    "href": "exercice.html#deuxième-travail-approche-multivariée-pour-la-construction-des-limites-15-premiers-prélèvements",
+    "title": "7  Exercices",
+    "section": "Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements)",
+    "text": "Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements)\nOn va construire deux cartes de contrôle multivariée sur les 15 premières observations afin de calculer les limites de contrôle qui seront utilisées pour les prélèvements en routine (25 dans notre cas).\n\nConstruire le graphe des corrélations des 5 caractéristiques sur la matrice \\(\\tilde X\\) de dimension \\((k,p)\\) dont les élements \\[\\tilde x_{ij}=\\frac1{n}\\sum_{m=1}^n x_{ijm}.\\]\n\nFonction Moy_X() dans le package multiSPC.\n\nConstruire la carte de contrôle du \\(T^2\\) de Hotelling. Que peut on en déduire ? Utiliser la fonction LSC_T2_Hotelling_kn() pour calculer les limites\n\n\nConstruire la carte de contrôle du \\(T^2\\) de Hotelling sur composantes principales à partir de la matrice \\(\\tilde X\\) définie précédemment. Justifier le nombre de composantes choisies.\n\n\nQue peut-on déduire de ces résultats ?",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercices</span>"
+    ]
+  },
+  {
+    "objectID": "exercice.html#troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes",
+    "href": "exercice.html#troisième-travail-approche-multivariée-pour-la-construction-des-cartes-à-partir-des-limites-précédentes",
+    "title": "7  Exercices",
+    "section": "Troisième travail approche multivariée pour la construction des cartes à partir des limites précédentes",
+    "text": "Troisième travail approche multivariée pour la construction des cartes à partir des limites précédentes\nPour les 25 derniers prélèvements :\n\nConstruire la carte du \\(T^2\\) de Hotelling en utilisant les limites Phase II obtenues à la question précédente.\n\n\nConstruire la carte du \\(T^2\\) de Hotelling sur Composantes principales en utilisant les limites Phase II obtenues à la question précédente.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercices</span>"
+    ]
+  },
+  {
+    "objectID": "exercice.html#quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées",
+    "href": "exercice.html#quatrième-travail-etude-des-points-hc-sur-les-cartes-multivariées",
+    "title": "7  Exercices",
+    "section": "Quatrième travail : Etude des points HC sur les cartes multivariées",
+    "text": "Quatrième travail : Etude des points HC sur les cartes multivariées\n\nLes points HC dans la carte du T2 seront étudiés en utilisant la fonction T2_Hotelling_kn_MYT() et en suivant la procédure décrite p20 du cours (CM2).\n\n\nLes points HC de la carte \\(T^2\\) sur composantes principales seront étudiées par des cartes univariées sur les composantes principales. On interprêtera les résultats à partir du cercle de corrélation. Pour cette carte \\(\\sigma_I\\) sera égal à :",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercices</span>"
+    ]
+  },
+  {
+    "objectID": "exercice.html#conclusion",
+    "href": "exercice.html#conclusion",
+    "title": "7  Exercices",
+    "section": "Conclusion",
+    "text": "Conclusion\nConclure sur l’ensemble des résultats et interpréter les différences de résultats obtenus dans les différentes approches.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercices</span>"
     ]
   }
 ]

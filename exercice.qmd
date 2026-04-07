@@ -1,4 +1,6 @@
-# Exercice
+# Exercices 
+
+# Exercice 1 {.unnumbered}
 
 - On considère le jeu de données [X](X.rda) qui correspond au suivi de 5 caractéristiques d'une production.
 
@@ -13,7 +15,7 @@ dim(X)
 Il s'agit d'un cube de données (3 dimensions).
 
 
-## Premier travail : cartes univariées sur la première caractéristique
+## Premier travail : cartes univariées sur la première caractéristique {.unnumbered}
 
 Pour sélectionner la première caractéristique :
 
@@ -72,7 +74,7 @@ plot_chart(Z$z,LIC=Z$LIC,LSC=Z$LSC)
 
 
 
-# Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements)
+## Deuxième travail approche multivariée pour la construction des limites (15 premiers prélèvements) {.unnumbered}
 
 On va construire deux cartes de contrôle multivariée sur les 15 premières observations afin de calculer les limites de contrôle qui seront utilisées pour les prélèvements en routine (25 dans notre cas).
 
@@ -105,7 +107,7 @@ plot_chart(resPC1,LSC=LSC2[1],Type="T2 Hotelling")
 
 -   Que peut-on déduire de ces résultats ?
 
-# Troisième travail approche multivariée pour la construction des cartes à partir des limites précédentes
+## Troisième travail approche multivariée pour la construction des cartes à partir des limites précédentes {.unnumbered}
 
 Pour les 25 derniers prélèvements :
 
@@ -127,7 +129,7 @@ resPC2=T2_Hotelling_k1(resPC$coord_PC2,
 plot_chart(resPC2,LSC=LSC2[2],Type="T2 Hotelling")
 ```
 
-# Quatrième travail : Etude des points HC sur les cartes multivariées
+## Quatrième travail : Etude des points HC sur les cartes multivariées {.unnumbered}
 
 -   Les points HC dans la carte du T2 seront étudiés en utilisant la fonction T2_Hotelling_kn_MYT() et en suivant la procédure décrite p20 du cours (CM2).
 
@@ -200,6 +202,63 @@ plot_chart(resPC$coord_PC2[,1],LIC=mu[1]-3*sig[1]/sqrt(k),LSC=mu[1]+3*sig[1]/sqr
 plot_chart(resPC$coord_PC2[,2],LIC=mu[2]-3*sig[2]/sqrt(k),LSC=mu[2]+3*sig[2]/sqrt(k))
 ```
 
-# Conclusion
+## Conclusion {.unnumbered}
 
 Conclure sur l'ensemble des résultats et interpréter les différences de résultats obtenus dans les différentes approches.
+
+
+# Exercice 2 {.unnumbered}
+
+Télécharger le fichier [dataEWMA](dataEWMA.csv). On suppose que pour les 12 premiers prélèvements la production est stable et centrée sur la qualité attendue.
+
+1. Estimer les limites de contrôle de la moyenne et de l'écart type.
+
+```{r echo=F, eval=F}
+data=read.csv("dataEWMA.csv",row.names = 1)
+training=data[1:12,]
+M=apply(training,1,mean)
+SD=apply(training,1,sd)
+mu=mean(M)
+n=4
+library(multiSPC)
+sigma=mean(SD)/c4(n)
+LIC=mu-3*sigma/sqrt(n)
+LSC=mu+3*sigma/sqrt(n)
+plot_chart(M,LIC,LSC)
+```
+
+
+
+2. Appliquer les limites précédentes sur les prélèvements restants. Que remarque t'on ?
+
+```{r echo=FALSE, eval=FALSE}
+testing=data[13:40,]
+Mt=apply(testing,1,mean)
+plot_chart(Mt,LIC,LSC)
+```
+
+3. Construire la carte EWMA sur l'ensemble des prélèvements permettant de détecter le décentrage le plus rapidement possible sous la contrainte $0.1<\lambda<0.5$ et $2.5<L<3.0$. On reprendra les valeurs calculées dans la question pour $\mu,\sigma$.
+
+```{r echo=FALSE, eval=FALSE}
+M1=c(M,Mt)
+lambda=seq(0.1,0.5,by=0.01)
+L=seq(2.5,3,by=0.01)
+ind<-matrix(NA,nrow=length(lambda),ncol=length(L))
+for(i in 1:length(lambda)){
+  for(j in 1:length(L)){
+    Z=ewma_cart(M1,mu,sigma,lambda=lambda[i],L=L[j]/sqrt(n))
+    ind[i,j]<-which(Z$z>Z$LSC)[1]
+  }
+}
+
+M1[min(ind)]
+
+
+```
+
+4. En utilisant la carte de la moyenne, quelle serait la probabilité de détecter le premier point hors contrôle obtenu avec la carte EWMA ?
+
+```{r echo=F, eval=F}
+pnorm(LSC,mu,sigma,lower.tail = F)
+```
+
