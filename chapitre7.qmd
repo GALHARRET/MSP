@@ -8,7 +8,6 @@ suppressPackageStartupMessages(
     library(kableExtra)
     library(GGally)
     library(multiSPC)
-    library(multiway)
   }
 )
 ```
@@ -43,11 +42,9 @@ dim(carbon1)
 
 Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
-
 -   Les données sont dans une matrice à trois dimensions.
 
 -   On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
-
 
 ![](figure/cube.png)
 
@@ -198,11 +195,10 @@ On a prélevé 25 nouveaux échantillons et on identifie un point hors-contrôle
 ::: {.callout-note title="MYT décomposition"}
 On considère qu'un prélèvement $t$ est hors-contrôle, on note $\textbf{X}_t=(X_{tji})_{1\leq j\leq p;1\leq i\leq n}$ la matrice des caractéristique de ce prélèvement. On note $\bar{\textbf{X}}_t=(\bar{X}^{(t)}_{1},...,\bar{X}^{(t)}_{p})$ le vecteur des moyennes de ces caractéristiques.
 
-1.   Etape 1 : Contribution individuelle. Calculer $$t^2_{j}=\frac{n(\bar{X}^{(t)}_{j}-\overline{ X}_j)^2}{s_j^2}$$ pour chaque variable $j$ où $s_j^2$ est la variance de la caractéristique $X^{(t)}_j$. Calculer pour $p=1$, Exclure les variables $j$ qui vérifient $t^2_j>LSC,$ où $LSC=\frac{(k+1)(k-1)}{k(k-1)}F_{(p,k-1)}(1-\alpha).$
+1.  Etape 1 : Contribution individuelle. Calculer $$t^2_{j}=\frac{n(\bar{X}^{(t)}_{j}-\overline{ X}_j)^2}{s_j^2}$$ pour chaque variable $j$ où $s_j^2$ est la variance de la caractéristique $X^{(t)}_j$. Calculer pour $p=1$, Exclure les variables $j$ qui vérifient $t^2_j>LSC,$ où $LSC=\frac{(k+1)(k-1)}{k(k-1)}F_{(p,k-1)}(1-\alpha).$
 
-```{=html}
 <!-- -->
-```
+
 2.  Etape 2 : Contribution bivariée. On retire toutes variables identifiées à l'étape 1. On note $J$ les indices des variables restantes. Pour $j,j'\in J$, calculer $T_{jj'}^2$ correspondant aux colonnes $j,j'$ de la matrice $\textbf{X}_t$.
 3.  Exclure les variables $j,j'$ qui vérifient $T^2_{jj'}>LSC,$ où $LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha),$ pour $p=2.$
 4.  On itère les étapes précédentes jusqu'au modèle qui contient toutes les variables restantes.
@@ -259,15 +255,7 @@ Calcul du $T^2$ et de LSC
 
 Pour chaque prélèvement $t$ on calcule $$T^2_t=(X_t-\bar X)^T.S^{-1}.(X_t-\bar X).$$ Pour la phase I (mise en place de la carte) on utilise : $$
 LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
-$$ Pour la phase II on utilise (toujours avec le $k$ de la phase I: $$
-<<<<<<< HEAD
-LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
-$$
-=======
-LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).$$
->>>>>>> b455c6501161b4d19580d5b2f7b50952699e2e12
-
-***Exemple:*** On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.
+$$ Pour la phase II on utilise (toujours avec le $k$ de la phase I: $$LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).$$ ***Exemple:*** On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.
 
 ```{r}
 data("bimetal1")
@@ -366,9 +354,9 @@ L'analyse en composante principale (ACP) est une méthode factorielle qui permet
 ::: {.callout-note title="ACP"}
 Etant donnée une matrice $X$ centrée sur les colonnes de dimension $k,p$. On diagonalise la matrice de covariance $\Sigma$ de $X$ ie on écrit $$\Sigma=U\Lambda U^T,$$ où $\Lambda$ est diagonale telle que $\lambda_1\geq ... \geq \lambda_p$, $U$ est une matrice orthogonale.
 
-- Les colonnes de $U$ sont les scores factoriels des individus sur les composantes principales 
+-   Les colonnes de $U$ sont les scores factoriels des individus sur les composantes principales
 
-- Les valeurs propres $\lambda_1$ sont les variances des composantes principales.
+-   Les valeurs propres $\lambda_1$ sont les variances des composantes principales.
 :::
 
 On peut utiliser la fonction ***PCA*** du package ***FactoMineR*** :
@@ -462,4 +450,3 @@ scores2=predict(pca,newdata=Xc)$coord[,1:r]
 T2=T2_Hotelling_k1(scores2,S = S)
 plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
 ```
-

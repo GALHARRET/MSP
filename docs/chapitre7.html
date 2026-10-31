@@ -184,7 +184,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -278,9 +278,8 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(kableExtra)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(GGally)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(multiSPC)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(multiway)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="introduction" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
@@ -610,11 +609,7 @@ Estimation de <span class="math inline">\(\Sigma\)</span>
 <p>Calcul du <span class="math inline">\(T^2\)</span> et de LSC</p>
 <p>Pour chaque prélèvement <span class="math inline">\(t\)</span> on calcule <span class="math display">\[T^2_t=(X_t-\bar X)^T.S^{-1}.(X_t-\bar X).\]</span> Pour la phase I (mise en place de la carte) on utilise : <span class="math display">\[
 LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
-\]</span> Pour la phase II on utilise (toujours avec le <span class="math inline">\(k\)</span> de la phase I: <span class="math display">\[
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
-\]</span> ======= LSC=F_{p,m-p}().$$ &gt;&gt;&gt;&gt;&gt;&gt;&gt; b455c6501161b4d19580d5b2f7b50952699e2e12</p>
-<p><strong><em>Exemple:</em></strong> On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.</p>
+\]</span> Pour la phase II on utilise (toujours avec le <span class="math inline">\(k\)</span> de la phase I: <span class="math display">\[LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).\]</span> <strong><em>Exemple:</em></strong> On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"bimetal1"</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bimetal1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -780,9 +775,12 @@ ACP
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+<pre><code>Welcome to factoextra!</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Want to learn more? See two factoextra-related books at https://www.datanovia.com/en/product/practical-guide-to-principal-component-methods-in-r/</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -794,7 +792,7 @@ ACP
 <p>On choisit ici deux composantes.</p>
 <p>On peut représenter les caractéristiques initiales sur le plan factoriel :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -808,12 +806,12 @@ ACP
 T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(scores))<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S=</span>S)</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>LSCpca<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(scores)</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(scores))<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S=</span>S)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>LSCpca<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(scores)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -824,11 +822,11 @@ T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
 </div>
 <p>ce qui donne sur les nouveaux points :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span><span class="fu">scale</span>(bimetal2,<span class="at">scale=</span>F)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict.PCA</span>(pca,<span class="at">newdata =</span> X2)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S =</span> S)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span><span class="fu">scale</span>(bimetal2,<span class="at">scale=</span>F)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict.PCA</span>(pca,<span class="at">newdata =</span> X2)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S =</span> S)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -850,18 +848,18 @@ X^c_{new}=X_{new}-\bar X,
 <p>On calcule <span class="math inline">\(T_{new}=X^c_{new}.U_r\)</span> et donc <span class="math inline">\(\hat X^c_{new}=T_{new}.U^T_r\)</span>.</p>
 <p>On va appliquer ce principe à la matrice <span class="math inline">\((k,np)\)</span> correspondant aux données X qui seront empilées selon le troisème mode de <span class="math inline">\(X\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">dim</span>(X1)[<span class="dv">3</span>]</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X1[,,i])</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">dim</span>(X1)[<span class="dv">3</span>]</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X1[,,i])</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 30 24</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">scale =</span> F)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(X,<span class="dv">2</span>,mean)</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(Xc,<span class="at">scale.unit =</span> F,<span class="at">graph=</span>F,<span class="at">ncp =</span> <span class="fu">dim</span>(Xc)[<span class="dv">2</span>])</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">scale =</span> F)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(X,<span class="dv">2</span>,mean)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(Xc,<span class="at">scale.unit =</span> F,<span class="at">graph=</span>F,<span class="at">ncp =</span> <span class="fu">dim</span>(Xc)[<span class="dv">2</span>])</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -869,12 +867,12 @@ X^c_{new}=X_{new}-\bar X,
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span><span class="dv">6</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>scores<span class="ot">=</span>pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(scores)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S =</span> S)</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span><span class="dv">6</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>scores<span class="ot">=</span>pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(scores)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S =</span> S)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -882,18 +880,18 @@ X^c_{new}=X_{new}-\bar X,
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X2[,,i])</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X2[,,i])</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25 24</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">center=</span>M,<span class="at">scale =</span> F)</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict</span>(pca,<span class="at">newdata=</span>Xc)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,<span class="at">S =</span> S)</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">center=</span>M,<span class="at">scale =</span> F)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict</span>(pca,<span class="at">newdata=</span>Xc)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,<span class="at">S =</span> S)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
