@@ -375,7 +375,7 @@ library(factoextra)
 fviz_eig(pca)
 ```
 
-On choisit ici deux composantes.
+On choisit ici trois composantes, qui expliquent plus de 96 % de la variance.
 
 On peut représenter les caractéristiques initiales sur le plan factoriel :
 
@@ -401,10 +401,13 @@ plot_chart(T2pca,LSC=LSCpca["PhaseI"],Type="T2 sur composantes principales")
 ce qui donne sur les nouveaux points :
 
 ```{r warning=FALSE}
-X2=scale(bimetal2,scale=F)
+# centrage sur la moyenne de la phase I (et non sur celle de bimetal2)
+M1=colMeans(bimetal1[-c(16,19,20),])
+X2=scale(bimetal2,center=M1,scale=F)
 scores2=predict.PCA(pca,newdata = X2)$coord[,1:r]
 T2pca=T2_Hotelling_k1(scores2,
-                      S = S)
+                      S = S,
+                      MoyT = colMeans(scores))
 plot_chart(T2pca,LSC=LSCpca["PhaseII"],Type="T2 sur composantes principales")
 ```
 
@@ -429,6 +432,8 @@ X1=carbon1
 n=dim(X1)[3]
 X=NULL
 for(i in 1:n) X=cbind(X,X1[,,i])
+# noms de colonnes uniques, sinon predict() ne retrouve pas les bonnes colonnes
+colnames(X)=make.unique(colnames(X))
 dim(X)
 Xc=scale(X,scale = F)
 M=apply(X,2,mean)
@@ -444,10 +449,63 @@ plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase I")
 X2=carbon2
 X=NULL
 for(i in 1:n) X=cbind(X,X2[,,i])
+colnames(X)=make.unique(colnames(X))
 dim(X)
 Xc=scale(X,center=M,scale = F)
 
 scores2=predict(pca,newdata=Xc)$coord[,1:r]
-T2=T2_Hotelling_k1(scores2,S = S)
+T2=T2_Hotelling_k1(scores2,S = S,MoyT = colMeans(scores))
 plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
 ```
+
+### Carte des résidus (SPE)
+
+La carte $T^2$ ne surveille que la partie des données expliquée par les $r$ composantes retenues. Un défaut qui modifie la structure de corrélation peut faire sortir un prélèvement du sous-espace des composantes sans que son $T^2$ augmente. On complète donc la carte $T^2$ par une carte sur les résidus $E=X-\hat X$.
+
+::: {.callout-note title="Statistique SPE"}
+Pour le prélèvement $t$, on note $e_t$ la ligne $t$ de la matrice des résidus $E$. La statistique SPE (*Squared Prediction Error*, aussi appelée statistique $Q$) est
+$$
+SPE_t=\|e_t\|^2=\sum_{j}e_{tj}^2.
+$$
+
+-   Le $T^2$ mesure l'éloignement **dans** le modèle (variation expliquée par les composantes retenues).
+-   La SPE mesure l'éloignement **au modèle** (variation non expliquée).
+
+**Limite par approximation du** $\chi^2$ (Box, 1954 ; Nomikos et MacGregor, 1995). On approche la loi de la SPE par celle de $g\,\chi^2_h$ en égalant les deux premiers moments : si $m$ et $v$ sont la moyenne et la variance des $SPE_t$ en phase I,
+$$
+g=\frac{v}{2m},\qquad h=\frac{2m^2}{v},\qquad LSC_{SPE}=g\,\chi^2_{h}(1-\alpha).
+$$
+:::
+
+**Attention :** en phase I, les résidus calculés sur les données qui ont servi à construire l'ACP sont trop petits. L'ACP s'ajuste en partie au bruit, ce qui est d'autant plus marqué qu'il y a beaucoup de colonnes ($np=24$) pour peu de prélèvements ($k=30$). La limite serait alors trop basse et la carte déclencherait de fausses alertes en phase II. On calcule donc les SPE de phase I par validation croisée : chaque prélèvement est projeté sur une ACP construite sans lui.
+
+```{r}
+X=NULL
+for(i in 1:n) X=cbind(X,X1[,,i])
+colnames(X)=make.unique(colnames(X))
+k=nrow(X)
+SPE1=rep(NA,k)
+for(t in 1:k){
+  Mt=colMeans(X[-t,])
+  Ur=svd(scale(X[-t,],center=Mt,scale=F))$v[,1:r]
+  e=X[t,]-Mt
+  e=e-Ur%*%(t(Ur)%*%e)
+  SPE1[t]=sum(e^2)
+}
+m=mean(SPE1); v=var(SPE1)
+g=v/(2*m); h=2*m^2/v
+LSC_SPE=g*qchisq(0.99,df=h)
+plot_chart(SPE1,LSC=LSC_SPE,Type="SPE MPCA Phase I")
+```
+
+En phase II, on projette les nouveaux prélèvements (centrés sur la moyenne de la phase I) sur l'ACP de la phase I :
+
+```{r}
+Ur=pca$svd$V[,1:r]
+E2=Xc-scores2%*%t(Ur)
+SPE2=rowSums(E2^2)
+plot_chart(SPE2,LSC=LSC_SPE,Type="SPE MPCA Phase II")
+which(SPE2>LSC_SPE)
+```
+
+On interprète les deux cartes ensemble : un point hors contrôle sur la carte $T^2$ seule correspond à un fonctionnement inhabituel mais conforme à la structure de corrélation. Un point hors contrôle sur la carte SPE signale une rupture de cette structure, qui ne peut pas être décrite par les composantes retenues.
