@@ -40,11 +40,11 @@ class(carbon1)
 dim(carbon1)
 ```
 
-Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
+Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisième dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
 -   Les données sont dans une matrice à trois dimensions.
 
--   On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
+-   On replie la troisième dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
 ![](figure/cube.png)
 
@@ -70,7 +70,7 @@ On peut aussi écrire cette matrice sous forme vectorielle. Soit $X=(X_1,...,X_p
 ::: {.callout-note title="Propriétés de $\\Sigma$"}
 -   $\Sigma$ est symétrique donc elle est diagonalisable.
 
--   $\Sigma$ est semi-définie positive, c'est à dire que ses valeurs propres $\lambda_1,...\lambda_p$ sont postives ou nulles.
+-   $\Sigma$ est semi-définie positive, c'est à dire que ses valeurs propres $\lambda_1,...\lambda_p$ sont positives ou nulles.
 
 -   $\Sigma$ est définie positive (vp strictement positives) si il n'existe aucune relation affine entre les variables $(X_1,...,X_p)$. Dans ce cas $\Sigma$ est inversible, c'est à dire qu'il existe une matrice notée $\Sigma^{-1}$ telle que $$\Sigma^{-1}.\Sigma=\Sigma.\Sigma^{-1}=I_p$$
 :::
@@ -95,7 +95,7 @@ La densité de probabilité de $X\sim \mathcal N(\mu,\sigma)$ est pour $x\in \ma
 
 *Exemple :* $\mu=0,\sigma=1$, $\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac1{2}x^2}.$
 
-On a $\varphi(0)=$ `r round(dnorm(0),1)` et $\varphi(2)=$ `r round(dnorm(2),1)`
+On a $\varphi(0)=$ `r round(dnorm(0),1)` et $\varphi(2)=$ `r round(dnorm(2),3)`
 
 ```{r warning=F, echo=F}
 library(ggplot2)
@@ -110,7 +110,7 @@ ggplot(data, aes(x = x)) +
   geom_point(aes(x=2,y=dnorm(2)),col="red")
 ```
 
-La densité de probabilité de $(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)$ est pour $x=(x_1,...,x_p)\in \mathbb R^p$ $$f_p(x)=\frac{1}{|\Sigma|^{-1/2}\sqrt{2\pi}}e^{-\frac1{2}[(x-\mu)^T\Sigma^{-1}(x-\mu)]}.$$
+La densité de probabilité de $(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)$ est pour $x=(x_1,...,x_p)\in \mathbb R^p$ $$f_p(x)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac1{2}[(x-\mu)^T\Sigma^{-1}(x-\mu)]}.$$
 
 ![Loi Normale bivariée](figure/fig_3D_N_2.png)
 
@@ -137,7 +137,7 @@ La densité de probabilité de $(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)$ est 
 ::: {.callout-note title="Quelques remarques"}
 -   La statistique de Hotelling est une généralisation du $t$ de Student. En effet pour $p=1$ on retrouve la formule $T^2=t^2$.
 
--   $T_t^2$ donne une mesure de l'éloignement de la moyenne d'un prélèvement $t$ par rapport à la moyenne de la production (en multidimensionnel) donc c'est une généralisation de la carte de Shewart de la moyenne.
+-   $T_t^2$ donne une mesure de l'éloignement de la moyenne d'un prélèvement $t$ par rapport à la moyenne de la production (en multidimensionnel) donc c'est une généralisation de la carte de Shewhart de la moyenne.
 
 -   Comme les cartes de Shewhart elles vont permettre de détecter des grandes déviations de moyenne.
 
@@ -312,13 +312,13 @@ plot_chart(S$detSj,LIC=S$LIC,LSC=S$LSC,Type="Carte de la variance généralisée
 
 ## Cartes MEWMA
 
--   Les cartes $T^2$ permettent comme les cartes de Shewart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.
+-   Les cartes $T^2$ permettent comme les cartes de Shewhart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.
 
 -   On généralise les cartes EWMA à $p$ variables. Etant données les $k$ moyennes $(\bar X_1,..,\bar X_k)$ où $\bar X_t\in \mathbb R^p$, on calcule $$Z_t=\lambda \bar X_t+(1-\lambda)Z_{t-1},$$ pour $0<\lambda<1.$ En pratique on choisit souvent $\lambda=0.1$.
 
 Calcul de $T^2$ :
 
--   La valeur de $T_t^2$ est $$T^2_t=(Z_t-\bar Z)^T.\Sigma_t .(Z_t-\bar Z),$$ où $\Sigma_t=\dfrac{\lambda[1-(1-\lambda)^{2t}]}{2-\lambda}\Sigma.$
+-   La valeur de $T_t^2$ est $$T^2_t=(Z_t-\bar Z)^T.\Sigma_t^{-1} .(Z_t-\bar Z),$$ où $\Sigma_t=\dfrac{\lambda[1-(1-\lambda)^{2t}]}{2-\lambda}\Sigma.$
 
 -   Comme précédemment on prend $\hat \Sigma \simeq S$.
 
@@ -341,7 +341,7 @@ On peut aussi considérer des cartes MEWMA à données individuelles :
 
 ```{r}
 T2=T2_MEWMA_k1(bimetal1)
-LSC=mewma.crit(l=0.1, L0=200, p=p, hs=0, r=20)
+LSC=mewma.crit(l=0.1, L0=200, p=ncol(bimetal1), hs=0, r=20)
 plot_chart(T2,LSC=LSC,Type="Carte MEWMA")
 ```
 
@@ -354,9 +354,9 @@ L'analyse en composante principale (ACP) est une méthode factorielle qui permet
 ::: {.callout-note title="ACP"}
 Etant donnée une matrice $X$ centrée sur les colonnes de dimension $k,p$. On diagonalise la matrice de covariance $\Sigma$ de $X$ ie on écrit $$\Sigma=U\Lambda U^T,$$ où $\Lambda$ est diagonale telle que $\lambda_1\geq ... \geq \lambda_p$, $U$ est une matrice orthogonale.
 
--   Les colonnes de $U$ sont les scores factoriels des individus sur les composantes principales
+-   Les colonnes de $U$ sont les vecteurs propres (coefficients des composantes principales) ; les scores factoriels des individus sont les colonnes de $T=XU$.
 
--   Les valeurs propres $\lambda_1$ sont les variances des composantes principales.
+-   Les valeurs propres $\lambda_j$ sont les variances des composantes principales.
 :::
 
 On peut utiliser la fonction ***PCA*** du package ***FactoMineR*** :
@@ -385,8 +385,9 @@ fviz_pca_var(pca)
 
 Le calcul de $T^2$ se fait à partir des scores factoriels :\
 $$
-T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
+T^2=\sum_{j=1}^r \frac{t_j^2}{\lambda_j}
 $$
+où $t_j$ est le score de l'individu sur la $j$-ème composante et $r$ le nombre de composantes retenues.
 
 ```{r warning=FALSE}
 r <- 3
@@ -421,7 +422,7 @@ $$ où $\bar X$ est le vecteur des moyennes de la base de données initiales.
 
 On calcule $T_{new}=X^c_{new}.U_r$ et donc $\hat X^c_{new}=T_{new}.U^T_r$.
 
-On va appliquer ce principe à la matrice $(k,np)$ correspondant aux données X qui seront empilées selon le troisème mode de $X$
+On va appliquer ce principe à la matrice $(k,np)$ correspondant aux données X qui seront empilées selon le troisième mode de $X$
 
 ```{r}
 X1=carbon1

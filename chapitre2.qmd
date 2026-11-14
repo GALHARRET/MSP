@@ -173,9 +173,16 @@ On utilise les références suivantes :
 -   Si %RR \< 10%, alors la mesure est répétable et reproductible,
 -   Si %RR est compris entre 10% et 30% alors la mesure est acceptable,
 -   Au delà de 30% il faut revoir le processus.
+
+Attention : dans la convention AIAG, ces seuils s'appliquent au rapport des **écarts types** $\sigma_{R\&R}/\sigma_{Total}$, et non au rapport des variances. Le calcul ci-dessus donne un rapport de variances.
 :::
 
-Donc ici la mesure est acceptable.
+```{r echo=T}
+# %RR en écarts types (convention AIAG)
+sqrt(RR/100)*100
+```
+
+Le rapport des variances (environ 22 %) placerait la mesure dans la zone acceptable, mais le rapport des écarts types (environ 47 %) dépasse 30 % : selon la convention AIAG, le système de mesure est à revoir.
 
 ### Capabilité d'un instrument de mesure.
 

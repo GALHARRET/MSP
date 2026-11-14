@@ -50,7 +50,7 @@ Un processus est dit ***sous contrôle ou statistiquement stable*** lorsque les 
 
 ***Exemple***
 
-Suivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.
+Suivi de production journalière de steaks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.
 
 Les données sont disponibles [ici](exemple_carte_Shewhart.csv)
 
@@ -76,7 +76,7 @@ plot_chart(M,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")
 plot_chart(S,LIC=LICs,LSC=LSCs,Type = "carte de l'écart type")
 ```
 
-Pour chaque échantillon de 5 steacks on calcule la moyenne et l'écart type et on les reporte sur les cartes correspondantes.
+Pour chaque échantillon de 5 steaks on calcule la moyenne et l'écart type et on les reporte sur les cartes correspondantes.
 
 ### Distribution des paramètres
 
@@ -157,7 +157,7 @@ plot_chart(S,LIC=LICs,LSC=LSCs,Type = "carte de l'écart type")
 test=df[11:24,]
 Mt=apply(test,1,mean)
 St=apply(test,1,sd)
-plot_chart(M,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")
-plot_chart(S,LIC=LICs,LSC=LSCs,Type = "carte de l'écart type")
+plot_chart(Mt,LIC=LICm,LSC=LSCm,Type = "carte de la moyenne")
+plot_chart(St,LIC=LICs,LSC=LSCs,Type = "carte de l'écart type")
 
 ```

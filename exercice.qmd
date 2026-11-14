@@ -229,7 +229,7 @@ plot_chart(M,LIC,LSC)
 
 
 
-2. Appliquer les limites précédentes sur les prélèvements restants. Que remarque t'on ?
+2. Appliquer les limites précédentes sur les prélèvements restants. Que remarque-t-on ?
 
 ```{r echo=FALSE, eval=FALSE}
 testing=data[13:40,]

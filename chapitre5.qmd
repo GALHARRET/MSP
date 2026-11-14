@@ -115,16 +115,16 @@ print(paste("La proba est égale à ",
 
 ```
 
-La probabilité $\beta$ de détecter le décentrage est
+La probabilité $1-\beta$ de détecter le décentrage est
 
 $$
-1-\beta=\mathbb P(\widetilde X <LSI)+\mathbb P(\widetilde X >LSC)
+1-\beta=\mathbb P(\widetilde X <LIC)+\mathbb P(\widetilde X >LSC)
 $$
 
 où $\widetilde X \sim \mathcal N(\mu_D,\frac{\sigma}{\sqrt{n}}).$ Un calcul simple permet d'obtenir
 
 $$
-\beta = \Phi\left(\frac{LIC-\mu_D}{\sigma/\sqrt{n}}\right)-\left[1-\Phi\left(\frac{LSC-\mu_D}{\sigma/\sqrt{n}}\right)\right].
+\beta = \Phi\left(\frac{LSC-\mu_D}{\sigma/\sqrt{n}}\right)-\Phi\left(\frac{LIC-\mu_D}{\sigma/\sqrt{n}}\right).
 $$
 
 où $\Phi(x)=\mathbb P(X<x)$ est la fonction de répartition de la loi normale.
