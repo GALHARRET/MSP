@@ -443,8 +443,8 @@ r=6
 scores=pca$ind$coord[,1:r]
 S=cov(scores)
 T2=T2_Hotelling_k1(scores,S = S)
-LSC=mean(T2)+3*sd(T2)
-plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase I")
+LSC=LSC_T2_Hotelling_k1(scores)
+plot_chart(T2,LSC=LSC["PhaseI"],Type="T2 MPCA Phase I")
 
 X2=carbon2
 X=NULL
@@ -455,7 +455,7 @@ Xc=scale(X,center=M,scale = F)
 
 scores2=predict(pca,newdata=Xc)$coord[,1:r]
 T2=T2_Hotelling_k1(scores2,S = S,MoyT = colMeans(scores))
-plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
+plot_chart(T2,LSC=LSC["PhaseII"],Type="T2 MPCA Phase II")
 ```
 
 ### Carte des résidus (SPE)
