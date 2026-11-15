@@ -184,7 +184,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapitre4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -328,13 +328,13 @@ window.Quarto = {
 <pre><code>[1] "La proba est égale à  0.036"</code></pre>
 </div>
 </div>
-<p>La probabilité <span class="math inline">\(\beta\)</span> de détecter le décentrage est</p>
+<p>La probabilité <span class="math inline">\(1-\beta\)</span> de détecter le décentrage est</p>
 <p><span class="math display">\[
-1-\beta=\mathbb P(\widetilde X &lt;LSI)+\mathbb P(\widetilde X &gt;LSC)
+1-\beta=\mathbb P(\widetilde X &lt;LIC)+\mathbb P(\widetilde X &gt;LSC)
 \]</span></p>
 <p>où <span class="math inline">\(\widetilde X \sim \mathcal N(\mu_D,\frac{\sigma}{\sqrt{n}}).\)</span> Un calcul simple permet d’obtenir</p>
 <p><span class="math display">\[
-\beta = \Phi\left(\frac{LIC-\mu_D}{\sigma/\sqrt{n}}\right)-\left[1-\Phi\left(\frac{LSC-\mu_D}{\sigma/\sqrt{n}}\right)\right].
+\beta = \Phi\left(\frac{LSC-\mu_D}{\sigma/\sqrt{n}}\right)-\Phi\left(\frac{LIC-\mu_D}{\sigma/\sqrt{n}}\right).
 \]</span></p>
 <p>où <span class="math inline">\(\Phi(x)=\mathbb P(X&lt;x)\)</span> est la fonction de répartition de la loi normale.</p>
 <p><strong><em>L’efficacité de la carte est mesurée par</em></strong> <span class="math inline">\(1-\beta\)</span> ( puissance de la carte).</p>
@@ -802,8 +802,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapitre4.html" class="pagination-link" aria-label="Carte de contrôles">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Carte de contrôles</span></span>
+      <a href="./chapitre4.html" class="pagination-link" aria-label="Cartes de contrôle">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cartes de contrôle</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

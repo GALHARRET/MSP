@@ -8,7 +8,6 @@ suppressPackageStartupMessages(
     library(kableExtra)
     library(GGally)
     library(multiSPC)
-    library(multiway)
   }
 )
 ```
@@ -41,13 +40,11 @@ class(carbon1)
 dim(carbon1)
 ```
 
-Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
-
+Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisième dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
 -   Les données sont dans une matrice à trois dimensions.
 
--   On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
-
+-   On replie la troisième dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice $(k,p)$ dont les éléments sont les moyennes.
 
 ![](figure/cube.png)
 
@@ -73,7 +70,7 @@ On peut aussi écrire cette matrice sous forme vectorielle. Soit $X=(X_1,...,X_p
 ::: {.callout-note title="Propriétés de $\\Sigma$"}
 -   $\Sigma$ est symétrique donc elle est diagonalisable.
 
--   $\Sigma$ est semi-définie positive, c'est à dire que ses valeurs propres $\lambda_1,...\lambda_p$ sont postives ou nulles.
+-   $\Sigma$ est semi-définie positive, c'est à dire que ses valeurs propres $\lambda_1,...\lambda_p$ sont positives ou nulles.
 
 -   $\Sigma$ est définie positive (vp strictement positives) si il n'existe aucune relation affine entre les variables $(X_1,...,X_p)$. Dans ce cas $\Sigma$ est inversible, c'est à dire qu'il existe une matrice notée $\Sigma^{-1}$ telle que $$\Sigma^{-1}.\Sigma=\Sigma.\Sigma^{-1}=I_p$$
 :::
@@ -98,7 +95,7 @@ La densité de probabilité de $X\sim \mathcal N(\mu,\sigma)$ est pour $x\in \ma
 
 *Exemple :* $\mu=0,\sigma=1$, $\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac1{2}x^2}.$
 
-On a $\varphi(0)=$ `r round(dnorm(0),1)` et $\varphi(2)=$ `r round(dnorm(2),1)`
+On a $\varphi(0)=$ `r round(dnorm(0),1)` et $\varphi(2)=$ `r round(dnorm(2),3)`
 
 ```{r warning=F, echo=F}
 library(ggplot2)
@@ -113,7 +110,7 @@ ggplot(data, aes(x = x)) +
   geom_point(aes(x=2,y=dnorm(2)),col="red")
 ```
 
-La densité de probabilité de $(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)$ est pour $x=(x_1,...,x_p)\in \mathbb R^p$ $$f_p(x)=\frac{1}{|\Sigma|^{-1/2}\sqrt{2\pi}}e^{-\frac1{2}[(x-\mu)^T\Sigma^{-1}(x-\mu)]}.$$
+La densité de probabilité de $(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)$ est pour $x=(x_1,...,x_p)\in \mathbb R^p$ $$f_p(x)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac1{2}[(x-\mu)^T\Sigma^{-1}(x-\mu)]}.$$
 
 ![Loi Normale bivariée](figure/fig_3D_N_2.png)
 
@@ -140,7 +137,7 @@ La densité de probabilité de $(X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)$ est 
 ::: {.callout-note title="Quelques remarques"}
 -   La statistique de Hotelling est une généralisation du $t$ de Student. En effet pour $p=1$ on retrouve la formule $T^2=t^2$.
 
--   $T_t^2$ donne une mesure de l'éloignement de la moyenne d'un prélèvement $t$ par rapport à la moyenne de la production (en multidimensionnel) donc c'est une généralisation de la carte de Shewart de la moyenne.
+-   $T_t^2$ donne une mesure de l'éloignement de la moyenne d'un prélèvement $t$ par rapport à la moyenne de la production (en multidimensionnel) donc c'est une généralisation de la carte de Shewhart de la moyenne.
 
 -   Comme les cartes de Shewhart elles vont permettre de détecter des grandes déviations de moyenne.
 
@@ -198,11 +195,10 @@ On a prélevé 25 nouveaux échantillons et on identifie un point hors-contrôle
 ::: {.callout-note title="MYT décomposition"}
 On considère qu'un prélèvement $t$ est hors-contrôle, on note $\textbf{X}_t=(X_{tji})_{1\leq j\leq p;1\leq i\leq n}$ la matrice des caractéristique de ce prélèvement. On note $\bar{\textbf{X}}_t=(\bar{X}^{(t)}_{1},...,\bar{X}^{(t)}_{p})$ le vecteur des moyennes de ces caractéristiques.
 
-1.   Etape 1 : Contribution individuelle. Calculer $$t^2_{j}=\frac{n(\bar{X}^{(t)}_{j}-\overline{ X}_j)^2}{s_j^2}$$ pour chaque variable $j$ où $s_j^2$ est la variance de la caractéristique $X^{(t)}_j$. Calculer pour $p=1$, Exclure les variables $j$ qui vérifient $t^2_j>LSC,$ où $LSC=\frac{(k+1)(k-1)}{k(k-1)}F_{(p,k-1)}(1-\alpha).$
+1.  Etape 1 : Contribution individuelle. Calculer $$t^2_{j}=\frac{n(\bar{X}^{(t)}_{j}-\overline{ X}_j)^2}{s_j^2}$$ pour chaque variable $j$ où $s_j^2$ est la variance de la caractéristique $X^{(t)}_j$. Calculer pour $p=1$, Exclure les variables $j$ qui vérifient $t^2_j>LSC,$ où $LSC=\frac{(k+1)(k-1)}{k(k-1)}F_{(p,k-1)}(1-\alpha).$
 
-```{=html}
 <!-- -->
-```
+
 2.  Etape 2 : Contribution bivariée. On retire toutes variables identifiées à l'étape 1. On note $J$ les indices des variables restantes. Pour $j,j'\in J$, calculer $T_{jj'}^2$ correspondant aux colonnes $j,j'$ de la matrice $\textbf{X}_t$.
 3.  Exclure les variables $j,j'$ qui vérifient $T^2_{jj'}>LSC,$ où $LSC=\frac{p(k+1)(k-1)}{k(k-p)}F_{(p,k-p)}(1-\alpha),$ pour $p=2.$
 4.  On itère les étapes précédentes jusqu'au modèle qui contient toutes les variables restantes.
@@ -259,15 +255,7 @@ Calcul du $T^2$ et de LSC
 
 Pour chaque prélèvement $t$ on calcule $$T^2_t=(X_t-\bar X)^T.S^{-1}.(X_t-\bar X).$$ Pour la phase I (mise en place de la carte) on utilise : $$
 LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
-$$ Pour la phase II on utilise (toujours avec le $k$ de la phase I: $$
-<<<<<<< HEAD
-LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).
-$$
-=======
-LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).$$
->>>>>>> b455c6501161b4d19580d5b2f7b50952699e2e12
-
-***Exemple:*** On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.
+$$ Pour la phase II on utilise (toujours avec le $k$ de la phase I: $$LSC=\frac{p(k+1)(k-1)}{k^2-kp}F_{p,m-p}(\alpha).$$ ***Exemple:*** On considère des données contenant des mesures de la déviation, de la courbure, de la résistivité et de la dureté dans les côtés à faible et forte dilatation des thermostats bimétalliques en laiton et en acier.
 
 ```{r}
 data("bimetal1")
@@ -324,28 +312,28 @@ plot_chart(S$detSj,LIC=S$LIC,LSC=S$LSC,Type="Carte de la variance généralisée
 
 ## Cartes MEWMA
 
--   Les cartes $T^2$ permettent comme les cartes de Shewart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.
+-   Les cartes $T^2$ permettent comme les cartes de Shewhart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.
 
 -   On généralise les cartes EWMA à $p$ variables. Etant données les $k$ moyennes $(\bar X_1,..,\bar X_k)$ où $\bar X_t\in \mathbb R^p$, on calcule $$Z_t=\lambda \bar X_t+(1-\lambda)Z_{t-1},$$ pour $0<\lambda<1.$ En pratique on choisit souvent $\lambda=0.1$.
 
 Calcul de $T^2$ :
 
--   La valeur de $T_t^2$ est $$T^2_t=(Z_t-\bar Z)^T.\Sigma_t .(Z_t-\bar Z),$$ où $\Sigma_t=\dfrac{\lambda[1-(1-\lambda)^{2t}]}{2-\lambda}\Sigma.$
+-   La valeur de $T_t^2$ est $$T^2_t=(Z_t-\bar Z)^T.\Sigma_t^{-1} .(Z_t-\bar Z),$$ où $\Sigma_t=\dfrac{\lambda[1-(1-\lambda)^{2t}]}{2-\lambda}\Sigma.$
 
 -   Comme précédemment on prend $\hat \Sigma \simeq S$.
 
--   Le calcul de $LSC$ est dans ce cas complexe
+-   Le calcul de $LSC$ est dans ce cas complexe. On choisit ici pour simplifier que l'on prend le quantile $1-\frac{\alpha}{2}$ dans la phase d'apprentissage :
 
 ```{r echo=T}
-library(spc)
-LSC=mewma.crit(l=0.1, L0=200, p=3, hs=0, r=20)
-```
-
-On peut construire la carte MEWMA dans l'exemple sur le carbone :
-
-```{r fig.height=3}
 data("carbon1")
 T2=T2_MEWMA_kn(carbon1)
+alpha=0.003
+LSC=quantile(T2,probs=1-alpha/2)
+```
+
+Ce qui donne la carte suivante :
+
+```{r fig.height=3}
 plot_chart(T2,LSC=LSC,Type="Carte MEWMA")
 ```
 
@@ -353,9 +341,12 @@ On peut aussi considérer des cartes MEWMA à données individuelles :
 
 ```{r}
 T2=T2_MEWMA_k1(bimetal1)
-LSC=mewma.crit(l=0.1, L0=200, p=p, hs=0, r=20)
+alpha=0.003
+LSC=quantile(T2,probs=1-alpha/2)
 plot_chart(T2,LSC=LSC,Type="Carte MEWMA")
 ```
+
+La limite de contrôle sera alors utilisée en l'état sur les données de test.
 
 ## Cartes sur composantes principales
 
@@ -366,9 +357,9 @@ L'analyse en composante principale (ACP) est une méthode factorielle qui permet
 ::: {.callout-note title="ACP"}
 Etant donnée une matrice $X$ centrée sur les colonnes de dimension $k,p$. On diagonalise la matrice de covariance $\Sigma$ de $X$ ie on écrit $$\Sigma=U\Lambda U^T,$$ où $\Lambda$ est diagonale telle que $\lambda_1\geq ... \geq \lambda_p$, $U$ est une matrice orthogonale.
 
-- Les colonnes de $U$ sont les scores factoriels des individus sur les composantes principales 
+-   Les colonnes de $U$ sont les vecteurs propres (coefficients des composantes principales) ; les scores factoriels des individus sont les colonnes de $T=XU$.
 
-- Les valeurs propres $\lambda_1$ sont les variances des composantes principales.
+-   Les valeurs propres $\lambda_j$ sont les variances des composantes principales.
 :::
 
 On peut utiliser la fonction ***PCA*** du package ***FactoMineR*** :
@@ -387,7 +378,7 @@ library(factoextra)
 fviz_eig(pca)
 ```
 
-On choisit ici deux composantes.
+On choisit ici trois composantes, qui expliquent plus de 96 % de la variance.
 
 On peut représenter les caractéristiques initiales sur le plan factoriel :
 
@@ -397,8 +388,8 @@ fviz_pca_var(pca)
 
 Le calcul de $T^2$ se fait à partir des scores factoriels :\
 $$
-T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
-$$
+T^2=\sum_{j=1}^r \frac{t_j^2}{\lambda_j}
+$$ où $t_j$ est le score de l'individu sur la $j$-ème composante et $r$ le nombre de composantes retenues.
 
 ```{r warning=FALSE}
 r <- 3
@@ -412,10 +403,13 @@ plot_chart(T2pca,LSC=LSCpca["PhaseI"],Type="T2 sur composantes principales")
 ce qui donne sur les nouveaux points :
 
 ```{r warning=FALSE}
-X2=scale(bimetal2,scale=F)
+# centrage sur la moyenne de la phase I (et non sur celle de bimetal2)
+M1=colMeans(bimetal1[-c(16,19,20),])
+X2=scale(bimetal2,center=M1,scale=F)
 scores2=predict.PCA(pca,newdata = X2)$coord[,1:r]
 T2pca=T2_Hotelling_k1(scores2,
-                      S = S)
+                      S = S,
+                      MoyT = colMeans(scores))
 plot_chart(T2pca,LSC=LSCpca["PhaseII"],Type="T2 sur composantes principales")
 ```
 
@@ -433,13 +427,15 @@ $$ où $\bar X$ est le vecteur des moyennes de la base de données initiales.
 
 On calcule $T_{new}=X^c_{new}.U_r$ et donc $\hat X^c_{new}=T_{new}.U^T_r$.
 
-On va appliquer ce principe à la matrice $(k,np)$ correspondant aux données X qui seront empilées selon le troisème mode de $X$
+On va appliquer ce principe à la matrice $(k,np)$ correspondant aux données X qui seront empilées selon le troisième mode de $X$
 
 ```{r}
 X1=carbon1
 n=dim(X1)[3]
 X=NULL
 for(i in 1:n) X=cbind(X,X1[,,i])
+# noms de colonnes uniques, sinon predict() ne retrouve pas les bonnes colonnes
+colnames(X)=make.unique(colnames(X))
 dim(X)
 Xc=scale(X,scale = F)
 M=apply(X,2,mean)
@@ -449,17 +445,67 @@ r=6
 scores=pca$ind$coord[,1:r]
 S=cov(scores)
 T2=T2_Hotelling_k1(scores,S = S)
-LSC=mean(T2)+3*sd(T2)
-plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase I")
+LSC=LSC_T2_Hotelling_k1(scores)
+plot_chart(T2,LSC=LSC["PhaseI"],Type="T2 MPCA Phase I")
 
 X2=carbon2
 X=NULL
 for(i in 1:n) X=cbind(X,X2[,,i])
+colnames(X)=make.unique(colnames(X))
 dim(X)
 Xc=scale(X,center=M,scale = F)
 
 scores2=predict(pca,newdata=Xc)$coord[,1:r]
-T2=T2_Hotelling_k1(scores2,S = S)
-plot_chart(T2,LSC=LSC,Type="T2 MPCA Phase II")
+T2=T2_Hotelling_k1(scores2,S = S,MoyT = colMeans(scores))
+plot_chart(T2,LSC=LSC["PhaseII"],Type="T2 MPCA Phase II")
 ```
 
+### Carte des résidus (SPE)
+
+La carte $T^2$ ne surveille que la partie des données expliquée par les $r$ composantes retenues. Un défaut qui modifie la structure de corrélation peut faire sortir un prélèvement du sous-espace des composantes sans que son $T^2$ augmente. On complète donc la carte $T^2$ par une carte sur les résidus $E=X-\hat X$.
+
+::: {.callout-note title="Statistique SPE"}
+Pour le prélèvement $t$, on note $e_t$ la ligne $t$ de la matrice des résidus $E$. La statistique SPE (*Squared Prediction Error*, aussi appelée statistique $Q$) est $$
+SPE_t=\|e_t\|^2=\sum_{j}e_{tj}^2.
+$$
+
+-   Le $T^2$ mesure l'éloignement **dans** le modèle (variation expliquée par les composantes retenues).
+-   La SPE mesure l'éloignement **au modèle** (variation non expliquée).
+
+**Limite par approximation du** $\chi^2$ (Box, 1954 ; Nomikos et MacGregor, 1995). On approche la loi de la SPE par celle de $g\,\chi^2_h$ en égalant les deux premiers moments : si $m$ et $v$ sont la moyenne et la variance des $SPE_t$ en phase I, $$
+g=\frac{v}{2m},\qquad h=\frac{2m^2}{v},\qquad LSC_{SPE}=g\,\chi^2_{h}(1-\alpha).
+$$
+:::
+
+**Attention :** en phase I, les résidus calculés sur les données qui ont servi à construire l'ACP sont trop petits. L'ACP s'ajuste en partie au bruit, ce qui est d'autant plus marqué qu'il y a beaucoup de colonnes ($np=24$) pour peu de prélèvements ($k=30$). La limite serait alors trop basse et la carte déclencherait de fausses alertes en phase II. On calcule donc les SPE de phase I par validation croisée : chaque prélèvement est projeté sur une ACP construite sans lui.
+
+```{r}
+X=NULL
+for(i in 1:n) X=cbind(X,X1[,,i])
+colnames(X)=make.unique(colnames(X))
+k=nrow(X)
+SPE1=rep(NA,k)
+for(t in 1:k){
+  Mt=colMeans(X[-t,])
+  Ur=svd(scale(X[-t,],center=Mt,scale=F))$v[,1:r]
+  e=X[t,]-Mt
+  e=e-Ur%*%(t(Ur)%*%e)
+  SPE1[t]=sum(e^2)
+}
+m=mean(SPE1); v=var(SPE1)
+g=v/(2*m); h=2*m^2/v
+LSC_SPE=g*qchisq(0.99,df=h)
+plot_chart(SPE1,LSC=LSC_SPE,Type="SPE MPCA Phase I")
+```
+
+En phase II, on projette les nouveaux prélèvements (centrés sur la moyenne de la phase I) sur l'ACP de la phase I :
+
+```{r}
+Ur=pca$svd$V[,1:r]
+E2=Xc-scores2%*%t(Ur)
+SPE2=rowSums(E2^2)
+plot_chart(SPE2,LSC=LSC_SPE,Type="SPE MPCA Phase II")
+which(SPE2>LSC_SPE)
+```
+
+On interprète les deux cartes ensemble : un point hors contrôle sur la carte $T^2$ seule correspond à un fonctionnement inhabituel mais conforme à la structure de corrélation. Un point hors contrôle sur la carte SPE signale une rupture de cette structure, qui ne peut pas être décrite par les composantes retenues.
