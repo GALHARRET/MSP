@@ -290,7 +290,7 @@ window.Quarto = {
 <section id="cartes-de-position-et-de-dispersion" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="cartes-de-position-et-de-dispersion"><span class="header-section-number">2.3</span> Cartes de position et de dispersion</h2>
 <p><strong><em>Exemple</em></strong></p>
-<p>Suivi de production journalière de steacks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.</p>
+<p>Suivi de production journalière de steaks hachés surgelés durant 12h de production. Chaque heure on prélève 5 steaks et on les pèse.</p>
 <p>Les données sont disponibles <a href="exemple_carte_Shewhart.csv">ici</a></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -375,7 +375,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Pour chaque échantillon de 5 steacks on calcule la moyenne et l’écart type et on les reporte sur les cartes correspondantes.</p>
+<p>Pour chaque échantillon de 5 steaks on calcule la moyenne et l’écart type et on les reporte sur les cartes correspondantes.</p>
 <section id="distribution-des-paramètres" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="distribution-des-paramètres"><span class="header-section-number">2.3.1</span> Distribution des paramètres</h3>
 <p>On suppose que tous les paramètres suivent une loi normale.</p>
@@ -472,7 +472,7 @@ Limites des cartes de contrôle
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>test<span class="ot">=</span>df[<span class="dv">11</span><span class="sc">:</span><span class="dv">24</span>,]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Mt<span class="ot">=</span><span class="fu">apply</span>(test,<span class="dv">1</span>,mean)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>St<span class="ot">=</span><span class="fu">apply</span>(test,<span class="dv">1</span>,sd)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(M,<span class="at">LIC=</span>LICm,<span class="at">LSC=</span>LSCm,<span class="at">Type =</span> <span class="st">"carte de la moyenne"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(Mt,<span class="at">LIC=</span>LICm,<span class="at">LSC=</span>LSCm,<span class="at">Type =</span> <span class="st">"carte de la moyenne"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -483,7 +483,7 @@ Limites des cartes de contrôle
 </div>
 <details class="code-fold">
 <summary>Voir la correction</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(S,<span class="at">LIC=</span>LICs,<span class="at">LSC=</span>LSCs,<span class="at">Type =</span> <span class="st">"carte de l'écart type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(St,<span class="at">LIC=</span>LICs,<span class="at">LSC=</span>LSCs,<span class="at">Type =</span> <span class="st">"carte de l'écart type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>

@@ -244,6 +244,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#cartes-individuelles" id="toc-cartes-individuelles" class="nav-link" data-scroll-target="#cartes-individuelles"><span class="header-section-number">5.9.1</span> Cartes individuelles :</a></li>
   <li><a href="#cas-multivarié" id="toc-cas-multivarié" class="nav-link" data-scroll-target="#cas-multivarié"><span class="header-section-number">5.9.2</span> Cas multivarié</a></li>
+  <li><a href="#carte-des-résidus-spe" id="toc-carte-des-résidus-spe" class="nav-link" data-scroll-target="#carte-des-résidus-spe"><span class="header-section-number">5.9.3</span> Carte des résidus (SPE)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -321,10 +322,10 @@ Notation
 <pre><code>[1] 30  3  8</code></pre>
 </div>
 </div>
-<p>Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice <span class="math inline">\((k,p)\)</span> dont les éléments sont les moyennes.</p>
+<p>Ici on a donc 30 prélèvements de 8 unités sur 3 variables. Si on replie la troisième dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice <span class="math inline">\((k,p)\)</span> dont les éléments sont les moyennes.</p>
 <ul>
 <li><p>Les données sont dans une matrice à trois dimensions.</p></li>
-<li><p>On replie la troisème dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice <span class="math inline">\((k,p)\)</span> dont les éléments sont les moyennes.</p></li>
+<li><p>On replie la troisième dimension en calculant les moyennes de chaque prélèvement sur chaque caractéristique on obtient donc une matrice <span class="math inline">\((k,p)\)</span> dont les éléments sont les moyennes.</p></li>
 </ul>
 <p><img src="figure/cube.png" class="img-fluid"></p>
 <p>On peut tracer le graphe de corrélation des 30 moyennes de <span class="math inline">\(X=(X_1,X_2,X_3)\)</span> :</p>
@@ -361,7 +362,7 @@ Propriétés de <span class="math inline">\(\Sigma\)</span>
 <div class="callout-body-container callout-body">
 <ul>
 <li><p><span class="math inline">\(\Sigma\)</span> est symétrique donc elle est diagonalisable.</p></li>
-<li><p><span class="math inline">\(\Sigma\)</span> est semi-définie positive, c’est à dire que ses valeurs propres <span class="math inline">\(\lambda_1,...\lambda_p\)</span> sont postives ou nulles.</p></li>
+<li><p><span class="math inline">\(\Sigma\)</span> est semi-définie positive, c’est à dire que ses valeurs propres <span class="math inline">\(\lambda_1,...\lambda_p\)</span> sont positives ou nulles.</p></li>
 <li><p><span class="math inline">\(\Sigma\)</span> est définie positive (vp strictement positives) si il n’existe aucune relation affine entre les variables <span class="math inline">\((X_1,...,X_p)\)</span>. Dans ce cas <span class="math inline">\(\Sigma\)</span> est inversible, c’est à dire qu’il existe une matrice notée <span class="math inline">\(\Sigma^{-1}\)</span> telle que <span class="math display">\[\Sigma^{-1}.\Sigma=\Sigma.\Sigma^{-1}=I_p\]</span></p></li>
 </ul>
 </div>
@@ -396,7 +397,7 @@ length    0.006694762 0.010203155 0.059207381</code></pre>
 <h2 data-number="5.4" class="anchored" data-anchor-id="la-distribution-normale-multivariée"><span class="header-section-number">5.4</span> La distribution normale multivariée}</h2>
 <p>La densité de probabilité de <span class="math inline">\(X\sim \mathcal N(\mu,\sigma)\)</span> est pour <span class="math inline">\(x\in \mathbb R\)</span> <span class="math display">\[f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac1{2}[\sigma^{-1}(x-\mu)]^2}.\]</span></p>
 <p><em>Exemple :</em> <span class="math inline">\(\mu=0,\sigma=1\)</span>, <span class="math inline">\(\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac1{2}x^2}.\)</span></p>
-<p>On a <span class="math inline">\(\varphi(0)=\)</span> 0.4 et <span class="math inline">\(\varphi(2)=\)</span> 0.1</p>
+<p>On a <span class="math inline">\(\varphi(0)=\)</span> 0.4 et <span class="math inline">\(\varphi(2)=\)</span> 0.054</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -406,7 +407,7 @@ length    0.006694762 0.010203155 0.059207381</code></pre>
 </div>
 </div>
 </div>
-<p>La densité de probabilité de <span class="math inline">\((X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)\)</span> est pour <span class="math inline">\(x=(x_1,...,x_p)\in \mathbb R^p\)</span> <span class="math display">\[f_p(x)=\frac{1}{|\Sigma|^{-1/2}\sqrt{2\pi}}e^{-\frac1{2}[(x-\mu)^T\Sigma^{-1}(x-\mu)]}.\]</span></p>
+<p>La densité de probabilité de <span class="math inline">\((X_1,...,X_p)\sim \mathcal N_p(\mu,\Sigma)\)</span> est pour <span class="math inline">\(x=(x_1,...,x_p)\in \mathbb R^p\)</span> <span class="math display">\[f_p(x)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac1{2}[(x-\mu)^T\Sigma^{-1}(x-\mu)]}.\]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figure/fig_3D_N_2.png" class="img-fluid figure-img"></p>
@@ -443,7 +444,7 @@ Quelques remarques
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>La statistique de Hotelling est une généralisation du <span class="math inline">\(t\)</span> de Student. En effet pour <span class="math inline">\(p=1\)</span> on retrouve la formule <span class="math inline">\(T^2=t^2\)</span>.</p></li>
-<li><p><span class="math inline">\(T_t^2\)</span> donne une mesure de l’éloignement de la moyenne d’un prélèvement <span class="math inline">\(t\)</span> par rapport à la moyenne de la production (en multidimensionnel) donc c’est une généralisation de la carte de Shewart de la moyenne.</p></li>
+<li><p><span class="math inline">\(T_t^2\)</span> donne une mesure de l’éloignement de la moyenne d’un prélèvement <span class="math inline">\(t\)</span> par rapport à la moyenne de la production (en multidimensionnel) donc c’est une généralisation de la carte de Shewhart de la moyenne.</p></li>
 <li><p>Comme les cartes de Shewhart elles vont permettre de détecter des grandes déviations de moyenne.</p></li>
 <li><p>Construire une carte basée sur le <span class="math inline">\(T^2\)</span> est alors possible dans la mesure où c’est un indicateur univarié (réel).</p></li>
 </ul>
@@ -702,24 +703,28 @@ LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
 <section id="cartes-mewma" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="cartes-mewma"><span class="header-section-number">5.8</span> Cartes MEWMA</h2>
 <ul>
-<li><p>Les cartes <span class="math inline">\(T^2\)</span> permettent comme les cartes de Shewart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.</p></li>
+<li><p>Les cartes <span class="math inline">\(T^2\)</span> permettent comme les cartes de Shewhart de détecter des fortes déviations mais ne permettent pas de détecter des faibles tendances à la hausse (ou bien à la baisse) de la moyenne du procédé.</p></li>
 <li><p>On généralise les cartes EWMA à <span class="math inline">\(p\)</span> variables. Etant données les <span class="math inline">\(k\)</span> moyennes <span class="math inline">\((\bar X_1,..,\bar X_k)\)</span> où <span class="math inline">\(\bar X_t\in \mathbb R^p\)</span>, on calcule <span class="math display">\[Z_t=\lambda \bar X_t+(1-\lambda)Z_{t-1},\]</span> pour <span class="math inline">\(0&lt;\lambda&lt;1.\)</span> En pratique on choisit souvent <span class="math inline">\(\lambda=0.1\)</span>.</p></li>
 </ul>
 <p>Calcul de <span class="math inline">\(T^2\)</span> :</p>
 <ul>
-<li><p>La valeur de <span class="math inline">\(T_t^2\)</span> est <span class="math display">\[T^2_t=(Z_t-\bar Z)^T.\Sigma_t .(Z_t-\bar Z),\]</span> où <span class="math inline">\(\Sigma_t=\dfrac{\lambda[1-(1-\lambda)^{2t}]}{2-\lambda}\Sigma.\)</span></p></li>
+<li><p>La valeur de <span class="math inline">\(T_t^2\)</span> est <span class="math display">\[T^2_t=(Z_t-\bar Z)^T.\Sigma_t^{-1} .(Z_t-\bar Z),\]</span> où <span class="math inline">\(\Sigma_t=\dfrac{\lambda[1-(1-\lambda)^{2t}]}{2-\lambda}\Sigma.\)</span></p></li>
 <li><p>Comme précédemment on prend <span class="math inline">\(\hat \Sigma \simeq S\)</span>.</p></li>
-<li><p>Le calcul de <span class="math inline">\(LSC\)</span> est dans ce cas complexe</p></li>
+<li><p>Le calcul de <span class="math inline">\(LSC\)</span> est dans ce cas complexe. On choisit ici pour simplifier que l’on prend le quantile <span class="math inline">\(1-\frac{\alpha}{2}\)</span> dans la phase d’apprentissage :</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spc)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mewma.crit</span>(<span class="at">l=</span><span class="fl">0.1</span>, <span class="at">L0=</span><span class="dv">200</span>, <span class="at">p=</span><span class="dv">3</span>, <span class="at">hs=</span><span class="dv">0</span>, <span class="at">r=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"carbon1"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_MEWMA_kn</span>(carbon1)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>alpha<span class="ot">=</span><span class="fl">0.003</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">quantile</span>(T2,<span class="at">probs=</span><span class="dv">1</span><span class="sc">-</span>alpha<span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>On peut construire la carte MEWMA dans l’exemple sur le carbone :</p>
+<p>Ce qui donne la carte suivante :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"carbon1"</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_MEWMA_kn</span>(carbon1)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"Carte MEWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"Carte MEWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in data.frame(t = 1:length(values), values = values, LIC = LIC, : row
+names were found from a short variable and have been discarded</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -730,9 +735,14 @@ LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
 </div>
 <p>On peut aussi considérer des cartes MEWMA à données individuelles :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_MEWMA_k1</span>(bimetal1)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mewma.crit</span>(<span class="at">l=</span><span class="fl">0.1</span>, <span class="at">L0=</span><span class="dv">200</span>, <span class="at">p=</span>p, <span class="at">hs=</span><span class="dv">0</span>, <span class="at">r=</span><span class="dv">20</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"Carte MEWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_MEWMA_k1</span>(bimetal1)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>alpha<span class="ot">=</span><span class="fl">0.003</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">quantile</span>(T2,<span class="at">probs=</span><span class="dv">1</span><span class="sc">-</span>alpha<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"Carte MEWMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in data.frame(t = 1:length(values), values = values, LIC = LIC, : row
+names were found from a short variable and have been discarded</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -741,6 +751,7 @@ LSC=\frac{(k-1)^2}{k}\beta_{p/2,(m-p-1)/2}(\alpha).
 </div>
 </div>
 </div>
+<p>La limite de contrôle sera alors utilisée en l’état sur les données de test.</p>
 </section>
 <section id="cartes-sur-composantes-principales" class="level2" data-number="5.9">
 <h2 data-number="5.9" class="anchored" data-anchor-id="cartes-sur-composantes-principales"><span class="header-section-number">5.9</span> Cartes sur composantes principales</h2>
@@ -759,28 +770,28 @@ ACP
 <div class="callout-body-container callout-body">
 <p>Etant donnée une matrice <span class="math inline">\(X\)</span> centrée sur les colonnes de dimension <span class="math inline">\(k,p\)</span>. On diagonalise la matrice de covariance <span class="math inline">\(\Sigma\)</span> de <span class="math inline">\(X\)</span> ie on écrit <span class="math display">\[\Sigma=U\Lambda U^T,\]</span> où <span class="math inline">\(\Lambda\)</span> est diagonale telle que <span class="math inline">\(\lambda_1\geq ... \geq \lambda_p\)</span>, <span class="math inline">\(U\)</span> est une matrice orthogonale.</p>
 <ul>
-<li><p>Les colonnes de <span class="math inline">\(U\)</span> sont les scores factoriels des individus sur les composantes principales</p></li>
-<li><p>Les valeurs propres <span class="math inline">\(\lambda_1\)</span> sont les variances des composantes principales.</p></li>
+<li><p>Les colonnes de <span class="math inline">\(U\)</span> sont les vecteurs propres (coefficients des composantes principales) ; les scores factoriels des individus sont les colonnes de <span class="math inline">\(T=XU\)</span>.</p></li>
+<li><p>Les valeurs propres <span class="math inline">\(\lambda_j\)</span> sont les variances des composantes principales.</p></li>
 </ul>
 </div>
 </div>
 <p>On peut utiliser la fonction <strong><em>PCA</em></strong> du package <strong><em>FactoMineR</em></strong> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bimetal1)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">scale</span>(bimetal1[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">19</span>,<span class="dv">20</span>),],<span class="at">center=</span><span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">FALSE</span>)</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(X,<span class="at">scale.unit=</span>F,<span class="at">graph =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bimetal1)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">scale</span>(bimetal1[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">19</span>,<span class="dv">20</span>),],<span class="at">center=</span><span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">FALSE</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(X,<span class="at">scale.unit=</span>F,<span class="at">graph =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Le choix du nombre de composantes se fait en étudiant l’éboulis des valeurs propres</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Welcome to factoextra!</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Want to learn more? See two factoextra-related books at https://www.datanovia.com/en/product/practical-guide-to-principal-component-methods-in-r/</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -789,10 +800,10 @@ ACP
 </div>
 </div>
 </div>
-<p>On choisit ici deux composantes.</p>
+<p>On choisit ici trois composantes, qui expliquent plus de 96 % de la variance.</p>
 <p>On peut représenter les caractéristiques initiales sur le plan factoriel :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -803,15 +814,15 @@ ACP
 </div>
 <p>Le calcul de <span class="math inline">\(T^2\)</span> se fait à partir des scores factoriels :<br>
 <span class="math display">\[
-T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
-\]</span></p>
+T^2=\sum_{j=1}^r \frac{t_j^2}{\lambda_j}
+\]</span> où <span class="math inline">\(t_j\)</span> est le score de l’individu sur la <span class="math inline">\(j\)</span>-ème composante et <span class="math inline">\(r\)</span> le nombre de composantes retenues.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(scores))<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S=</span>S)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>LSCpca<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(scores)</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(<span class="fu">diff</span>(scores))<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S=</span>S)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>LSCpca<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(scores)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -822,11 +833,14 @@ T^2=\sum_{j=1}^p \frac{u_j^2}{\lambda_j^2}
 </div>
 <p>ce qui donne sur les nouveaux points :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span><span class="fu">scale</span>(bimetal2,<span class="at">scale=</span>F)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict.PCA</span>(pca,<span class="at">newdata =</span> X2)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S =</span> S)</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># centrage sur la moyenne de la phase I (et non sur celle de bimetal2)</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>M1<span class="ot">=</span><span class="fu">colMeans</span>(bimetal1[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">19</span>,<span class="dv">20</span>),])</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span><span class="fu">scale</span>(bimetal2,<span class="at">center=</span>M1,<span class="at">scale=</span>F)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict.PCA</span>(pca,<span class="at">newdata =</span> X2)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>T2pca<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">S =</span> S,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">MoyT =</span> <span class="fu">colMeans</span>(scores))</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2pca,<span class="at">LSC=</span>LSCpca[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 sur composantes principales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -846,20 +860,22 @@ X=\hat X+ E,
 X^c_{new}=X_{new}-\bar X,
 \]</span> où <span class="math inline">\(\bar X\)</span> est le vecteur des moyennes de la base de données initiales.</p>
 <p>On calcule <span class="math inline">\(T_{new}=X^c_{new}.U_r\)</span> et donc <span class="math inline">\(\hat X^c_{new}=T_{new}.U^T_r\)</span>.</p>
-<p>On va appliquer ce principe à la matrice <span class="math inline">\((k,np)\)</span> correspondant aux données X qui seront empilées selon le troisème mode de <span class="math inline">\(X\)</span></p>
+<p>On va appliquer ce principe à la matrice <span class="math inline">\((k,np)\)</span> correspondant aux données X qui seront empilées selon le troisième mode de <span class="math inline">\(X\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">dim</span>(X1)[<span class="dv">3</span>]</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X1[,,i])</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>carbon1</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">dim</span>(X1)[<span class="dv">3</span>]</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X1[,,i])</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># noms de colonnes uniques, sinon predict() ne retrouve pas les bonnes colonnes</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X)<span class="ot">=</span><span class="fu">make.unique</span>(<span class="fu">colnames</span>(X))</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 30 24</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">scale =</span> F)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(X,<span class="dv">2</span>,mean)</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(Xc,<span class="at">scale.unit =</span> F,<span class="at">graph=</span>F,<span class="at">ncp =</span> <span class="fu">dim</span>(Xc)[<span class="dv">2</span>])</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">scale =</span> F)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>M<span class="ot">=</span><span class="fu">apply</span>(X,<span class="dv">2</span>,mean)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">=</span><span class="fu">PCA</span>(Xc,<span class="at">scale.unit =</span> F,<span class="at">graph=</span>F,<span class="at">ncp =</span> <span class="fu">dim</span>(Xc)[<span class="dv">2</span>])</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -867,12 +883,16 @@ X^c_{new}=X_{new}-\bar X,
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span><span class="dv">6</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>scores<span class="ot">=</span>pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(scores)</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S =</span> S)</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">mean</span>(T2)<span class="sc">+</span><span class="dv">3</span><span class="sc">*</span><span class="fu">sd</span>(T2)</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span><span class="dv">6</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>scores<span class="ot">=</span>pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">cov</span>(scores)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores,<span class="at">S =</span> S)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>LSC<span class="ot">=</span><span class="fu">LSC_T2_Hotelling_k1</span>(scores)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC[<span class="st">"PhaseI"</span>],<span class="at">Type=</span><span class="st">"T2 MPCA Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in data.frame(t = 1:length(values), values = values, LIC = LIC, : row
+names were found from a short variable and have been discarded</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -880,18 +900,23 @@ X^c_{new}=X_{new}-\bar X,
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X2[,,i])</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span>carbon2</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X2[,,i])</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X)<span class="ot">=</span><span class="fu">make.unique</span>(<span class="fu">colnames</span>(X))</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25 24</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">center=</span>M,<span class="at">scale =</span> F)</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict</span>(pca,<span class="at">newdata=</span>Xc)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,<span class="at">S =</span> S)</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC,<span class="at">Type=</span><span class="st">"T2 MPCA Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>Xc<span class="ot">=</span><span class="fu">scale</span>(X,<span class="at">center=</span>M,<span class="at">scale =</span> F)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>scores2<span class="ot">=</span><span class="fu">predict</span>(pca,<span class="at">newdata=</span>Xc)<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">=</span><span class="fu">T2_Hotelling_k1</span>(scores2,<span class="at">S =</span> S,<span class="at">MoyT =</span> <span class="fu">colMeans</span>(scores))</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(T2,<span class="at">LSC=</span>LSC[<span class="st">"PhaseII"</span>],<span class="at">Type=</span><span class="st">"T2 MPCA Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in data.frame(t = 1:length(values), values = values, LIC = LIC, : row
+names were found from a short variable and have been discarded</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -900,6 +925,77 @@ X^c_{new}=X_{new}-\bar X,
 </div>
 </div>
 </div>
+</section>
+<section id="carte-des-résidus-spe" class="level3" data-number="5.9.3">
+<h3 data-number="5.9.3" class="anchored" data-anchor-id="carte-des-résidus-spe"><span class="header-section-number">5.9.3</span> Carte des résidus (SPE)</h3>
+<p>La carte <span class="math inline">\(T^2\)</span> ne surveille que la partie des données expliquée par les <span class="math inline">\(r\)</span> composantes retenues. Un défaut qui modifie la structure de corrélation peut faire sortir un prélèvement du sous-espace des composantes sans que son <span class="math inline">\(T^2\)</span> augmente. On complète donc la carte <span class="math inline">\(T^2\)</span> par une carte sur les résidus <span class="math inline">\(E=X-\hat X\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Statistique SPE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Statistique SPE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour le prélèvement <span class="math inline">\(t\)</span>, on note <span class="math inline">\(e_t\)</span> la ligne <span class="math inline">\(t\)</span> de la matrice des résidus <span class="math inline">\(E\)</span>. La statistique SPE (<em>Squared Prediction Error</em>, aussi appelée statistique <span class="math inline">\(Q\)</span>) est <span class="math display">\[
+SPE_t=\|e_t\|^2=\sum_{j}e_{tj}^2.
+\]</span></p>
+<ul>
+<li>Le <span class="math inline">\(T^2\)</span> mesure l’éloignement <strong>dans</strong> le modèle (variation expliquée par les composantes retenues).</li>
+<li>La SPE mesure l’éloignement <strong>au modèle</strong> (variation non expliquée).</li>
+</ul>
+<p><strong>Limite par approximation du</strong> <span class="math inline">\(\chi^2\)</span> (Box, 1954 ; Nomikos et MacGregor, 1995). On approche la loi de la SPE par celle de <span class="math inline">\(g\,\chi^2_h\)</span> en égalant les deux premiers moments : si <span class="math inline">\(m\)</span> et <span class="math inline">\(v\)</span> sont la moyenne et la variance des <span class="math inline">\(SPE_t\)</span> en phase I, <span class="math display">\[
+g=\frac{v}{2m},\qquad h=\frac{2m^2}{v},\qquad LSC_{SPE}=g\,\chi^2_{h}(1-\alpha).
+\]</span></p>
+</div>
+</div>
+<p><strong>Attention :</strong> en phase I, les résidus calculés sur les données qui ont servi à construire l’ACP sont trop petits. L’ACP s’ajuste en partie au bruit, ce qui est d’autant plus marqué qu’il y a beaucoup de colonnes (<span class="math inline">\(np=24\)</span>) pour peu de prélèvements (<span class="math inline">\(k=30\)</span>). La limite serait alors trop basse et la carte déclencherait de fausses alertes en phase II. On calcule donc les SPE de phase I par validation croisée : chaque prélèvement est projeté sur une ACP construite sans lui.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) X<span class="ot">=</span><span class="fu">cbind</span>(X,X1[,,i])</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X)<span class="ot">=</span><span class="fu">make.unique</span>(<span class="fu">colnames</span>(X))</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">nrow</span>(X)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>SPE1<span class="ot">=</span><span class="fu">rep</span>(<span class="cn">NA</span>,k)</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k){</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  Mt<span class="ot">=</span><span class="fu">colMeans</span>(X[<span class="sc">-</span>t,])</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  Ur<span class="ot">=</span><span class="fu">svd</span>(<span class="fu">scale</span>(X[<span class="sc">-</span>t,],<span class="at">center=</span>Mt,<span class="at">scale=</span>F))<span class="sc">$</span>v[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  e<span class="ot">=</span>X[t,]<span class="sc">-</span>Mt</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  e<span class="ot">=</span>e<span class="sc">-</span>Ur<span class="sc">%*%</span>(<span class="fu">t</span>(Ur)<span class="sc">%*%</span>e)</span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  SPE1[t]<span class="ot">=</span><span class="fu">sum</span>(e<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>m<span class="ot">=</span><span class="fu">mean</span>(SPE1); v<span class="ot">=</span><span class="fu">var</span>(SPE1)</span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>g<span class="ot">=</span>v<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>m); h<span class="ot">=</span><span class="dv">2</span><span class="sc">*</span>m<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>v</span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>LSC_SPE<span class="ot">=</span>g<span class="sc">*</span><span class="fu">qchisq</span>(<span class="fl">0.99</span>,<span class="at">df=</span>h)</span>
+<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(SPE1,<span class="at">LSC=</span>LSC_SPE,<span class="at">Type=</span><span class="st">"SPE MPCA Phase I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En phase II, on projette les nouveaux prélèvements (centrés sur la moyenne de la phase I) sur l’ACP de la phase I :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>Ur<span class="ot">=</span>pca<span class="sc">$</span>svd<span class="sc">$</span>V[,<span class="dv">1</span><span class="sc">:</span>r]</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>E2<span class="ot">=</span>Xc<span class="sc">-</span>scores2<span class="sc">%*%</span><span class="fu">t</span>(Ur)</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>SPE2<span class="ot">=</span><span class="fu">rowSums</span>(E2<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_chart</span>(SPE2,<span class="at">LSC=</span>LSC_SPE,<span class="at">Type=</span><span class="st">"SPE MPCA Phase II"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapitre7_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(SPE2<span class="sc">&gt;</span>LSC_SPE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2 17</code></pre>
+</div>
+</div>
+<p>On interprète les deux cartes ensemble : un point hors contrôle sur la carte <span class="math inline">\(T^2\)</span> seule correspond à un fonctionnement inhabituel mais conforme à la structure de corrélation. Un point hors contrôle sur la carte SPE signale une rupture de cette structure, qui ne peut pas être décrite par les composantes retenues.</p>
 
 
 </section>

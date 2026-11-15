@@ -23,8 +23,15 @@ La Maitrise Statistique des Procédés (MSP) ou Statistical Process Control (SPC
 -   Le contrôle doit être simple à mettre en oeuvre et aussi permettre un suivi au plus près pour pouvoir détecter le plus tôt possible les déviations de production.
 
 ::: {.callout-important title="Package à installer"}
-Télécharger et installer le package [multiSPC_0.2.0](multiSPC_0.2.0.tar.gz) sur R.
+Télécharger et installer le package multiSPC_0.2.0 disponible sur Github (attention il dépend du package remotes qu'il faudra installer).
+
+```{r eval=FALSE}
+remotes::install_github("GALHARRET/multiSPC")
+```
+
 :::
+
+
 
 ## But : vérifier la qualité de réalisation
 

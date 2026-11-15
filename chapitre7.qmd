@@ -322,18 +322,18 @@ Calcul de $T^2$ :
 
 -   Comme précédemment on prend $\hat \Sigma \simeq S$.
 
--   Le calcul de $LSC$ est dans ce cas complexe
+-   Le calcul de $LSC$ est dans ce cas complexe. On choisit ici pour simplifier que l'on prend le quantile $1-\frac{\alpha}{2}$ dans la phase d'apprentissage :
 
 ```{r echo=T}
-library(spc)
-LSC=mewma.crit(l=0.1, L0=200, p=3, hs=0, r=20)
-```
-
-On peut construire la carte MEWMA dans l'exemple sur le carbone :
-
-```{r fig.height=3}
 data("carbon1")
 T2=T2_MEWMA_kn(carbon1)
+alpha=0.003
+LSC=quantile(T2,probs=1-alpha/2)
+```
+
+Ce qui donne la carte suivante :
+
+```{r fig.height=3}
 plot_chart(T2,LSC=LSC,Type="Carte MEWMA")
 ```
 
@@ -341,9 +341,12 @@ On peut aussi considérer des cartes MEWMA à données individuelles :
 
 ```{r}
 T2=T2_MEWMA_k1(bimetal1)
-LSC=mewma.crit(l=0.1, L0=200, p=ncol(bimetal1), hs=0, r=20)
+alpha=0.003
+LSC=quantile(T2,probs=1-alpha/2)
 plot_chart(T2,LSC=LSC,Type="Carte MEWMA")
 ```
+
+La limite de contrôle sera alors utilisée en l'état sur les données de test.
 
 ## Cartes sur composantes principales
 
@@ -386,8 +389,7 @@ fviz_pca_var(pca)
 Le calcul de $T^2$ se fait à partir des scores factoriels :\
 $$
 T^2=\sum_{j=1}^r \frac{t_j^2}{\lambda_j}
-$$
-où $t_j$ est le score de l'individu sur la $j$-ème composante et $r$ le nombre de composantes retenues.
+$$ où $t_j$ est le score de l'individu sur la $j$-ème composante et $r$ le nombre de composantes retenues.
 
 ```{r warning=FALSE}
 r <- 3
@@ -463,16 +465,14 @@ plot_chart(T2,LSC=LSC["PhaseII"],Type="T2 MPCA Phase II")
 La carte $T^2$ ne surveille que la partie des données expliquée par les $r$ composantes retenues. Un défaut qui modifie la structure de corrélation peut faire sortir un prélèvement du sous-espace des composantes sans que son $T^2$ augmente. On complète donc la carte $T^2$ par une carte sur les résidus $E=X-\hat X$.
 
 ::: {.callout-note title="Statistique SPE"}
-Pour le prélèvement $t$, on note $e_t$ la ligne $t$ de la matrice des résidus $E$. La statistique SPE (*Squared Prediction Error*, aussi appelée statistique $Q$) est
-$$
+Pour le prélèvement $t$, on note $e_t$ la ligne $t$ de la matrice des résidus $E$. La statistique SPE (*Squared Prediction Error*, aussi appelée statistique $Q$) est $$
 SPE_t=\|e_t\|^2=\sum_{j}e_{tj}^2.
 $$
 
 -   Le $T^2$ mesure l'éloignement **dans** le modèle (variation expliquée par les composantes retenues).
 -   La SPE mesure l'éloignement **au modèle** (variation non expliquée).
 
-**Limite par approximation du** $\chi^2$ (Box, 1954 ; Nomikos et MacGregor, 1995). On approche la loi de la SPE par celle de $g\,\chi^2_h$ en égalant les deux premiers moments : si $m$ et $v$ sont la moyenne et la variance des $SPE_t$ en phase I,
-$$
+**Limite par approximation du** $\chi^2$ (Box, 1954 ; Nomikos et MacGregor, 1995). On approche la loi de la SPE par celle de $g\,\chi^2_h$ en égalant les deux premiers moments : si $m$ et $v$ sont la moyenne et la variance des $SPE_t$ en phase I, $$
 g=\frac{v}{2m},\qquad h=\frac{2m^2}{v},\qquad LSC_{SPE}=g\,\chi^2_{h}(1-\alpha).
 $$
 :::

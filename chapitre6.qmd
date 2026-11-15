@@ -23,9 +23,9 @@ La carte de Shewhart de la moyenne est très simple à mettre en oeuvre et à in
 
 ***Exemple :***
 
-On suit une production de caractéristique $\mu=15$ et $\sigma=0.5$. 
+On suit une production de caractéristique $\mu=15$ et $\sigma=0.5$.
 
-On suppose qu'à partir du 11-ième prélèvement la caractéristique connait une déviation de moyenne $\mu_D=15.5$ associée à une réduction de la variabilité $\sigma_D=0.25$. 
+On suppose qu'à partir du 11-ième prélèvement la caractéristique connait une déviation de moyenne $\mu_D=15.5$ associée à une réduction de la variabilité $\sigma_D=0.25$.
 
 Dans l'exemple ci-dessous on a fait des prélèvements de $n=3$ unités et on a construit la carte de moyenne.
 
@@ -54,8 +54,7 @@ LSCs=sig+3*(sqrt(1-c4^2)/c4)*sig
 plot_chart(SD,LIC=LICs,LSC=LSCs,Type = "carte de l'écart type")
 ```
 
-La carte ne permet pas de détecter la déviation considérée.
-Une des solutions pour améliorer la détection de ce décentrage est la carte EWMA
+La carte ne permet pas de détecter la déviation considérée. Une des solutions pour améliorer la détection de ce décentrage est la carte EWMA
 
 ## Définition des cartes EWMA
 
@@ -128,5 +127,3 @@ muD=15.5
 print(paste("Il faudra en moyenne:",
 floor(1/pnorm(LSC,muD,sig/sqrt(n),lower.tail = F))+1,"prélèvements pour être sûr de détecter le décentrage de moyenne"))
 ```
-
-
